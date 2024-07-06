@@ -1,0 +1,41 @@
+[Info]
+name="Special Operative Zero"
+displayname="Spec. Operative Zero"
+versiondate=15/02/2022
+mugenversion=1.0
+author="Micheal2200"
+pal.defaults=1,2,3,4,5,6
+
+; Sprite in - http://www.sprites-inc.co.uk/sprite.php?local=Zero/Zero/
+
+[Files]
+sprite = Zero (MMZ).sff
+sound = Zero (MMZ).snd
+anim = Zero (MMZ).air
+cmd = Zero (MMZ).cmd
+cns = Zero (MMZ).cns
+stcommon = common1.dll
+movelist = Moveset.dat
+st = Zero (MMZ).cns
+st1 = AI.dat
+st2 = Skills.cns
+st3 = Ultimate.cns
+st4 = Black Armor.cns
+st5 = Misc.cns
+pal1 = 1.act
+pal2 = 1.act
+pal3 = 1.act
+pal4 = 1.act
+pal5 = 1.act
+pal6 = 1.act
+pal7 = 1.act
+pal8 = 1.act
+pal9 = 1.act
+pal10 = 1.act
+pal11 = 1.act
+pal12 = 1.act
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

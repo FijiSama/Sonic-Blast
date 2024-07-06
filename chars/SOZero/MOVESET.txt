@@ -1,0 +1,106 @@
+Zero (Mega Man Zero) - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C (Hold)
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Slash Attack (And Air)
+
+D,DB,B,a - Hadangeki Slash
+
+D,DF,F,b - Saber Combo
+
+D,DB,B,b - Circular Slash Combo (And Air)
+
+D,DF,F,c - Buster Slash (And Air)
+
+D,DB,B,c - Buster Combinaison
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Rekkyoudan Combo
+
+Transformation:
+
+Black Armor
+z
+
+Press S + A In Character Menu To directly choose Black Zero
+
+Black Zero - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Slash Combo (And Air)
+
+D,DB,B,a - Buster Slash Charge (And Air)
+
+D,DF,F,b - Saber Slash Combo (And Air)
+
+D,DB,B,b - Stop Time
+
+D,DF,F,c - Genmu Slash
+
+D,DB,B,c - Rekkyoudan
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Ultimate Saber Slash Combo

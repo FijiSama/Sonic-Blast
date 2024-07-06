@@ -1,0 +1,48 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Rising Slash [Ground]                 		              _D_+^A
+Pin Drop  [Air]               		              _D_+^A            		
+Beam Lance [Ground/Air] 		              _D_+^B
+Beam Chakram [Ground/Air] 				          _D_+^C                                   		          			 
+Charge Shot [Ground]   		               ^Y  
+Transform/MAX Power 		                   ^Z
+Power Down 		                              _D_+^S                		                         		    		
+[L.Release] Chaos Control    		      ^Y                 
+                                      		  
+<#f0f000>:Specials:</>
+Beam Crescent			                          _D_F_+^A		                           				            	    
+HalfMoon Barrage		                          _D_B_+^A                          	    
+Firewheel Rush		                              _D_F_+^B                          		    
+SlashStrike                		          _D_B_+^B              		    
+Holepuncher   		                      _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Care Package    		          _D_B_+^C   
+
+<#f0f000>:Specials [Limiter Release]:</>
+Shot Crescent			                          _D_F_+^A		                           				            	    
+Lunar Wave		                          _D_B_+^A                          	    
+Ebb/Wane		                              _D_F_+^B                          		    
+CrossLights                		          _D_B_+^B              		    
+Orbital Strike   		                      _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Full Moon Finish     		          _D_B_+^C   		    
+		    
