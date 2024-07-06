@@ -1,0 +1,38 @@
+[Info]
+name="Cream The Rabbit"
+displayname="Cream"
+versiondate=03/04/2023
+mugenversion=1.0
+author="Micheal22"
+pal.defaults=1,2,3,4,5,6
+
+[Files]
+sprite = Cream The Rabbit.sff
+sound = Cream The Rabbit.snd
+anim = Cream The Rabbit.air
+cmd = Cream The Rabbit.cmd
+cns = Cream The Rabbit.cns
+stcommon = common1.dll
+movelist = Moveset.dat
+st = Cream The Rabbit.cns
+st1 = AI.dat
+st2 = Skills.cns
+st3 = Ultimate.cns
+st4 = Misc.cns
+pal1 = 1.act
+pal2 = 1.act
+pal3 = 1.act
+pal4 = 1.act
+pal5 = 1.act
+pal6 = 1.act
+pal7 = 1.act
+pal8 = 1.act
+pal9 = 1.act
+pal10 = 1.act
+pal11 = 1.act
+pal12 = 1.act
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

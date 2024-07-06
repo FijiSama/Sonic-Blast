@@ -1,0 +1,7089 @@
+;===================================================================================
+;----------------------------------- Skills ---------------------------------------;
+;===============================================================================
+; Chao Charge
+;-------------------------------------------------------------------------------
+[Statedef 1000]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1000
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 34
+value = 0,5
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 34
+value = S5,5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 37
+x = 2
+
+[State 0, Chao - Helper]
+type = Helper
+trigger1 = Time = 33
+helpertype = Normal
+name = "Chao - Helper"
+ID = 1020
+stateno = 1020
+pos = -8,-14
+postype = p1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, Combo]
+type = ChangeState
+Triggerall = Time >= 40
+triggerall = numhelper(1020)
+trigger1 = ((helper(1020), stateno = 1020) && (helper(1020), movecontact))
+value = 1001
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Chao Charge - Combo 2
+;-------------------------------------------------------------------------------
+[Statedef 1001]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1001
+poweradd = 20
+velset = 0,0
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 50
+x = 5
+y = -3.5
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 50
+statetype = A
+movetype = A
+physics = A
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = movecontact = 1
+x = -2
+y = -3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 9
+value = S5,3
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 9
+value = S5,3
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 50
+value = S40,1
+volume = 999
+[State 0, Explod]
+type = Explod
+trigger1 = time = 50
+anim = 7022
+ID = 1051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .2,.2
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+
+[State 0,Swing FX]
+type = Helper
+trigger1 = Animelemtime(10)=3
+name = "Swing FX"
+ID = 01
+stateno = 1015
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .06
+size.yscale = .06
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,17
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = A,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Hard
+air.animtype = Hard
+fall.animtype = Hard
+damage = 28,15
+pausetime = 10,10
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 5
+ground.hittime = 15
+ground.velocity = -3,5
+air.velocity = -3,5
+airguard.velocity = -2,-4
+EnvShake.Time = 8
+EnvShake.Ampl = -7
+EnvShake.Freq = 7
+fall = 1
+
+[State 200, Spark CVS]
+type = Explod
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P1
+pos = Cond((P2Dist X<30),P2Dist X+0,28),-12
+facing = Cond(Random<500,1,-1)
+angle = 0+random%360
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .28*0.80,.28*0.80
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;===============================================================================
+; Chao Charge (Aire)
+;-------------------------------------------------------------------------------
+[Statedef 1005]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1005
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 34
+value = 0,5
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 34
+value = S5,5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 0
+y = -0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 37
+x = 2
+y = -2
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 37
+statetype = A
+movetype = A
+physics = A
+
+[State 0, Chao (Aire) - Helper]
+type = Helper
+trigger1 = Time = 33
+helpertype = Normal
+name = "Chao (Aire) - Helper"
+ID = 1025
+stateno = 1025
+pos = -8,-12
+postype = p1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, Combo]
+type = ChangeState
+Triggerall = Time >= 40
+triggerall = numhelper(1025)
+trigger1 = ((helper(1025), stateno = 1025) && (helper(1025), movecontact))
+value = 1006
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Chao Charge (Aire) - Combo 2
+;-------------------------------------------------------------------------------
+[Statedef 1006]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 1006
+poweradd = 20
+velset = 0,0
+sprpriority = 2
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 7 && time < 50
+trigger1 = Timemod = 33,0
+value = Anim
+elem = 4
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+trigger1 = Time = 50
+value = Anim
+elem = 15
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 0
+y = -0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 50
+x = 4.5
+y = -3.8
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 50
+statetype = A
+movetype = A
+physics = A
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = movecontact = 1
+x = -2
+y = -3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 19
+value = S5,3
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 19
+value = S5,3
+volume = 999
+
+[State 0,Swing FX]
+type = Helper
+trigger1 = Animelemtime(20)=3
+name = "Swing FX"
+ID = 01
+stateno = 1015
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .06
+size.yscale = .06
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,17
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = A,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Hard
+air.animtype = Hard
+fall.animtype = Hard
+damage = 28,15
+pausetime = 10,10
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 5
+ground.hittime = 15
+ground.velocity = -3,5
+air.velocity = -3,5
+airguard.velocity = -2,-4
+EnvShake.Time = 8
+EnvShake.Ampl = -7
+EnvShake.Freq = 7
+fall = 1
+
+[State 200, Spark CVS]
+type = Explod
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P1
+pos = Cond((P2Dist X<30),P2Dist X+0,28),-12
+facing = Cond(Random<500,1,-1)
+angle = 0+random%360
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .28*0.80,.28*0.80
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Swing FX
+[Statedef 1015]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1015
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-80,-155
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -30,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-80,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-60,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-80,-30
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-20,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 170
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 6,-22
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add = 0,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, Trans]
+type = Trans
+Triggerall = IsHelper(02)
+trigger1 = 1
+trans = Sub
+
+[State 0, SprPriority]
+type = SprPriority
+Triggerall = IsHelper(02)
+trigger1 = 1
+value = 2
+
+[State 0,Swing FXSUB]
+type = Helper
+Triggerall = IsHelper(01)
+trigger1 =! Time
+name = "Swing FXSUB"
+ID = 02
+stateno = 1015
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Chao - Helper
+[statedef 1020]
+type = S
+movetype = A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1020
+velset = 0,0
+sprpriority = 3
+
+[State 0,Chao FX]
+type = Helper
+trigger1 =! Time
+name = "Chao FX"
+ID = 1978
+stateno = 1978
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .18
+size.yscale = .18
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 4
+x = 13
+y = -0.1
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time > 8
+x = -0.8
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time > 10
+y = -0.2
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,33
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+damage = 16,8
+pausetime = 1,12
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-2
+EnvShake.Time = 5
+EnvShake.Ampl = -5
+EnvShake.Freq = 5
+fall = 0
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8000
+stateno = 8000
+pos = Cond((P2Dist X<35),P2Dist X+0,30),-0
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .08*0.90
+size.yscale = .08*0.90
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = !AnimTime
+trigger2 = root,Stateno != 1000
+trigger2 = root,Stateno != 1001
+value = 1975
+
+[State 200,Chain]
+type = ChangeState
+trigger1 = root,Stateno = 1001
+value = 1021
+;-------------------------------------------------------------------------------
+; Chao - Helper 2
+[statedef 1021]
+type = S
+movetype = A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 1021
+velset = 0,0
+sprpriority = 3
+
+[state 0,Posadd]
+type = Posadd
+trigger1 = time < 50
+x = 10 * ((p2bodydist x - -25) / (abs(parentdist x - 0) + abs(parentdist y - 20) + 0.0000001))
+y = 10 * ((p2bodydist y - 8) / (abs(parentdist x - 0) + abs(parentdist y - 20) + 0.0000001))
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time > 57
+x = -9
+y = -1.5
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time > 62
+x = 0
+y = -0
+ignorehitpause = 1
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,46
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+Trigger1 = Animelem = 5 || Animelem = 9 || Animelem = 12
+attr = S,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Heavy
+damage = 10,4
+pausetime = 1,16
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -0.2
+air.velocity = -0.1,-2
+EnvShake.Time = 7
+EnvShake.Ampl = -6
+EnvShake.Freq = 6
+fall = 0
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8000
+stateno = 8000
+pos = Cond((P2Dist X<35),P2Dist X+0,30),-5
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .085*0.90
+size.yscale = .085*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+trigger2 = root,Stateno != 1001
+trigger2 = root,Stateno != 1006
+value = 1975
+;-------------------------------------------------------------------------------
+; Chao (Aire) - Helper
+[statedef 1025]
+type = A
+movetype = A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1020
+velset = 0,0
+sprpriority = 3
+
+[State 0,Chao FX]
+type = Helper
+trigger1 =! Time
+name = "Chao FX"
+ID = 1978
+stateno = 1978
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .18
+size.yscale = .18
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = Time < 4
+pos = -8,-14
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 4
+x = 14
+y = -0.1
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time > 8
+x = -0.8
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time > 10
+y = -0.1
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = MoveHit = 1
+time = 1
+pos = 18,5
+ignorehitpause = 1
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,33
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+damage = 16,8
+pausetime = 1,14
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -0.5,-1
+air.velocity = -0.5,-1
+EnvShake.Time = 5
+EnvShake.Ampl = -5
+EnvShake.Freq = 5
+fall = 0
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8000
+stateno = 8000
+pos = Cond((P2Dist X<35),P2Dist X+0,30),-0
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .08*0.90
+size.yscale = .08*0.90
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = !AnimTime
+trigger2 = root,Stateno != 1005
+trigger2 = root,Stateno != 1006
+value = 1975
+
+[State 200,Chain]
+type = ChangeState
+trigger1 = root,Stateno = 1006
+value = 1021
+;===============================================================================
+; Chao Boot
+;-------------------------------------------------------------------------------
+[Statedef 1100]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1100
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 200, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 0,13
+volume = 999
+
+[State 0,Mini Boot - Helper]
+type = Helper
+trigger1 = animelem = 5
+helpertype = normal ;player
+name = "Mini Boot - Helper"
+ID = 1150
+stateno = 1150
+pos = 11,-8
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Chao Boot - Helper
+[Statedef 1150]
+type    = S
+movetype= A
+physics = N
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 1150
+sprpriority = 3
+
+[State 0,Chao FX]
+type = Helper
+trigger1 =! Time
+name = "Chao FX"
+ID = 1978
+stateno = 1978
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, Turn]
+type = Turn
+TriggerAll = Time >= 8
+trigger1 = (P2Dist X < 10)
+
+[State 0, VelSet]
+type = VelSet
+TriggerAll = Time >= 8
+trigger1 = (!Time)
+x = 3
+
+[State 0, VelAdd]
+type = VelAdd
+TriggerAll = Time >= 8
+trigger1 = (P2Dist X < 0) && (Vel X > -2)
+x = -0.15
+
+[State 0, VelAdd]
+type = VelAdd
+TriggerAll = Time >= 8
+trigger1 = (P2Dist X > 0) && (Vel X < 2)
+x = 0.15
+
+[State 0, VelAdd]
+type = VelAdd
+TriggerAll = Time >= 8
+trigger1 = p2dist y > -(enemynear, const(size.mid.pos.y)+12) && (Vel Y < 1.25)
+y = 1.25
+
+[State 0, VelAdd]
+type = VelAdd
+TriggerAll = Time >= 8
+trigger1 = p2dist y < -(enemynear, const(size.mid.pos.y)-2) && (Vel Y > -1.25)
+y = -1.25
+
+[State 0, VelSet]
+type = VelSet
+TriggerAll = Time >= 8
+trigger1 = Pos Y > -2.5
+Y = -1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 1160
+time = 999999999999
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NP
+animtype  = Heavy
+damage    = 0,0
+Hitflag = MAFD
+guardflag = MA
+pausetime = 3,1
+sparkno = -1
+guard.sparkno = S7000
+sparkxy = -8,0
+hitsound   = -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = 0,0
+Fall = 0
+fall.recover = 0
+Sprpriority = 3
+Envshake.time = 5
+Getpower = 0,0
+
+[state 0,End]
+type = changestate
+trigger1 = movecontact
+trigger2 = time >= 250
+trigger3 = pos y >= 0
+value = 1160
+;-------------------------------------------------------------------------------
+; Chao Boot -  End
+[Statedef 1160]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1160
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5,28
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 5,28
+volume = 999
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,15
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+TriggerALL = Time%6 = 0
+trigger1 = 1
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Medium
+air.animtype = Medium
+fall.animtype = Medium
+damage = 14,8
+pausetime = 1,10
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-6
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -6,-2
+air.velocity = -6,-2
+EnvShake.Time = 4
+EnvShake.Ampl = -4
+EnvShake.Freq = 4
+fall = 1
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8000
+stateno = 8000
+pos = -3+(random%10),-24+(random%16)
+postype = P2
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .082*0.90
+size.yscale = .082*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;===============================================================================
+; Bunny Harmmer
+;-------------------------------------------------------------------------------
+[Statedef 1200]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1200
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = !Time
+value = 0,2
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = numhelper(1250) = 1
+triggerall = Time > 70 && time < 95
+trigger1 = Timemod = 6,0
+value = Anim
+elem = 10
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = Time > 70 && time < 95
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 40
+x = 2
+
+[State 0, Chao - Helper]
+type = Helper
+trigger1 = Time = 28
+helpertype = Normal
+name = "Chao - Helper"
+ID = 1250
+stateno = 1250
+pos = 12,-20
+postype = p1
+size.xscale = 1.2
+size.yscale = 1.2
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 200, Combo]
+type = ChangeState
+TriggerAll = AnimelemTime(10)>=2
+trigger1 = numhelper(1250)
+trigger1 = ((helper(1250), stateno = 1250) && (helper(1250), movehit))
+value = 1201
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Bunny Harmmer - End
+;-------------------------------------------------------------------------------
+[Statedef 1201]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1201
+poweradd = 30
+velset = 0,0
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 28
+value = S0,6
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 28
+value = S5,5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Animelem = 3
+x = -2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Animelem = 7
+x = 12
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElemTime(8)=2
+x = 2
+
+[State 0,Swing FX]
+type=Helper
+trigger1 = AnimElemTime(6)=8
+helpertype = normal
+name = "Swing FX"
+ID = 01
+stateno = 1215
+pos = 6,-20
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .08
+size.yscale = .085
+ignorehitpause = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0,Explod]
+type = Explod
+trigger1 = Animelem = 7
+anim = 7022
+ID = 7022
+pos = 5,2
+postype = p1
+facing = 1
+vfacing = 1
+scale = .18,.22
+bindtime = 0
+removetime = -2
+ontop = 0
+ownpal = 1
+sprpriority = 3
+vel = -0.5,0
+ignorehitpause = 1
+removeongethit = 0
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,17
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Hard
+damage = 45,25
+pausetime = 12,10
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 18
+ground.hittime = 20
+ground.velocity = -7,-2
+air.velocity = -7,-2
+guard.velocity = -8
+airguard.velocity = -7,6
+EnvShake.Time = 12
+EnvShake.Ampl = -10
+EnvShake.Freq = 10
+fall = 1
+GetPower = 70,20
+
+[State 200, Spark CVS]
+type = Explod
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P1
+pos = Cond((P2Dist X<30),P2Dist X+0,28),-26
+facing = Cond(Random<500,1,-1)
+angle = 0+random%360
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .25*0.80,.25*0.80
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+PERSISTENT = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimelemTime(9)=0
+value = S3,6
+ignorehitpause = 1
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimelemTime(9)=0
+time = 7
+ampl = -3
+ignorehitpause = 1
+
+[State 0, Viento]
+type = Explod
+trigger1 = AnimelemTime(9)=0
+anim = 7022
+ID = 550
+pos = 24,2
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.15
+vel = -0.5,0
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+PERSISTENT = 0
+[State 0, Viento]
+type = Explod
+trigger1 = AnimelemTime(9)=0
+anim = 7022
+ID = 550
+pos = 25,-2
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.15
+vel = 0.5,0
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Swing FX
+[Statedef 1215]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1215
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-80,-155
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -30,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-80,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-60,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-80,-30
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-20,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 6,-20
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -115
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add =  0,0,0
+Mul = 312,312,312
+Color = 0
+[State 0, Trans]
+type = Trans
+Triggerall = IsHelper(02)
+trigger1 = 1
+trans = Sub
+[State 0, SprPriority]
+type = SprPriority
+Triggerall = IsHelper(02)
+trigger1 = 1
+value = 2
+
+[State 0,Swing FXSUB]
+type = Helper
+TriggerAll = IsHelper(01)
+trigger1 =! Time
+name = "Swing FXSUB"
+ID = 02
+stateno = 1215
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Chao Tornado - Hit Spark
+[Statedef 1245]
+type    = A
+movetype= I
+physics = N
+anim = 9999
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0,ChangeAnim|Hit Spark - Metal]
+type = ChangeAnim
+TriggerAll = IsHelper(02) || IsHelper(03)
+Trigger1 =! Time 
+value = 7010
+elem = 1
+ignorehitpause = 1
+[State 0,ChangeAnim|Hit Spark - Metal]
+type = ChangeAnim
+TRIGGERALL = IsHelper(04) || IsHelper(05)
+Trigger1 =! Time 
+value = 8005
+elem = 1
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =! Time
+v = 0
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+Trigger1 = 1
+value = Helper(01),VAR(0)
+scale = 1+(Time*.05),1+(Time*.05)
+
+[State 0, PalFXWiz]
+Type = PalFX
+TriggerAll = IsHelper(03)||IsHelper(05)
+Trigger1 = 1
+Time = -1
+Add =  0,0,0
+Mul = 512,512,512
+Color = 0
+[State 0, Trans]
+type = Trans
+TriggerAll = IsHelper(03)||IsHelper(05)
+trigger1 = 1
+trans = Sub
+[State 0, SprPriority]
+type = SprPriority
+TriggerAll = IsHelper(03)||IsHelper(05)
+trigger1 = 1
+value = 2
+
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 02
+Stateno = 1245
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 03
+Stateno = 1245
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 04
+Stateno = 1245
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 05
+Stateno = 1245
+OwnPal = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Chao - Helper
+[statedef 1250]
+type = S
+movetype = A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 1250
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 18
+value = 5,25
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 18
+value = 5,25
+volume = 999
+
+[State 0,Chao FX]
+type = Helper
+trigger1 =! Time
+name = "Chao FX"
+ID = 1978
+stateno = 1978
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .18
+size.yscale = .18
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,velset]
+type = velset
+trigger1 = time = 20
+x = 14
+y = -0.2
+
+[state 0,VelSet]
+type = VelSet
+triggerall = frontedgebodydist < 4
+trigger1 = time = 20
+x = -2
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time = 22
+x = 6
+y = -0.2
+
+[state 0,velset]
+type = velset
+trigger1 = time = 26
+x = 4
+y = 0
+
+[state 0,Velset]
+type = Velset
+triggerall = frontedgebodydist < 4
+trigger1 = time > 26
+trigger1 = time < 40
+x = 0
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time = 32
+x = .8
+y = 0
+
+[state 0,veladd]
+type = veladd
+trigger1 = time > 40
+x = -0.3
+
+[state 0,veladd]
+type = veladd
+trigger1 = time > 26
+y = 0
+
+[State 0, Chao Tornado - Helper]
+type = Helper
+trigger1 = Time = 20
+helpertype = Normal
+name = "Chao Tornado - Helper"
+ID = 01
+stateno = 1255
+pos = 5,-30
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .2
+size.yscale = .35
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = MoveHit = 1
+time = 1
+pos = 18,20
+ignorehitpause = 1
+Persistent = 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,39
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+TriggerALL = Time%6 = 0
+trigger1 = 1
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 14,8
+pausetime = 1,5
+guard.pausetime = 2,5
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = Cond(Cond(Var(50)=0,P2BodyDist X<20,P2BodyDist X<25),0.5,-1),-1.2
+air.velocity = Cond(Cond(Var(50)=0,P2BodyDist X<20,P2BodyDist X<25),0.5,-1),-1.2
+EnvShake.Time = 4
+EnvShake.Ampl = -4
+EnvShake.Freq = 4
+fall = 1
+
+[State 0,Viento]
+type = Explod
+TriggerALL = Time >= 22
+trigger1 = Time%10 = 0
+anim = 7022
+ID = 7022
+pos = 0,22
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .2,.2
+vel = -1.5,0
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0,Viento]
+type = Explod
+TriggerALL = Time >= 22
+trigger1 = Time%10 = 0
+anim = 7022
+ID = 7022
+pos = 0,20
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .2,.2
+vel = 1.5,0
+sprpriority = -2
+ontop = 0
+ownpal = 1
+removeongethit = 1
+
+[State 0,Chao Tornado - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1245
+pos = -5+(random%12),-27+(random%18)
+postype = P2
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .082*0.90
+size.yscale = .082*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno != 1200
+trigger1 = root,Stateno != 1201
+value = 1251
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno = 1201
+trigger1 = root,Animelem = 7
+value = 1251
+;-------------------------------------------------------------------------------
+; Chao - End
+[statedef 1251]
+type = S
+movetype = A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 1251
+velset = 0,0
+sprpriority = 3
+
+[state 0,velset]
+type = velset
+trigger1 = time = 2
+x = -1
+y = -0.8
+
+[state 0,velset]
+type = velset
+trigger1 = time = 8
+x = -.5
+y = -.5
+
+[state 0,velset]
+type = velset
+trigger1 = time = 14
+x = 0
+y = -0
+
+[State 200, End]
+type = ChangeState
+trigger1 = !AnimTime
+trigger1 = root,Stateno != 1201
+value = 1975
+;-------------------------------------------------------------------------------
+; Chao Tornado - Helper
+[Statedef 1255]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1255
+sprpriority = 4
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time >= 0 && Time <= 5
+fv = 5
+value = .05
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time >= 0 && Time <= 5
+fv = 6
+value = .05
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = parent,stateno = 1251
+fv = 5
+value = -.1
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = parent,stateno = 1251
+fv = 6
+value = -.1
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-0
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -90
+scale = .5+FVAR(5),.5+FVAR(6)
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = VAR(2)<256
+v = 2
+value = 40
+ignorehitpause = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = parent,stateno = 1251
+v = 2
+value = -80
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 0+var(2),256
+ignorehitpause = 1
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add = 0,0,0
+Mul = 256,256,256
+Color = 0
+
+[State 0, Trans]
+type = Trans
+Triggerall = IsHelper(02)
+trigger1 = 1
+trans = Sub
+
+[State 0, SprPriority]
+type = SprPriority
+Triggerall = IsHelper(02)
+trigger1 = 1
+value = 2
+
+[State 0,Chao Tornado - FXSUB]
+type = Helper
+Triggerall = IsHelper(01)
+trigger1 =! time
+name = "Chao Tornado - FXSUB"
+ID = 02
+stateno = 1255
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno != 1250
+trigger1 = parent,stateno != 1251
+trigger2 = parent,movetype = H
+
+[State 200, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno = 1251
+trigger1 = parent,Time >= 10
+;===============================================================================
+; Bunny Counter
+;-------------------------------------------------------------------------------
+[Statedef 1300]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1300
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = time >= 34
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = time >= 34
+reversal.attr = SCA,NA,SA,ST,HT,NP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+pausetime = 0,8
+sparkno = S9999
+p1stateno = 1301
+
+[State 200, End]
+type = ChangeState
+Triggerall = time >= 33
+trigger1 = ailevel = 0 && command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)/6
+trigger2 = p2bodydist x = [0,30]
+value = 1301
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 70
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Bunny Counter - Release
+;-------------------------------------------------------------------------------
+[Statedef 1301]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1301
+poweradd = -500
+velset = 0,0
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 4
+value = S0,4
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Random < 500
+trigger1 = time = 150
+value = S0,35
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 4
+value = S5,5
+
+[State 0, Turn]
+type = Turn
+TriggerAll = Time >= 12
+trigger1 = (P2Dist X < -10)
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(3)=0
+x = 4
+y = -16
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(4)=0
+x = 2
+y = -8
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimelemTime(3)=0
+statetype = A
+movetype = A
+physics = N
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(5)>=0
+x = 0
+y = -0
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerALL = Vel y > -1
+trigger1 = AnimelemTime(5)>=0
+y = .5
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerALL = Vel y < -1
+trigger1 = AnimelemTime(5)>=0
+y = -.2
+
+[State 0, VelSet]
+type = VelSet
+Triggerall = AnimElemTime(6)>=0
+trigger1 = statetype = A
+trigger1 = vel X< 10 && command = "holdfwd"
+x = 2
+[State 0, VelSet]
+type = VelSet
+Triggerall = AnimElemTime(6)>=0
+trigger1 = statetype = A
+trigger1 = vel X> -10 && command = "holdback"
+x = -2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimelemTime(2)=2
+value = S40,1
+volume = 999
+[State 0, Viento]
+type = Explod
+trigger1 = AnimelemTime(2)=2
+anim = 7022
+ID = 550
+pos = 5,2
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.15
+vel = -0.5,0
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+PERSISTENT = 0
+[State 0, Viento]
+type = Explod
+trigger1 = AnimelemTime(2)=2
+anim = 7022
+ID = 550
+pos = -5,-2
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.15
+vel = 0.5,0
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,33
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Hard
+damage = 38,20
+pausetime = 8,10
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 18
+ground.hittime = 20
+ground.velocity = -1.5,-6
+air.velocity = -1.5,-6
+guard.velocity = -8
+airguard.velocity = -8,6
+EnvShake.Time = 10
+EnvShake.Ampl = -8
+EnvShake.Freq = 8
+fall = 1
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8000
+stateno = 8000
+pos = Cond((P2Dist X<30),P2Dist X+0,24),-24
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+Triggerall = time >= 18
+trigger1 = ailevel = 0 && command = "holddown"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)/6
+trigger2 = p2bodydist x > 80
+trigger2 = p2bodydist y = [20,-50]
+value = 1303
+
+[State 200,Chain]
+type = ChangeState
+TriggerALL = power >= 250
+TriggerALL = Time >= 18
+Trigger1 = AiLevel = 0
+trigger1 = Command = "holddown"
+trigger1 = Command = "c"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/5
+trigger2 = P2BodyDist X = [40,80]
+trigger2 = P2BodyDist Y = [0,40]
+value = 640
+
+[State 200,A Combo]
+type = ChangeState
+TriggerALL = Time >= 18
+trigger1 = AiLevel = 0 && Command = "a"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/2
+trigger2 = P2BodyDist X = [0,35]
+trigger2 = P2BodyDist Y = [0,-20]
+value = 600
+
+[State 200,B Combo]
+type = ChangeState
+TriggerALL = Time >= 18
+trigger1 = AiLevel = 0 && Command = "b"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/2
+trigger2 = P2BodyDist X = [0,35]
+trigger2 = P2BodyDist Y = [0,-20]
+value = 610
+
+[State -1,C Combo]
+type = ChangeState
+TriggerALL = power >= 250
+TriggerALL = Time >= 18
+trigger1 = AiLevel = 0 && Command = "c"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/5
+trigger2 = P2BodyDist X = [0,50]
+trigger2 = P2BodyDist Y = [0,-20]
+value = 620
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time >= 20 && pos y >= -0
+value = 1302
+ctrl = 0
+;-------------------------------------------------------------------------------
+; Bunny Counter - End
+;-------------------------------------------------------------------------------
+[Statedef 1302]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 1302
+velset = 0,0
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+y = 0
+
+[State 0,PosSet]
+type = PosSet
+trigger1 =! Time
+y = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =! Time
+value = S52,1
+volume = 999
+
+[State 0,Explod]
+type = Explod
+trigger1 =! Time
+anim = 7022
+ID = 7022
+pos = -6,3
+postype = p1
+facing = 1
+bindtime = 1
+removetime = -2
+scale = .18,.15
+sprpriority = 4
+ontop = 0
+ownpal = 1
+vel = -.25
+removeongethit = 1
+
+[State 0,Explod]
+type = Explod
+trigger1 =! Time
+anim = 7022
+ID = 7022
+pos = 6,2
+postype = p1
+facing = -1
+bindtime = 1
+removetime = -2
+scale = .18,.15
+sprpriority = 3
+ontop = 0
+ownpal = 1
+vel = .25
+removeongethit = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Bunny Counter - Aire End
+;-------------------------------------------------------------------------------
+[Statedef 1303]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 1303
+velset = 0,0
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+y = .5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(4)=0
+y = 0
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimelemTime(4)=0
+statetype = A
+movetype = A
+physics = A
+
+[State 200,Chain]
+type = ChangeState
+TriggerALL = AnimElemTime(3)>=0
+trigger1 = ailevel = 0 && Command = "FF"
+trigger2 = roundstate = 2 && ailevel > 0 && random<(ailevel * 100)/5
+trigger2 = p2bodydist x = [40,50]
+trigger2 = p2bodydist y = [0,-20]
+value = 110
+
+[State 200,Chain]
+type = ChangeState
+TriggerALL = AnimElemTime(3)>=0
+trigger1 = ailevel = 0 && Command = "BB"
+trigger2 = roundstate = 2 && ailevel > 0 && random<(ailevel * 100)/5
+trigger2 = p2bodydist x = [100,150]
+trigger2 = p2bodydist y = [0,-20]
+value = 115
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;===============================================================================
+; Bunny Counter (Aire)
+;-------------------------------------------------------------------------------
+[Statedef 1305]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1305
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 34
+value = S0,4
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Random < 500
+trigger1 = time = 170
+value = S0,35
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 34
+value = S5,5
+
+[State 0, Turn]
+type = Turn
+TriggerAll = Time >= 40
+trigger1 = (P2Dist X < -10)
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(4)=0
+x = 4
+y = -12
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(5)=0
+x = 2
+y = -6
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimelemTime(4)=0
+statetype = A
+movetype = A
+physics = N
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(6)>=0
+x = 0
+y = -0
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerALL = Vel y > -1
+trigger1 = AnimelemTime(6)>=0
+y = .5
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerALL = Vel y < -1
+trigger1 = AnimelemTime(6)>=0
+y = -.2
+
+[State 0, VelSet]
+type = VelSet
+Triggerall = AnimElemTime(7)>=0
+trigger1 = statetype = A
+trigger1 = vel X< 10 && command = "holdfwd"
+x = 2
+[State 0, VelSet]
+type = VelSet
+Triggerall = AnimElemTime(7)>=0
+trigger1 = statetype = A
+trigger1 = vel X> -10 && command = "holdback"
+x = -2
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,33
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Hard
+damage = 38,20
+pausetime = 8,10
+guard.pausetime = 9,7
+guard.sparkno = s7000
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 18
+ground.hittime = 20
+ground.velocity = -2,-6.5
+air.velocity = -2,-6.5
+guard.velocity = -8
+airguard.velocity = -8,6
+EnvShake.Time = 10
+EnvShake.Ampl = -8
+EnvShake.Freq = 8
+fall = 1
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8000
+stateno = 8000
+pos = Cond((P2Dist X<30),P2Dist X+0,24),-24
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, End]
+type = ChangeState
+Triggerall = time >= 36
+trigger1 = ailevel = 0 && command = "holddown"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)/6
+trigger2 = p2bodydist x > 80
+trigger2 = p2bodydist y = [20,-50]
+value = 1303
+
+[State 200,Chain]
+type = ChangeState
+TriggerALL = power >= 250
+TriggerALL = Time >= 36
+Trigger1 = AiLevel = 0
+trigger1 = Command = "holddown"
+trigger1 = Command = "c"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/5
+trigger2 = P2BodyDist X = [40,80]
+trigger2 = P2BodyDist Y = [0,40]
+value = 640
+
+[State 200,A Combo]
+type = ChangeState
+TriggerALL = Time >= 36
+trigger1 = AiLevel = 0 && Command = "a"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/2
+trigger2 = P2BodyDist X = [0,35]
+trigger2 = P2BodyDist Y = [0,-20]
+value = 600
+
+[State 200,B Combo]
+type = ChangeState
+TriggerALL = Time >= 36
+trigger1 = AiLevel = 0 && Command = "b"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/2
+trigger2 = P2BodyDist X = [0,35]
+trigger2 = P2BodyDist Y = [0,-20]
+value = 610
+
+[State -1,C Combo]
+type = ChangeState
+TriggerALL = power >= 250
+TriggerALL = Time >= 36
+trigger1 = AiLevel = 0 && Command = "c"
+trigger2 = RoundState = 2 && AiLevel > 0 && Random<(ailevel * 100)/5
+trigger2 = P2BodyDist X = [0,50]
+trigger2 = P2BodyDist Y = [0,-20]
+value = 620
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time >= 36 && pos y >= -0
+value = 1302
+ctrl = 0
+;===============================================================================
+; Cheese Cannon
+;-------------------------------------------------------------------------------
+[Statedef 1400]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1400
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 25
+value = 0,24
+volume = 999
+
+ [State 0, Cheese - Helper]
+type = Helper
+trigger1 = Time = 3
+helpertype = Normal
+name = "Cheese - Helper"
+ID = 1430
+stateno = 1430
+pos = 12,-18
+postype = p1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 35
+trigger1 = ailevel = 0 && command != "hold_c"
+trigger2 = ailevel > 0 && p2bodydist x < 100
+trigger3 = ailevel > 0 && p2bodydist x >= 100 && p2bodydist x < 300 && time >= 35+random%45
+trigger4 = time = 55
+value = ifelse(time >= 45,1402,1401)
+;-------------------------------------------------------------------------------
+; Cheese Cannon - Release
+;-------------------------------------------------------------------------------
+[Statedef 1401]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1401
+velset = 0,0
+poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 0,4
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+trigger1 = time > 11 && time < 70
+trigger1 = Timemod = 8,0
+trigger2 = numhelper(1431)>0
+value = Anim
+elem = 4
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = time > 11 && time < 70
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Cheese Cannon - Release II
+;-------------------------------------------------------------------------------
+[Statedef 1402]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1402
+velset = 0,0
+poweradd = -1000
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 0,5
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+trigger1 = time > 11 && time < 90
+trigger1 = Timemod = 8,0
+trigger2 = numhelper(1432)>0
+value = Anim
+elem = 4
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = time > 11 && time < 90
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Cheese Cannon (Aire)
+;-------------------------------------------------------------------------------
+[Statedef 1405]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1405
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 25
+value = 0,24
+volume = 999
+
+[State 0, PosSet]
+type = PosSet
+TriggerAll = Pos y >= -0
+trigger1 = Time >= 30
+y = 0
+
+[State 0,VelAdd]
+type = VelAdd
+trigger1 = time >= 0
+x = 0
+y = -0
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X > .1
+trigger1 = Time >= 30
+x = -.2
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X < -.1
+trigger1 = Time >= 30
+x =.2
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y <= -0
+trigger1 = Time >= 30
+y = .25
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y >= -0
+trigger1 = Time >= 30
+y = 0
+
+ [State 0, Cheese - Helper]
+type = Helper
+trigger1 = Time = 3
+helpertype = Normal
+name = "Cheese - Helper"
+ID = 1430
+stateno = 1430
+pos = 12,-18
+postype = p1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 35
+trigger1 = ailevel = 0 && command != "hold_c"
+trigger2 = ailevel > 0 && p2bodydist x < 100
+trigger3 = ailevel > 0 && p2bodydist x >= 100 && p2bodydist x < 300 && time >= 35+random%40
+trigger4 = time = 40
+value = cond(command = "holddown",1407,1406)
+;-------------------------------------------------------------------------------
+; Cheese Cannon (Aire) - Release
+;-------------------------------------------------------------------------------
+[Statedef 1406]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1406
+velset = 0,0
+poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 0,4
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+trigger1 = time > 11 && time < 70
+trigger1 = Timemod = 8,0
+trigger2 = numhelper(1431)>0
+value = Anim
+elem = 4
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = time > 11 && time < 70
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 0,VelAdd]
+type = VelAdd
+trigger1 = time >= 0
+x = 0
+y = -0
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X > .1
+trigger1 = Time >= 0
+x = -.2
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X < -.1
+trigger1 = Time >= 0
+x =.2
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y <= -0
+trigger1 = Time >= 0
+y = .25
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y >= -0
+trigger1 = Time >= 0
+y = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Cheese Cannon (Aire) - Release Towards The Bottom
+;-------------------------------------------------------------------------------
+[Statedef 1407]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1407
+velset = 0,0
+poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 0,4
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+trigger1 = time > 11 && time < 50
+trigger1 = Timemod = 8,0
+trigger2 = numhelper(1431)>0
+value = Anim
+elem = 4
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = time > 11 && time < 50
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 0,VelAdd]
+type = VelAdd
+trigger1 = time >= 0
+x = 0
+y = -0
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X > .1
+trigger1 = Time >= 0
+x = -.2
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X < -.1
+trigger1 = Time >= 0
+x =.2
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y <= -0
+trigger1 = Time >= 0
+y = .25
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y >= -0
+trigger1 = Time >= 0
+y = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Cheese - Helper
+[statedef 1430]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1430
+velset = 0,0
+sprpriority = 3
+
+[State 0,Chao FX]
+type = Helper
+trigger1 =! Time
+name = "Chao FX"
+ID = 1978
+stateno = 1978
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .18
+size.yscale = .18
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,Stateno != 1400
+trigger1 = root,Stateno != 1401
+trigger1 = root,Stateno != 1402
+trigger1 = root,Stateno != 1405
+trigger1 = root,Stateno != 1406
+trigger1 = root,Stateno != 1407
+value = 1975
+
+[State 200,Chain]
+type = ChangeState
+trigger1 = root,Stateno = 1401
+value = 1431
+
+[State 200,Chain]
+type = ChangeState
+trigger1 = root,Stateno = 1402
+value = 1432
+
+[State 200,Chain]
+type = ChangeState
+trigger1 = root,Stateno = 1406
+value = 1433
+
+[State 200,Chain]
+type = ChangeState
+trigger1 = root,Stateno = 1407
+value = 1436
+;-------------------------------------------------------------------------------
+; Cheese - Cannon
+[statedef 1431]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1431
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 5 && time < 80
+trigger1 = Timemod = 12,0
+value = Anim
+elem = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 5
+time = 3
+ampl = -1
+
+[State 0, Chao Dash - FX]
+type = Explod
+trigger1 = time = 5
+anim = 415
+ID = 415
+pos = 0,-11
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .35,.35
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+Vel = -.5,0
+
+[State 0,Speed FXLight]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 5,0
+name = "Speed FXLight"
+ID = 01
+stateno = 1441
+pos = (-35+random%42),(-20+random%23)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .2
+size.yscale = .14
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0,Chao PalFX - Aura]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 3,0
+name = "Chao PalFX - Aura"
+ID = 1443
+stateno = 1443
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.xscale)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 6
+x = 7
+y = 0
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time = 85
+x = .8
+y = 0
+
+[state 0,Velset]
+type = Velset
+trigger1 = Movecontact = 1
+x = 3
+y = 0
+ignorehitpause = 1
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,15
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+Trigger1 = Time%6 = 0
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 14,6
+pausetime = 5,2
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-1.5
+EnvShake.Time = 4
+EnvShake.Ampl = -4
+EnvShake.Freq = 4
+fall = 0
+
+[State 0,Cannon - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1445
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .082*0.90
+size.yscale = .082*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno != 1401
+trigger2 = HitCount >= 4
+value = 1435
+;-------------------------------------------------------------------------------
+; Cheese - Cannon II
+[statedef 1432]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1431
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 5 && time < 90
+trigger1 = Timemod = 12,0
+value = Anim
+elem = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 5
+time = 3
+ampl = -1
+
+[State 0, Chao Dash - FX]
+type = Explod
+trigger1 = time = 5
+anim = 415
+ID = 415
+pos = 0,-11
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .35,.35
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+Vel = -.5,0
+
+[State 0,Speed FXLight]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 4,0
+name = "Speed FXLight"
+ID = 01
+stateno = 1441
+pos = (-35+random%42),(-20+random%23)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .2
+size.yscale = .14
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0,Chao PalFX - Aura]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 3,0
+name = "Chao PalFX - Aura"
+ID = 1443
+stateno = 1443
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.xscale)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 6
+x = 8
+y = 0
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time = 85
+x = .8
+y = 0
+
+[state 0,Velset]
+type = Velset
+trigger1 = Movecontact = 1
+x = 3
+y = 0
+ignorehitpause = 1
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,15
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+Trigger1 = Time%4 = 0
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 14,6
+pausetime = 5,2
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-1.5
+EnvShake.Time = 4
+EnvShake.Ampl = -4
+EnvShake.Freq = 4
+fall = 0
+
+[State 0,Cannon - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1445
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .082*0.90
+size.yscale = .082*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno != 1402
+trigger2 = HitCount >= 8
+value = 1435
+;-------------------------------------------------------------------------------
+; Cheese (Aire) - Cannon
+[statedef 1433]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1431
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 5 && time < 60
+trigger1 = Timemod = 12,0
+value = Anim
+elem = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 5
+time = 3
+ampl = -1
+
+[State 0, Chao Dash - FX]
+type = Explod
+trigger1 = time = 5
+anim = 415
+ID = 415
+pos = 0,-11
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .35,.35
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+Vel = -.5,0
+
+[State 0,Speed FXLight]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 5,0
+name = "Speed FXLight"
+ID = 01
+stateno = 1441
+pos = (-35+random%42),(-20+random%23)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .2
+size.yscale = .14
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0,Chao PalFX - Aura]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 3,0
+name = "Chao PalFX - Aura"
+ID = 1443
+stateno = 1443
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.xscale)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 6
+x = 7
+y = 0
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time = 55
+x = .8
+y = 0
+
+[state 0,Velset]
+type = Velset
+trigger1 = Movecontact = 1
+x = 3
+y = 0
+ignorehitpause = 1
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = MoveHit = 1
+time = 1
+pos = 18,20
+ignorehitpause = 1
+Persistent = 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,15
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+Trigger1 = Time%6 = 0
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 14,6
+pausetime = 5,2
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-1.5
+EnvShake.Time = 4
+EnvShake.Ampl = -4
+EnvShake.Freq = 4
+fall = 0
+
+[State 0,Cannon - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1445
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .082*0.90
+size.yscale = .082*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno != 1406
+trigger2 = HitCount >= 4
+value = 1435
+;-------------------------------------------------------------------------------
+; Cheese - Cannon End
+[statedef 1435]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1435
+velset = 0,0
+sprpriority = 3
+
+[State 0,Chao PalFX - Aura]
+type = Helper
+TriggerAll = AnimelemTime(6)<=0
+trigger1 = Timemod = 3,0
+name = "Chao PalFX - Aura"
+ID = 1443
+stateno = 1443
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.xscale)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 0
+x = 4
+y = 0
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time = 10
+x = 2
+y = 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,16
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 45,15
+pausetime = 8,10
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -5,-2
+air.velocity = -5,-2
+EnvShake.Time = 6
+EnvShake.Ampl = -5
+EnvShake.Freq = 5
+fall = 1
+
+[State 0,Cannon - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1445
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .09*0.90
+size.yscale = .09*0.90
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+;-------------------------------------------------------------------------------
+; Cheese (Aire) - Cannon Towards The Bottom
+[statedef 1436]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1436
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 5
+value = 5,25
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 5 && time < 50
+trigger1 = Timemod = 12,0
+value = Anim
+elem = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 5
+time = 3
+ampl = -1
+
+[State 0, Chao Dash - FX]
+type = Explod
+trigger1 = time = 5
+anim = 415
+ID = 415
+pos = 0,-11
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .35,.35
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+Vel = -.5,0
+
+[State 0,Speed FXLight]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 5,0
+name = "Speed FXLight"
+ID = 01
+stateno = 1442
+pos = (-30+random%42),(-20+random%23)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .2
+size.yscale = .14
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0,Chao PalFX - Aura]
+type = Helper
+TriggerAll = AnimelemTime(3)>=0 && AnimelemTime(9)<=0
+trigger1 = Timemod = 3,0
+name = "Chao PalFX - Aura"
+ID = 1443
+stateno = 1443
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.xscale)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 6
+x = 7
+y = 4
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time = 55
+x = .8
+y = 1
+
+[state 0,Velset]
+type = Velset
+trigger1 = Movecontact = 1
+x = 3
+y = 2
+ignorehitpause = 1
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,15
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+Trigger1 = Time%6 = 0
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 14,6
+pausetime = 5,2
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,.8
+EnvShake.Time = 4
+EnvShake.Ampl = -4
+EnvShake.Freq = 4
+fall = 0
+
+[State 0,Cannon - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1445
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .082*0.90
+size.yscale = .082*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno != 1407
+trigger2 = HitCount >= 4
+trigger3 = Pos Y >= 2
+value = 1437
+;-------------------------------------------------------------------------------
+; Cheese (Aire)  - Cannon End
+[statedef 1437]
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 1437
+velset = 0,0
+sprpriority = 3
+
+[State 0,Chao PalFX - Aura]
+type = Helper
+TriggerAll = AnimelemTime(6)<=0
+trigger1 = Timemod = 3,0
+name = "Chao PalFX - Aura"
+ID = 1443
+stateno = 1443
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = const(size.xscale)
+size.yscale = const(size.xscale)
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Velset]
+type = Velset
+trigger1 = time = 0
+x = 4
+y = 3
+
+[state 0,Veladd]
+type = Veladd
+trigger1 = time = 10
+x = 2
+y = 1
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,16
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 32,16
+pausetime = 8,10
+guard.pausetime = 2,8
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -5,-2
+air.velocity = -5,-2
+EnvShake.Time = 6
+EnvShake.Ampl = -5
+EnvShake.Freq = 5
+fall = 1
+
+[State 0,Cannon - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1445
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .09*0.90
+size.yscale = .09*0.90
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+;-------------------------------------------------------------------------------
+; Speed FXLight
+[Statedef 1441]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = -0,0
+ctrl = 0
+anim = 7025
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -90
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add =  0,0,0
+Mul = 512,512,512
+Color = 0
+[State 0, Trans]
+type = Trans
+Triggerall = IsHelper(02)
+trigger1 = 1
+trans = Sub
+[State 0, SprPriority]
+type = SprPriority
+Triggerall = IsHelper(02)
+trigger1 = 1
+value = 2
+
+[State 0,Speed FXLightSUB]
+type = Helper
+TriggerAll = IsHelper(01)
+trigger1 =! Time
+name = "Speed FXLightSUB"
+ID = 02
+stateno = 1441
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Speed FXLight - 2
+[Statedef 1442]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = -0,0
+ctrl = 0
+anim = 7025
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -130
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add =  0,0,0
+Mul = 512,512,512
+Color = 0
+[State 0, Trans]
+type = Trans
+Triggerall = IsHelper(02)
+trigger1 = 1
+trans = Sub
+[State 0, SprPriority]
+type = SprPriority
+Triggerall = IsHelper(02)
+trigger1 = 1
+value = 2
+
+[State 0,Speed FXLightSUB]
+type = Helper
+TriggerAll = IsHelper(01)
+trigger1 =! Time
+name = "Speed FXLightSUB"
+ID = 02
+stateno = 1442
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Chao PalFX - Aura
+[Statedef 1443]
+type = A
+movetype = I
+physics = N
+ctrl = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0,ChangeAnim]
+type=ChangeAnim
+trigger1 = selfanimexist(Parent,anim)
+value = (Parent,anim)
+elem = (Parent,animelemno(0))
+
+[State 0,SprPriority]
+type = SprPriority
+trigger1 = 1
+value = 2
+ignorehitpause = 1
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+(Time*.015),1+(Time*.015)
+value = 0
+
+[State 0,ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+movecamera = 0,0
+
+[State 0,PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0,NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0,Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 80-(Time*10),195+(Time*15)
+
+[State 0,AssertSpecial]
+type = AssertSpecial
+Trigger1 = 1
+flag = NoShadow
+
+[State 0,DestroySelf]
+type = DestroySelf
+trigger1 = Time >= 15
+;-------------------------------------------------------------------------------
+; Cannon - Hit Spark
+[Statedef 1445]
+type    = A
+movetype= I
+physics = N
+anim = 9999
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0,ChangeAnim|Hit Spark - Metal]
+type = ChangeAnim
+TriggerAll = IsHelper(02) || IsHelper(03)
+Trigger1 =! Time 
+value = 7010
+elem = 1
+ignorehitpause = 1
+[State 0,ChangeAnim|Hit Spark - Metal]
+type = ChangeAnim
+TRIGGERALL = IsHelper(04) || IsHelper(05)
+Trigger1 =! Time 
+value = 8005
+elem = 1
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =! Time
+v = 0
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+Trigger1 = 1
+value = Helper(01),VAR(0)
+scale = 1+(Time*.05),1+(Time*.05)
+
+[State 0, PalFXWiz]
+Type = PalFX
+TriggerAll = IsHelper(03)||IsHelper(05)
+Trigger1 = 1
+Time = -1
+Add =  0,0,0
+Mul = 512,512,512
+Color = 0
+[State 0, Trans]
+type = Trans
+TriggerAll = IsHelper(03)||IsHelper(05)
+trigger1 = 1
+trans = Sub
+[State 0, SprPriority]
+type = SprPriority
+TriggerAll = IsHelper(03)||IsHelper(05)
+trigger1 = 1
+value = 2
+
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 02
+Stateno = 1445
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 03
+Stateno = 1445
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 04
+Stateno = 1445
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 05
+Stateno = 1445
+OwnPal = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Chao Speed - FXTEST
+[Statedef 1449]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 9999
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-11
+
+[State 0, VarSet X]
+type = VarSet
+Triggerall = IsHelper(01)
+Triggerall = IsHelper(02)
+Trigger1 =! Time
+v = 1
+value = (-30+random%42)
+[State 0, VarSet Y]
+type = VarSet
+Triggerall = IsHelper(01)
+Triggerall = IsHelper(02)
+Trigger1 =! Time
+v = 2
+value = (-18+random%23)
+
+[State 0, BindToParent]
+type = BindToParent
+Trigger1 = IsHelper(01)
+Trigger2 = IsHelper(02)
+pos = 0,-0
+
+[State 0, Speed FX]
+type = Explod
+Triggerall = IsHelper(01)
+;trigger1 = parent,stateno = 1431
+;trigger1 = parent,AnimelemTime(15)<=0
+trigger1 = (time%5 = 0)
+anim = 7025
+id = 7025
+postype = p1
+pos = Parent,VAR(1),Parent,VAR(2)
+vel = -1,-0
+removetime = -2
+scale = .2,.1
+sprpriority = 3
+ownpal = 0
+removeongethit = 1
+angle = -90
+trans = add
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add = 0,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, Speed FXSub]
+type = Explod
+Triggerall = IsHelper(02)
+trigger1 = (time%5 = 0)
+anim = 7025
+id = 7025
+postype = p1
+pos = Parent,VAR(1),Parent,VAR(2)
+vel = -1,-0
+removetime = -2
+scale = .2,.1
+sprpriority = 2
+ownpal = 0
+removeongethit = 1
+angle = -90
+trans = sub
+
+[State 0,Chao Speed - FXS]
+type = Helper
+Triggerall = IsHelper(1449)
+trigger1 = !Time
+name = "Chao Speed - FX"
+ID = 01
+stateno = 1449
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+supermovetime = 999
+pausemovetime = 999
+[State 0,Chao Speed - FXSUB]
+type = Helper
+Triggerall = IsHelper(1449)
+trigger1 = !Time
+name = "Chao Speed - FXSUB"
+ID = 02
+stateno = 1449
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+supermovetime = 999
+pausemovetime = 999
+
+;[state 0,RemoveExplod]
+;Type = RemoveExplod
+;Triggerall = IsHelper(1442)
+;trigger1 = Parent,Stateno != 1431
+;trigger2 = parent,stateno = 1431
+;trigger2 = parent,AnimelemTime(15)>=0
+;ID = 1442
+
+[state 0,RemoveExplod]
+Type = RemoveExplod
+Trigger1 = IsHelper(01)
+Trigger2 = IsHelper(02)
+ID = Anim
+
+[state 0,Destroyself]
+type = destroyself
+Trigger1 = Parent,Stateno != 1449
+Trigger1 = IsHelper(01)
+Trigger2 = IsHelper(02)
+
+[state 0,Destroyself]
+type = destroyself
+Triggerall = IsHelper(1449)
+trigger1 = Parent,Stateno != 1431
+trigger2 = parent,stateno = 1431
+trigger2 = parent,AnimelemTime(9)>=0
+;===============================================================================
+; Chao Storm
+;-------------------------------------------------------------------------------
+[Statedef 1500]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1500
+poweradd = -1500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 30
+MoveTime = 30
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000,Super Charge]
+Type = Helper
+Trigger1 =! Time
+HelperType = Normal
+ID = 7400
+Stateno = 7400
+Name = "Super Charge"
+PosType = p1
+Pos = 0,-15
+Facing = Cond(Random<500,1,-1)
+Keyctrl = 0
+Ownpal = 1
+Size.XScale = .24
+Size.YScale = .24
+IgnoreHitPause = 1
+PERSISTENT = 0
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 3000, PlaySnd - Super Charge]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 32
+value = 0,14
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 32
+value = 0,14
+volume = 999
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+trigger1 = Time > 50 && time < 150
+trigger1 = Timemod = 2,0
+trigger1 = numhelper(1550)>0
+value = Anim
+elem = 7
+
+[state 0,Angledraw]
+type = Angledraw
+trigger1 = Time > 50 && time < 115
+scale = 1, 1 + (sin((time/ 50.0) * (pi / 2)) * 0.0125)
+value = 0
+ignorehitpause = 1
+
+[State 0, Chao - Helper]
+type = Helper
+trigger1 = Time = 34
+helpertype = Normal
+name = "Chao - Helper"
+ID = 1550
+stateno = 1550
+pos = 5,-28
+postype = p1
+size.xscale = 1.2
+size.yscale = 1.2
+SuperMoveTime = 99999
+PauseMoveTime = 99999
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Chao Tornado - Hit Spark
+[Statedef 1545]
+type    = A
+movetype= I
+physics = N
+anim = 9999
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0,ChangeAnim|Hit Spark - Metal]
+type = ChangeAnim
+TriggerAll = IsHelper(02) || IsHelper(03)
+Trigger1 =! Time 
+value = 7010
+elem = 1
+ignorehitpause = 1
+[State 0,ChangeAnim|Hit Spark - Metal]
+type = ChangeAnim
+TRIGGERALL = IsHelper(04) || IsHelper(05)
+Trigger1 =! Time 
+value = 8005
+elem = 1
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =! Time
+v = 0
+value = Random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+Trigger1 = 1
+value = Helper(01),VAR(0)
+scale = 1+(Time*.05),1+(Time*.05)
+
+[State 0, PalFXWiz]
+Type = PalFX
+TriggerAll = IsHelper(03)||IsHelper(05)
+Trigger1 = 1
+Time = -1
+Add =  0,0,0
+Mul = 512,512,512
+Color = 0
+[State 0, Trans]
+type = Trans
+TriggerAll = IsHelper(03)||IsHelper(05)
+trigger1 = 1
+trans = Sub
+[State 0, SprPriority]
+type = SprPriority
+TriggerAll = IsHelper(03)||IsHelper(05)
+trigger1 = 1
+value = 2
+
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 02
+Stateno = 1545
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 03
+Stateno = 1545
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 04
+Stateno = 1545
+OwnPal = 1
+[state 0,Helper]
+Type = Helper
+Triggerall = IsHelper(01)
+Trigger1 =! time
+ID = 05
+Stateno = 1545
+OwnPal = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Chao - Helper
+[statedef 1550]
+type = A
+movetype = A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 1550
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 18
+value = 5,25
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 18
+value = 5,25
+volume = 999
+
+[State 0,Chao FX]
+type = Helper
+trigger1 =! Time
+name = "Chao FX"
+ID = 1978
+stateno = 1978
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .18
+size.yscale = .18
+supermovetime = 999
+pausemovetime = 999
+
+[state 0,Posadd]
+type = Posadd
+trigger1 = time > 8 && time < 16
+x = 3 * ((p2bodydist x + 30) / (abs(parentdist x - 0) + abs(parentdist y - 20) + 0.0000001))
+y = 0
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time > 17
+x = 2
+y = -0
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time > 23
+x = 0
+y = -.8
+ignorehitpause = 1
+
+[state 0,velset]
+type = velset
+trigger1 = time = 50
+x = 0
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+Triggerall = time > 24
+trigger1 = vel X< 10 && Root,command = "holdfwd"
+trigger2 = ailevel > 0 && roundstate = 2
+trigger2 = p2bodydist x > 5
+trigger2 = random < (ailevel * 100)
+x = 1.2
+
+[State 0, VelSet]
+type = VelSet
+Triggerall = time > 24
+trigger1 = vel X> -10 && Root,command = "holdback"
+trigger2 = ailevel > 0 && roundstate = 2
+trigger2 = p2bodydist x = [-50,0]
+trigger2 = random < (ailevel * 100)
+x = -1.2
+
+[State 0, Chao Tornado - Helper]
+type = Helper
+trigger1 = Time = 18
+helpertype = Normal
+name = "Chao Tornado - Helper"
+ID = 01
+stateno = 1555
+pos = 5,-30
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .2
+size.yscale = .35
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = MoveHit = 1
+time = 1
+pos = 24,20
+ignorehitpause = 1
+Persistent = 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,39
+volumescale = 100
+ignorehitpause = 1
+Persistent = 6
+
+[State 200, 1]
+type = HitDef
+TriggerALL = Time%5 = 0
+trigger1 = 1
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+air.animtype = Light
+fall.animtype = Light
+damage = 12,6
+pausetime = 3,7
+guard.pausetime = 2,5
+guard.sparkno = s7000
+sparkxy = -8,-0
+hitsound = -1
+guardsound = S4,1
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -0.5,-5
+air.velocity = -0.5,-5
+EnvShake.Time = 5
+EnvShake.Ampl = -5
+EnvShake.Freq = 5
+fall = 1
+
+[State 0,Viento]
+type = Explod
+TriggerALL = Time >= 22
+trigger1 = Time%10 = 0 && pos Y >= 22
+anim = 7022
+ID = 7022
+pos = 0,22
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .2,.2
+vel = -1.5,0
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0,Viento]
+type = Explod
+TriggerALL = Time >= 22
+trigger1 = Time%10 = 0 && pos Y >= 20
+anim = 7022
+ID = 7022
+pos = 0,20
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .2,.2
+vel = 1.5,0
+sprpriority = -2
+ontop = 0
+ownpal = 1
+removeongethit = 1
+
+[State 0,Chao Tornado - Hit Spark]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 01
+stateno = 1545
+pos = 10+(random%8),-8+(random%12)
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .09*0.90
+size.yscale = .09*0.90
+ignorehitpause = 1
+PERSISTENT = 6
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,Stateno != 1500
+value = 1975
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = Time = 80
+value = 1551
+;-------------------------------------------------------------------------------
+; Chao - End
+[statedef 1551]
+type = S
+movetype = A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 1551
+velset = 0,0
+sprpriority = 3
+
+[state 0,velset]
+type = velset
+trigger1 = time = 2
+x = -1
+y = -0.8
+
+[state 0,velset]
+type = velset
+trigger1 = time = 8
+x = -.5
+y = -.5
+
+[state 0,velset]
+type = velset
+trigger1 = time = 14
+x = 0
+y = -0
+
+[State 200, End]
+type = ChangeState
+trigger1 = !AnimTime
+value = 1975
+;-------------------------------------------------------------------------------
+; Chao Tornado - Helper
+[Statedef 1555]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1555
+sprpriority = 4
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -80,0,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 8
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 9
+Trigger1 = 1
+Time = -1
+Add = -100,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 10
+Trigger1 = 1
+Time = -1
+Add = 0,-100,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 11
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 12
+Trigger1 = 1
+Time = -1
+Add = 0,-55,-100
+Mul = 256,256,256
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 13
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 14
+Trigger1 = 1
+Time = -1
+Add = -50,0,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 15
+Trigger1 = 1
+Time = -1
+Add = -120,-50,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 16
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 17
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 18
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-50
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 20
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-5
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 21
+Trigger1 = 1
+Time = -1
+Add = 0,-95,-95
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 22
+Trigger1 = 1
+Time = -1
+Add = 0,-85,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 23
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-100
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 24
+Trigger1 = 1
+Time = -1
+Add = 0,-85,-35
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 26
+Trigger1 = 1
+Time = -1
+Add = 0,0,-85
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 27
+Trigger1 = 1
+Time = -1
+Add = -80,0,-80
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 28
+Trigger1 = 1
+Time = -1
+Add = 0,-100,-15
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 29
+Trigger1 = 1
+Time = -1
+Add = 0,-50,-120
+Mul = 512,512,512
+Color = 0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = Root,Var(55) = 30
+Trigger1 = 1
+Time = -1
+Add = 0,-25,-105
+Mul = 512,512,512
+Color = 0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time >= 0 && Time <= 20
+fv = 5
+value = .08
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time >= 0 && Time <= 14
+fv = 6
+value = .06
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = parent,stateno = 1551
+fv = 5
+value = -.1
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = parent,stateno = 1551
+fv = 6
+value = -.1
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+trigger2 = parent,stateno < 1551
+pos = 0,-0
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -90
+scale = .5+FVAR(5),.5+FVAR(6)
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = VAR(2)<256
+v = 2
+value = 40
+ignorehitpause = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = parent,stateno = 1551
+v = 2
+value = -80
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 0+var(2),256
+ignorehitpause = 1
+
+[State 0, PalFXWiz]
+Type = PalFX
+Triggerall = IsHelper(02)
+Trigger1 = 1
+Time = -1
+Add = 0,0,0
+Mul = 256,256,256
+Color = 0
+
+[State 0, Trans]
+type = Trans
+Triggerall = IsHelper(02)
+trigger1 = 1
+trans = Sub
+
+[State 0, SprPriority]
+type = SprPriority
+Triggerall = IsHelper(02)
+trigger1 = 1
+value = 2
+
+[State 0,Chao Tornado - FXSUB]
+type = Helper
+Triggerall = IsHelper(01)
+trigger1 =! time
+name = "Chao Tornado - FXSUB"
+ID = 02
+stateno = 1555
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno != 1550
+trigger1 = parent,stateno != 1551
+trigger2 = parent,movetype = H
+
+[State 200, DestroySelf]
+type = DestroySelf
+trigger1 = parent,stateno = 1551
+trigger1 = parent,Time >= 10

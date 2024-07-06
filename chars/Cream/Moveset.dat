@@ -1,0 +1,36 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Chao Slam                		              _D_+^Ax2                		
+Cheese Zipper 		                          _D_+^Bx2                                 		
+Chao Balloon [Ground]             		      _Z 
+Chao Mine    [Ground]          		          _D_+^Z            			 
+Cream Counter [Ground/Air]   		          ^Y                
+                                      		  
+<#f0f000>:Specials:</>
+Cheese Cannon			                      _D_F_+^AOR^C		                           				            	    
+Chao Storm		                              _D_B_+^A                          	    
+Cream Combo 		                          _D_F_+^B                          		    
+Bunny Hammer               		              _D_B_+^B              		     		         		                                                     	    
+[ULTIMATE] Chao Parade       		          _D_B_+^C   
+		    

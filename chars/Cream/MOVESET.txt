@@ -1,0 +1,49 @@
+Cream The Rabbit - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Chao Charge (And Aire)
+
+D,DB,B,a - Chao Boot
+
+D,DF,F,b - Bunny Harmmer
+
+D,DB,B,b - Bunny Counter (And Aire)
+
+D,DF,F,c - Cheese Cannon (Hold) (And Aire)
+
+D,DB,B,c - Chao Storm
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Chao Assault
