@@ -1,0 +1,795 @@
+;===================================================================================
+;---------------------------------- Ultimate --------------------------------------;
+;===================================================================================
+;===============================================================================
+; Overclock Hyper Laser
+;-------------------------------------------------------------------------------
+[Statedef 3000]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3000
+poweradd = -3000
+sprpriority = 2
+
+[State 0, Super Armor]
+type = Helper
+trigger1 = time = 0
+name = "Super Armor"
+ID = 980
+stateno = 980
+pos = 999,999
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+;------------------------------------------
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 268
+MoveTime = 268
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+; Ultimate Portrait
+[State 0, Ultimate Portrait]
+Type = Helper
+Trigger1 = Time = 0
+Stateno = 8050
+ID = 8050
+Pos = 0,-70
+Ownpal = 1
+Postype = p1
+PauseMoveTime = 99999
+SuperMoveTime = 99999
+[state 0,Helper]
+type = Helper
+trigger1 = time = 0
+stateno = 8060
+id = 8060
+Ownpal = 1
+postype = p1
+supermovetime = 999
+pausemovetime = 999
+;------------------------------------------
+
+[State 0,ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 291 && time < 400
+trigger1 = Timemod = 5,0
+value = 3000
+elem = 70
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,37
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,37
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 34
+value = S1,213
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 34
+value = S1,213
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 80
+value = S1,213
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 80
+value = S1,213
+volume = 999
+
+[State 0, Bola FX]
+type = Helper
+trigger1 = AnimElem = 18
+name = "Bola FX"
+ID = 3015
+stateno = 3015
+pos = 2,-38
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .25
+size.yscale = .25
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 55 && time <= 70
+y = -2.5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 70
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 286
+x = -0.5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimelemTime(72)>=0
+x = 0
+
+[State 0, Overclock Hyper Laser - Charge]
+type = Helper
+trigger1 = AnimElem = 69
+name = "Overclock Hyper Laser - Charge"
+ID = 3020
+stateno = 3020
+facing = 1
+postype = p1
+ownpal = 1
+size.xscale = .1
+size.yscale = .1
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 0, Overclock Hyper Laser - Helper]
+type = Helper
+trigger1 = AnimElem = 70
+name = "Overclock Hyper Laser - Helper"
+ID = 3050
+stateno = 3050
+facing = 1
+postype = p1
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+SuperMoveTime = 999
+PauseMoveTime = 999
+Persistent = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Bola FX
+[Statedef 3015]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 580
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =! Time
+value = S1,214
+volume = 999
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Charge
+[Statedef 3020]
+type = A
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 3020
+sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0,PlaySnd]
+type=PlaySnd
+trigger1=!Time
+value = S1,239
+volumescale=100
+[State 0,PlaySnd]
+type=PlaySnd
+trigger1=!Time
+value = S1,239
+volumescale=100
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 38,-12
+
+[State 0,VarAdd]
+type = VarAdd
+trigger1 = time < 80
+Fv = 1
+value = .05
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+Fvar(1),1+Fvar(1)
+value = 0+time*.5
+ignorehitpause = 1
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =! Time
+v = 2
+value = 0
+ignorehitpause = 1
+
+[State 0,VarAdd]
+type = VarAdd
+trigger1 = VAR(2)<200
+v = 2
+value = 25
+ignorehitpause = 1
+
+[State 0,Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 0+VAR(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = Root,stateno != 3000
+trigger2 = root,movetype = H
+
+[State 200, End]
+type = Destroyself
+Triggerall= Root,Stateno = 3000
+trigger1 = Root,Animelem = 70
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Skill Hitspark FXADD
+[Statedef 3045]
+type=A
+movetype=I
+physics=N
+anim=7010
+sprpriority=6
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=Add
+ignorehitpause=0
+
+[State 0,VarSet]
+type=VarSet
+trigger1=!Time
+v=1
+value=random%360
+
+[State 0,AngleDraw]
+type=AngleDraw
+trigger1=1
+value=Var(1)+(time*1)
+scale=1+time*.1,1+time*.1
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=Noshadow
+
+[State 0,Overclock Hyper Laser - Skill Hitspark FXSUB]
+type=Helper
+trigger1=!Time
+helpertype=normal
+name="Overclock Hyper Laser - Skill Hitspark FXSUB"
+ID=3046
+stateno=3046
+pos=0,0
+postype=P1
+facing=-1
+ownpal=1
+ignorehitpause=1
+
+[State 200,End]
+type=Destroyself
+trigger1=!AnimTime
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Skill Hitspark FXSUB
+[Statedef 3046]
+type=A
+movetype=I
+physics=N
+anim=7010
+sprpriority=5
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=Sub
+ignorehitpause=0
+
+[State 0,AngleDraw]
+type=AngleDraw
+trigger1=1
+value=Parent,Var(1)+(time*1)
+scale=1+time*.1,1+time*.1
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=Noshadow
+
+[State 200,End]
+type=Destroyself
+trigger1=!AnimTime
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Helper
+[Statedef 3050]
+type=A
+movetype=A
+physics=N
+juggle=1
+velset=0,0
+ctrl=0
+anim=3050
+sprpriority=3
+
+[State 0,Fire!]
+type = PlaySnd
+trigger1 =! Time
+value = S5,20
+volumescale = 100
+[State 0,Fire!]
+type = PlaySnd
+trigger1 =! Time
+value = S5,20
+volumescale = 100
+
+[State 0,BindToRoot]
+type=BindToRoot
+trigger1=1
+pos=38*Helper(999999),Fvar(16),-11*Helper(999999),Fvar(16)
+ignorehitpause=1
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=addalpha
+Alpha=256,256
+ignorehitpause=1
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[State 0,Overclock Hyper Laser - Beam FXADD]
+type=Helper
+trigger1=!Time
+helpertype=normal
+name="Overclock Hyper Laser - Beam FXADD"
+ID=3055
+stateno=3055
+pos=0,0
+facing=1
+postype=p1
+ownpal=1
+IgnoreHitPause=1
+Size.Xscale=1.3*Helper(999999),Fvar(16)
+Size.Yscale=1*Helper(999999),Fvar(16)
+SuperMoveTime=99999
+PauseMoveTime=99999
+
+[State 0,Overclock Hyper Laser - Beam FXSUB]
+type=Helper
+trigger1=!Time
+helpertype=normal
+name="Overclock Hyper Laser - Beam FXSUB"
+ID=3056
+stateno=3056
+pos=0,0
+facing=1
+postype=p1
+ownpal=1
+IgnoreHitPause=1
+Size.Xscale=1.3*Helper(999999),Fvar(16)
+Size.Yscale=1*Helper(999999),Fvar(16)
+SuperMoveTime=99999
+PauseMoveTime=99999
+
+[State 200,1]
+type=HitDef
+trigger1=timemod=4,0
+attr=S,NP,SA
+animtype=Heavy
+damage=6,3
+Hitflag=MAFD
+guardflag=MA
+pausetime=0,2
+sparkno=-1
+guard.sparkno=-1
+sparkxy=-8,-0
+hitsound=S1,12/TimeMod=2,0
+guardsound=S1,12
+ground.type=High
+ground.slidetime=12
+ground.hittime=15
+ground.velocity = -2
+air.velocity = -2,-1
+Kill = 0
+Fall = 0
+Fall.Recover=0
+EnvShake.Time=15
+Ground.CornerPush.VelOff=0
+Getpower=0,0
+PalFX.time=30
+PalFX.add=-200,-200,-200
+PalFX.mul=256,256,256
+PalFX.sinadd=50,50,50,50
+PalFX.invertall=0
+PalFX.color=256
+sprpriority=3
+
+[State 0,Overclock Hyper Laser - Skill Hitspark FXADD]
+type=Helper
+trigger1=MoveContact=1
+helpertype=normal
+name="Overclock Hyper Laser - Skill Hitspark FXADD"
+ID=3045
+stateno=3045
+pos=(5-Random%15)*Helper(999999),Fvar(16),(-35+Random%10)*Helper(999999),Fvar(16)
+postype=P2
+facing=Cond(Random<=500,1,-1)
+ownpal=1
+size.xscale=.225*Helper(999999),Fvar(16)
+size.yscale=.225*Helper(999999),Fvar(16)
+ignorehitpause=1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Parent,StateNo != 3000
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,stateno = 3000 && time = 380
+trigger2 = Parent, Time >= 385
+value = 3060
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Beam FXADD
+[Statedef 3055]
+type=S
+movetype=I
+physics=N
+juggle=1
+velset=0,0
+ctrl=0
+anim=3055
+sprpriority=4
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0,BindToRoot]
+type=BindToRoot
+trigger1=1
+pos=38*Helper(999999),Fvar(16),-11*Helper(999999),Fvar(16)
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=Add
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Root,StateNo = 3000
+trigger1 = Time >= 100
+trigger2 = Root,Stateno != 3000
+value = 3058
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Beam FXSUB
+[Statedef 3056]
+type=S
+movetype=I
+physics=N
+juggle=1
+velset=0,0
+ctrl=0
+anim=3055
+sprpriority=0
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0,BindToRoot]
+type=BindToRoot
+trigger1=1
+pos=38*Helper(999999),Fvar(16),-11*Helper(999999),Fvar(16)
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=sub
+ignorehitpause=1
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Root,StateNo = 3000
+trigger1 = Time >= 100
+trigger2 = Root,Stateno != 3000
+value = 3058
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Beam FXADD End
+[Statedef 3058]
+type=S
+movetype=I
+physics=N
+juggle=1
+velset=0,0
+ctrl=0
+anim = 3058
+sprpriority=4
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Helper End
+[Statedef 3060]
+type = S
+movetype = A
+physics = S 
+juggle = 2
+ctrl = 0
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = MoveContact = 1
+value = S1,12
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = MoveContact = 1
+value = S1,12
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = MoveContact = 1
+value = S5,26
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = MoveContact = 1
+value = S5,26
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = MoveContact = 1
+Time = 20
+Ampl = -12
+Freq = 30
+
+[State 200,1]
+type=HitDef
+trigger1 =! MoveContact
+attr=S,NP,SA
+animtype=Heavy
+damage=225,115
+Hitflag=MAFD
+guardflag=MA
+pausetime=0,2
+sparkno=-1
+guard.sparkno=-1
+sparkxy=-8,-0
+hitsound=S1,12/TimeMod=2,0
+guardsound=S1,12
+ground.type=High
+ground.slidetime=12
+ground.hittime=15
+ground.velocity = -4
+air.velocity = -4,-1
+Kill = 1
+Fall = 1
+Fall.Recover=0
+EnvShake.Time=15
+Ground.CornerPush.VelOff=0
+Getpower=0,0
+PalFX.time=30
+PalFX.add=-200,-200,-200
+PalFX.mul=256,256,256
+PalFX.sinadd=50,50,50,50
+PalFX.invertall=0
+PalFX.color=256
+sprpriority=3
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = Movehit = 1
+value = 455
+
+[State 0,Overclock Hyper Laser - Explsion FXADD]
+type = Helper
+trigger1 = MoveContact = 1
+name = "Overclock Hyper Laser - Explsion FXADD"
+ID = 3065
+stateno = 3065
+pos = 0,-20
+postype = p2
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .4
+size.yscale = .4
+
+[State 0, Explosion FX III]
+type = Explod
+triggerall = NumExplod(9024) = 0
+trigger1 = Movehit = 1
+anim = 9024
+ID = 9024
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Overclock Hyper Laser - Explosion FXADD
+[Statedef 3065]
+type=A
+movetype=A
+physics=N
+juggle=2
+ctrl=0
+anim=3065
+sprpriority=3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = 0,-75,0
+Mul = 512,512,512
+Color = 0
+
+[State 0,VarSet]
+type=VarSet
+trigger1=!Time
+v=1
+value=random%360
+
+[State 0,AngleDraw]
+type=AngleDraw
+trigger1=1
+value=var(1)+(time*.5)
+scale=1*Helper(999999),Fvar(16)+(Time*.025),1*Helper(999999),Fvar(16)+(Time*.025)
+ignorehitpause=1
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=add
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=noshadow
+ignorehitpause=1
+
+[State 0,DestroySelf]
+type=DestroySelf
+trigger1=!AnimTime

@@ -1,0 +1,41 @@
+[Info]
+name = "Infinite The Jackal"
+displayname = "Infinite"
+versiondate = 25/08/2019
+mugenversion =1.0
+author = "InSeph Edit by Sonikku"
+pal.defaults = 1
+
+[Files]
+sprite = Infinite.sff
+anim = Infinite.air
+sound = Infinite.snd
+cmd = Infinite.cmd
+cns = Infinite.cns
+stcommon = common1.cns
+st = Infinite.cns
+st1 = AI.cns
+st2 = Skills.cns
+st3 = Supers.cns
+st4 = Ultimate.cns
+st5 = Misc.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+pal11 = 11.act
+pal12 = 12.act
+
+;==========================
+;-------- Credits --------;
+;==========================
+; Knigtmare404 (Original Char)
+; Mikel8888 (Codes)
+; Rivelio (FXs)
+; James1971 (Sprites)

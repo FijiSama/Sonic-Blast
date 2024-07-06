@@ -1,0 +1,1514 @@
+;===================================================================================
+;---------------------------------- Ultimate --------------------------------------;
+;===================================================================================
+;===============================================================================
+; Virtual Solar - Start
+;-------------------------------------------------------------------------------
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 3000
+poweradd = -2000
+sprpriority = 2
+
+[State 0, Dark Screen]
+type = Helper
+TriggerAll = NumHelper(4000)=0
+trigger1 = Time = 0
+name = "Dark Screen"
+ID = 4000
+stateno = 4000
+pos = 0,0
+postype = Back
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, Dark Screen - Black BG]
+type = Helper
+trigger1 = time = 0
+name = "Dark Screen - Black BG"
+ID = 4010
+stateno = 4010
+pos = 9999,9999
+postype = p1
+Supermovetime = 99999
+Pausemovetime = 99999
+
+;------------------------------------------
+; Ultimate Portrait
+[State 0, Ultimate Portrait]
+type = Helper
+trigger1 = time = 0
+name = "Ultimate Portrait"
+ID = 10000
+stateno = 10000
+pos = 0,0
+postype = Left
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+supermovetime = 999
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S10000,0
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S10000,0
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S10000,0
+
+[State 3000, Super Charge II]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+postype = P1
+pos = 12,-25
+sprpriority = 8
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .6,.4
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, Super Charge II]
+type = Explod
+trigger1 = Time = 0
+anim = 7405
+ID = 7405
+postype = P1
+pos = 0,-25
+sprpriority = 8
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .3,.3
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,2
+;------------------------------------------
+
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 100
+movetime = 20
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,41
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,41
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 30
+y = -2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 40
+y = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 50
+value = S60,1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 35
+value = S5,2
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, HA
+animtype  = Heavy
+damage    = 25
+Hitflag = MAFD
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,19
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 22
+ground.hittime  = 25
+ground.velocity = -8
+air.velocity = -8,-4
+Fall = 0
+Fall.recover = 0
+Envshake.time = 5
+getpower = 0,0
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1
+value = 455
+
+[State 0, NotHitBy]
+type = NotHitBy
+triggerall = movehit
+trigger1 = time > 45
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 5
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = unguardable
+
+[State 0, Virtual Solar - FX]
+type = Explod
+trigger1 = time = 50
+anim = 3020
+ID = 3020
+pos = 8,-18
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.1
+sprpriority = 3
+ontop = 3
+ownpal = 1
+removeongethit = 1
+
+[State 0, Virtual Solar - Aura]
+type = Helper
+trigger1 = time = 30
+helpertype = normal
+name = "Virtual Solar - Aura"
+ID = 3020
+stateno = 3020
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .16
+size.yscale = .24
+
+[State 0,FX]
+type = Explod
+trigger1 = Time = 54
+anim = 647
+ID = 005
+pos = -0,-25
+scale= .3,.3
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+accel = 0,0
+removetime = -2
+ontop = 1
+sprpriority = 0
+ownpal = 1
+removeongethit = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, Spark CVS]
+type = Explod
+persistent = 4
+trigger1 = Movehit = 1
+anim = 7261
+ID = 7261
+postype = P2
+pos = -10+random%30,-15-random%10
+facing = 1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+
+[State 0,Virtual Wrath - Charge]
+type = Helper
+TriggerAll = NumHelper(3030)=0
+trigger1 = time = 50
+helpertype = normal
+name = "Virtual Wrath - Charge"
+ID = 3030
+stateno = 3030
+postype = P1
+facing = 1
+ownpal = 1
+ignorehitpause = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 0,Virtual Wrath - Helper]
+type = Helper
+TriggerAll = NumHelper(3031) = 0
+trigger1 = AnimElem = 4
+helpertype = normal
+name = "Virtual Wrath - Helper"
+ID = 3031
+stateno = 3031
+postype = P1
+facing = 1
+ownpal = 1
+ignorehitpause = 0
+size.xscale = .7
+size.yscale = .7
+
+[State 200, End]
+type = ChangeState
+triggerall = movehit
+trigger1 = time >= 51
+value = 3001
+
+[State 200, End]
+type = ChangeState
+trigger1 = time >= 94
+value = 3001
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Virtual Solar
+;-------------------------------------------------------------------------------
+[Statedef 3001]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3001
+poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,12
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,12
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,12
+
+[State 0, Super Armor]
+type = Helper
+trigger1 = time = 0
+name = "Super Armor"
+ID = 850
+stateno = 850
+pos = 999,999
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+[State 0, Virtual Solar - Charge]
+type = Helper
+trigger1 = time = 6
+helpertype = normal
+name = "Virtual Solar - Charge"
+ID = 3040
+stateno = 3040
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+supermovetime = 999
+
+[State 0, Virtual Solar - Charge Lanzar]
+type = Helper
+trigger1 = time = 51
+helpertype = normal
+name = "Virtual Solar - Charge Lanzar"
+ID = 3041
+stateno = 3041
+pos = 5,-43
+postype = p1
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+supermovetime = 999
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,stateno = 3060
+value = 3003
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 150
+value = 3002
+;-------------------------------------------------------------------------------
+; Virtual Solar - Lanzar
+[Statedef 3002]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3002
+poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,41
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,41
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,41
+
+[State 0, Super Armor]
+type = Helper
+trigger1 = time = 0
+name = "Super Armor"
+ID = 850
+stateno = 850
+pos = 999,999
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 80
+value = 3003
+;---------------------------------------------------------------------------
+; Virtual Solar - Fin
+[Statedef 3003]
+type    = A
+movetype= A
+physics = A
+juggle  = 1
+ctrl = 0
+anim = 3003
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 2.5
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = vel x > 0
+x = -0.5
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = vel x < 0
+x = 0.5
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y < 0,50,0)
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Virtual Solar - Aura
+[Statedef 3020]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 530
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S500,1
+channel = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,45
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,45
+volume = 100
+
+[State 0, Rayos FX]
+type = Explod
+Triggerall = Root,Var(3) = 0
+trigger1 = timemod = 10,0
+anim = 9034+(RANDOM%4)
+ID = 9034
+pos = -10+random%40,-0-random%30
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .30,.30
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 0
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Explosion FX III]
+type = Explod
+trigger1 = time = 0
+anim = 9024
+ID = 9024
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Aura FX 2]
+type = Explod
+trigger1 = time = 0
+Anim = 531
+ID = 3020
+pos = 0,5
+sprpriority = 5
+removeongethit = 1
+removetime = -1
+bindtime = -1
+ownpal = 1
+scale = .15,.2
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,stateno != 3000
+trigger1 = root,stateno != 3001
+trigger1 = root,stateno != 3002
+id = 3020
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 0,-22
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = Changestate
+trigger1 = root,stateno != 3000
+trigger1 = root,stateno != 3001
+trigger1 = root,stateno != 3002
+value = 3021
+;-------------------------------------------------------------------------------
+; Virtual Solar - Aura Fin
+[Statedef 3021]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 3020
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 531
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 200-(time*20),256
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Virtual Wrath - Charge
+[Statedef 3030]
+Type=S
+MoveType=I
+Physics=S
+Ctrl=0
+Anim=3030
+SprPriority=5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 10
+value = S1,12
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 10
+value = S1,12
+
+[State 0,PalFXWiz]
+type=PalFX
+trigger1=1
+time=99999
+add = 0,0,0
+mul = 512,190,256
+color=0
+
+[State 0,BindToRoot]
+type=BindToRoot
+Trigger1=!Time
+Pos=0,-15
+
+[State 0,AngleDraw]
+type=AngleDraw
+trigger1=1
+scale=1+(Time*.0125),1+(Time*.0125)
+ignorehitpause=0
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=addalpha
+alpha=128,256
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=Noshadow
+
+[State 0,DestroySelf]
+type=DestroySelf
+trigger1=!AnimTime
+;-------------------------------------------------------------------------------
+; Virtual Wrath - Helper
+[Statedef 3031]
+Type=S
+MoveType=I
+Physics=S
+Ctrl=0
+Anim=3031
+SprPriority=1
+
+[State 0,PalFXWiz]
+type=PalFX
+trigger1=1
+time=99999
+add = 0,0,0
+mul = 512,190,256
+color=0
+
+[State 0,BindToRoot]
+type=BindToRoot
+Trigger1=!Time
+Pos=0,-15
+
+[State 0,AngleDraw]
+type=AngleDraw
+trigger1=1
+scale=1+(Time*.01),1+(Time*.01)
+ignorehitpause=0
+
+[State 0,Trans]
+type=Trans
+trigger1=1
+trans=addalpha
+alpha=128,256
+
+[State 0,AssertSpecial]
+type=AssertSpecial
+trigger1=1
+flag=Noshadow
+
+[State 0,DestroySelf]
+type=DestroySelf
+trigger1=!AnimTime
+;-------------------------------------------------------------------------------
+; Virtual Solar - Charge
+[Statedef 3040]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 3040
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,50
+volume = 99999
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [6,28]
+pos = 12,-13
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [28,31]
+pos = 15,-21
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [31,39]
+pos = 13,-38
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [39,80]
+pos = 5,-43
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 25
+scale = .1+time*.04,.1+time*.04
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 25
+scale = 1,1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+Trigger1 = Time >= 50
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Virtual Solar - Charge Lanzar
+[Statedef 3041]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 3040
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,50
+volume = 99999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+y = -5
+
+[State 0, Speed FX]
+type = Explod
+trigger1 = timemod = 5,0
+anim = 580
+id = 580
+pos = -1,8
+postype = p1
+facing = 1
+vfacing = 1
+vel = 0,5
+bindtime = -1
+removetime = -2
+scale = .2,.1
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = sub
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Changestate
+trigger1 = time >= 20
+value = 3050
+;-------------------------------------------------------------------------------
+; Virtual Solar - Helper
+[Statedef 3050]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3050
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,46
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,46
+volume = 100
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 1460
+time = 999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 30
+scale = .1+time*.3,.1+time*.3
+value = -1-time*25
+ignorehitpause = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time >= 30
+scale = 12,12
+ignorehitpause = 1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 3065
+time = 999999999999
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+attr = A, SP
+animtype  = Up
+damage    = 4,60
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-5
+hitsound   = -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -6,-4
+air.velocity = -6,-4
+Fall = 1
+Fall.recover = 0
+Getpower = 0,0
+Envshake.time = 10
+Getpower = 0,0
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+
+[State 200, Spark CVS]
+type = Explod
+triggerall = Numexplod(7000) = 0
+trigger1 = Movehit = 1
+anim = 8011
+ID = 7000
+postype = P2
+pos = -6,-26
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .4,.4
+removeongethit = 1
+ontop = 1
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 200, End]
+type = Changestate
+trigger1 = time = 200
+value = 3065
+
+[State 200, End]
+type = Changestate
+trigger1 = root,stateno = 3002
+value = 3051
+;-------------------------------------------------------------------------------
+; Virtual Solar - Shot
+[Statedef 3051]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,44
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,44
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,51
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,51
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 65,0
+value = S5,53
+volume = 9999
+channel = 2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 65,0
+value = S5,53
+volume = 9999
+channel = 3
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 1460
+time = 999999999999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 12,12
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 14
+y = 11
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 5
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, 1]
+type = HitDef
+triggerall = hitcount < 50
+trigger1 = 1
+attr = A, ST
+Hitflag = MAFDE
+animtype  = Heavy
+damage    = 8
+guardflag = MA
+pausetime = 1,1
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -8,-25
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -.2,0
+air.velocity = -.2,-.5
+numhits = 2
+Fall = 0
+Getpower = 0,0
+sprpriority = 3
+Kill = 0
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit = 1
+pos = 25,25
+
+[State 200, Spark CVS]
+type = Explod
+triggerall = Numexplod(7000) = 0
+trigger1 = Movehit = 1
+anim = 8011
+ID = 7000
+postype = P2
+pos = -6,-26
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .4,.4
+removeongethit = 1
+ontop = 1
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 200, End]
+type = Changestate
+trigger1 = hitcount >= 50
+trigger2 = pos y >= -5
+trigger3 = frontedgebodydist < 0
+trigger4 = time = 200
+trigger5 = moveguarded = 1
+value = 3060
+;-------------------------------------------------------------------------------
+; Virtual Solar - Explosion
+[Statedef 3060]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3060
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,43
+volume = 50
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,43
+volume = 50
+
+[State 0, Rocas]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Explosion"
+ID = 3061
+stateno = 3061
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .55
+size.yscale = .55
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, Virtual Solar - Explosion FX 2]
+type = Explod
+trigger1 = time = 0
+anim = 3062
+ID = 3062
+Pos = 5,2
+postype = p1
+Scale = .7,.5
+sprpriority = 5
+ontop = 0
+ownpal = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, Explosion]
+type = Explod
+trigger1 = time = 0
+anim = 9023
+ID = 9023
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermove = 99999
+pausemove = 99999
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = 1
+y = 0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 10
+statetype = A
+movetype = I
+physics = N
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 80
+ampl = -4
+
+[State 0, Humo Choque contra el piso]
+type = Explod
+trigger1 = time = 0
+anim = 8200
+ID = 8200
+Pos = 20,10
+postype = p1
+Scale = 1,.20
+sprpriority = -9
+ontop = 0
+ownpal = 1
+
+[State 0, Explod]
+Type = Explod
+trigger1 = time = 0
+Anim = 1526
+ID = 1526
+Pos = -20,-40
+PosType = P1
+RemoveTime = -2
+SuperMoveTime = -1
+PauseMoveTime = -1
+Scale = .75,.75
+SprPriority = -4
+OwnPal = 1
+RemoveOnGetHit = 0
+IgnoreHitPause = 1
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+Trigger1 = 1
+attr = S, SA
+animtype  = Up
+damage    = 350
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0,-10
+air.velocity = 0,-10
+Fall = 1
+Fall.recover = 0
+Getpower = 0,0
+sprpriority = 3
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 40
+;-------------------------------------------------------------------------------
+; Virtual Solar - Explosion FX
+[Statedef 3061]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 3061
+sprpriority = 7
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+time*.015,1+time*.015
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,10
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------
+; Virtual Solar - Explosion 2
+[Statedef 3065]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3065
+sprpriority = 8
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,52
+volume = 9999
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = 1
+channel = 2
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = 1
+channel = 3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Unguardable
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time >= 7 
+statetype = A
+movetype = I
+physics = S
+
+[State 0, Explosion]
+type = Explod
+trigger1 = time = 0
+anim = 3065
+ID = 3065
+pos = 12,-5
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .8,.8
+sprpriority = 3
+ontop = 1
+ownpal = 1
+
+[State 0, Explosion]
+type = Explod
+trigger1 = time = 0
+anim = 1470
+ID = 1470
+pos = 12,-5
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .8,.8
+sprpriority = 3
+ontop = 1
+ownpal = 1
+
+[State 0, Explosion]
+type = Explod
+trigger1 = time = 0
+anim = 9023
+ID = 9023
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermove = 99999
+pausemove = 99999
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,12
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 45
+ampl = -7
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, ST
+animtype  = Heavy
+damage    = 120
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -8,-25
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -4,-7
+air.velocity = -4,-7
+numhits = 0
+Fall = 1
+Fall.recover = 0
+Getpower = 0,0
+ID = 88
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 0
+fv = 5
+value = .085
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 0
+scale = 1+fvar(5),1+fvar(5)
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 15
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 30
+;-------------------------------------------------------------------------------
+; Virtual Solar - Yellow BG
+[Statedef 3090]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3090
+sprpriority = -1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nobardisplay
+flag2 = noBG
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = enemy,stateno = 3010
+value = -90
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = 400
+y = -200
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = enemy,stateno = 3011
+value = -150
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = enemy,stateno = 3011 && enemy,time = 1
+x = 200
+y = 600
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = root,stateno = 3002 && root,time < 25
+value = -150
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = root,stateno = 3002 && root,time = 1
+x = -200
+y = -600
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = root,stateno = 3002 && root,time >= 25
+value = -150
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = root,stateno = 3002 && root,time = 25
+x = 200
+y = 600
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,stateno != [3000,3002]
+trigger2 = root,movetype = H

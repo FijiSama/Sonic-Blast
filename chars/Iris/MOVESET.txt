@@ -1,0 +1,48 @@
+Iris - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+(Press Y to stop them and a or b to attack)
+
+A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + Y (Aire)
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Slice And Stab (And Air)
+
+D,DB,B,a - Military Rising
+
+D,DF,F,b - Military Raid (And Air)
+
+D,DB,B,b - Military Counter Slash
+
+D,DF,F,c - Rise of the Military Army
+
+D,DB,B,c - Overclock Hyper - Let's Ride the Lightning!
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Overclock Hyper Laser
