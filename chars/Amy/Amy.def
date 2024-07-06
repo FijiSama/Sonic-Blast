@@ -1,0 +1,41 @@
+[Info]
+name = "Amy Rose"
+displayname = "Amy Rose"
+versiondate = 10/10/2019
+mugenversion = 1.0
+author = "InSeph"
+pal.defaults = 1
+
+[Files]
+sprite = Amy Rose.sff
+anim = Amy Rose.air
+sound = Amy Rose.snd
+cmd = Amy Rose.cmd
+cns = Amy Rose.cns
+stcommon = common1.cns
+movelist = Moveset.dat
+st = Amy Rose.cns
+st1 = AI.cns
+st2 = Skills.cns
+st3 = Ultimate.cns
+st4 = Misc.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+pal11 = 11.act
+pal12 = 12.act
+
+;==========================
+;-------- Credits --------;
+;==========================
+; Knigtmare404 (Original Char)
+; Mikel8888 (Codes)
+; Rivelio (FXs)
+; James1971 (Sprites)

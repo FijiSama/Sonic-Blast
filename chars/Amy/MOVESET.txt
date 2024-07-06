@@ -1,0 +1,51 @@
+Amy Rose - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C Gift Explosive
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire
+
+C Aire
+
+Down C Gift Explosive Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Amy Rose Combo
+
+D,DB,B,a - Spinning Hammers
+
+D,DF,F,b - Hammers Crush (And Air)
+
+D,DB,B,b - Hammer Impact (And Air)
+(On the Ground Press Jump 
+For Amy To Use Her Hammer To Throw Herself)
+
+D,DF,F,c - Tornado Rose (And Air)
+
+D,DB,B,c - Storming Heart
+
+ULTIMATE: 
+
+x
+
+Full Power
+
+S (Power Charge Max and Life -30)

@@ -1,0 +1,38 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Uppercut                 		              ~D_+^A                		
+Whack'Em [Ground/Air] 		                  ~D_+^B
+Mega Hammer [Ground/Air] 				      ~D_+^C                                   		
+Homing Dash [Air]               		     _AIR_+^Y            			 
+Present for You! [Ground/Air]   		       ~D_+^Y  
+Transform/MAX Power 		                   ^Z
+Here Silly! (Counter) [Ground] 			       ^Y                                  
+          		                		  
+<#f0f000>:Specials:</>
+Rose Duster			                          _D_F_+^A		                           				            	    
+Love Cyclone		                          _D_B_+^A                          	    
+Ring of Roses 		                          _D_F_+^B                          		    
+Petal Punisher                		          _D_B_+^B              		    
+Thorn Rush   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Twisted Rose     		          _D_B_+^C   		    
