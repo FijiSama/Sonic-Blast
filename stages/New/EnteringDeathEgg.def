@@ -1,0 +1,194 @@
+
+;--------------------------------------------------------
+[info]
+name = "Death Egg III - Outside"
+
+[camera]
+ ;camera starting position: usually 0 for both
+ ;***
+startx = 0
+starty = 0
+boundleft = -380
+boundright = 380
+boundhigh = -245
+boundlow = 0
+verticalfollow = 1;.9
+floortension= 70
+tension = 60
+
+;--------------------------------------------------------
+[playerinfo]
+;--- player 1 ---
+p1startx = -96          ;starting x coordinates
+p1starty = 0            ;starting y coordinates
+p1startz = 210           ;starting z coordinates
+p1facing = 1            ;direction player faces: 1=right, -1=left
+
+;--- player 2 ---
+p2startx = 96
+p2starty = 0
+p2startz = 210
+p2facing = -1
+
+;--- common ---
+ ;don't change these values.
+leftbound  = -3000 ;left bound (x-movement)
+rightbound = 3000 ;right bound
+topbound  =  0     ;top bound (z-movement)
+botbound  =  0     ;bottom bound
+
+;--------------------------------------------------------
+[scaling]
+ ;no need to change these values
+topz     = 0       ;top z-coordinate for scaling
+botz     = 50      ;bottom z-coordinate for scaling
+topscale = 1       ;scale to use at top
+botscale = 1.2     ;scale to use at bottom
+
+;--------------------------------------------------------
+[bound]
+ ;distance from left/right edge of screen that player can move to
+ ;typically 15
+screenleft = 15    ;dist from left of screen that player can move to
+screenright = 15   ;right edge
+
+;--------------------------------------------------------
+[stageinfo]
+zoffset = 204
+autoturn = 1
+resetbg = 0
+localcoord = 320,240
+
+;--------------------------------------------------------
+[shadow]
+color = 0,0,0
+yscale = .3
+
+ ;set to 1 to draw "reflection" shadows. defaults to 0.
+reflect = 1
+
+;--------------------------------------------------------
+[music]
+bgmusic =sound\deatheggzone.ogg
+bgvolume = 200
+
+;========================================================
+;--------------------------------------------------------
+; background definition
+; ***
+;-------------------------------------
+; [bg x]
+; type = ?       "normal"/"parallax"/"height"  (def: "normal")
+; spriteno = ?, ? sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   starting location (integer)  (def: 0, 0)
+; delta = ?, ?   change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      transparency settings: "none"/"add"/"sub"/"avg" (def: "none")
+; mask = ?       masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0)
+; tilespacing = ?, ? tiling: x, y (int) : space between tiles (def: 0, 0)
+;  parallax-only:
+; xscale = ?, ?    top xscale, bottom xscale (float) (if used, then no tiling)
+; width = ?, ?     top width, bottom width (int)  (if used, then tiles;
+;                             use either this or above, but not both)
+; yscalestart = ?  starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; main background definition
+[bgdef]
+ ;filename of sprite data
+spr = EnteringDeathEgg.sff
+
+ ;set to 1 if you want to clear the screen to magenta before
+ ;drawing layer 0 (the default background). good for spotting "holes"
+ ;in your background.
+ ;remember to turn this off when you are done debugging the background,
+ ;because it slows down performance.
+debugbg = 1
+
+
+;----------
+; start each background element with the following:
+; make sure it's "[bg n]", where n is anything you like (it's only used to
+; report errors.) for example, you could use:  [bg thefloor]
+; specify as many as you like. this is an example of a normal background:
+
+
+[bg 1] ; earth
+type  = normal
+spriteno = 2,0
+start = 0,140
+delta = 0,0
+tile = 0, 1
+mask = 0
+
+
+[bg 1] ; Death Egg
+type  = normal
+spriteno = 10,0
+start = 0,140
+delta = 1, .9
+tile = 0, 0
+mask = 1
+
+[bg 1] ; earth
+type  = anim
+actionno = 1
+start = -140,-40
+delta = 1,.9
+mask = 1
+
+
+
+[bg 1] ; floor
+type  = normal
+spriteno = 4,0
+start = 0,140
+delta = 1, .9
+tile = 1, 0
+mask = 1
+
+[bg 1] ; floor
+type  = parallax
+spriteno = 3,0
+start = 20,100
+delta = 0.7, .7
+tile = 1, 0
+tilespacing = 2, 0
+width = 1000,1500
+yscalestart = 100
+yscaledelta = .2
+mask = 1
+
+
+
+
+
+
+
+;TAILS SPACE THYPOON
+
+
+;
+[Begin Action 1]
+Loopstart
+1,4, 0,0, 25
+1,4, 0,-1, 25
+1,4, 0,-2, 25
+1,4, 0,-3, 25
+1,4, 0,-4, 25
+1,4, 0,-5, 25
+1,4, 0,-6, 25
+1,4, 0,-5, 25
+1,4, 0,-4, 25
+1,4, 0,-3, 25
+1,4, 0,-2, 25
+1,4, 0,-1, 25
+1,4, 0,0, 25
+
+
+
+

@@ -1,0 +1,128 @@
+; Hidden Palace by Majin Sam
+;Please give credit if used
+
+[Info]
+name = "Hidden Palace"
+
+[Camera]
+startx = 0
+starty = 0
+
+boundleft = -100
+boundright = 100
+boundhigh = -50
+boundlow = 0
+
+verticalfollow = 1
+
+floortension = 300
+
+tension = 50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz  = 0
+botz  = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 0
+
+[Music]
+bgmusic = sound/hp.mp3
+
+[BGDef]
+spr = stages/Hidden_Palace.sff
+debugbg = 0
+
+[BG Wall]
+type = normal
+spriteno = 0,0
+id = 0
+start = 0, -20
+delta = 0, 0
+trans = none
+mask = 0
+tile = 0, 0
+tilespacing = 0, 0
+
+[BG Master_Emerald]
+type = anim
+actionno = 55
+id = 1
+start = 0, 0
+delta = 0, 0
+trans = addalpha
+mask = 0
+tile = 0, 0
+tilespacing = 0, 0
+
+[Begin Action 55]
+5, 0, 0, 0, 5
+5, 1, 0, 0, 5
+5, 2, 0, 0, 5
+5, 3, 0, 0, 5
+5, 4, 0, 0, 5
+5, 5, 0, 0, 5
+5, 6, 0, 0, 5
+5, 7, 0, 0, 5
+5, 8, 0, 0, 5
+5, 9, 0, 0, 5
+
+[BG Emerald_Holster]
+type = normal
+spriteno = 1,0
+id = 2
+start = 0, 0
+delta = 0, 0
+trans = addalpha
+mask = 0
+tile = 0, 0
+tilespacing = 0, 0
+
+[BG Emeralds]
+type = normal
+spriteno = 2,0
+id = 3
+start = 2, 9
+delta = 0, 0
+trans = addalpha
+mask = 0
+tile = 0, 0
+tilespacing = 0, 0
+
+[BG Floor]
+type = normal
+spriteno = 4,0
+id = 4
+start = 0, -100
+delta = 0, 0
+trans = addalpha
+mask = 0
+tile = 0, 0
+tilespacing = 0, 0

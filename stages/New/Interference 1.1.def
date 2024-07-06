@@ -1,0 +1,182 @@
+;==============================================================
+[Info];--------------------------------------------------------
+Name           = "Interference"
+DisplayName    = "Interference 1.1"
+VersionDate    = 01,05,2015
+MugenVersion   = 1.0
+Author         = "Che Clarke"
+Editor         = "Leon72"
+[BGdef];-------------------------------------------------------
+Spr            = Interference 1.1.sff
+DebugBG        = 0
+[Music];-------------------------------------------------------
+BGMusic        = sound/PS2.mp3
+BGMVolume      = 100
+[Camera];------------------------------------------------------
+StartX         = 0
+StartY         = 0
+BoundLeft      = -200000
+BoundRight     = 200000
+BoundHigh      = -200
+BoundLow       = 0
+VerticalFollow = .80
+Tension        = 160
+FloorTension   = 80
+overdrawhigh   = 120
+overdrawlow    = 120
+cuthigh        = 0
+cutlow         = 0
+zoomin = 1
+zoomout = .68 
+[PlayerInfo];--------------------------------------------------
+P1StartX       = -140
+P1StartY       = 0
+P1StartZ       = 0
+P1Facing       = 1
+;-------------------------
+P2StartX       = 140
+P2StartY       = 0
+P2StartZ       = 0
+P2Facing       = -1
+;-------------------------
+LeftBound      = -400000
+RightBound     = 400000
+TopBound       = 0
+BotBound       = 0
+[Scaling];-----------------------------------------------------
+TopZ           = 0
+BotZ           = 50
+TopScale       = 1
+BotScale       = 1.2
+[Bound];-------------------------------------------------------
+ScreenLeft     = 35
+ScreenRight    = 35
+[StageInfo];---------------------------------------------------
+ZOffset        = 428
+AutoTurn       = 1
+ResetBG        = 1
+localcoord     = 640,480
+xscale         = 1
+yscale         = 1
+[Shadow];------------------------------------------------------
+Intensity      = 0
+Color          = 0,0,0
+YScale         = 0.2
+Fade.Range     = 0,0
+[Reflection];--------------------------------------------------
+Intensity      = 128
+;==============================================================
+;[BG 0];-------------------------------------------------------
+;Type           = Normal
+;SpriteNo       = 0,0
+;LayerNo        = 0
+;Start          = 0,83
+;Delta          = 0,0
+;Trans          = None
+;Mask           = 0
+;Tile           = 0,0
+;TileSpacing    = 0,0
+;ActionNo       = 0
+;Velocity       = 0,0
+;Window         = 0,0,639,479
+;WindowDelta    = 0,0
+;ID             = 0
+;--------------------------------------------------------------
+[BG 0];--------------------------------------------------------
+Type           = Normal
+SpriteNo       = 0,0
+LayerNo        = 0
+Start          = 0,83
+Delta          = 0,0
+Trans          = None
+Mask           = 0
+Tile           = 1,1
+TileSpacing    = 0,0
+[BG Sky];------------------------------------------------------
+Type           = Parallax
+SpriteNo       = 0,3
+Start          = 0,77
+Delta          = 0.01,1
+Tile           = 1,0
+TileSpacing    = 0,0
+Width          = 3840,80
+Mask           = 1
+Velocity       = -12,0
+[BG Shine];----------------------------------------------------
+Type           = Normal
+SpriteNo       = 0,2
+LayerNo        = 0
+Start          = 0,180
+Delta          = 0,1
+Trans          = None
+Mask           = 1
+Tile           = 0,0
+TileSpacing    = 0,0
+[BG Floor];----------------------------------------------------
+Type           = Parallax
+SpriteNo       = 0,1
+Start          = -100,323
+Delta          = 0.02,1
+Mask           = 1
+Tile           = 1,0
+TileSpacing    = 0,0
+Width          = 120,9600
+Velocity       = -2,0
+[BG Line1];----------------------------------------------------
+Type        = Normal
+SpriteNo    = 0,4
+LayerNo     = 1
+Start       = 320,183
+Delta       = 1,1
+Trans       = Add
+Mask        = 1
+Tile        = 1,1
+TileSpacing = 3840,240
+Velocity    = -64,0
+[BG Line2];+++++++++++++++++++++
+Type        = Normal
+SpriteNo    = 0,4
+LayerNo     = 1
+Start       = 640,403
+Delta       = 1,1
+Trans       = Add
+Mask        = 1
+Tile        = 1,1
+TileSpacing = 6400,240
+Velocity    = -64,0
+[BG Line3];+++++++++++++++++++++
+Type        = Normal
+SpriteNo    = 0,5
+LayerNo     = 1
+Start       = 480,283
+Delta       = 1,1
+Trans       = Add
+Mask        = 1
+Tile        = 1,1
+TileSpacing = 5120,240
+Velocity    = -128,0
+[BG Line4];+++++++++++++++++++++
+Type        = Normal
+SpriteNo    = 0,5
+LayerNo     = 1
+Start       = 960,483
+Delta       = 1,1
+Trans       = Add
+Mask        = 1
+Tile        = 1,1
+TileSpacing = 7680,240
+Velocity    = -128,0
+;==============================================================
+;--------------------------------------------------------------
+;[Begin Action 0]
+;-1,-1,0,0,-1
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================
+;==============================================================

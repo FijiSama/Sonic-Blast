@@ -1,0 +1,359 @@
+;; Knights of the Round (Capcom) - Stage 2
+;; (options: H-loop)
+;; Original stage by Shiyo Kakuge
+
+[Info]
+	name="HyruleField2014"
+	displayname="Hyrule Field"
+	versiondate=10,18,2016
+	mugenversion=1.1
+
+[Camera]
+	startx=0
+	starty=0
+	boundleft=-260
+	boundright=260
+	boundhigh=-280
+	boundlow=0
+	verticalfollow=1
+
+	floortension=150
+	tension=100 ;;50
+
+	;;--- * v1.1 (zoom) *---
+;;	cuthigh=30 ;;c_hi
+	cutlow=10 ;;c_lo
+	;;---
+	overdrawhigh=5
+	overdrawlow=5
+	;;---
+	tensionhigh=85 ;;t_hi
+	tensionlow=25
+	startzoom=1
+	zoomout=0.85 ;;c_zo
+	zoomin=1 ;;c_zi
+	;;--- * v1.1 (zoom) *---
+
+[PlayerInfo]
+	p1startx=-70
+	p1starty=0
+	p1startz=0
+	p1facing=1
+
+	p2startx=70
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+
+	leftbound=-1000
+	rightbound=1000
+	topbound=0
+	botbound=0
+
+
+[Scaling]
+	topz=0
+	botz=50
+	topscale=1
+	botscale=1.2
+
+
+[Bound]
+	screenleft=15
+	screenright=15
+
+
+[StageInfo]
+	zoffset=215
+	autoturn=1
+	resetBG=0
+	localcoord=320,240
+
+[Shadow]
+	color=0,0,0
+	intensity=196
+	reflect=0
+	yscale=-0.05
+	fade.range=-100,0
+[Reflection]
+	intensity=0
+
+[Music]
+	bgmusic=sound/
+	bgvolume=0
+
+;----------------
+[BGdef]
+	spr=HyruleField.sff
+	debugbg=0
+
+
+
+
+
+;----------------
+;----------------
+;--- sky
+[bg 0]
+	id=10
+	type=normal
+	spriteno=1,1              
+	start=-120,200
+	mask=1
+	delta=    0.025,0.025
+	zoomdelta=0.025
+	tile=1,0
+	tilespacing=0,0
+	;---
+;;	scalestart=1,1
+;;	scaledelta=0,0
+
+
+;--- cloud
+[bg 0]
+	id=11
+	type=normal
+	spriteno=1,11
+	start=0,20
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+;;	velocity=-0.025,0 ;; -> cloud_velocity
+	delta=    0.025,0.025
+	zoomdelta=0.025
+
+;--- cloud_velocity
+;---
+[bgctrldef 11]
+looptime=50
+ctrlid=11
+;---
+[bgctrl 0]
+	type=posadd
+	time=0
+	x=-0.5
+	ctrlid=11
+
+;--- mountains
+[bg 0]
+	id=10
+	type=normal
+	spriteno=1,2              
+	start=72,55
+	mask=1
+	delta=    0.025,0.025
+	zoomdelta=0.025
+
+;--- tower
+[bg 0]
+	id=10
+	type=normal
+	spriteno=1,3              
+	start=72,95
+	mask=1
+	delta=    0.03,0.03
+	zoomdelta=0.03
+
+;----------------
+;--- ground-1/6
+[bg 0]
+	id=10
+	type=normal
+	spriteno=2,1
+	start=-120,104
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.05,0.05
+	zoomdelta=0.05
+
+[bg 0]
+	id=10
+	type=normal
+	spriteno=4,3
+	start=0,74
+	mask=1
+	tilespacing=0,0
+	delta=    0.05,0.05
+	zoomdelta=0.05
+
+[bg 0]
+	id=10
+	type=normal
+	spriteno=4,4
+	start=-50,124
+	mask=1
+	tilespacing=0,0
+	delta=    0.07,0.07
+	zoomdelta=0.07
+
+[bg 0]
+	id=10
+	type=normal
+	spriteno=4,2
+	start=-50,124
+	mask=1
+	tilespacing=0,0
+	delta=    0.08,0.08
+	zoomdelta=0.08
+
+;--- ground-2/6
+
+[bg 0]
+	id=10
+	type=normal
+	spriteno=3,1
+	start=-260,100
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.1,0.1
+	zoomdelta=0.1
+
+;--- ground-2/6-tree-small
+[bg 0]
+	id=10
+	type=anim
+	actionno=122
+	start=-180,162
+	mask=1
+	tile=1,0
+	tilespacing=128,0
+	delta=    0.11,0.11
+	zoomdelta=0.11
+
+;--- ground-2/6-tree-big
+[bg 0]
+	id=10
+	type=anim
+	actionno=121
+	start=-140,165
+	mask=1
+	tile=1,0
+	tilespacing=384,0
+	delta=    0.12,0.12
+	zoomdelta=0.12
+
+;---
+[Begin Action 121]
+20,1,0,0,-1
+[Begin Action 122]
+20,2,0,0,-1
+
+
+;--- ground-3/6
+
+[bg 0]
+	id=10
+	type=normal
+	spriteno=4,1
+	start=-180,125
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.2,0.2
+	zoomdelta=0.2
+
+;--- ground-4/6
+[bg 0]
+	id=10
+	type=normal
+	spriteno=5,1
+	start=0,140 ;0,166
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.3,0.3
+	zoomdelta=0.3
+
+
+;--- ground-5/6
+[bg 0]
+	id=10
+	type=normal
+	spriteno=6,1
+	start=0,138
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.45,0.45
+	zoomdelta=0.45
+
+;---
+;--- ground-6/6
+[bg 0]
+	id=10
+	type=normal
+	spriteno=6,2
+	start=0,187
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.6,0.6
+	zoomdelta=0.6
+
+
+;---
+;--- floor-1/3
+[bg 0]
+	id=20
+	type=normal
+	spriteno=30,2
+	start=-160,188
+	mask=1
+	tile=1,0
+	tilespacing=62,0
+	delta=    0.8,0.8
+	zoomdelta=0.8
+
+;--- floor-2/3
+[bg 0]
+	id=20
+	type=normal
+	spriteno=30,3
+	start=0,210
+	mask=1
+	tile=1,0
+	tilespacing=26,0
+;;	delta=    1.0,1.0
+;;	zoomdelta=1.0
+
+;--- floor-3/3
+[bg 0]
+	id=20
+	type=normal
+	spriteno=30,1
+	start=-80,192
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    1.25,1.25
+	zoomdelta=1.25
+
+
+;---
+;--- grass_fwd
+[bg 0]
+	id=30
+	type=normal
+	spriteno=7,1
+	start=0,156
+	mask=1
+	layerno=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    1.5,1.5
+	zoomdelta=1.5
+
+
+
+
+
+
+
+
+
+
+;---
+;---
+;[EOF]

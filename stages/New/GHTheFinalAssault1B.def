@@ -1,0 +1,509 @@
+
+[Info]
+name = "The Final Assault 1B" ;Gunstar Heroes
+author="MabsKMK"
+;1A Fixed sunset
+;1B Fixed night
+;2A Running sunset
+;2B Running night
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -5000
+boundright = 5000
+boundhigh = -250
+boundlow = 0
+verticalfollow = .8
+floortension = 100
+tension = 60
+zoomout = .75
+zoomin = 1
+overdrawhigh = 120
+overdrawlow = 120
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -9999
+rightbound =  9999
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/GHTheFinalAssaultB.mp3
+bgvolume = 0
+
+[BGdef]
+spr = GHTheFinalAssault.sff
+debugbg = 1
+
+[BG 1]
+type  = normal
+spriteno = 0, 1;0
+start = 0, 0
+delta = 0,0
+tile  = 1, 1
+tilespacing = 0,0
+;----------------------------
+
+[BG sky1]
+type  = normal
+spriteno = 1, 1;0
+start = 0, 162
+delta = 0,.25
+zoomdelta=0
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+[BG sky2]
+type  = normal
+spriteno = 1, 6;5
+start = 0, 170
+delta = .25,.25
+zoomdelta=.25
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+[BG sky3?]
+type  = normal
+spriteno = 1, 6;5
+start = 128, 190
+delta = .27,.27
+zoomdelta=.27
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+[BG sky4?]
+type  = normal
+spriteno = 1, 6;5
+start = 0, 210
+delta = .29,.29
+zoomdelta=.29
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+
+[BG empireship]
+type  = normal
+spriteno = 10, 6;1
+start = 800, 161
+delta = .3,.4
+sin.y=-240,25000
+zoomdelta=.3
+mask=1
+
+[BG buildingsbck]
+type  = normal
+spriteno = 2, 6;5
+start = -2615, 161
+delta = 1,1
+zoomdelta=1
+mask=1
+tile  = 0, 1
+tilespacing = 0,0
+[BG buildings]
+type  = normal
+spriteno = 2, 1;0
+start = -2615, 161
+delta = 1,1
+zoomdelta=1
+mask=1
+
+[BG REDair]
+type  = anim
+actionno = 55
+start = -4000, 50
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 56
+start = -4000, 50
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = -1000, 50
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 56
+start = -1000, 50
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+
+[BG REDair]
+type  = anim
+actionno = 55
+start = 1000, 50
+sin.y = 10,250,0
+sin.x = 500,1000,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 56
+start = 1000, 50
+sin.y = 10,250,0
+sin.x = 500,1000,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = 4000, 50
+sin.y = 10,250,0
+sin.x = 500,1000,0
+velocity=-.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 56
+start = 4000, 50
+sin.y = 10,250,0
+sin.x = 500,1000,0
+velocity=-.2,0
+delta = .8,.8
+zoomdelta=.8
+
+[BG floor]
+type  = normal
+spriteno = 5, 0;1
+start = 0, 225
+delta = 1,1
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+
+[BG fixedsoldier]
+type  = normal
+spriteno = 21, 2
+start = -300, 194
+delta = 1,1
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 766,0
+[BG fixedsoldier]
+type  = normal
+spriteno = 20, 3
+start = -100, 194
+delta = 1,1
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 766,0
+[BG fixedsoldier]
+type  = normal
+spriteno = 20, 13
+start = 100, 194
+delta = 1,1
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 766,0
+[BG fixedsoldier]
+type  = normal
+spriteno = 21, 3
+start = 300, 194
+delta = 1,1
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 766,0
+
+;===
+[BG solda1stand]
+type  = anim
+actionno = 10
+id=5
+start = -50, 197
+delta = 1,1
+zoomdelta=1
+[BG solda1stand]
+type  = anim
+actionno = 11
+id=6
+start = 50, 197
+delta = 1,1
+zoomdelta=1
+[BG solda1stand]
+type  = anim
+actionno = 10
+id=5
+start = -4000, 197
+delta = 1,1
+zoomdelta=1
+[BG solda1stand]
+type  = anim
+actionno = 11
+id=6
+start = 4000, 197
+delta = 1,1
+zoomdelta=1
+;===
+
+[BG running]
+type  = anim
+actionno = 20
+start = -4900, 204
+sin.y = 3,100,0
+velocity=1.6,0
+delta = 1,1
+zoomdelta=1
+[BG running]
+type  = anim
+actionno = 20
+start = -5000, 204
+sin.y = -3,100,0
+velocity=1.6,0
+delta = 1,1
+zoomdelta=1
+[BG running]
+type  = anim
+actionno = 20
+start = -5100, 204
+sin.y = 3,100,0
+velocity=1.6,0
+delta = 1,1
+zoomdelta=1
+[Begin Action 20]
+21,10,0,0,10
+21,11,0,0,10
+21,12,0,0,10
+21,13,0,0,10
+
+[BG running]
+type  = anim
+actionno = 21
+start = 4900, 205
+sin.y = -3,100,0
+velocity=-1.6,0
+delta = 1,1
+zoomdelta=1
+[BG running]
+type  = anim
+actionno = 21
+start = 5000, 205
+sin.y = 3,100,0
+velocity=-1.6,0
+delta = 1,1
+zoomdelta=1
+[BG running]
+type  = anim
+actionno = 21
+start = 5100, 205
+sin.y = -3,100,0
+velocity=-1.6,0
+delta = 1,1
+zoomdelta=1
+[Begin Action 21]
+21,10,0,0,10, H
+21,11,0,0,10, H
+21,12,0,0,10, H
+21,13,0,0,10, H
+
+;---------------------------
+[BGCtrlDef solda1walk]
+looptime = 1200
+ctrlID = 5
+[BGCtrl solda1]
+type = Anim
+time = 0
+value = 10
+[BGCtrl solda1]
+type = Velset
+time = 0
+x = 0
+[BGCtrl solda1]
+type = Anim
+time = 400
+value = 12
+[BGCtrl solda1]
+type = Anim
+time = 450
+value = 30
+[BGCtrl solda1]
+type = Velset
+time = 450
+x = -1
+[BGCtrl solda1]
+type = Anim
+time = 550
+value = 12
+[BGCtrl solda1]
+type = Velset
+time = 550
+x = 0
+[BGCtrl solda1]
+type = Anim
+time = 950
+value = 10
+[BGCtrl solda1]
+type = Velset
+time = 1000
+x = 1
+[BGCtrl solda1]
+type = Anim
+time = 1000
+value = 28
+
+[BGCtrlDef solda2walk]
+looptime = 1200
+ctrlID = 6
+[BGCtrl solda1]
+type = Anim
+time = 0
+value = 13
+[BGCtrl solda1]
+type = Velset
+time = 0
+x = 0
+[BGCtrl solda1]
+type = Anim
+time = 400
+value = 11
+[BGCtrl solda1]
+type = Anim
+time = 450
+value = 29
+[BGCtrl solda1]
+type = Velset
+time = 450
+x = 1
+[BGCtrl solda1]
+type = Anim
+time = 550
+value = 11
+[BGCtrl solda1]
+type = Velset
+time = 550
+x = 0
+[BGCtrl solda1]
+type = Anim
+time = 950
+value = 13
+[BGCtrl solda1]
+type = Velset
+time = 1000
+x = -1
+[BGCtrl solda1]
+type = Anim
+time = 1000
+value = 31
+;===
+
+[Begin Action 10];Soldado-1 stand>
+21,6,0,0,20
+21,8,0,0,20
+21,6,0,0,20
+21,8,0,0,20
+21,0,0,0,20
+21,2,0,0,-1
+
+[Begin Action 11];Soldado-2 stand>
+21,7,0,0,20
+21,9,0,0,20
+21,7,0,0,20
+21,9,0,0,20
+21,1,0,0,20
+21,5,0,0,-1
+
+[Begin Action 12];Soldado-1 stand<
+21,6,0,0,20, H
+21,8,0,0,20, H
+21,6,0,0,20, H
+21,8,0,0,20, H
+21,0,0,0,20, H
+21,4,0,0,-1
+[Begin Action 13];Soldado-2 stand<
+21,7,0,0,20, H
+21,9,0,0,20, H
+21,7,0,0,20, H
+21,9,0,0,20, H
+21,1,0,0,20
+21,3,0,0,-1
+
+[Begin Action 28];Soldado-1 walk>
+21,22,0,0,10
+21,24,0,0,10
+21,26,0,0,10
+21,28,0,0,10
+[Begin Action 29];Soldado-2 walk>
+21,23,0,0,10
+21,25,0,0,10
+21,27,0,0,10
+21,29,0,0,10
+
+[Begin Action 30];Soldado-1 walk<
+21,22,0,0,10, H
+21,24,0,0,10, H
+21,26,0,0,10, H
+21,28,0,0,10, H
+[Begin Action 31];Soldado-2 walk<
+21,23,0,0,10, H
+21,25,0,0,10, H
+21,27,0,0,10, H
+21,29,0,0,10, H
+
+[Begin Action 55];Air1
+52,0,0,0,2
+52,1,0,0,2
+52,2,0,0,2
+[Begin Action 56];Air2
+53,1,0,0,245
+53,0,0,0,5
+53,1,0,0,495,h
+53,0,0,0,5,h
+53,1,0,0,250
+

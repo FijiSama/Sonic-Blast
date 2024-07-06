@@ -1,0 +1,109 @@
+[Info]
+name = "Frost Walrus' Snow Base"
+author = "Calamix"
+Ripped from = "Megaman X4"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -305;340
+boundright = 305;340
+boundhigh = -100
+boundlow = 0
+verticalfollow = 0.37
+tension = 60
+floortension = 102
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 100,100,100
+yscale = .2
+reflect = 0
+intensity = 0
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/fwsnowb.mp3
+bgvolume = 155
+
+[BGdef]
+spr = fwsnowb.sff
+debugbg = 0
+
+[BG 0]
+type = normal
+spriteno = 0,0
+layerno = 0                
+start = 0,0
+delta = 1,1
+trans = none
+mask = 0
+tile = 1,1
+tilespacing = 0,0
+window = 0,0,319,239
+
+
+[BG ForeGround]
+type  = anim
+id = 1
+actionno = 1
+layerno = 1
+start = 0,0
+delta = 1,1
+mask = 1
+velocity = 0,0
+
+[Begin Action 1]
+1,0,0,0,11
+1,1,0,0,11
+
+
+[BG ForeGround]
+type  = anim
+id = 2
+actionno = 2
+layerno = 1
+start = 0,0
+delta = 1,1
+mask = 1
+velocity = 0,0
+
+[Begin Action 2]
+2,0,0,0,11
+2,1,0,0,11

@@ -1,0 +1,385 @@
+;Faça do dia de hoje o melhor dia de sua vida.
+;Sprites ripped by artman74864
+
+[Info]
+name = "Battle Glacier V2"
+Author = kater15
+
+[Camera]
+startx 		= 0
+starty 		= 0
+boundleft 	= -1200
+boundright 	= 1200
+boundhigh 	= -460
+boundlow 	= 0
+
+verticalfollow 	= .75
+floortension 	= 100
+tension = 50
+
+[PlayerInfo]
+p1startx 	= -70
+p1starty 	= 0
+p1facing 	= 1
+p2startx 	= 70
+p2starty 	= 0
+p2facing 	= -1
+p3startx 	= -100
+p3starty 	= 0
+p3facing 	= 1
+p4startx 	= 100
+p4starty 	= 0
+p4facing 	= -1
+leftbound 	= -3000
+rightbound 	= 3000
+
+[Bound]
+screenleft 	= 15
+screenright 	= 15
+
+[StageInfo]
+zoffset 	= 190.0
+autoturn 	= 1
+resetBG 	= 0
+localcoord 	= 320, 240
+xscale 		= 1
+yscale 		= 1
+
+[Scaling]
+topz     	= 0
+botz     	= 50
+topscale 	= 1
+botscale 	= 1.2
+
+[Shadow]
+color 		= 32,32,32
+yscale 		= .1
+intensity 	= 0
+
+[Music]
+bgmusic 	= sound/Battle_Glacier2.ogg
+bgvolume 	= 255
+
+[BGdef]
+spr 		= stages/K15_Battle_Glacier_v2.sff
+debugbg 	= 0
+
+;=============================================================
+
+[BG image]
+type  		= normal
+spriteno 	= 1, 0
+start 		= 0,175
+delta 		= 0.01,0.1
+tile 		= 1,1
+
+[BG image]
+type  		= normal
+spriteno 	= 1, 1
+start 		= 0,175
+delta 		= 0.05,0.13
+tile 		= 1,0
+mask 		= 1
+trans		= add
+velocity	= -.2,0
+
+[BG image]
+type  		= normal
+spriteno 	= 1, 2
+start 		= 0,135
+delta 		= 0.10,0.16
+tile 		= 1,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 1, 3
+start 		= 0,95
+delta 		= 0.15,0.19
+tile 		= 1,0
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 2
+start 		= 0,88
+delta 		= 0.75,0.75
+velocity	= -7,0
+tile 		= 1,0
+tilespacing	= 2040,0
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 2
+start 		= 560,0
+delta 		= 0.75,0.75
+velocity	= -7,0
+tile 		= 1,0
+tilespacing	= 2040,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 5, 0
+start 		= 0,75
+delta 		= 0.75,0.75
+velocity	= -1.7,0
+sin.x		= 0,100,10
+sin.y		= 10,100,0
+tile 		= 1,0
+tilespacing	= 920,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 5, 0
+start 		= 400,40
+delta 		= 0.75,0.75
+velocity	= -1.7,0
+sin.x		= 0,100,10
+sin.y		= 10,100,0
+tile 		= 1,0
+tilespacing	= 920,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 5, 0
+start 		= 200,125
+delta 		= 0.75,0.75
+velocity	= -1.7,0
+sin.x		= 0,100,10
+sin.y		= 10,100,0
+tile 		= 1,0
+tilespacing	= 920,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 5, 0
+start 		= 600,0
+delta 		= 0.75,0.75
+velocity	= -1.7,0
+sin.x		= 0,100,10
+sin.y		= 10,100,0
+tile 		= 1,0
+tilespacing	= 920,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 0
+start 		= -1492,155
+delta 		= 1,1
+tile 		= 2,1
+tilespacing	= 256,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 2
+start 		= -1460,155
+delta 		= 1,1
+tile 		= 4,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 0
+start 		= 1200,155
+delta 		= 1,1
+tile 		= 2,1
+tilespacing	= 256,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 2
+start 		= 1232,155
+delta 		= 1,1
+tile 		= 4,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 2, 0
+start 		= 0,155
+delta 		= 1,1
+tile 		= 1,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 2, 1
+start 		= 0,155
+delta 		= 1,1
+tile 		= 1,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 3, 0
+start 		= -800,155
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 1
+start 		= -800,155
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 3, 0
+start 		= -800,59
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 1
+start 		= -800,59
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 1
+start 		= -800,-5
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 3,20
+start 		= -800,-5
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 3, 0
+start 		= -6,155
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 1
+start 		= -6,155
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 1
+start 		= -6,91
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 3, 0
+start 		= -6,-5
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= anim
+actionno 	= 1
+start 		= -6,-5
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 3,20
+start 		= -6,-5
+delta 		= 1,1
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 0
+start 		= -750,59
+delta 		= 1,1
+tile 		= 2,4
+tilespacing	= 640,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 1
+start 		= -750,27
+delta 		= 1,1
+tile 		= 2,0
+tilespacing	= 640,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 3
+start 		= -718,155
+delta 		= 1,1
+tile 		= 5,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 0
+start 		= 450,59
+delta 		= 1,1
+tile 		= 2,4
+tilespacing	= 384,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 1
+start 		= 450,27
+delta 		= 1,1
+tile 		= 2,0
+tilespacing	= 384,0
+mask 		= 1
+
+[BG image]
+type  		= normal
+spriteno 	= 4, 3
+start 		= 482,155
+delta 		= 1,1
+tile 		= 3,0
+mask 		= 1
+
+;----
+[Begin Action 1]
+3,1, 0,0, 5
+3,2, 0,0, 5
+3,3, 0,0, 5
+3,4, 0,0, 5
+3,5, 0,0, 5
+3,6, 0,0, 5
+3,7, 0,0, 5
+3,8, 0,0, 5
+3,9, 0,0, 5
+3,10, 0,0, 5
+3,11, 0,0, 5
+3,12, 0,0, 5
+3,13, 0,0, 5
+3,14, 0,0, 5
+3,15, 0,0, 5
+3,16, 0,0, 5
+3,17, 0,0, 5
+3,18, 0,0, 5
+3,19, 0,0, 5
+
+;----
+[Begin Action 2]
+6,0, 0,0, 1
+6,1, 0,0, 1
+6,2, 0,0, 1
+6,3, 0,0, 1
+6,4, 0,0, 1
+6,5, 0,0, 1

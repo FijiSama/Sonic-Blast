@@ -1,0 +1,390 @@
+;---------------------------------------------------
+;SnooPING AS usual
+;---------------------------------------------------
+
+[Info]
+name = "Green Hill Zone"
+displayname = "Green Hill Zone"
+versiondate = 08,19,2012
+mugenversion = 1.0
+author = "Neo_Fire_Sonic" 
+
+[BGdef]
+spr = GreenHillZone.sff
+debugbg = 0
+
+[Music]
+bgmusic = sound/Sonic Adventure 2 Green Hill Zone.mp3
+bgvolume = 255
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -150
+boundright = 453
+boundhigh = -350
+boundlow = 10
+verticalfollow = .4
+floortension = 30
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 13
+
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+p3startx = -100
+p3starty = 0
+p3facing = 1
+p4startx = 100
+p4starty = 0
+p4facing = -1
+leftbound  = -1500
+rightbound =  1500    
+   
+
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 1
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+
+[shadow]
+Intensity = 90
+color = 0,0,0
+yscale = .15
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+;----------------------------------------[PCX IMAGE]
+
+[BG back] ; don't you just love improvising?
+type = normal
+spriteno = 6,0
+start = 0,0
+delta = 0,0
+tile = 0,0
+mask = 1
+
+[BG Water]
+type  = anim
+actionno = 1
+start = 0,260
+delta = .4, .4
+mask = 1
+tile = 3, 0
+tilespacing = 0,0
+id = 3
+
+[BG Water1]
+type  = anim
+actionno = 1
+start = 256,260
+delta = .4, .4
+mask = 1
+tile = 3, 0
+tilespacing = 0,0
+id = 3
+
+[BG Water2]
+type  = anim
+actionno = 1
+start = 512,260
+delta = .4, .4
+mask = 1
+tile = 3, 0
+tilespacing = 0,0
+id = 3
+
+[BG Water3]
+type  = anim
+actionno = 1
+start = -256,260
+delta = .4, .4
+mask = 1
+tile = 3, 0
+tilespacing = 0,0
+id = 3
+
+[BG Water]
+type  = anim
+actionno = 1
+start = -512,260
+delta = .4, .4
+mask = 1
+tile = 3, 0
+tilespacing = 0,0
+id = 3
+
+[Begin Action 1]
+0,1, 0,0, 5
+0,2, 0,0, 5
+0,3, 0,0, 5
+0,4, 0,0, 5
+
+
+[BG Waterfalls]
+type  = anim
+actionno = 0
+start = 0, -140
+delta = .4, .4
+mask = 1
+tile = 0, 0
+tilespacing = 0,0
+id = 2
+
+[BG Waterfalls2]
+type  = anim
+actionno = 0
+start = 1024, -140
+delta = .4, .4
+mask = 1
+tile = 0, 0
+tilespacing = 0,0
+id = 2
+
+[Begin Action 0]
+1,0, 0,0, 3
+1,1, 0,0, 3
+1,2, 0,0, 3
+;---------------------------------------
+
+[BG Totempole]
+type = normal
+spriteno = 4,0
+start = 72,370
+delta = 1,1
+mask = 1
+
+[BG Totempole]
+type = normal
+spriteno = 4,0
+start = 572,370
+delta = 1,1
+mask = 1
+
+[BG SunFlower]
+type  = anim
+actionno = 4
+start = 112,370
+delta = 1,1
+mask = 1
+id = 3
+
+[BG SunFlower]
+type  = anim
+actionno = 4
+start = 912,370
+delta = 1,1
+mask = 1
+id = 3
+
+[BG reverseSunFlower]
+type  = anim
+actionno = 5
+start = -212,370
+delta = 1,1
+mask = 1
+id = 3
+
+[BG reverseSunFlower]
+type  = anim
+actionno = 5
+start = 542,370
+delta = 1,1
+mask = 1
+id = 3
+
+[Begin Action 4]
+3,0, 0,0, 13
+3,1, 0,0, 13
+
+[Begin Action 5]
+3,2, 0,0, 13
+3,3, 0,0, 13
+
+[BG Tree]
+type = normal
+spriteno = 2,3
+start = 42,370
+delta = 1,1
+mask = 1
+
+[BG Tree]
+type = normal
+spriteno = 2,3
+start = -342,370
+delta = 1,1
+mask = 1
+
+[BG Tree]
+type = normal
+spriteno = 2,3
+start = 452,370
+delta = 1,1
+mask = 1
+
+
+[BG Tree]
+type = normal
+spriteno = 2,3
+start = 982,370
+delta = 1,1
+mask = 1
+
+[BG Tree]
+type = normal
+spriteno = 2,3
+start = 942,400
+delta = 1,1
+mask = 1
+
+[BG Flower]
+type  = anim
+actionno = 3
+start = 12,370
+delta = 1,1
+mask = 1
+id = 3
+
+[BG Flower2]
+type  = anim
+actionno = 3
+start = 512,370
+delta = 1,1
+mask = 1
+id = 3
+
+[Begin Action 3]
+2,0, 0,0, 135
+2,1, 0,0, 5
+2,2, 0,0, 155
+2,1, 0,0, 5
+2,0, 0,0, 5
+
+[BG chopper]
+type  = anim
+actionno = 6
+start = -50,460
+mask = 1
+sin.y = 132,150
+
+[BG Chopper]
+type  = anim
+actionno = 6
+start = -130,460
+mask = 1
+sin.y = 132,150
+
+[BG chopper]
+type  = anim
+actionno = 6
+start = 310,460
+mask = 1
+sin.y = 132,150
+
+[BG chopper]
+type  = anim
+actionno = 6
+start = 360,460
+mask = 1
+sin.y = 132,150
+
+[BG Chopper]
+type  = anim
+actionno = 6
+start = 420,460
+mask = 1
+sin.y = 132,150
+
+
+[Begin Action 6]
+5,0, 0,0, 5
+5,1, 0,0, 5
+
+
+[BG AMERICA]
+type = normal
+spriteno = 1,5
+start = -637,425
+delta = 1,1
+mask = 1
+
+[BG Ground]
+type = normal
+spriteno = 0,5
+start = -445,425
+delta = 1,1
+mask = 1
+
+[BG AMERICA]
+type = normal
+spriteno = 1,5
+start = -192,425
+delta = 1,1
+mask = 1
+
+[BG Ground]
+type = normal
+spriteno = 0,5
+start = 0,425
+delta = 1,1
+mask = 1
+
+[BG AMERICA]
+type = normal
+spriteno = 1,5
+start = 253,425
+delta = 1,1
+mask = 1
+
+
+[BG Ground]
+type = normal
+spriteno = 0,5
+start = 445,425
+delta = 1,1
+mask = 1
+
+[BG AMERICA]
+type = normal
+spriteno = 1,5
+start = 698,425
+delta = 1,1
+mask = 1
+
+[BG Ground]
+type = normal
+spriteno = 0,5
+start = 890,425
+delta = 1,1
+mask = 1
+
+[BG AMERICA]
+type = normal
+spriteno = 1,5
+start = 1143,425
+delta = 1,1
+mask = 1
+
+
+
+;---------------------------------------
+;---------------------------------------[/PCX IMAGE]
+
+

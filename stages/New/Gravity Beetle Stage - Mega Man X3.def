@@ -1,0 +1,252 @@
+;Gravity Beetle (Airborne Aircraft Carrier) Stage from Mega Man X3
+;by Gêmeos dos Jogos
+
+;--------------------------------------------------------
+[Info]
+name = "Gravity Beetle Stage - Mega Man X3"
+displayname = "Gravity Beetle Stage - Mega Man X3"
+versiondate = 06,23,2022
+mugenversion = 1.0
+author = "Gêmeos dos Jogos"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -696
+boundright = 696
+boundhigh = -234
+boundlow = 0
+verticalfollow = 1
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+leftbound  = -2000
+rightbound =  2000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 184
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Gravity Beetle (Remix) - Mega Man X3.mp3
+bgmloopstart = 143772
+bgmloopend = 4722177
+bgmvolume = 100
+
+;========================================================
+;-------------------------------------
+[BGdef]
+spr = Gravity Beetle Stage - Mega Man X3.sff
+debugbg = 0
+
+;----------
+[BG Fundo 1-1]
+type  = normal
+spriteno = 0, 0
+start = -266,0
+delta = 0.52, 0.80
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Fundo 1-2]
+type  = normal
+spriteno = 0, 1
+start = -266,258
+delta = 0.52, 0.80
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Nuvens]
+type  = normal
+spriteno = 5, 0
+start = 0,0
+delta = 0.52, 0.80
+mask = 1
+velocity = -2, 0
+tile = 1, 0
+tilespacing = 0, 0
+trans = addalpha
+alpha = 256,256
+layerno = 0
+
+[BG Fundo 2]
+type  = anim
+actionno = 3
+start = 0,-266
+delta = 0.80, 0.80
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 256
+layerno = 0
+
+[BG Chao]
+type  = normal
+spriteno = 0, 2
+start = -536,270
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Luz do Chao]
+type  = anim
+actionno = 1
+start = -840,190
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 5, 0
+tilespacing = 128, 0
+layerno = 0
+
+[BG 1 Parte da Nave]
+type  = normal
+spriteno = 2, 0
+start = 320,246
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Luz da Entrada 1]
+type  = anim
+actionno = 2
+start = -152,182
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 4, 0
+tilespacing = 64, 0
+layerno = 0
+
+[BG Luz da Entrada 2]
+type  = anim
+actionno = 2
+start = -112,182
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 5, 0
+tilespacing = 64, 0
+layerno = 0
+
+[BG Ferros - 3]
+type  = normal
+spriteno = 2, 3
+start = 320,-799
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 20
+tilespacing = 96, 0
+layerno = 0
+
+[BG Ferros - 4]
+type  = normal
+spriteno = 2, 4
+start = 320,-970
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 20
+tilespacing = 96, 0
+layerno = 0
+
+[BG Ferros - 1]
+type  = normal
+spriteno = 2, 1
+start = 320,246
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 0
+tilespacing = 288, 0
+layerno = 1
+
+[BG Ferros - 2]
+type  = normal
+spriteno = 2, 2
+start = 320,-362
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 20
+tilespacing = 288, 0
+layerno = 1
+
+;----------
+; Luz do Chao
+[Begin Action 1]
+1,0, 0,0, 9
+1,1, 0,0, 9
+1,2, 0,0, 9
+1,3, 0,0, 9
+1,2, 0,0, 9
+1,1, 0,0, 9
+
+; Luz da Entrada
+[Begin Action 2]
+3,0, 0,0, 8
+3,1, 0,0, 8
+3,2, 0,0, 8
+3,3, 0,0, 8
+3,4, 0,0, 8
+3,5, 0,0, 8
+
+; Fundo 2
+[Begin Action 3]
+4,0, 0,0, 10
+4,1, 0,0, 10
+4,2, 0,0, 10
+4,3, 0,0, 10
+4,4, 0,0, 10
+4,3, 0,0, 10
+4,2, 0,0, 10
+4,1, 0,0, 10

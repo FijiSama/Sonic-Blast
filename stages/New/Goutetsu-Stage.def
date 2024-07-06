@@ -1,0 +1,150 @@
+[Info]
+name = "Goutetsu's Tropical Dojo-Shrine"
+author="Swanky & RR1"
+versiondate = 01,30,2010    ;Version date of stage (MM,DD,YYYY or X.XX) (replace with actual date)
+mugenversion = 1.0 
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -167
+boundright = 167
+boundhigh = -200
+boundlow =  0
+verticalfollow = .5
+floortension = 0
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  250
+botbound  =  0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+[StageInfo]
+zoffset = 227
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+[Shadow]
+color = 92,92,92
+yscale = .5
+
+[Music]
+bgmusic = sound/valleyofbliss.mp3
+bgvolume = 255
+-----------------------------------------
+[BGdef]
+spr = Goutetsu-Stage.sff
+debugbg = 0
+
+[BG farest BG]
+type = normal
+spriteno = 0,0
+start = 0,100
+delta=1,0
+
+[BG BigCloud]
+type  = normal
+spriteno = 1,0
+layerno = 0
+start = 0, 135
+delta = .1,0
+trans = none
+mask  = 1
+velocity = .50
+tile = 1, 0
+
+[BG farground]
+type=normal
+spriteno=3,0
+start=0,150
+delta=.1,.8
+trans=none
+mask=1
+
+[BG Backplant]
+type=normal
+spriteno=5,3
+start=0,220
+delta=.5,.9
+trans=none
+mask=1
+
+[BG Totem1]
+type=normal
+spriteno=2,0
+start=0,220
+mask=1
+
+[BG Totem2]
+type=normal
+spriteno=2,1
+start=0,220
+mask=1
+
+[BG Ground]
+type = normal
+spriteno = 4,0
+start = 0,240
+delta = 1,1
+mask = 1
+
+[BG Plant1]
+type=normal
+spriteno=5,0
+start=208,202
+layerno=1
+delta=1.05,1
+mask=1
+
+[BG Plant2]
+type=normal
+spriteno=5,1
+start=100,240
+layerno=1
+delta=1.2,1
+mask=1
+
+[BG Plant3]
+type=normal
+spriteno=5,2
+start=-300,240
+layerno=1
+delta=1.2,1
+mask=1
+
+[BG Plant4]
+type=normal
+spriteno=6,0
+start=222,241
+layerno=1
+delta=1.2,1
+mask=1
