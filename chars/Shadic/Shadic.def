@@ -1,0 +1,33 @@
+[Info]
+name = "Shadic The Hedgehog"
+displayname = "Shadic"
+versiondate = 02/09/2019
+mugenversion = 1.0
+author = "InSeph/Sonikku/Fijisama"
+pal.defaults = 1
+
+[Files]
+sprite = Shadic Base Form.sff
+anim = Shadic Base Form.air
+sound = Shadic Base Form.snd
+cmd = Shadic Base Form.cmd
+cns = Shadic Base Form.cns
+stcommon = common1.cns
+movelist = Moveset.dat
+st = Shadic Base Form.cns
+st1 = AI.cns
+st2 = Skills.cns
+st3 = Ultimate.cns
+st4 = Misc.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+pal11 = 11.act
+pal12 = 12.act

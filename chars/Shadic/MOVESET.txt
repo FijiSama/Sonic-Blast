@@ -1,0 +1,53 @@
+Shadic The Hedgehog - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B Kick - Dash
+
+C
+
+Down + C Spin dash
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire Speed Down
+
+C Aire
+
+Down + C Aire
+
+X Homing Attack
+
+Y - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Choas Spear (Hold)
+
+D,DB,B,a - Chaos Power
+
+D,DF,F,b - Shadic Boost (And Air)
+
+D,DB,B,b - Chaos Power Combo
+
+D,DF,F,c - Shadic Wave
+
+D,DB,B,c - Chaos Blast
+
+SUPERS:
+
+D,DF,F,a+b - Choas Control
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b - Ultimate Power
