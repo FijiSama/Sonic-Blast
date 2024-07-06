@@ -1,0 +1,454 @@
+;===================================================================================
+;---------------------------------- Supers --------------------------------------;
+;===================================================================================
+;===============================================================================
+; Giant Fire Ball Charge - Start
+;---------------------------------------------------------------------------
+[Statedef 21600]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 21600
+poweradd = -2000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7401
+ID = 7401
+pos = 0,-15
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,6
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,6
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 30
+x = 2
+y = -12
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 30
+statetype = A
+movetype = A
+physics = A
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 35
+x = 4
+y = -0
+
+[State 0, Giant Fire Ball Charge - Helper]
+type = Helper
+trigger1 = time = 35
+helpertype = normal
+name = "Giant Fire Ball Charge - Helper"
+ID = 21650
+stateno = 21650
+pos = 0,-30
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1
+
+[State 200, ChangeState]
+type = ChangeState
+triggerall = numhelper(21650) = 0
+trigger1 = time >= 35
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Fuego en P2
+[Statedef 21635]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 9999
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+trigger2 = timemod = 30,0
+value = S5,56
+volume = 999
+
+[State 0, Fire FX]
+type = Explod
+trigger1 = timemod = 2,0
+anim = 21635
+ID = 21635
+pos = -10+random%20,0-random%40
+postype = p2
+facing = -1
+vfacing = 1
+bindtime = 5
+removetime = -2
+scale = .2,.2
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+supermove = 999
+supermovetime = 999
+pausemove = 999
+pausemovetime = 999
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 50
+trigger2 = p2movetype != H
+;-------------------------------------------------------------------------------
+; Giant Fire Ball Charge - Skill Hitspark
+[Statedef 21645]
+type    = A
+movetype= I
+physics = N
+anim = 8011
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Var(1)
+scale = 1+time*.05,1+time*.05
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------
+; Giant Fire Ball Charge - Helper
+[Statedef 21650]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 21650
+sprpriority = 3
+
+[State 0, Fire FX]
+type = Explod
+trigger1 = timemod = 27,0
+anim = 21670
+ID = 21670
+pos = -200,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 5
+removetime = -2
+scale = 1,1
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+trigger2 = timemod = 30,0
+value = S5,56
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+trigger2 = timemod = 30,0
+value = S5,57
+volume = 999
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 2,-15
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 10
+scale = 0+time*.1,0+time*.1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 15
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = N         ;A,C,S,N
+ignorehitpause = 1
+
+[state 0]
+type = angledraw
+triggerall = time < 10
+trigger1 = 1
+scale = 0+(time/10.000),0+(time/10.000)
+ignorehitpause = 1
+
+[state 0]
+type = angledraw
+triggerall = time >= 10
+triggerall = time < 20
+trigger1 = 1
+scale = 1,1
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+ignorehitpause = 1
+
+[State 0, Giant Fire Ball Charge - Skill Hitspark]
+type = Helper
+trigger1 = Movehit = 1
+name = "Giant Fire Ball Charge - Skill Hitspark"
+ID = 21645
+stateno = 21645
+pos = -10+random%20,-20-random%35
+postype = p2
+facing = -1
+ownpal = 1
+Size.Xscale = .3
+Size.Yscale = .3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = unguardable
+
+[State 200, 1]
+type = HitDef
+triggerall = hitcount < 30
+trigger1 = timemod = 4,0
+attr = A, SP
+animtype  = Heavy
+damage    = 10
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 0,2
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-45
+hitsound   = S1,19
+guardsound = S4,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -8,-2
+air.velocity = -8,-2
+Fall = 1
+Sprpriority = 3
+Getpower = 0,0
+sprpriority = 3
+envshake.time = 5
+
+[State 0, Fuego en P2]
+type = Helper
+triggerall = numhelper(21635) = 0
+trigger1 = movehit = 1
+helpertype = normal
+name = "Fuego en P2"
+ID =  21635
+stateno = 21635
+pos = 500,500
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 0
+
+[State 200, Spark CVS]
+type = Explod
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7001
+postype = P2
+pos = -15+random%30,-22-random%15
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .3,.3
+removeongethit = 1
+ontop = 1
+supermovetime 	= 999
+ignorehitpause  = 1
+persistent = 4
+
+[State 200, ChangeState]
+type = ChangeState
+trigger1 = root,stateno != 21600
+value = 21651
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = time = 150
+value = 21651
+ignorehitpause = 1
+;-------------------------------------------------------------------------------
+; Giant Fire Ball Charge - Fin
+[Statedef 21651]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 21660
+sprpriority = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 10
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S4,42
+volume = 50
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 10
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+fv = 1
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 20
+fv = 1
+value = .1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1-fvar(1)
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20

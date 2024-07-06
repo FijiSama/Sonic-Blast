@@ -1,0 +1,54 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Slideburn [Ground]		                      _D_+^Ax2                 		        
+Knockdown [Air] 		                      _D_+^A 		                                   		
+Fury Swipes [Ground] 		                  _D_+[^B...]		              
+Headtap [Air] 		                          _D_+[^B...]		              
+Rising Flame [Ground] 		                  _D_+^C				                                             		         			 
+Flame Fist       		                       ^Y          		                 
+Transform/MAX Power 		                   ^Z	                   
+Power Down 				                      _D_+^S                                
+[B.Blaze] Ember Fist [Ground] 		          _D_+^A		   
+[B.Blaze] Knockdown [Air] 		              _D_+^A		                      				               		           		        
+[B.Blaze] Spin Dash Crash [Air]			      _D_+^B	   		              
+[B.Blaze] Scorched Spread [Ground]		      _D_+^C 		      		    		                   		                         		    		
+[B.Blaze] Burning Pillar [Ground]  			     ^Y 		                       
+                                      		  
+<#f0f000>:Specials [Base Form]:</>
+Rolling Ember			                      _D_F_+^A		                           				            	    
+Firestorm		                              _D_B_+^A                          	    
+Pyro Tornado 		                          _D_F_+^B                          		    
+Blaze Combo               		              _D_B_+^B              		    
+Boost Crash   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Scortched Earth Assualt 		      _D_B_+^C              
+
+<#f0f000>:Specials [Burning Blaze]:</>
+Scalding Burst [Ground/Air]			          _D_F_+^A		                           				            	    
+Inferno Blitz		                          _D_B_+^A                          	    
+Torrid Tempest		                          _D_F_+^B                          		    
+Igneous Assault                		          _D_B_+^B              		    
+Burning Crash   		                      _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Nulclear Broiler     		      _D_B_+^C   		    
+		    
