@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Megaman X"
+displayname = "Megaman X"
+versiondate = 1/05/2020
+mugenversion = 1.0
+author = "Martix720"
+pal.defaults = 1,2,3,4,5
+
+[Files]
+sprite = Megaman X.sff
+anim = Megaman X.air
+sound = Megaman X.snd
+cmd = Megaman X.cmd
+cns = Megaman X.cns
+stcommon = common1.cns
+st = Megaman X.cns
+st1 = IA.cns
+st2 = Specials.cns
+st3 = ULTIMATE.cns
+pal1 = 1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard =
