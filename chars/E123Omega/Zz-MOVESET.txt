@@ -1,0 +1,44 @@
+Nazo - MOVESET
+
+A
+
+Down + A 
+
+A Aire
+
+B
+
+Down + B
+
+B Aire
+
+C - Ki Blast
+
+Down + C
+
+C Aire - Ki Blast
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Omega Combo
+
+D,DB,B,a - Omega Tornado
+
+D,DF,F,b - Omega Charge
+
+D,DB,B,b - Omega Missile
+
+D,DF,F,c - Omega Blast
+
+D,DB,B,c - Omega Fire (and Aire)
+
+SUPER: 
+
+x - Ultimate Omega Canon
+
+Full Power
+
+S (Power Charge Max and Life -30)
+
