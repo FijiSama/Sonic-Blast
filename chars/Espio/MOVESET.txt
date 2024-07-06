@@ -1,0 +1,53 @@
+Espio the Chameleon - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C Shiruken
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire
+
+C Aire
+
+Down C Aire
+
+X - Homing Attack
+
+Down + X - Invisible
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Espio Combo
+
+D,DB,B,a - Ninja Storm
+
+D,DF,F,b - Espio Tornado
+
+D,DB,B,b - Espio Tornado Combo
+
+D,DF,F,c - Ninja Storm Charge
+
+D,DB,B,c - Surge Of Kunai (And Air)
+
+SUPERS:
+
+D,DF,F,a+b - Ninja Tornado
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b - Tornado Combo
