@@ -1,0 +1,129 @@
+; ____________________________________
+;|U.S.A. Military Unit ::..           |
+;|Stage Made by: Kurai Naito ::..     |
+;|Version: Beta 1 - 09/05/05 ::..     |
+;|Oficial WebSite:                    |
+;|http://darktemple.paodemugen.com.br |
+;|____________________________________|
+
+[Info]
+name = "U.S.A. Military Unit"
+
+[Camera]
+startx = 0
+starty = 0
+
+boundleft = -214
+boundright = 214
+
+boundhigh = -124
+boundlow = 0
+
+verticalfollow = .3
+
+floortension = 0
+
+tension = 50
+
+[PlayerInfo]
+
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+
+screenleft = 20
+screenright = 20
+
+[StageInfo]
+
+zoffset = 230
+
+zoffsetlink = 1
+
+autoturn = 1
+
+resetBG = 0
+
+[Shadow]
+
+intensity = 96
+
+color = 128,128,128
+
+yscale = -.2
+
+fade.range = 0,0
+
+[Reflection]
+
+intensity = 0
+
+[Music]
+
+bgmusic = 
+bgvolume = 
+
+[BGdef]
+
+spr = BM-USAMilitaryUnit.sff
+debugbg = 0
+
+;-----------------------------------------------------------------------------------------------
+
+[BG Fundo com o Ceu]
+type = normal
+spriteno = 3,0
+start = -200,-99
+delta = 0.18,0.8
+mask = 1
+layerno = 0
+
+[BG Fundo com os Robôs]
+type = normal
+spriteno = 1,0
+start = -252,80
+delta = 0.43,0.9
+mask = 1
+layerno = 0
+
+[BG Fundo com os Soldados]
+type  = anim
+actionno = 2
+start = 137,79
+delta = 0.43,0.9
+mask = 1
+layerno = 0
+
+[Begin Action 2]
+2,0, 0,0, 12
+2,1, 0,0, 12
+2,0, 0,0, 12
+2,2, 0,0, 12
+
+[BG Frente]
+type = normal
+spriteno = 0,0
+start = -376,105
+delta = 1,1
+mask = 1
+layerno = 0

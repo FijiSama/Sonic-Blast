@@ -1,0 +1,789 @@
+;--------------------------------------------------------
+;"Dr._Henry_McCoy's_Laboratory" by Dragonesku
+
+;dragonesku@gmail.com
+
+;--------------------------------------------------------
+
+[info]
+name="Dr._Henry_McCoy's_Laboratory"
+
+;--------------------------------------------------------
+
+[Camera]
+startx= 0
+starty= 0
+boundleft= -210
+boundright= 210
+boundhigh= -205
+boundlow= 0
+verticalfollow= .9
+floortension= 50
+tension= 50
+
+[PlayerInfo]
+p1startx= -70
+p1starty= 0
+p1startz= 0
+p1facing= 1
+p2startx= 70
+p2starty= 0
+p2startz= 0
+p2facing= -1
+leftbound = -1500
+rightbound = 1500
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset= 205;225
+autoturn= 1
+
+[Shadow] 
+color = 38,38,38
+yscale = .2
+;fade.range = TOP_Y, BOT_Y (TOP_Y should be less than BOT_Y.)
+
+[Reflection] 
+reflect = 0
+
+[Music] 
+bgmusic = sound/Dr._Henry_McCoy's_Laboratory.mp3
+bgvolume = 255
+
+;--------------------------------------------------------
+
+[BGDef] 
+spr = Dr._Henry_McCoy's_Laboratory.sff 
+debugbg = 1
+
+;--------------------------------------------------------
+
+[BG door_bg_wall]
+type=normal
+spriteno= 19,0
+start= -235,203
+delta= .98,.995
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+[BG door_bg_floor]
+type=normal
+spriteno= 20,0
+start= -225,203
+delta= .99,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+[BG profx_moves_right]
+type=anim
+actionno= 25
+start= -302,178
+delta= 1,1
+mask=1
+layerno=0
+ID=25
+
+[BGCtrlDef 25]
+CtrlID = 25
+Looptime = 2928
+
+[BGCtrl 25.1]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 25.2]
+type = Enable
+time = 372
+value = 1
+
+[BGCtrl 25.3]
+type = VelSet
+time = 372
+x = .5
+
+[BGCtrl 25.4]
+type = PosSet
+time = 0
+x = 1
+
+[BGCtrl 25.5]
+type = Enable
+time = 732
+value = 0
+
+[Begin Action 25]
+25,2, 0,0, 1
+
+;--------------------------------------------------------
+
+[BG profx_moves_left]
+type=anim
+actionno= 26
+start= -142,178
+delta= 1,1
+mask=1
+layerno=0
+ID=26
+
+[BGCtrlDef 26]
+CtrlID = 26
+Looptime = 3660
+
+[BGCtrl 26.1]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 26.2]
+type = Enable
+time = 1830
+value = 1
+
+[BGCtrl 26.3]
+type = VelSet
+time = 1830
+x = -.5
+
+[BGCtrl 26.4]
+type = PosSet
+time = 0
+x = 1
+
+[BGCtrl 26.5]
+type = Enable
+time = 2190
+value = 0
+
+[Begin Action 26]
+25,2, 0,0, 1, H
+;--------------------------------------------------------
+
+[BG xdoor1_pt1]
+type=anim
+actionno= 3
+start= -225,193
+delta= 1,1
+mask=1
+layerno=0
+
+
+[Begin Action 3]
+3,0, 0,0, 322
+3,1, 0,0, 3
+3,2, 0,0, 3
+3,3, 0,0, 3
+3,4, 0,0, 3
+3,5, 0,0, 3
+3,6, 0,0, 3
+3,7, 0,0, 3
+3,8, 0,0, 3
+3,9, 0,0, 3
+3,10, 0,0, 3
+3,11, 0,0, 3
+3,12, 0,0, 3
+3,13, 0,0, 3
+3,14, 0,0, 3
+3,15, 0,0, 3
+3,16, 0,0, 3
+3,17, 0,0, 3
+3,18, 0,0, 3
+3,19, 0,0, 3
+3,20, 0,0, 3
+3,21, 0,0, 3
+3,22, 0,0, 3
+3,23, 0,0, 3
+3,24, 0,0, 3
+3,25, 0,0, 3
+3,26, 0,0, 3
+3,27, 0,0, 3
+3,28, 0,0, 420
+3,27, 0,0, 3
+3,26, 0,0, 3
+3,25, 0,0, 3
+3,24, 0,0, 3
+3,23, 0,0, 3
+3,22, 0,0, 3
+3,21, 0,0, 3
+3,20, 0,0, 3
+3,19, 0,0, 3
+3,18, 0,0, 3
+3,17, 0,0, 3
+3,16, 0,0, 3
+3,15, 0,0, 3
+3,14, 0,0, 3
+3,13, 0,0, 3
+3,12, 0,0, 3
+3,11, 0,0, 3
+3,10, 0,0, 3
+3,9, 0,0, 3
+3,8, 0,0, 3
+3,7, 0,0, 3
+3,6, 0,0, 3
+3,5, 0,0, 3
+3,4, 0,0, 3
+3,3, 0,0, 3
+3,2, 0,0, 3
+3,1, 0,0, 3
+3,0, 0,0, 450
+
+;--------------------------------------------------------
+
+[BG li_pist]
+type=anim
+actionno= 4
+start= 173,142
+delta= .998,.985
+mask=1
+layerno=0
+
+[Begin Action 4]
+4,0, 0,0, 4
+4,1, 0,0, 4
+4,2, 0,0, 4
+4,3, 0,0, 4
+4,4, 0,0, 4
+4,5, 0,0, 4
+4,6, 0,0, 4
+4,7, 0,0, 4
+4,8, 0,0, 4
+4,9, 0,0, 4
+4,10, 0,0, 4
+4,11, 0,0, 4
+4,12, 0,0, 4
+4,13, 0,0, 4
+4,14, 0,0, 4
+4,15, 0,0, 4
+4,16, 0,0, 4
+4,17, 0,0, 4
+4,18, 0,0, 4
+4,19, 0,0, 4
+4,20, 0,0, 4
+4,21, 0,0, 4
+4,22, 0,0, 4
+4,23, 0,0, 4
+4,24, 0,0, 4
+4,25, 0,0, 4
+4,26, 0,0, 4
+4,27, 0,0, 4
+4,28, 0,0, 4
+4,29, 0,0, 4
+4,30, 0,0, 4
+4,31, 0,0, 4
+4,32, 0,0, 4
+4,33, 0,0, 4
+4,34, 0,0, 4
+4,35, 0,0, 4
+4,36, 0,0, 4
+4,37, 0,0, 4
+4,38, 0,0, 4
+4,39, 0,0, 4
+4,40, 0,0, 4
+4,41, 0,0, 4
+4,42, 0,0, 4
+4,43, 0,0, 4
+4,44, 0,0, 4
+4,45, 0,0, 4
+4,46, 0,0, 4
+4,47, 0,0, 4
+4,48, 0,0, 4
+4,49, 0,0, 4
+4,50, 0,0, 4
+4,51, 0,0, 4
+4,52, 0,0, 4
+4,53, 0,0, 4
+4,54, 0,0, 4
+4,55, 0,0, 4
+4,56, 0,0, 4
+4,57, 0,0, 4
+4,58, 0,0, 4
+4,59, 0,0, 4
+4,60, 0,0, 4
+4,61, 0,0, 4
+4,62, 0,0, 4
+4,63, 0,0, 4
+4,64, 0,0, 4
+4,65, 0,0, 4
+4,66, 0,0, 4
+4,67, 0,0, 4
+4,68, 0,0, 4
+4,69, 0,0, 4
+4,70, 0,0, 4
+4,71, 0,0, 4
+4,72, 0,0, 4
+4,73, 0,0, 4
+4,74, 0,0, 4
+4,75, 0,0, 4
+4,76, 0,0, 4
+4,77, 0,0, 4
+4,78, 0,0, 4
+4,79, 0,0, 4
+4,80, 0,0, 4
+4,81, 0,0, 4
+4,82, 0,0, 4
+4,83, 0,0, 4
+4,84, 0,0, 4
+4,85, 0,0, 4
+4,86, 0,0, 4
+4,87, 0,0, 4
+4,88, 0,0, 4
+4,89, 0,0, 4
+4,90, 0,0, 48
+
+;--------------------------------------------------------
+
+[BG mon_graphs1]
+type=normal
+spriteno= 5,4
+start= 155,141
+delta= 1,1
+mask=1
+layerno=0
+
+[BG mon_graphs1]
+type=anim
+actionno= 5
+start= 155,141
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 5]
+5,0, 0,0, 8
+5,1, 0,0, 8
+5,2, 0,0, 8
+5,3, 0,0, 8
+
+[BG mon_graphs1]
+type=normal
+spriteno= 5,5
+start= 155,141
+delta= 1,1
+mask=1
+layerno=0
+trans=addalpha
+alpha =115,115
+
+;--------------------------------------------------------
+
+[BG mon_graphs2]
+type=anim
+actionno= 6
+start= 176,157
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 6]
+6,0, 0,0, 8
+6,1, 0,0, 8
+6,2, 0,0, 8
+6,3, 0,0, 8
+6,4, 0,0, 8
+6,5, 0,0, 8
+6,6, 0,0, 8
+6,7, 0,0, 8
+
+[BG mon_graphs2]
+type=normal
+spriteno= 6,8
+start= 176,155
+delta= 1,1
+mask=1
+layerno=0
+trans=addalpha
+alpha =185,185
+;--------------------------------------------------------
+
+[BG floor]
+type=normal
+spriteno= 0,1
+start= 0,151
+delta= 1,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+[BG top_graphs0]
+type=normal
+spriteno= 18,12
+start= -1,-9
+delta= 1,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+[BG top_graphs]
+type=anim
+actionno= 18
+start= -1,-5
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 18]
+18,0, 0,0, 7
+18,1, 0,0, 7
+18,2, 0,0, 7
+18,3, 0,0, 7
+18,4, 0,0, 7
+18,5, 0,0, 7
+18,6, 0,0, 7
+18,7, 0,0, 7
+18,1, 0,0, 7
+18,2, 0,0, 7
+18,3, 0,0, 7
+18,4, 0,0, 7
+18,5, 0,0, 7
+18,6, 0,0, 7
+18,7, 0,0, 7
+;18,8, 0,0, 7
+;18,9, 0,0, 7
+;18,10, 0,0, 7
+;18,11, 0,0, 7
+
+;--------------------------------------------------------
+
+[BG ts_right_filter]
+type=normal
+spriteno= 18,13
+start= -1,-5
+delta= 1,1
+mask=1
+layerno=0
+trans=addalpha
+alpha =30,225
+
+;--------------------------------------------------------
+
+[BG walls]
+type=normal
+spriteno= 1,1
+start= 0,182
+delta= 1,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+[BG glass]
+type=normal
+spriteno= 1,3
+start= 184,178
+delta= 1,1
+mask=1
+layerno=0
+trans=addalpha
+alpha =55,250
+;--------------------------------------------------------
+
+[BG comp_room]
+type=normal
+spriteno= 1,2
+start= 184,178
+delta= 1,1
+mask=1
+layerno=0
+
+;--------------------------------------------------------
+
+[BG room_lights]
+type=anim
+actionno= 40
+start= 183,178
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 40]
+40,0, 0,0, 1, A
+40,1, 0,0, 1, A
+40,2, 0,0, 1, A
+40,1, 0,0, 1, A
+40,0, 0,0, 1, A
+
+
+;--------------------------------------------------------
+
+[BG x_door_pt2]
+type=normal
+spriteno= 2,0
+start= -222,190
+delta= 1,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+[BG x_door_lights_left]
+type=anim
+actionno= 21
+start= -222,191
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 21]
+21,0, 0,0, 6
+21,1, 0,0, 6
+21,2, 0,0, 6
+21,3, 0,0, 6
+21,4, 0,0, 6
+21,5, 0,0, 6
+21,6, 0,0, 6
+21,7, 0,0, 6
+;--------------------------------------------------------
+
+[BG x_door_lights_right]
+type=anim
+actionno= 22
+start= -222,191
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 22]
+21,0, 0,0, 6, H
+21,1, 0,0, 6, H
+21,2, 0,0, 6, H
+21,3, 0,0, 6, H
+21,4, 0,0, 6, H
+21,5, 0,0, 6, H
+21,6, 0,0, 6, H
+21,7, 0,0, 6, H
+;--------------------------------------------------------
+
+[BG x_ceiling]
+type=normal
+spriteno= 30,0
+start= 0,-89
+delta= 1,1
+mask=1
+layerno=0
+
+;--------------------------------------------------------
+
+[BG x_logo]
+type=normal
+spriteno= 7,0
+start= -346,72
+delta= .98,.99
+mask=1
+layerno=0
+
+[BG x_logo]
+type=anim
+actionno= 7
+start= -346,68
+delta= .98,.99
+mask=1
+layerno=0
+
+[Begin Action 7]
+7,1, 0,0, 6
+7,2, 0,0, 6
+7,3, 0,0, 6
+7,4, 0,0, 6
+7,5, 0,0, 6
+7,6, 0,0, 6
+7,1, 0,0, 90
+
+[BG x_logo_filter]
+type=normal
+spriteno= 7,7
+start= -346,72
+delta= .98,.99
+mask=1
+layerno=0
+trans=addalpha
+alpha =60,225
+
+;--------------------------------------------------------
+
+[BG scrn_left]
+type=normal
+spriteno= 10,0
+start= -350,142
+delta= .98,.99
+mask=1
+layerno=0
+
+;--------------------------------------------------------
+
+[BG portal]
+type=anim
+actionno= 12
+start= -17,190
+delta= 1,1
+mask=0
+layerno=0
+
+[Begin Action 12]
+12,1, 0,0, 4,,AA
+12,2, 0,0, 4,,AA
+12,3, 0,0, 4,,AA
+12,4, 0,0, 4,,AA
+12,5, 0,0, 4,,AA
+12,6, 0,0, 4,,AA
+12,7, 0,0, 4,,AA
+12,8, 0,0, 4,,AA
+12,9, 0,0, 4,,AA
+12,10, 0,0, 4,,AA
+12,11, 0,0, 4,,AA
+12,12, 0,0, 4,,AA
+12,13, 0,0, 4,,AA
+12,14, 0,0, 4,,AA
+12,15, 0,0, 4,,AA
+12,16, 0,0, 4,,AA
+12,17, 0,0, 4,,AA
+12,18, 0,0, 4,,AA
+12,19, 0,0, 4,,AA
+12,20, 0,0, 4,,AA
+
+[BG filter]
+type=normal
+spriteno= 12,21
+start= -17,190
+delta= 1,1
+mask=1
+layerno=0
+trans=addalpha
+alpha =50,225
+
+;--------------------------------------------------------
+
+[BG portal_frame1]
+type=normal
+spriteno= 11,0
+start= -17,199
+delta= 1,1
+mask=1
+layerno=0
+
+[BG portal_frame2]
+type=normal
+spriteno= 11,1
+start= -17,199
+delta= 1,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+[BG blue_graphs_right]
+type=anim
+actionno= 15
+start= 345,159
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 15]
+15,0, 0,0, 8
+15,1, 0,0, 8
+15,2, 0,0, 8
+15,3, 0,0, 8
+15,4, 0,0, 8
+15,5, 0,0, 8
+15,6, 0,0, 8
+15,7, 0,0, 8
+15,8, 0,0, 8
+15,9, 0,0, 8
+
+;--------------------------------------------------------
+
+[BG top_screen_right]
+type=anim
+actionno= 23
+start= 342,119
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 23]
+23,0, 0,0, 9
+23,1, 0,0, 9
+23,2, 0,0, 9
+23,3, 0,0, 9
+23,4, 0,0, 9
+23,5, 0,0, 9
+23,6, 0,0, 9
+23,7, 0,0, 9
+23,8, 0,0, 9
+23,9, 0,0, 9
+
+;--------------------------------------------------------
+
+[BG mons_pan_right]
+type=normal
+spriteno= 13,0
+start= 344,193
+delta= 1,1
+mask=1
+layerno=0
+
+;--------------------------------------------------------
+
+[BG blue_mon_center]
+type=anim
+actionno= 14
+start= 341,134
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 14]
+14,5, 0,0, 8
+14,0, 0,0, 8
+14,1, 0,0, 8
+14,6, 0,0, 8
+14,2, 0,0, 8
+14,3, 0,0, 8
+14,4, 0,0, 8
+14,5, 0,0, 8
+14,6, 0,0, 8
+14,4, 0,0, 8
+
+;--------------------------------------------------------
+
+[BG blue_graphs_right]
+type=anim
+actionno= 16
+start= 321,176
+delta= 1,1
+mask=1
+layerno=0
+
+[Begin Action 16]
+16,0, 0,0, 1
+16,1, 0,0, 1
+16,2, 0,0, 1
+
+;--------------------------------------------------------
+
+[BG top_screen_frame]
+type=normal
+spriteno= 17,0
+start= -1,-9
+delta= 1,1
+mask=1
+layerno=0
+;--------------------------------------------------------
+
+
+
+
+;Long Live MARVEL,DC, CAPCOM and M.U.G.E.N.!!!!
+
+;Regards
+
+;DRAGONESKU!

@@ -1,0 +1,122 @@
+[Info]
+name = "Central Highway"
+mugenversion = 1.1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -350
+boundright = 350
+boundhigh = -20
+boundlow = -30
+verticalfollow = 0.1
+
+tensionhigh =190;画面上部からtensionhigh分の距離にキャラの足元のポイントが来ると画面スクロールが始まる。
+tension  = 70               ;ﾄﾞｯﾄ数だけ画面端に行くと、ｽｸﾛｰﾙする
+tensionlow = 50;画面上部からtensionhighとtensionlowの合計値の距離にキャラの足元のポイントが来ると拡縮が始まる。
+startzoom = .75,.75;基準の拡大縮小率（実数）
+zoomout = .5;全オブジェクトの縮小倍率（実数）
+zoomin = .75;全オブジェクトの拡大倍率（実数）
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[PlayerInfo]
+p1startx = -120
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 120
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound = 1000
+topbound  = 0
+botbound  = 0
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[Bound]
+screenleft = 18
+screenright = 18
+;----------------------------------------------------------------------------------------------------------------------------------------------------------------
+[StageInfo]
+zoffset = 175
+autoturn = 1
+resetBG  = 0
+[Shadow]
+yscale = 0
+[Music]
+bgmusic = sound/Megaman Maverick Hunter X Music - Opening Stage (Central Highway).mp3
+bgvolume = 255
+[BGdef]
+spr =CentralHighway.sff
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------
+[BG 0]
+type = normal
+layerno = 0
+spriteno =2,0
+start = 0,16
+delta    = 0.1,0.1
+trans = None
+
+[BG PillarA]
+type = normal
+layerno = 0
+spriteno = 100,0
+start = 10,4
+mask = 1
+
+
+[BG PillarA]
+type = normal
+layerno = 0
+spriteno = 6,0
+start = 10,4
+mask = 1
+
+[BG PillarB]
+type = normal
+layerno = 0
+spriteno = 7,0
+start = 10,4
+mask = 1
+
+[BG RoadEndA]
+type = normal
+layerno = 0
+spriteno = 4,0
+start = 10,4
+mask = 1
+
+[BG RoadEndB]
+type = normal
+layerno = 0
+spriteno = 5,0
+start = 10,4
+mask = 1
+
+[BG Road]
+type = normal
+layerno = 0
+spriteno = 1,0
+start = 10,4
+mask = 1
+
+[BG EnemyA]
+type = anim
+actionno = 1
+start = 0,20 
+layerno = 0
+tile = 1,0
+tilespacing = 3000,0
+velocity = -5,0
+
+[Begin Action 1] ;EnemyA
+80,3,0,0,5
+80,4,0,0,5
+80,5,0,0,5

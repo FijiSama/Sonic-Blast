@@ -1,0 +1,202 @@
+;=========================================================
+; Dream Land
+; MUGEN background for use with DOS 04.14.2001 & WinMugen
+
+; Made by MMaluco10
+; Most elements ripped from Sailor Moon C (snes) + Edits
+
+;=========================================================
+
+[Info]
+ ;Name of the stage.
+name = "Dream Land Stage"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -180
+boundright = 180
+boundhigh = -70
+boundlow = 0
+verticalfollow = .4
+tension = 30
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15 
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Dream Land theme.mp3
+bgvolume = 200
+
+;------------------------------------------------------
+[BGdef]
+spr = Dream Land.sff
+debugbg = 0
+
+;----------
+[BG 1 sky]
+type = normal
+spriteno = 2,0
+mask = 1
+tile = 1,1
+start = 0, 185
+delta = 1,.5
+trans = none
+velocity = .2
+
+[BG 2]
+type = anim
+actionno = 2
+mask = 1
+start = -80, 185
+delta = .8, .6
+
+[BG 3]
+type  = normal
+spriteno = 1, 0
+start = 0, 185
+delta = 1, .7
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[Begin action 2]
+0,0, 0,0, 8
+0,1, 0,0, 8
+0,2, 0,0, 8
+0,1, 0,0, 8
+0,0, 0,0, 8
+0,2, 0,0, 8
+0,1, 0,0, 8
+0,0, 0,0, 8
+0,2, 0,0, 8
+
+[BG 3 Left]
+type = anim
+actionno = 3
+ID = 3
+start = -400,183
+delta = 1,1
+
+[BGCtrlDef 3]
+CtrlID = 3
+Looptime = 1400
+
+[BGCtrl 3.1]
+type = VelSet
+time = 0
+x = 2
+
+[BGCtrl 3.2]
+type = PosSet
+time = 0
+x = 0
+
+[Begin action 3]
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,0, 0,0, 7
+3,1, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+3,2, 0,0, 7
+3,3, 0,0, 7
+
+[BG 4 Right]
+type = anim
+actionno = 4
+ID = 4
+start = 500,233
+delta = 1,1
+layerno = 1
+
+[BGCtrlDef 4]
+CtrlID = 4
+Looptime = 1400
+
+[BGCtrl 4.1]
+type = VelSet
+time = 700
+x = -2
+
+[BGCtrl 4.2]
+type = PosSet
+time = 500
+x = 0
+
+[Begin action 4]
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,0, 0,0, 7, H
+3,1, 0,0, 7, H
+3,2, 0,0, 7, H
+3,3, 0,0, 7, H
+3,2, 0,0, 7, H
+3,3, 0,0, 7, H
+3,2, 0,0, 7, H
+3,3, 0,0, 7, H
+3,2, 0,0, 7, H
+3,3, 0,0, 7, H
+3,2, 0,0, 7, H
+3,3, 0,0, 7, H
+3,2, 0,0, 7, H
+3,3, 0,0, 7, H
+

@@ -1,0 +1,294 @@
+;stage template by Eternaga , Email: Eternaga@hotmail.com
+
+[Info]
+name = "Repose Bay"
+
+[BGdef]
+spr = ReposeBay.sff
+debugbg = 0
+
+[Music]
+bgmusic = sound/Return To Sunset Park.mp3
+bgvolume = 255
+bgmloopstart = 1041539
+bgmloopend = 8980285
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -450
+boundright = 653
+boundhigh = -200;-350
+boundlow = 0
+verticalfollow = 1
+floortension = 30
+tension = 60
+
+[PlayerInfo]
+p1startx = -70          
+p1starty = 0            
+p1startz = 0            
+p1facing = 1        
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling] 
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+[StageInfo]
+zoffset = 195
+autoturn = 1
+resetBG = 1
+
+[shadow]
+Intensity = 90
+color = 0,0,0
+yscale = .05
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+;----------------------------------------[PCX IMAGE]
+[BG 0]
+type  = normal
+spriteno = 0, 5
+layerno = 0                
+start = -160, 120
+delta = 0,0
+tile = 1,1
+trans = none
+
+[BG 1 CityBackground]
+type  = normal
+spriteno = 0, 0
+layerno = 0                
+start = -160, 120
+delta = 0.0003,0
+tile = 1,0
+trans = none
+
+[BG 2]
+type  = normal
+spriteno = 0,2
+start = 10,120  
+mask = 1
+delta = 0.003,0
+tile = 1,0
+
+[BG 2]
+type  = normal
+spriteno = 0,3
+start = 10,120  
+mask = 1
+delta = 0.03,0
+tile = 1, -1
+velocity = 0.05, 0
+
+[BG 2]
+type  = normal
+spriteno = 0,4
+start = 10,120  
+mask = 1
+delta = 0.09,0
+tile = 1,0
+
+;---------------------------------------
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = -110,183  
+mask = 1
+
+[BG Blue Emerald]
+type  = anim
+actionno = 2
+start = -110,100
+mask = 1
+sin.y = 2,59
+
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = 360,183  
+mask = 1
+
+[BG Red Emerald]
+type  = anim
+actionno = 3
+start = 360,100
+mask = 1
+sin.y = 2,59
+
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = -260,183  
+mask = 1
+
+[BG Yellow Emerald]
+type  = anim
+actionno = 4
+start = -260,100
+mask = 1
+sin.y = 2,59
+
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = 60,183  
+mask = 1
+
+[BG Green Emerald] ; The most overused one.
+type  = anim
+actionno = 5
+start = 60,100
+mask = 1
+sin.y = 2,59
+
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = 190,183  
+mask = 1
+
+[BG LightBlue Emerald] 
+type  = anim
+actionno = 6
+start = 190,100
+mask = 1
+sin.y = 2,59
+
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = 490,183  
+mask = 1
+
+[BG Grey Emerald] 
+type  = anim
+actionno = 7
+start = 490,100
+mask = 1
+sin.y = 2,59
+
+[BG Holding Pole]
+type  = normal
+spriteno = 3,0
+start = 650,183  
+mask = 1
+
+[BG Purple Emerald] 
+type  = anim
+actionno = 8
+start = 650,100
+mask = 1
+sin.y = 2,59
+
+[Begin Action 2]
+2, 0, 0, 0, 4
+2, 1, 0, 0, 4
+2, 2, 0, 0, 4
+2, 3, 0, 0, 4
+
+[Begin Action 3]
+2, 4, 0, 0, 4
+2, 5, 0, 0, 4
+2, 6, 0, 0, 4
+2, 7, 0, 0, 4
+
+[Begin Action 4]
+2, 8, 0, 0, 4
+2, 9, 0, 0, 4
+2, 10, 0, 0, 4
+2, 11, 0, 0, 4
+
+[Begin Action 5]
+2, 12, 0, 0, 4
+2, 13, 0, 0, 4
+2, 14, 0, 0, 4
+2, 15, 0, 0, 4
+
+[Begin Action 6]
+2, 16, 0, 0, 4
+2, 17, 0, 0, 4
+2, 18, 0, 0, 4
+2, 19, 0, 0, 4
+
+[Begin Action 7]
+2, 20, 0, 0, 4
+2, 21, 0, 0, 4
+2, 22, 0, 0, 4
+2, 23, 0, 0, 4
+
+[Begin Action 8]
+2, 24, 0, 0, 4
+2, 25, 0, 0, 4
+2, 26, 0, 0, 4
+2, 27, 0, 0, 4
+;---------------------------------------
+[BG Fighting Ground]
+type  = normal
+spriteno = 0,1
+start = -310,240  
+mask = 1
+tile = 1,0
+;---------------------------------------
+[BG Jin] ;No fucking way....I can't even believe he's here.
+type  = anim
+actionno = 12
+start = 710,183
+mask = 1
+
+[BG Mage] ;He deserves a cameo
+type  = anim
+actionno = 13
+start = -410,183
+mask = 1
+
+[Begin Action 12] ;Sorry, I can't promise everything :P
+4, 0, 0, 0, 103
+4, 1, 0, 0, 12
+4, 2, 0, 0, 62
+4, 1, 0, 0, 12
+4, 0, 0, 0, 184
+4, 3, 0, 0, 4
+4, 4, 0, 0, 4
+4, 5, 0, 0, 4
+4, 4, 0, 0, 4
+4, 3, 0, 0, 4
+
+[Begin Action 13] 
+5,1, 0,0, 103
+5,2, 0,0, 6
+5,3, 0,0, 6
+5,4, 0,0, 14
+5,3, 0,0, 6
+5,2, 0,0, 6
+5,1, 0,0, 55
+5,5, 0,0, 4
+5,6, 0,0, 4
+5,1, 0,0, 55
+5,7, 0,0, 4
+5,8, 0,0, 4
+5,9, 0,0, 4
+5,10, 0,0, 133
+5,9, 0,0, 4
+5,8, 0,0, 4
+5,7, 0,0, 4
+;---------------------------------------[/PCX IMAGE]

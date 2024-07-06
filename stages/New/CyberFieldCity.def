@@ -1,0 +1,347 @@
+[Info]
+name = "Running in the Cyber Field City"
+Auther = ScepterDPinoy & ShiroTori
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -90
+boundright = 90
+boundhigh = -120
+boundlow = -25
+verticalfollow = 1
+floortension= 75
+tension = 50
+zoomin=1
+zoomout=.7
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 25
+screenright = 25
+
+[StageInfo]
+zoffset = 195
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 128,128,128
+yscale = .4
+
+[Music]
+bgmusic = sound/CyberFieldCity.mp3
+bgvolume = 255
+
+[BGdef]
+spr = CyberFieldCity.sff
+
+[BG Sky]
+type = normal
+spriteno = 0,0
+start = 0,0
+delta = 1,1
+tile = 0,1
+tilespacing = 0,0
+velocity = 0,0
+mask = 1
+
+[BG Grid 1]
+type = normal
+spriteno = 1,0
+start = 0,0
+delta = 1,1
+tile = 0,1
+tilespacing = 0,0
+velocity = 0,-0.5
+mask = 1
+
+[BG Grid 2]
+type = normal
+spriteno = 1,1
+start = 0,0
+delta = 1,1
+tile = 0,0
+tilespacing = 0,0
+velocity = -0,0
+mask = 1
+
+[BG City 1]
+type = normal
+spriteno = 1,2
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 0,0
+velocity = -3.8,0
+mask = 1
+
+[BG City 2]
+type = normal
+spriteno = 1,3
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 0,0
+velocity = -4,0
+mask = 1
+
+[BG City 3]
+type = normal
+spriteno = 1,4
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 0,0
+velocity = -4.2,0
+mask = 1
+
+[BG City 4]
+type = normal
+spriteno = 1,5
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 0,0
+velocity = -4.4,0
+mask = 1
+
+[BG City 5]
+type = anim
+actionno = 0
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 480,0
+velocity = -4.6,0
+mask = 1
+
+[Begin action 0]
+
+2,0, 0,0, 5
+2,1, 0,0, 5
+2,2, 0,0, 5
+2,3, 0,0, 5
+2,4, 0,0, 5
+2,5, 0,0, 5
+2,6, 0,0, 5
+2,7, 0,0, 5
+2,8, 0,0, 5
+2,9, 0,0, 5
+2,10, 0,0, 5
+2,11, 0,0, 5
+2,12, 0,0, 5
+2,13, 0,0, 5
+2,14, 0,0, 5
+2,15, 0,0, 5
+
+[BG Glow]
+type = normal
+spriteno = 3,0
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 0,0
+velocity = -4.8,0
+mask = 1
+
+[BG Roller Coaster]
+type = normal
+spriteno = 4,0
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 0,0
+velocity = -5.0,0
+mask = 1
+
+[BG Fun Gang vs. Berdly]
+type = anim
+actionno = 1
+start = 0,0
+delta = 1,1
+mask = 1
+
+[Begin action 1]
+
+5,0, 0,0, 7
+5,1, 0,0, 7
+5,2, 0,0, 7
+5,3, 0,0, 7
+5,4, 0,0, 7
+5,5, 0,0, 7
+5,6, 0,0, 7
+5,7, 0,0, 7
+
+[BG Road 1]
+type = normal
+spriteno = 6,0
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 44160,0
+velocity = -10,0
+mask = 1
+
+[BG Road 2]
+type = normal
+spriteno = 6,1
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 44160,0
+velocity = -10,0
+mask = 1
+
+[BG Road 3]
+type = normal
+spriteno = 6,2
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 44160,0
+velocity = -10,0
+mask = 1
+
+[BG Road 4]
+type = normal
+spriteno = 6,3
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 44160,0
+velocity = -10,0
+mask = 1
+
+[BG Road 5]
+type = normal
+spriteno = 6,4
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 44160,0
+velocity = -10,0
+mask = 1
+
+[BG Chase]
+type = anim
+actionno = 2
+start = -200,0
+delta = 1,1
+tile = 1,0
+tilespacing = 3000,0
+velocity = 2,0
+mask = 1
+
+[Begin action 2]
+
+7,0, 0,0, 1
+7,1, 0,0, 1
+7,2, 0,0, 1
+7,3, 0,0, 1
+7,4, 0,0, 1
+7,5, 0,0, 1
+7,6, 0,0, 1
+7,7, 0,0, 1
+
+[BG Cars]
+type = anim
+actionno = 3
+start = 0,0
+delta = 1,1
+tile = 1,0
+tilespacing = 1803,0
+velocity = 5,0
+mask = 1
+
+[Begin action 3]
+
+15,0, 0,0, 3
+15,1, 0,0, 3
+15,2, 0,0, 3
+15,3, 0,0, 3
+15,4, 0,0, 3
+15,5, 0,0, 3
+15,6, 0,0, 3
+15,7, 0,0, 3
+15,8, 0,0, 3
+15,9, 0,0, 3
+15,10, 0,0, 3
+15,11, 0,0, 3
+
+[BG Queen]
+type = anim
+actionno = 4
+start = 0,0
+delta = 0.3,0.5
+mask = 1
+
+[Begin action 4]
+
+16,0, 0,0, 5
+16,1, 0,0, 5
+16,2, 0,0, 5
+16,3, 0,0, 5
+16,4, 0,0, 5
+16,5, 0,0, 5
+16,6, 0,0, 5
+16,7, 0,0, 5
+
+[BG Truck]
+type = anim
+actionno = 5
+start = 0,0
+delta = 1,1
+mask = 1
+
+[Begin action 5]
+
+17,0, 0,0, 4
+17,1, 0,0, 4
+17,2, 0,0, 4
+17,3, 0,0, 4
+17,4, 0,0, 4
+17,5, 0,0, 4
+17,6, 0,0, 4
+17,7, 0,0, 4
+17,8, 0,0, 4
+17,9, 0,0, 4
+17,10, 0,0, 4
+17,11, 0,0, 4
+17,12, 0,0, 4
+17,13, 0,0, 4
+17,14, 0,0, 4
+17,15, 0,0, 4
+17,16, 0,0, 4
+17,17, 0,0, 4
+17,18, 0,0, 4
+17,19, 0,0, 4
+17,20, 0,0, 4
+17,21, 0,0, 4
+17,22, 0,0, 4
+17,23, 0,0, 4
+17,24, 0,0, 4
+17,25, 0,0, 4
+17,26, 0,0, 4
+17,27, 0,0, 4
