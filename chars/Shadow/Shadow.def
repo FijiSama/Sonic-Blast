@@ -1,0 +1,38 @@
+[Info]
+name="Shadow The Hedgehog"
+displayname="Shadow"
+versiondate=4/8/2019
+mugenversion=1.0
+author="Andrew55"
+pal.defaults=1
+
+
+[Files]
+sprite=Shadow.sff
+sound=Shadow.snd
+anim=Shadow.air
+cmd=Shadow.cmd
+cns=Shadow.cns
+st=Shadow.cns
+stcommon=common1.cns
+movelist = Moveset.dat
+pal1=1.act
+st1=AI.cns
+st2=Specials.cns
+st3=Super.cns
+st4=Chaos Shadow.cns
+st5=Super Shadow.cns
+st6=Hyper Shadow.cns
+
+[Palette Keymap]
+a=1
+b=2
+c=3
+x=4
+y=5
+z=6
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
