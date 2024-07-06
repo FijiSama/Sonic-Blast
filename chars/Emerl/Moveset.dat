@@ -1,0 +1,40 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Chaos Break [Ground]        		              _D_+^A        		   
+Twister Kick [Air]               		          _D_+^A		       
+Chaos Barrier [Ground]		                      _D_+^B 		   		   		       			                  
+Spin Dash Crash [Air] 		                      _D_+^B  		   				     		                               
+Emerl Tornado [Ground] 			                  _D_+^C							  		  	                                               		          			 
+Homing Attack [Ground/Air]  		                ^Y 		  		 		    					               
+Lil' Emerl [Ground/Air]		                      _D_+^Y   		      			  		  			             
+Transform/MAX Power 		                     [Hold]^Z		          			 		  	          
+Power Down 		                                   _D_+^S		                   				  				  	              
+                                                 		  
+<#f0f000>:Specials:</>
+Spin Dash Shockwave			                      _D_F_+^A		                           				            	    
+Missle Barrage		                              _D_B_+^A                          	    
+Spreadfire Assault 		                          _D_F_+^B                          		    
+Emerl Combo               				          _D_B_+^B 		                                 		    
+Boost Crasher   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Final Directive       		          _D_B_+^C   

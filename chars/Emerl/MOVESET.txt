@@ -1,0 +1,47 @@
+Emerl - Moveset
+
+A
+
+Down + A +(A + A)
+
+B
+
+Down + B
+
+C
+
+Down + C Homing Robot
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire
+
+C Aire
+
+Down C Aire Homing Robot
+
+X - Homing Attack
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Emerl Combo
+
+D,DB,B,a - Ermel Tornado
+
+D,DF,F,b - Emerl Boost (and air)
+
+D,DB,B,b - Emerl ' s Projectile
+
+D,DF,F,c - Emerl Wind (And Air)
+
+D,DB,B,c - Emerl ' s Missil (And Air)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b - Emerl Ultimate Charge
