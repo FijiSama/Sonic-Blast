@@ -1,0 +1,164 @@
+{
+  "storyclear": {
+    "TutorialClear": 1,
+    "SonicClear": 0,
+    "TailsClear": 0,
+    "BlazeClear": 0,
+    "AmyClear": 0,
+    "KnucklesClear": 0,
+    "RougeClear": 0,
+    "ShadowClear": 0,
+    "InfiniteClear": 0,
+    "FinalClear": 0
+  },
+  "storyunlock": {
+    "Sonic": 1,
+    "Tails": 0,
+    "Blaze": 0,
+    "Amy": 0,
+    "Knuckles": 0,
+    "Rouge": 0,
+    "Shadow": 0,
+    "Infinite": 0,
+    "Final": 0
+  },
+  "charunlock": {
+    "Tails": 0,
+    "Mighty": 0,
+    "Emerl": 0,
+    "Knuckles": 0,
+    "Espio": 0,
+    "Blaze": 0,
+    "DrEggman": 1,
+    "Amy": 0,
+    "MetalSonic": 0,
+    "Chaos0": 0,
+    "Rouge": 0,
+    "Shadow": 0,
+    "E123Omega": 0,
+    "Infinite": 0,
+    "Mephiles": 0,
+    "TailsDistortion": 0,
+    "ShadowDistortion": 0,
+    "SonicDistortion": 0,
+    "ScourgeSonicPoss": 0,
+    "Shadic": 0,
+    "Scourge": 0,
+    "SOZero": 0,
+    "Solaris": 0,
+    "Enerjak": 0,
+    "Surge": 0,
+    "Cream": 0,
+    "Silver": 0
+  },
+  "sonicprogress": {
+    "CurrentChapter": 1
+  },
+  "modes": {
+    "SonicStory": {
+      "playtime": 4247.53
+    },
+    "watch": {
+      "playtime": 62070.19
+    },
+    "training": {
+      "playtime": 0
+    },
+    "ShadowStory": {
+      "playtime": 0
+    },
+    "RougeStory": {
+      "playtime": 0
+    },
+    "AmyStory": {
+      "playtime": 0
+    },
+    "TailsStory": {
+      "playtime": 155.7
+    },
+    "KnucklesStory": {
+      "playtime": 0
+    },
+    "InfiniteStory": {
+      "playtime": 0
+    },
+    "FinalStory": {
+      "playtime": 0
+    },
+    "BlazeStory": {
+      "playtime": 0
+    },
+    "freebattle": {
+      "playtime": 12439.79
+    },
+    "versus": {
+      "playtime": 15204.22
+    },
+    "arcade": {
+      "playtime": 1147.68,
+      "clear": 1,
+      "clearcount": {
+        "mighty": 1
+      },
+      "ranking": [
+        {
+          "score": 552600,
+          "time": 1147.68,
+          "name": "",
+          "chars": [
+            "mighty"
+          ],
+          "tmode": 0,
+          "ailevel": 5,
+          "win": 6,
+          "lose": 0,
+          "consecutive": 5
+        }
+      ]
+    },
+    "teamcoop": {
+      "playtime": 3852.35,
+      "clear": 1,
+      "clearcount": {
+        "sonic": 1
+      },
+      "ranking": [
+        {
+          "score": 1364601,
+          "time": 2894.58,
+          "name": "",
+          "chars": [
+            "sonic",
+            "knuckles"
+          ],
+          "tmode": 3,
+          "ailevel": 5,
+          "win": 4,
+          "lose": 1,
+          "consecutive": 2
+        },
+        {
+          "score": 227700,
+          "time": 957.77,
+          "name": "",
+          "chars": [
+            "sozero",
+            "emerl"
+          ],
+          "tmode": 3,
+          "ailevel": 5,
+          "win": 1,
+          "lose": 1,
+          "consecutive": 0
+        }
+      ]
+    },
+    "Tutorial": {
+      "playtime": 2145.81
+    }
+  },
+  "playtime": 101263.27,
+  "tutorialprogress": {
+    "CurrentChapter": 1
+  }
+}
