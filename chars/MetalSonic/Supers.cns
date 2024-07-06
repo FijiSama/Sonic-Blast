@@ -1,0 +1,1911 @@
+;===================================================================================
+;---------------------------------- SUPERS ----------------------------------------;
+;===================================================================================
+; V. Maximum Overdrive
+;-------------------------------------------------------------------------------
+[Statedef 1600]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 5
+Velset = 0,0
+Ctrl = 0
+Anim = 1600
+PowerAdd = -1500
+Sprpriority = 2
+
+[State 0, Super Armor]
+type = Helper
+trigger1 = AnimElemTime(1)=20
+name = "Super Armor"
+ID = 9000
+stateno = 9000
+pos = 999,999
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem =1
+value = S180,14
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem =1
+value = S180,14
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem =1
+value = S180,14
+volume = 100
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+Type = SuperPause
+Trigger1 = Time = 0
+Time = 80
+MoveTime = 80
+Anim = -1
+Sound = -1
+Pos = 32,-80
+Darken = 0
+UnHitTable = 1
+
+[State 3000, VarSet]
+Type = VarSet
+Trigger1 = Time = 0
+V = 12
+Value = -100
+
+[State 3000, VarAdd]
+Type = VarAdd
+Trigger1 = Time >= 20 && Var(12) < 0
+V = 12
+Value = 6
+
+[State 3000, BGColorFX]
+Type = BGPalFX
+Trigger1 = Time > 0
+Time = 1
+Add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7004
+ID = 7004
+pos = 0,30
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2*Helper(999999),Fvar(16),.2*Helper(999999),Fvar(16)
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+trans = add
+
+[State 3000, PlaySnd - Super Charge II]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S950,3
+
+[state 0,Helper]
+type = Helper
+trigger1 = time = 0
+stateno = 8600
+id = 8600
+postype = p1
+supermovetime = 999
+pausemovetime = 999
+;====================
+
+[State 0, ChangeAnim]
+Type = ChangeAnim
+Trigger1 = Time = [83,100]
+Value = Anim
+Elem = 4
+
+[State 0,VelSet]
+Type = VelSet
+Trigger1 = AnimElemTime(4)>=0
+x = 13
+y = 0
+IgnoreHitPause = 1
+
+[State 0,VelSet]
+Type = VelSet
+TriggerALL = AnimElemTime(4)>=0
+Trigger1 = Command = "holdup"
+Trigger2 = AILevel > 0 && P2Dist Y <= -40
+y = -2.5
+
+[State 0,VelSet]
+Type = VelSet
+TriggerALL = AnimElemTime(4)>=0
+Trigger1 = Command = "holddown"
+Trigger2 = AILevel > 0 && P2Dist Y >= 5
+y = 2.5
+
+[State 0,VelSet]
+Type = VelSet
+TriggerALL = AnimElemTime(4)>=0
+Trigger1 = Pos y <= -175
+y = 2.5
+
+[State 0,PosSet]
+Type = PosSet
+TriggerALL = AnimElemTime(4)>=0
+Trigger1 = pos y >= 1
+y = 0
+
+[State 0,VelSet]
+Type = VelSet
+Trigger1 = AnimElemTime(5)>=0
+x = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElemTime(3)=0
+value = S5,1
+volume = 999
+Persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElemTime(4)=0
+value = S40,3
+volume = 999
+Persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElemTime(4)=0
+value = 1,1405
+volume = 999
+Persistent = 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,6013
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 0,HitDef]
+type = HitDef
+trigger1 =! MoveContact
+p2facing = -1
+attr = S,SA
+hitflag = MAFD
+guardflag = MA
+animtype = Heavy
+air.animtype = Heavy
+fall.animtype = Heavy
+damage = 50,20
+guard.sparkno = s7030
+sparkxy = -8,-25
+pausetime = 8,10
+guard.pausetime = 0,25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 15
+guard.slidetime = 10
+ground.hittime = 35
+guard.hittime = 10
+air.hittime = 35
+guard.dist = 320
+ground.velocity = (Cond(EnemyNear,BackEdgeBodyDist>=75,1,4)),-5
+air.velocity = (Cond(EnemyNear,BackEdgeBodyDist>=75,1,4)),-5
+down.velocity = (Cond(EnemyNear,BackEdgeBodyDist>=75,1,4)),-5
+guard.velocity = -10
+airguard.velocity = -5,-5
+ground.cornerpush.veloff = 1
+fall = 1
+fall.recover = 0
+yaccel = 0.2
+fall.recovertime = 0
+fall.damage = 0
+Kill = 0
+EnvShake.Time = 10
+EnvShake.Ampl = -10
+EnvShake.Freq = 10
+PERSISTENT = 0
+
+[State 0,Helper]
+type = Helper
+trigger1 = MoveHit = 1
+helpertype = normal
+ID = 8450
+stateno = 8450
+pos = Cond((P2Dist X<32),P2Dist X+0,24),-15
+postype = P1
+facing = Cond(Random<500,1,-1)
+ownpal = 1
+size.xscale = .095*0.90
+size.yscale = .095*0.90
+ignorehitpause = 1
+PERSISTENT = 0
+
+[State 200, Spark CVS]
+type = Explod
+trigger1 = Movehit = 1
+anim = 7740
+ID = 7740
+postype = P1
+pos = Cond((P2Dist X<32),P2Dist X+0,24),-15
+facing = 1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .28,.28
+removeongethit = 1
+ontop = 1
+persistent = 0
+supermovetime = 999
+ignorehitpause  = 1
+angle = 0+random%360
+
+[State 0,Apex Rush - Aura Appears]
+Type = Helper
+Trigger1 = Time = 10
+HelperType = Normal
+Name = "Apex Rush - Aura Appears"
+ID = 1620
+Stateno = 1620
+Pos = 0,-0
+PosType = p1
+OwnPal = 1
+Size.Xscale = .55
+Size.Yscale = .55
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 0, Viento]
+type = Explod
+triggerall = AnimElemTime(1)>=20 && AnimElemTime(3)<=0
+trigger1 = timemod = 8,0 && pos y = 0
+anim = 7022
+ID = 550
+pos = -5,5
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.4
+vel = -2,0
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Viento]
+type = Explod
+triggerall = AnimElemTime(1)>=20 && AnimElemTime(3)<=0
+trigger1 = timemod = 8,0 && pos y = 0
+anim = 7022
+ID = 550
+pos = 5,-2
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.4
+vel = 2,0
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Land]
+type = Explod
+triggerall = AnimElemTime(1)>=20 && AnimElemTime(3)<=0
+trigger1 = timemod = 8,0 && pos y = 0
+anim = 7014
+ID = 550
+pos = -1,1
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .4,.4
+sprpriority = 3
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Explod]
+type = Explod
+triggerall = AnimElemTime(4)>=0 && AnimElemTime(5)<=0
+trigger1 = timemod = 4,0 && pos y = 0
+anim = 7022
+ID = 1051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .35,.35
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0,Apex Rush - Wing Dash FX]
+Type = Helper
+TriggerAll = AnimElemTime(4)>=0 && AnimElemTime(5)<=0
+Trigger1 = TimeMod = 8,0
+HelperType = Normal
+Name = "Apex Rush - Aura"
+ID = 1615
+Stateno = 1615
+pos = -2,-15
+PosType = p1
+OwnPal = 1
+Size.Xscale = .25
+Size.Yscale = .25
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 200, Combo]
+Type = ChangeState
+Trigger1 = MoveHit = 1
+Value = 1601
+Ctrl = 0
+IgnoreHitPause = 1
+
+[State 200, End]
+Type = ChangeState
+Trigger1 =! AnimTime
+Value = 50
+Ctrl = 1
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Combo 2
+;-------------------------------------------------------------------------------
+[Statedef 1601]
+type    = S
+movetype= A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 1601
+PowerAdd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 5
+value = S1,1405
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 5
+value = S40,3
+volume = 999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = AnimElemTime(4)>=0
+value = 25
+ignorehitpause = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = AnimElemTime(5)>=0
+value = 25
+ignorehitpause = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = AnimElemTime(6)>=0
+value = 0
+ignorehitpause = 1
+
+[State 0,Turn]
+Type = Turn
+TriggerALL = AnimElemTime(4)>=0
+Trigger1 = p2dist x < 0
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(1)=0
+X = 12
+Y = -0
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(3)>=0
+X = 1
+Y = -0
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(4)>=0
+X = 1
+Y = -1
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(5)>=0
+X = 2
+Y = -2
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(6)>=0
+X = 0
+Y = -0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElemTime(7)>=0
+x = p2bodydist x - 0
+y = p2bodydist y - 0
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,6009
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! TimeMod = 4,0
+attr = A,HP
+hitflag = MAFDE
+priority = 3,Hit
+guardflag = MA
+animtype = Heavy
+damage = 3,1
+pausetime = 1,2
+guard.pausetime = 2,3
+guard.sparkno = s7030
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -0.1,-0.1
+air.velocity = -0.1,-0.1
+EnvShake.Time = 8
+EnvShake.Ampl = -8
+EnvShake.Freq = 8
+fall = 0
+kill = 0
+GetPower = 2,1
+
+[State 200, Spark CVS]
+type = Explod
+triggerALL = Movehit = 1
+trigger1 = TimeMod = 4,0
+anim = 7760
+ID = 7760
+postype = P2
+pos = 5,-18
+facing = 1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .25,.25
+removeongethit = 1
+ontop = 1
+persistent = 6
+supermovetime = 999
+ignorehitpause  = 1
+angle = 0+random%360
+
+[State 0, Speed FX1]
+type = Explod
+trigger1 = Animelem = 5
+anim = 580
+ID = 580
+pos = -2,-12
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 5
+removetime = -2
+scale = .4,.2
+sprpriority = 2
+angle = -45
+ontop = 0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0,Apex Rush - Slash Spark BIG]
+Type = Helper
+TriggerALL = AnimElemTime(7)>=0
+Trigger1 = TimeMod = 3,0
+HelperType = Normal
+Name = "Apex Rush - Slash Spark BIG"
+ID = 1635
+Stateno = 1635+(RANDOM%7)
+Pos = 0,-25
+PosType = p2
+Facing = 1
+OwnPal = 1
+Size.Xscale = .4
+Size.Yscale = .2
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 200, End]
+Type = ChangeState
+Trigger1 = Time >= 80
+Value = 1602
+Ctrl = 0
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Combo 3
+;-------------------------------------------------------------------------------
+[Statedef 1602]
+type    = S
+movetype= A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 1602
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 2
+value = S5,22
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Animelem = 2
+value = S40,3
+volume = 999
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(1)>=0
+X = 0
+Y = -0
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(2)>=0
+X = 2
+Y = 1.5
+
+[State 0,VelSet]
+type = VelSet
+Trigger1 = AnimElemTime(3)>=0
+X = 0
+Y = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElemTime(1)=0
+x = p2bodydist x - -45
+y = p2bodydist y - -35
+
+[State 0, Speed FX1]
+type = Explod
+trigger1 = Animelem = 1
+anim = 580
+ID = 581
+pos = 0,-7
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 5
+removetime = -2
+scale = .35,.2
+sprpriority = 2
+angle = 30
+ontop = 0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0, Apex Rush - Slash Spark BIG End]
+Type = Helper
+Trigger1 = AnimElemTime(2)=0
+Name = "Apex Rush - Slash Spark BIG End"
+ID = 1650
+Stateno = 1650
+Pos = -143,-88
+Postype = p1
+Facing = 1
+Ownpal = 1
+Size.Xscale = .7
+Size.Yscale = .5
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Dash FX
+[Statedef 1615]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 4055
+sprpriority = 1
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = AddAlpha
+Alpha = 200,256
+
+[State 0,PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0,AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+Trigger2 = Root,MoveType = H
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Wing FX
+[Statedef 1618]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1618
+sprpriority = 1
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+fv = 6
+value = .05
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .5+FVar(6),.5+FVar(6)
+IgnoreHitPause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,79
+volume = 999
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = AddAlpha
+Alpha = 200,256
+
+[State 0,PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0,AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+Trigger2 = Root,MoveType = H
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Aura Appears
+[Statedef 1620]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1620
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-130,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,78
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,78
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 0,-17
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = time >= 5
+trigger1 = time%3 = 0
+time = 3
+ampl = -3
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Root,Time <= 65
+fv = 6
+value = .01
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .5+FVar(6),.5+FVar(6)
+IgnoreHitPause = 1
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =! Time
+v = 2
+value = 0
+ignorehitpause = 1
+
+[State 0,VarAdd]
+type = VarAdd
+Trigger1 = Root,Time >= 70
+trigger2 = VAR(2)<175
+v = 2
+value = 25
+ignorehitpause = 1
+
+[State 0,VarAdd]
+type = VarAdd
+Trigger1 = Root,Time >= 70
+v = 2
+value = -35
+ignorehitpause = 1
+
+[State 0,Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 0+VAR(2),256
+ignorehitpause = 1
+
+[State 0,PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0,ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[State 0,AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0,Apex Rush - Wing Dash FX]
+Type = Helper
+Trigger1 = Root,Time = 70
+HelperType = Normal
+Name = "Apex Rush - Aura"
+ID = 1618
+Stateno = 1618
+pos = 0,-0
+PosType = p1
+OwnPal = 1
+Size.Xscale = .4
+Size.Yscale = .4
+SuperMoveTime = 999
+PauseMoveTime = 999
+
+[State 0, Apex Rush - Aura Particules]
+type = Helper
+triggerALL = time = [0,50]
+trigger1 = timemod = 25,0
+name = "Apex Rush - Aura Particules"
+ID = 1621
+stateno = 1621
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+Size.Xscale = .3
+Size.Yscale = .3
+supermovetime = 999
+pausemovetime = 999
+
+[State 0, Apex Rush - Aura Particules II]
+type = Helper
+triggerALL = time = [0,50]
+trigger1 = timemod = 18,0
+name = "Apex Rush - Aura Particules II"
+ID = 1622
+stateno = 1622
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+Size.Xscale = .05
+Size.Yscale = .05
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = DestroySelf
+trigger1 = root,movetype = H
+
+[State 200,End]
+type = DestroySelf
+trigger1 = Parent,MoveType = H
+trigger2 = Root,StateNo != 1600
+trigger3 = Root,Time >= 80
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Aura Particules
+[Statedef 1621]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 1621
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -0,-0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-0
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = fvar(1) < 60
+fv = 1
+value = .02
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+fvar(1),1+fvar(1)
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =! Time
+v = 2
+value = 0
+ignorehitpause = 1
+
+[State 0,VarAdd]
+type = VarAdd
+Trigger1 = Parent,Time >= 40
+trigger2 = VAR(2)<175
+v = 2
+value = 25
+ignorehitpause = 1
+
+[State 0,VarAdd]
+type = VarAdd
+Trigger1 = Parent,Time >= 40
+v = 2
+value = -35
+ignorehitpause = 1
+
+[State 0,Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 0+VAR(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 =! AnimTime
+Trigger2 =! Parent,Stateno = 1620
+Trigger3 = Parent,MoveType = H
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Aura Particules II
+[Statedef 1622]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 1622
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-0
+
+[state 0]
+type = AngleDraw
+triggerall = time < 50
+trigger1 = 1
+scale = 7.0-(time/2.0),7.0-(time/2.0)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 =! AnimTime
+Trigger2 = Parent,MoveType = H
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1635]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = 40
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1636]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = -78
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1637]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = 90
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1638]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = 200
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1639]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = -200
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1640]
+Type    = S
+MoveType = A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = 1
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = NoShadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG
+[Statedef 1641]
+Type    = S
+MoveType= A
+Physics = N
+Juggle  = 1
+Velset = 0,0
+Ctrl = 0
+Anim = 7250
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = 20
+Scale = 4,4
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; V. Maximum Overdrive - Slash Spark BIG End
+[Statedef 1650]
+type = S
+movetype = A
+physics = N
+Juggle  = 2
+Velset = 0,0
+Ctrl = 0
+Anim = 1650
+Sprpriority = 3
+
+[State 0, PalFXWiz]
+Type = PalFX
+Trigger1 = 1
+Time = -1
+Add = -25,-80,0
+Mul = 512,512,512
+Sinadd = 0,0,0,1
+Invertall = 0
+Color = 256
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 6
+trigger1 = 1
+time = -1
+add = -25,-80,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 7
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 8
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 9
+trigger1 = 1
+time = -1
+add = 0,0,-110
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+triggerall = Root,Var(55) = 10
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, PlaySnd]
+Type = PlaySnd
+Trigger1 = Time = 0
+Value = S1,1405
+Volume = 999
+
+[State 0, AngleDraw]
+Type = AngleDraw
+Trigger1 = 1
+Value = -26
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+Type = AssertSpecial
+Trigger1 = 1
+Flag = noshadow
+
+[State 0, Trans]
+Type = Trans
+Trigger1 = 1
+Trans = Add
+
+[State 0, Hit]
+type = PlaySnd
+trigger1 = MoveHit = 1
+value = S1,6009
+volumescale = 100
+ignorehitpause = 1
+Persistent = 0
+
+[State 200, 1]
+type = HitDef
+trigger1 =! MoveContact
+attr = S,NA
+hitflag = MAF
+priority = 3,Hit
+guardflag = MA
+animtype = Light
+damage = 48,20
+pausetime = 10,8
+guard.pausetime = 10,8
+guard.sparkno = s7000
+sparkxy = -8,-25
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-2
+EnvShake.Time = 15
+EnvShake.Ampl = -15
+EnvShake.Freq = 15
+fall = 0
+GetPower = 45,20
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != 8300
+trigger1 = movehit = 1
+value = 8300
+
+[State 200, Spark CVS]
+type = Explod
+trigger1 = Movehit = 1
+anim = 7760
+ID = 7760
+postype = P2
+pos = 2,-18
+facing = 1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .28,.28
+removeongethit = 1
+ontop = 1
+persistent = 0
+supermovetime = 999
+ignorehitpause  = 1
+angle = 0+random%360
+
+[State 200, End]
+Type = DestroySelf
+Trigger1 = !AnimTime
+Trigger2 = Root,MoveType = H
