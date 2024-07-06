@@ -1,0 +1,1220 @@
+;===================================================================================
+;---------------------------------- Supers --------------------------------------;
+;===================================================================================
+;===============================================================================
+; Final Shine Attack - Start
+;===============================================================================
+[Statedef 1600]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+velset = 0,0
+ctrl = 0
+anim = 1600
+poweradd = -2000
+sprpriority = 1
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 70
+movetime = 70
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 60 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = -2,-21
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = time = 5
+;value = S0,128
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = time = 5
+;value = S0,128
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = time = 5
+;value = S0,128
+
+[State 0, Final Shine Attack - Charge]
+type = Helper
+trigger1 = Time = 15
+name = "Final Shine Attack - Charge"
+ID = 1620
+stateno = 1620
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .25
+size.yscale = .25
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 90
+trigger1 = ailevel = 0 && command != "hold_a"
+trigger2 = ailevel > 0 && p2bodydist x < 100
+trigger3 = ailevel > 0 && p2bodydist x >= 100 && p2bodydist x < 300 && time >= 60+random%80
+trigger4 = time = 160
+value = 1601
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Release
+;-------------------------------------------------------------------------------
+[Statedef 1601]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1601
+sprpriority = 1
+
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = time = 0
+;value = S0,129
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = time = 0
+;value = S0,129
+;[State 0, PlaySnd]
+;type = PlaySnd
+;trigger1 = time = 0
+;value = S0,129
+
+[State 5210,1]
+type = PalFX
+trigger1 = Time = [2,100]
+time = -1
+add = 0,50,-40
+ignorehitpause = 1
+
+[State 0, Shadow FX]
+type = Explod
+TriggerAll = Time = [2,100]
+Trigger1 = TimeMod = 1,0
+anim = 580
+ID = 001
+pos = (40-Random%10),(-5-Random%30)
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .3,.15
+sprpriority = 2
+ontop = Cond(Random<500,1,0)
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = Sub
+Vel = -1,0
+Angle = 90
+
+[State 0, Dust FX]
+type = Explod
+TriggerAll = Time = [2,100]
+Trigger1 = TimeMod = 10,0
+anim = 7022
+ID = 1051
+pos = 0,4
+scale = .35,.45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+IgnoreHitPause = 1
+removeongethit = 1
+vel = -1.5,0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Time > 2 && time < 110
+trigger1 = Timemod = 6,0
+value = 1601
+elem = 2
+
+[State 0, Final Shine Attack - Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Final Shine Attack - Helper"
+ID = 1650
+stateno = 1650
+pos = 65,-25
+postype = p1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Charge
+[Statedef 1620]
+type = S
+movetype = I
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1620
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,47
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -2,-21;-12,-23
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 500
+scale = .10+time*.01,.10+time*.01
+value = -1-time*20
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 500
+scale = 1,1.8
+value = -1-time*25
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Root,StateNo = 1601 && Root,Time >= 0
+x = 8
+Y = -6
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, Final Shine Attack - Charge FX II]
+type = Helper
+trigger1 = Time = 0
+name = "Final Shine Attack - Charge FX II"
+ID = 1621
+stateno = 1621
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .3
+size.yscale = .3
+supermovetime = 999
+pausemovetime = 999
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = DestroySelf
+Triggerall = Root,Stateno != 1601
+trigger1 = root,stateno != 1600
+
+[State 200, End]
+type = Destroyself
+Triggerall = Root,Stateno = 1601
+trigger1 = Root,time = 2
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Charge FX II
+[Statedef 1621]
+type = S
+movetype = I
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1621
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,47
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 500
+scale = .10+time*.01,.10+time*.01
+value = -1-time*20
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 500
+scale = 1,1.8
+value = -1-time*25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = DestroySelf
+Triggerall = Root,Stateno != 1601
+trigger1 = root,stateno != 1600
+
+[State 200, End]
+type = Destroyself
+Triggerall = Root,Stateno = 1601
+trigger1 = Root,time = 2
+;-------------------------------------------------------------------------------
+; Final Shine Attack - FX ADD
+[Statedef 1630]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1630
+sprpriority = 2
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 68,-25;48,-25
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Parent,StateNo != 1650
+trigger1 = Parent,StateNo = 1660
+value = 1635
+;-------------------------------------------------------------------------------
+; Final Shine Attack - FX SUB
+[Statedef 1631]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1630
+sprpriority = 2
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 68,-25
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Sub
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Parent,StateNo != 1460
+trigger1 = Parent,StateNo = 1660
+value = 1635
+;-------------------------------------------------------------------------------
+; Final Shine Attack - FX End
+[Statedef 1635]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+anim = 1635
+sprpriority = 2
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale =1,1-time*.048
+
+[State 0, Trans]
+type = Trans
+trigger1 = PrevStateNo = 1630
+trans = Add
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = PrevStateNo = 1631
+trans = Sub
+ignorehitpause = 1
+
+[State 200,End]
+type = Destroyself
+trigger1 = time = 18
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Wave FX ADD
+[Statedef 1640]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1640
+sprpriority = 3
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 35,-22
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = (20.0 + abs(pos X - (helper(1655),pos X)))/25.0 , 1
+value = 0
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Parent,StateNo != 1650
+trigger1 = Parent,StateNo = 1660
+value = 1645
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Wave FX SUB
+[Statedef 1641]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1640
+sprpriority = 3
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 35,-22
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = (20.0 + abs(pos X - (helper(1655),pos X)))/25.0 , 1
+value = 0
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Sub
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = Parent,StateNo != 1650
+trigger1 = Parent,StateNo = 1660
+value = 1645
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Wave FX ADD End
+[Statedef 1645]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+sprpriority = 3
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 35,-25
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = (20.0 + abs(pos X - (helper(1655),pos X)))/45.0 , 1-time*.052
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = PrevStateNo = 1640
+trans = Add
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = PrevStateNo = 1641
+trans = Sub
+ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = time = 18
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Skill Hitspark
+[Statedef 1648]
+type    = A
+movetype= I
+physics = N
+anim = 8011
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Var(1)
+scale = 1+time*.05,1+time*.05
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 =! Animtime
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Helper
+[Statedef 1650]
+type = A
+movetype = A
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1650
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,18
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,18
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = Time <= 60
+trigger1 = timemod = 9,0
+time = 8
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 65,-25;65,-25
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, HitDef]
+type = HitDef
+trigger1 = timemod = 4,0
+attr = S,NP
+animtype = Heavy
+damage = 8,5
+Hitflag = MAF
+guardflag = MA
+pausetime = 0,3
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound = S1,12
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4
+air.velocity = -4,-1
+kill = 0
+Fall = 0
+Fall.Recover = 0
+Ground.CornerPush.VelOff = 0
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, Final Shine Attack - Skill Hitspark]
+type = Helper
+trigger1 = Movehit = 1
+name = "Final Shine Attack - Skill Hitspark"
+ID = 1648
+stateno = 1648
+pos = -10+random%20,0-random%35
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .3
+Size.Yscale = .3
+
+[State 0, Final Shine Attack - FX ADD]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Final Shine Attack - FX ADD"
+ID = 1630
+facing = 1
+stateno = 1630
+postype = p1
+ownpal = 1
+size.xscale = .2
+size.yscale = .25
+
+[State 0, Final Shine Attack - FX SUB]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Final Shine Attack - FX SUB"
+ID = 1630
+facing = 1
+stateno = 1631
+postype = p1
+ownpal = 1
+size.xscale = .2
+size.yscale = .25
+
+[State 0, Final Shine Attack - Wave FX ADD]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Final Shine Attack - Wave FX ADD"
+ID = 1640
+stateno = 1640
+pos = 5,0;-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .06
+size.yscale = .27
+
+[State 0, Final Shine Attack - Wave FX SUB]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Final Shine Attack - Wave FX SUB"
+ID = 1640
+stateno = 1641
+pos = 5,0;-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .06
+size.yscale = .27
+
+[State 0, Final Shine Attack - FXAAD Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "Final Shine Attack - FXAAD Helper"
+ID = 1655
+stateno = 1655
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .25
+
+[State 0, Final Shine Attack - FXSUB Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal
+name = "Final Shine Attack - FXSUB Helper"
+ID = 1655
+stateno = 1656
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .25
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1601
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,stateno = 1601 && time = 100
+trigger2 = Parent, Time >= 100
+value = 1660
+;-------------------------------------------------------------------------------
+; Final Shine Attack - FXADD Helper
+[Statedef 1655]
+type = A
+movetype = I
+physics = N
+ctrl = 0
+anim = 1655
+sprpriority = 2
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = time = 0
+pos = 0,0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 500, Perfect Angle]
+type = AngleSet
+trigger1 = 1
+value = ((atan((-1*Parent,Vel Y)/Parent,Vel X))*(360/(2*pi)))+0
+
+[State 500,Draw]
+type=AngleDraw
+trigger1=1
+scale=1,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 20
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Parent,Stateno != 1650
+trigger2 = Parent,Stateno = 1660
+value = 1657
+;-------------------------------------------------------------------------------
+; Final Shine Attack - FXSUB Helper
+[Statedef 1656]
+type = A
+movetype = I
+physics = N
+ctrl = 0
+anim = 1655
+sprpriority = 2
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = time = 0
+pos = 0,0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 500, Perfect Angle]
+type = AngleSet
+trigger1 = 1
+value = ((atan((-1*Parent,Vel Y)/Parent,Vel X))*(360/(2*pi)))+0
+
+[State 500,Draw]
+type=AngleDraw
+trigger1=1
+scale=1,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 20
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Parent,Stateno != 1650
+trigger2 = Parent,Stateno = 1660
+value = 1657
+;-------------------------------------------------------------------------------
+; Final Shine Attack - FXADD End
+[Statedef 1657]
+type = S
+movetype = I
+physics = N
+ctrl = 0
+sprpriority = 2
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = PrevStateNo = 1655
+trigger2 = PrevStateNo = 1656
+scale = 1,1-time*.046
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 15
+
+[State 0, Trans]
+type = Trans
+trigger1 = PrevStateNo = 1655
+trans = Add
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = PrevStateNo = 1656
+trans = Sub
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 18
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Explosion
+[Statedef 1660]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 10
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+attr = A, SP
+animtype  = Heavy
+damage    = 12,4
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound   = S5,27
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -6,-8
+air.velocity = -6,-8
+Envshake.time = 25
+Fall = 1
+Fall.recover = 0
+Getpower = 0,0
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+
+[State 0, Explosion]
+type = Explod
+triggerall = Numexplod(9023) = 0
+trigger1 = Movecontact = 1
+anim = 9023
+ID = 9023
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, Final Shine Attack - Explosion FX]
+type = Helper
+trigger1 = Movecontact = 1
+helpertype = normal
+name = "Final Shine Attack - Explosion FX"
+ID = 1665
+stateno = 1665
+pos = 0,0
+postype = p2
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+ignorehitpause = 1
+
+[State 0, Final Shine Attack - Explosion II FX]
+type = Helper
+triggerall = Numexplod(1666)=0
+trigger1 = Movecontact = 1
+helpertype = normal
+name = "Final Shine Attack - Explosion II FX"
+ID = 1666
+stateno = 1666
+pos = 0,0
+postype = p2
+ownpal = 1
+size.xscale = .4
+size.yscale = .4
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+fv = 1
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 20
+fv = 1
+value = .1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1-fvar(1)
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Explosion FX
+[Statedef 1665]
+type = A
+movetype = I
+physics = N
+anim = 1665
+sprpriority = 4
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = Time = 0
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 300-(time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Final Shine Attack - Explosion II FX
+[Statedef 1666]
+type = S
+movetype = I
+physics = N
+juggle = 2
+velset = 0,0
+ctrl = 0
+anim = 1666
+sprpriority = 8
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -130,0,-130
+mul = 512,512,512
+color = 256
+
+[State 0,EnvShake]
+type = EnvShake
+trigger1 =! Time
+time = 20
+Ampl = -8
+
+[State 0,VarAdd]
+type = VarAdd
+trigger1 = time >= 20
+v = 1
+value = 15
+
+[State 0,Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(1),256
+
+[State 200,End]
+type = Destroyself
+trigger1 = var(1)>=256

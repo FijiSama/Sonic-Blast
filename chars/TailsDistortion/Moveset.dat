@@ -1,0 +1,30 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+Decrept Steps 		                            [Hold]_D_+^X                      
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+                		  
+<#f0f000>:Specials:</>
+Empty Carve			                          _D_F_+^A		                           				            	    
+Corruption Wave		                              _D_B_+^A                          	    
+Hollow Cry 		                              _D_F_+^B                          		    
+Blind Claws               		              _D_B_+^B              		    
+Rip and Tear   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Null Eruption      		          _D_B_+^C   

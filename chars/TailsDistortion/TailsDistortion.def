@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Tails [Distortion]"
+displayname = "Tails [Distortion]"
+versiondate = 21/01/2020
+mugenversion = 1.1
+author = "Created by Originally by VegettoMods ; Edit by JMalicthehedgehog"
+pal.defaults = 1
+
+[Files]
+sprite = Corrupted Tails.sff
+anim = Corrupted Tails.air
+sound = Corrupted Tails.snd
+cmd = Corrupted Tails.cmd
+cns = Corrupted Tails.cns
+stcommon = common1.cns
+movelist = Moveset.dat
+st = Corrupted Tails.cns
+st1 = IA.cns
+st2 = Especiales.cns
+st3 = Supers.cns
+pal1 = 1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

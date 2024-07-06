@@ -1,0 +1,56 @@
+Vegeta SSj4 - Moveset
+
+A
+
+Down + A
+
+Dash + A
+
+B
+
+Down + B
+
+C
+
+Down + C (And Air)
+
+A Aire
+
+B Aire
+
+C Aire
+
+Y - Super Dash
+
+Down + Y
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Direct Smash (And Air)
+
+D,DB,B,a - Super Explosive Wave (And Air)
+
+D,DF,F,b - Big Bang Attack (And Air)
+
+D,DB,B,b - Galick Blazer Combo (And Air)
+
+D,DF,F,c - Final Flash (Hold) (And Air)
+
+D,DB,B,c - Super Energy Blast (In Air)
+
+SUPERS
+
+D,DF,F,a+b - Final Shine Attack
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b Or X - Maximun Fianl Flash (And Air)
+
+D,DF,F,D,DF,F,b+c Or Down + X - Final Blow Thrust
+(If Full Power Mode Activate)
+
+Full Power
+
+Z

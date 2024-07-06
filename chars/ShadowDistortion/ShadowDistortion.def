@@ -1,0 +1,41 @@
+[Info]
+name = "Shadow [Distortion]"
+displayname = "Shadow [Distortion]"
+versiondate = 16/04/2022
+mugenversion = 1.0
+author = "Luan360"
+pal.defaults = 1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite = Shadow Fase 4.sff
+anim = Shadow Fase 4.air
+sound = Shadow Fase 4.snd
+cmd = Shadow Fase 4.cmd
+cns = Shadow Fase 4.cns
+stcommon = common1.cns
+movelist = Moveset.dat
+st = Shadow Fase 4.cns
+st1 = AI.cns
+st2 = Skills.cns
+st3 = Supers.cns
+st4 = Ultimate.cns
+st5 = Misc.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 1.act
+pal5 = 2.act
+pal6 = 3.act
+pal7 = 4.act
+
+[Arcade]
+intro.storyboard =
+ending.storyboard =
+
+;==========================
+;-------- Credits --------;
+;==========================
+; Knigtmare404 (Original Char)
+; Mikel8888 (Codes)
+; Rivelio (FXs)
+; James1971 (Sprites)

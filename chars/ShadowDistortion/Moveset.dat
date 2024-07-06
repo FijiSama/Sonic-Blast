@@ -1,0 +1,46 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+Homing Dash                      		            ^X
+[MAX Power] Teleport                      		    ^X
+                  
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Quick Strike                 		              _D_+^A                		
+Piercing Knee 		              _D_+^B
+Shine Barrier [Ground] 				          _D_+^C                                   		           			 
+Gold Release [Ground/Air]   		               ^Y  
+Transform/MAX Power 		                   ^Z
+Power Down 		                              _D_+^S                 
+                                      		  
+<#f0f000>:Specials:</>
+Dusk Wave [Ground/Air]			                      _D_F_+^A		                           				            	    
+Burst Volley [Ground/Air]		                              _D_B_+^A                          	    
+Vanish Rush [Ground/Air] 		                          _D_F_+^B                          		    
+Charge Eraser [Ground/Air]             		          _D_B_+^B              		    
+Spear Combination   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Distortion Wave      		          _D_B_+^C   
+
+<#f0f000>:Specials [MAX Power]:</>
+Dawn Beam [Ground/Air]			   _D_F_+^A		 
+Dawn Wave [Ground/Air]			   _D_F_+[Hold]^A	                          				            	    
+Clear Bomb [Ground/Air]		                          _D_B_+^A                          	               		     		         		                                                     	    
+[ULTIMATE] Final Distortion     		          _D_B_+^C   		    
+		    
