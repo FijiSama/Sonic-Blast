@@ -1,0 +1,320 @@
+Knuckles The Echidna
+
+FORMS:
+(note: hold the combination of buttons listed when
+selecting the character to start the match in that form)
+
+A - Base form
+
+S+A - Super Form
+
+S+B - Emerld Knuckles
+
+S+C - Enerjak
+
+S+X - Chaos Knuckles
+
+Knuckles The Echidna - Moveset
+
+A
+
+A + B (Hold) (And Aire)
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C - Hold
+
+Down + C (Hold to throw the rock further)
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Knuckles Flaming Punch (And Aire)
+
+D,DB,B,a - Dig Upercurt
+
+D,DF,F,b - Thunder Punch
+
+D,DB,B,b - Spin Punch (And Aire)
+
+D,DF,F,c - Maximum Heat Attack (And Aire) (Can Hold)
+
+D,DB,B,c - Rock Slide
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Knuckles Heat Break
+
+Transformation: 
+
+Z - Super Form
+
+Down + Back + Z - Emerld Knuckles
+
+Down + Fordward + Z - Enerjak
+
+Down + Z - Chaos Knuckles
+
+Super Knuckles - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B (Hold)
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire (Hold)
+
+C Aire
+
+Down + C Aire
+
+Y - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Super Knuckles Smash (And Aire)
+
+D,DB,B,a - Thunder Smash (And Aire) 
+(if you are close to the ennemy knuckles grab him)
+
+D,DF,F,b - Super Maximum Heat Charge (And Aire)
+
+D,DB,B,b - Super Slide Punch (And Aire)
+
+D,DF,F,c - Knuckles Ball Heat (And Aire)
+
+D,DB,B,c - Super Hondo Smash (And Aire)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Thunder Break (And Aire)
+
+Transformation: 
+
+Z - Chaos Knuckles
+
+Down + Back + Z - Emerld Knuckles
+
+Down + Z - Enerjak
+
+Emerld Knuckles - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+Y - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Knuckles Barrage (And Aire)
+
+D,DB,B,a - Emerld Smash (And Aire)
+
+D,DF,F,b - Emerld Charge (And Aire)
+
+D,DB,B,b - Shield Explosion (And Aire)
+
+D,DF,F,c - Knuckles Emerld Blast (Hold) (And Aire)
+
+D,DB,B,c - Knuckles Spin Smash (And Aire)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Emerld Maximun Attacks (Aire)
+
+Transformation: 
+
+Z - Chaos Knuckles
+
+Down + Z - Enerjak
+
+Knuckles Enerjack - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B (Hold)
+
+C
+
+Down + C (Hold)
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire (Hold)
+
+Y - Super Dash
+
+Down + Y - Teleports
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Enerjak's Blow Punch (And Aire)
+
+D,DB,B,a - Lancer Energy Ball (And Aire)
+
+D,DF,F,b - Heat Enerjak's Punch (And Aire)
+
+D,DB,B,b - Blast Power Energy (And Aire)
+
+D,DF,F,c - Enerjak's Energy Wave (Hold) (And Aire)
+
+D,DB,B,c - Strike Enerjak'Assault (And Aire)
+
+SUPERS
+
+D,DF,F,D,DF,F,c or D,DB,B,D,DB,B,c  - Massive Enerjak Ball (And Aire)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - God Echidna Impact (And Aire)
+
+Transformation:
+
+Z - Full Power
+
+Chaos Knuckles - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+Y - Super Dash
+
+Down + Y - Teleport
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Chaos Impact (And Aire)
+
+D,DB,B,a - Maximun Thunder Strike (And Aire)
+
+D,DF,F,b - Charge Punch's Rush (And Aire)
+
+D,DB,B,b - Drive's Smash (And Aire)
+
+D,DF,F,c - Chaos's Power Beam (And Aire)
+
+D,DB,B,c - Chaos Energy Ball (And Aire)
+
+SUPERS
+
+D,DF,F,D,DF,F,c or D,DB,B,D,DB,B,c  - lightening Chaos Heat (And Aire)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Crimson Chaos Strike (And Aire)
+
+Transformation:
+
+Z - Full Power

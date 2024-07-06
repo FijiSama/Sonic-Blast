@@ -1,0 +1,42 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+Homing Dash                      		^X
+[MAX Power] Teleport                      		^X
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Grand Rising [Ground]                		              _D_+^A 
+Sunsetter [Air]                		              _D_+^A                		
+Blunt Dance  [Ground] 		              _D_+^B
+Homing Crash [Air] 		               _D_+^B
+Regala Dome [Ground/Air] 				          _D_+^C                                   		          			   
+Transform/MAX Power 		                   ^Z
+                                                   		  
+<#f0f000>:Specials:</>
+Annointed Blast	[Ground/Air]		                      _D_F_+^A
+Eminence Wave [Ground/Air]			                     [Hold]_D_F_+^A			                           				            	    
+Emerald Rain [Ground/Air]		                              _D_B_+^A                          	    
+Paver Lance		                          _D_F_+^B                          		    
+Gaia Breaker               		          _D_B_+^B              		    
+Boost Crash Fist   		                          _D_F_+^C 
+[ULTIMATE] Alpha Burst       		          _D_B_+^C 		         		                                                     	    
+[ULTIMATE] Omega Impact      		          [Full Energy]_D_B_+^C   
+	    		    
