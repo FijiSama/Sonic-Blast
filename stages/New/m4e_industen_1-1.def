@@ -1,0 +1,983 @@
+;===========================================================================
+; Industen 1-1
+; Stage customized for use with Mugen 1.0 & 1.1 only
+
+; Converted by Mature4evr (http://www.eternal-anomaly.com/)
+; All graphics ripped from ENIX/Quintet's ActRaiser 2 (using ZSNES)
+; SFF file compiled using Fighter Factory 3
+; Platform: Super Nintendo
+
+; Version 2.0
+; First Release: 2-6-07
+; Last Updated: 5-28-18
+
+; FEATURES:
+; ---------
+; > cropped sprites
+; > low height super jump
+; > accurate dew droplet velocities
+; > accurate zoffset, animations & foreground mist vels
+; > reasonably accurate deltas, sctrls & dragonfly vels
+
+; WHAT'S NEW (5-28-18):
+; ---------------------
+; > lengthened the group 0 sprite to better resemble ActRaiser 2
+; > expanded on the dew droplet sctrls to better emulate ActRaiser 2
+; > trivial pixel alterations made to several layers of the background
+; > various parameter and positioning revisions made to much of the stage
+
+; "The people here used to work very hard at keeping this land healthy.
+; It was once famous for its beautiful forests and rivers.  One day,
+; these people lost their desire not only to work, but also to live.
+; A strange cloud seems to appear, followed by rainfall, then
+; disappear."                                  -- ActRaiser 2 Description
+
+;===========================================================================
+
+[Info]
+name = "ActRaiser 2 - Industen 1-1"
+author = "Mature4evr"
+mugenversion = 1.0
+
+;---------------------------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -152
+boundright = 152
+boundhigh = -147
+boundlow = 0
+verticalfollow = 1
+floortension = 90
+tension = 50
+
+;---------------------------------------------------------------------------
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p1facing = 1
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+;---------------------------------------------------------------------------
+
+[Bound]
+screenleft = 20
+screenright = 20
+
+;---------------------------------------------------------------------------
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+;---------------------------------------------------------------------------
+
+[StageInfo]
+zoffset = 191
+autoturn = 1
+resetBG = 1
+localcoord = 320,240
+xscale = 1
+yscale = 1
+
+;---------------------------------------------------------------------------
+
+[Shadow]
+yscale = 0
+
+;---------------------------------------------------------------------------
+
+[Music]
+bgmusic = sound/actraiser2_industen.mp3
+bgmvolume = 75
+
+;---------------------------------------------------------------------------
+
+[BGdef]
+spr = m4e_industen_1-1.sff
+debugbg = 0
+
+;---------------------------------------------------------------------------
+
+[BG Layer 1] ;<--forest BG
+type = normal
+spriteno = 0,0
+start = 0,240
+delta = 0.5,0.3
+mask = 0
+
+[BG Insect 1 Anim]
+type = anim
+actionno = 1
+start = -200,11
+delta = 1,1
+mask = 1
+id = 1
+
+; Dragonfly 1
+[Begin Action 1]
+2,0, 0,0, 8, H
+2,1, 0,0, 8, H
+2,2, 0,0, 8, H
+2,3, 0,0, 8, H
+2,2, 0,0, 8, H
+2,1, 0,0, 8, H
+
+[BGCtrlDef 1]
+looptime = 820
+ctrlID = 1
+
+[BGCtrl 1a]
+type = posset
+time = 0
+x = -200
+
+[BGCtrl 1b]
+type = velset
+time = 0
+x = 1
+
+[BGCtrl 1c]
+type = posset
+time = 820
+x = -624
+
+[BGCtrl 1d]
+type = velset
+time = 820
+x = 0
+
+[BG Layer 2 Anim] ;<--ground level sprites
+type = anim
+actionno = 2
+start = 0,240
+delta = 1,1
+mask = 1
+
+; Trickling Water
+[Begin Action 2]
+1,0, 0,0, 8
+1,1, 0,0, 8
+1,2, 0,0, 8
+1,3, 0,0, 8
+
+[BG Droplet 1 Anim]
+type = anim
+actionno = 4
+start = -139,31
+delta = 1,1
+mask = 1
+id = 2
+
+; Large Dew Droplet
+[Begin Action 4]
+3,0, 0,0, -1
+
+; Large Droplet Splash
+[Begin Action 5]
+4,0, -5,6, 4
+4,1, -5,6, 4
+4,2, -5,6, 4
+
+; Small Dew Droplet
+[Begin Action 6]
+5,0, 0,0, -1
+
+[BGCtrlDef 2]
+looptime = 262
+ctrlID = 2
+
+[BGCtrl 2a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 2b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 2c]
+type = posset
+time = 0
+x = -139
+y = 31
+
+[BGCtrl 2d]
+type = visible
+time = 131
+value = 1
+
+[BGCtrl 2e]
+type = velset
+time = 131
+y = 4
+
+[BGCtrl 2f]
+type = anim
+time = 160
+value = 5
+
+[BGCtrl 2g]
+type = velset
+time = 160
+y = 0
+
+[BGCtrl 2h]
+type = visible
+time = 172
+value = 0
+
+[BG Droplet 2 Anim]
+type = anim
+actionno = 6
+start = -123,31
+delta = 1,1
+mask = 1
+id = 3
+
+[BGCtrlDef 3]
+looptime = 316
+ctrlID = 3
+
+[BGCtrl 3a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 3b]
+type = anim
+time = 0
+value = 6
+
+[BGCtrl 3c]
+type = posset
+time = 0
+x = -123
+y = 31
+
+[BGCtrl 3d]
+type = visible
+time = 215
+value = 1
+
+[BGCtrl 3e]
+type = velset
+time = 215
+y = 4
+
+[BGCtrl 3f]
+type = velset
+time = 247
+y = 0
+
+[BGCtrl 3g]
+type = visible
+time = 246
+value = 0
+
+[BG Droplet 3 Anim]
+type = anim
+actionno = 4
+start = -94,21
+delta = 1,1
+mask = 1
+id = 4
+
+[BGCtrlDef 4]
+looptime = 500
+ctrlID = 4
+
+[BGCtrl 4a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 4b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 4c]
+type = posset
+time = 0
+x = -94
+y = 21
+
+[BGCtrl 4d]
+type = visible
+time = 302
+value = 1
+
+[BGCtrl 4e]
+type = velset
+time = 302
+y = 4
+
+[BGCtrl 4f]
+type = anim
+time = 336
+value = 5
+
+[BGCtrl 4g]
+type = velset
+time = 336
+y = 0
+
+[BGCtrl 4h]
+type = visible
+time = 348
+value = 0
+
+[BG Droplet 4 Anim]
+type = anim
+actionno = 6
+start = -69,43
+delta = 1,1
+mask = 1
+id = 5
+
+[BGCtrlDef 5]
+looptime = 389
+ctrlID = 5
+
+[BGCtrl 5a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 5b]
+type = anim
+time = 0
+value = 6
+
+[BGCtrl 5c]
+type = posset
+time = 0
+x = -69
+y = 43
+
+[BGCtrl 5d]
+type = visible
+time = 194
+value = 1
+
+[BGCtrl 5e]
+type = velset
+time = 194
+y = 4
+
+[BGCtrl 5f]
+type = velset
+time = 220
+y = 0
+
+[BGCtrl 5g]
+type = visible
+time = 220
+value = 0
+
+[BG Droplet 5 Anim]
+type = anim
+actionno = 4
+start = -47,23
+delta = 1,1
+mask = 1
+id = 6
+
+[BGCtrlDef 6]
+looptime = 580
+ctrlID = 6
+
+[BGCtrl 6a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 6b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 6c]
+type = posset
+time = 0
+x = -47
+y = 23
+
+[BGCtrl 6d]
+type = visible
+time = 487
+value = 1
+
+[BGCtrl 6e]
+type = velset
+time = 487
+y = 4
+
+[BGCtrl 6f]
+type = anim
+time = 504
+value = 5
+
+[BGCtrl 6g]
+type = velset
+time = 504
+y = 0
+
+[BGCtrl 6h]
+type = visible
+time = 516
+value = 0
+
+[BG Droplet 6 Anim]
+type = anim
+actionno = 4
+start = -27,23
+delta = 1,1
+mask = 1
+id = 7
+
+[BGCtrlDef 7]
+looptime = 402
+ctrlID = 7
+
+[BGCtrl 7a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 7b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 7c]
+type = posset
+time = 0
+x = -27
+y = 23
+
+[BGCtrl 7d]
+type = visible
+time = 333
+value = 1
+
+[BGCtrl 7e]
+type = velset
+time = 333
+y = 4
+
+[BGCtrl 7f]
+type = anim
+time = 366
+value = 5
+
+[BGCtrl 7g]
+type = velset
+time = 366
+y = 0
+
+[BGCtrl 7h]
+type = visible
+time = 378
+value = 0
+
+[BG Droplet 7 Anim]
+type = anim
+actionno = 6
+start = -15,23
+delta = 1,1
+mask = 1
+id = 8
+
+[BGCtrlDef 8]
+looptime = 444
+ctrlID = 8
+
+[BGCtrl 8a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 8b]
+type = anim
+time = 0
+value = 6
+
+[BGCtrl 8c]
+type = posset
+time = 0
+x = -15
+y = 23
+
+[BGCtrl 8d]
+type = visible
+time = 223
+value = 1
+
+[BGCtrl 8e]
+type = velset
+time = 223
+y = 4
+
+[BGCtrl 8f]
+type = velset
+time = 259
+y = 0
+
+[BGCtrl 8g]
+type = visible
+time = 259
+value = 0
+
+[BG Droplet 8 Anim]
+type = anim
+actionno = 4
+start = 13,17
+delta = 1,1
+mask = 1
+id = 9
+
+[BGCtrlDef 9]
+looptime = 355
+ctrlID = 9
+
+[BGCtrl 9a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 9b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 9c]
+type = posset
+time = 0
+x = 13
+y = 17
+
+[BGCtrl 9d]
+type = visible
+time = 177
+value = 1
+
+[BGCtrl 9e]
+type = velset
+time = 177
+y = 4
+
+[BGCtrl 9f]
+type = anim
+time = 193
+value = 5
+
+[BGCtrl 9g]
+type = velset
+time = 193
+y = 0
+
+[BGCtrl 9h]
+type = visible
+time = 205
+value = 0
+
+[BG Droplet 9 Anim]
+type = anim
+actionno = 6
+start = 34,15
+delta = 1,1
+mask = 1
+id = 10
+
+[BGCtrlDef 10]
+looptime = 478
+ctrlID = 10
+
+[BGCtrl 10a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 10b]
+type = anim
+time = 0
+value = 6
+
+[BGCtrl 10c]
+type = posset
+time = 0
+x = 34
+y = 15
+
+[BGCtrl 10d]
+type = visible
+time = 425
+value = 1
+
+[BGCtrl 10e]
+type = velset
+time = 425
+y = 4
+
+[BGCtrl 10f]
+type = velset
+time = 465
+y = 0
+
+[BGCtrl 10g]
+type = visible
+time = 465
+value = 0
+
+[BG Droplet 10 Anim]
+type = anim
+actionno = 4
+start = 49,23
+delta = 1,1
+mask = 1
+id = 11
+
+[BGCtrlDef 11]
+looptime = 599
+ctrlID = 11
+
+[BGCtrl 11a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 11b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 11c]
+type = posset
+time = 0
+x = 49
+y = 23
+
+[BGCtrl 11d]
+type = visible
+time = 535
+value = 1
+
+[BGCtrl 11e]
+type = velset
+time = 535
+y = 4
+
+[BGCtrl 11f]
+type = anim
+time = 544
+value = 5
+
+[BGCtrl 11g]
+type = velset
+time = 544
+y = 0
+
+[BGCtrl 11h]
+type = visible
+time = 556
+value = 0
+
+[BG Droplet 11 Anim]
+type = anim
+actionno = 4
+start = 71,25
+delta = 1,1
+mask = 1
+id = 12
+
+[BGCtrlDef 12]
+looptime = 297
+ctrlID = 12
+
+[BGCtrl 12a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 12b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 12c]
+type = posset
+time = 0
+x = 71
+y = 25
+
+[BGCtrl 12d]
+type = visible
+time = 199
+value = 1
+
+[BGCtrl 12e]
+type = velset
+time = 199
+y = 4
+
+[BGCtrl 12f]
+type = anim
+time = 231
+value = 5
+
+[BGCtrl 12g]
+type = velset
+time = 231
+y = 0
+
+[BGCtrl 12h]
+type = visible
+time = 243
+value = 0
+
+[BG Droplet 12 Anim]
+type = anim
+actionno = 6
+start = 101,15
+delta = 1,1
+mask = 1
+id = 13
+
+[BGCtrlDef 13]
+looptime = 511
+ctrlID = 13
+
+[BGCtrl 13a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 13b]
+type = anim
+time = 0
+value = 6
+
+[BGCtrl 13c]
+type = posset
+time = 0
+x = 101
+y = 15
+
+[BGCtrl 13d]
+type = visible
+time = 106
+value = 1
+
+[BGCtrl 13e]
+type = velset
+time = 106
+y = 4
+
+[BGCtrl 13f]
+type = velset
+time = 146
+y = 0
+
+[BGCtrl 13g]
+type = visible
+time = 146
+value = 0
+
+[BG Droplet 13 Anim]
+type = anim
+actionno = 4
+start = 116,23
+delta = 1,1
+mask = 1
+id = 14
+
+[BGCtrlDef 14]
+looptime = 322
+ctrlID = 14
+
+[BGCtrl 14a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 14b]
+type = anim
+time = 0
+value = 4
+
+[BGCtrl 14c]
+type = posset
+time = 0
+x = 116
+y = 23
+
+[BGCtrl 14d]
+type = visible
+time = 266
+value = 1
+
+[BGCtrl 14e]
+type = velset
+time = 266
+y = 4
+
+[BGCtrl 14f]
+type = anim
+time = 299
+value = 5
+
+[BGCtrl 14g]
+type = velset
+time = 299
+y = 0
+
+[BGCtrl 14h]
+type = visible
+time = 311
+value = 0
+
+[BG Droplet 14 Anim]
+type = anim
+actionno = 6
+start = 135,25
+delta = 1,1
+mask = 1
+id = 15
+
+[BGCtrlDef 15]
+looptime = 410
+ctrlID = 15
+
+[BGCtrl 15a]
+type = visible
+time = 0
+value = 0
+
+[BGCtrl 15b]
+type = anim
+time = 0
+value = 6
+
+[BGCtrl 15c]
+type = posset
+time = 0
+x = 135
+y = 25
+
+[BGCtrl 15d]
+type = visible
+time = 358
+value = 1
+
+[BGCtrl 15e]
+type = velset
+time = 358
+y = 4
+
+[BGCtrl 15f]
+type = velset
+time = 393
+y = 0
+
+[BGCtrl 15g]
+type = visible
+time = 393
+value = 0
+
+[BG Insect 2 Anim]
+type = anim
+actionno = 16
+start = 200,107
+delta = 1,1
+mask = 1
+id = 16
+
+; Dragonfly 2
+[Begin Action 16]
+2,0, 0,0, 8
+2,1, 0,0, 8
+2,2, 0,0, 8
+2,3, 0,0, 8
+2,2, 0,0, 8
+2,1, 0,0, 8
+
+[BGCtrlDef 16]
+looptime = 820
+ctrlID = 16
+
+[BGCtrl 16a]
+type = posset
+time = 0
+x = 200
+
+[BGCtrl 16b]
+type = velset
+time = 0
+x = -1.25
+
+[BGCtrl 16c]
+type = posset
+time = 820
+x = 624
+
+[BGCtrl 16d]
+type = velset
+time = 820
+x = 0
+
+;[BG Layer 6] ;<--accurate scrolling mist (1 pixel/8 ticks)
+;type = normal
+;spriteno = 6,0
+;layerno = 1
+;velocity = -0.0625
+;start = 0,240
+;delta = 1,1
+;trans = add
+;tile = 1,0
+;mask = 1
+
+[BG Layer 6] ;<--zsnes 2 frames/sec scrolling mist (1 pixel/4 ticks)
+type = normal
+spriteno = 6,0
+layerno = 1
+velocity = -0.125
+start = 0,240
+delta = 1,1
+trans = add
+tile = 1,0
+mask = 1
+
+;===========================================================================
+; SPECIAL THANKS:
+; ---------------
+; > God, Family & Friends: for life, love and inspiration.
+; > Elecbyte: for the creation and perpetuation of Mugen.
+; > ENIX & Quintet: for the design and production of ActRaiser 2.
+; > VirtualTek Systems: for bringing Fighter Factory to the community.
+; > The ZSNES team: for their solid, abundantly useful emulator.
+; > The Audacity team: without whom, I wouldn't have had the means to
+    obtain Industen's background music in the absense of Super Jukebox.
+; > VIB: for sharing his parallax tutorial, which I used as the base
+    logic for a workaround to calculate accurate deltas and velocities.
+; > XGargoyle: for providing a link to said parallax tutorial.
+; > The Mugen community: for its kindness, intelligence, support,
+    feedback, and friendship.
+; > You: for downloading and enjoying this stage.
+
+;===========================================================================

@@ -1,0 +1,268 @@
+
+[Info]
+name = "The Lake"
+mugenversion = 1.1     
+author = "OldGamer"       
+
+[Camera]
+startx = 0
+starty = 0
+boundleft= -160
+boundright= 160
+boundhigh = -220
+boundlow = 0
+verticalfollow = .5
+floortension = 75 
+tension = 50 
+startzoom = 1
+zoomin = 1
+zoomout = .8
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0            
+p1startz = 0
+p1facing = 1            
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Bound]
+screenleft = 16    
+screenright = 16
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2    
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+localcoord =320,240
+xscale = 1
+yscale = 1
+
+[Shadow]
+color = 0,0,0
+yscale = 0
+
+[Music]
+bgmusic = sound/lakeside.mp3
+bgvolume = 55
+
+[BGdef]
+spr = lakeside.sff
+debugbg = 0
+
+[BG 0]
+type  = normal
+spriteno = 0,0
+start = 0,0
+delta = .1,1
+mask=1
+tile = 1,1
+
+[BG 1]
+type  = normal
+spriteno = 0,1
+start = 0,10
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -.2,0
+
+[BG 2]
+type  = normal
+spriteno = 0,2
+start = 0,10
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -.3,0 
+
+[BG 3]
+type  = normal
+spriteno = 0,3
+start = 0,10
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -.4,0
+
+[BG 4]
+type  = normal
+spriteno = 0,4
+start = 0,-50
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -.2,0
+
+[BG 5]
+type  = normal
+spriteno = 0,5
+start = 0,-120
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -3,0
+tilespacing = 400
+
+[BG 6]
+type  = normal
+spriteno = 0,6
+start = 0,-90
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -2,0
+tilespacing = 400
+
+[BG 7]
+type  = normal
+spriteno = 0,7
+start = 0,-70
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -1,0
+tilespacing = 400
+
+[BG 8]
+type  = normal
+spriteno = 0,8
+start = 0,-60
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -.3,0
+tilespacing = 400
+
+[BG 9]
+type  = normal
+spriteno = 0,9
+start = 0,35
+delta = .1,1
+mask=1
+tile = 1,0
+velocity = -.4,0
+tilespacing = 400
+
+[BG 10]
+type  = normal
+spriteno = 0,10
+start = 0,-50
+delta = .2,1
+mask=1
+tile = 1,0
+
+[BG 11]
+type  = normal
+spriteno = 0,11
+start = 0,-50
+delta = .3,1
+mask=1
+tile = 1,0
+
+[BG 12]
+type  = normal
+spriteno = 0,12
+start = 0,-50
+delta = .4,1
+mask=1
+tile = 1,0
+
+[BG 13]
+type = parallax
+spriteno = 0,13
+start = 0, -50
+delta = .4, 1
+tile = 1, 0
+velocity = -.07,0
+width = 60,109
+mask = 1
+
+[BG 14]
+type  = normal
+spriteno = 0,14
+start = 0,-50
+delta = 1,1
+mask=1
+
+[BG 15]
+type  = anim
+actionno = 1
+start = 0,-50
+delta = 1,1
+mask=1
+
+[BG 15]
+type  = anim
+actionno = 1
+start = 0,-50
+delta = 1,1
+mask=1
+
+[BG 16]
+type  = anim
+actionno = 2
+start = 0,-50
+delta = 1,1
+mask=1
+
+[BG 17]
+type  = anim
+actionno = 3
+start = 0,-50
+delta = 1,1
+mask=1
+
+[BG 18]
+type  = anim
+actionno = 4
+start = 0,-50
+delta = 1,1
+mask=1
+
+[BG 18]
+type  = anim
+actionno = 5
+start = 110,-50
+delta = 1,1
+mask=1
+
+[Begin Action 1]
+1,0, 0,0, 50
+1,1, 0,0, 50
+
+[Begin Action 2]
+2,0, 0,0, 50
+2,1, 0,0, 50
+
+[Begin Action 3]
+3,0, 0,0, 50
+3,1, 0,0, 50
+
+[Begin Action 4]
+4,0, 0,0, 7
+4,1, 0,0, 7
+4,2, 0,0, 7
+4,1, 0,0, 7
+4,0, 0,0, 7
+4,1, 0,0, 7
+4,2, 0,0, 7
+
+[Begin Action 5]
+5,0, 0,0, 4
+5,1, 0,0, 4
+

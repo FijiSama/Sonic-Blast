@@ -1,0 +1,181 @@
+
+[info]
+name = "Lunar"
+author= "TM"
+
+
+
+;-------------------------------------------------------------------------------
+[Music]
+bgmusic = sound/NAOD.mp3
+bgvolume = 255
+
+
+;-------------------------------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -270
+boundright = 270
+boundhigh = -40
+boundlow = 0
+verticalfollow = 0.2
+floortension = 0
+tension = 50
+
+;Zoom option
+startzoom = 1
+zoomin = 1
+zoomout = 0.9
+
+;-------------------------------------------------------------------------------
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound = 1000
+topbound  =  0
+botbound  =  0
+
+;-------------------------------------------------------------------------------
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+;-------------------------------------------------------------------------------
+[Bound]
+screenleft = 20
+screenright = 20
+
+;-------------------------------------------------------------------------------
+[StageInfo]
+zoffset 	= 210
+autoturn 	= 1
+resetBG 	= 0
+Hires		= 1
+
+;=============================================================
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+;=============================================================
+[Shadow]
+color = 0,0,0
+yscale = .5
+
+;--------------------------------------------------------
+;--------------------------------------------------------
+[BGdef]
+spr = Lunar.sff
+
+;-------------------------------------------------------------------------------
+;=====================================================================================================
+
+[BG]; suelo
+type  =normal
+spriteno =0,1
+start = 0,105
+mask= 1
+delta = 1,1
+tile= 1,0
+velocity= -.5
+
+
+[BG]; suelo
+type  =normal
+spriteno =0,17
+start = 0,105
+mask= 1
+trans= add
+tile= 1,0
+velocity= -1.1
+
+[BG]; suelo
+type  =normal
+spriteno =0,21
+start = 0,110
+mask= 1
+trans= add
+tile= 1,0
+velocity= -1.1
+
+
+
+
+
+[BG]; suelo
+type  =normal
+spriteno =1,0
+start = 0,0
+mask= 1
+delta = .8,1
+
+
+[BG]; suelo
+type  =normal
+spriteno =1,1
+start = 0,0
+mask= 1
+delta = .8,1
+trans= add
+
+[BG]; suelo
+type  =normal
+spriteno =0,20
+start = 0,105
+delta = .8,1
+mask= 1
+
+[BG]; suelo
+type  =normal
+spriteno =0,16
+start = 0,105
+mask= 1
+trans= add
+tile= 1,1
+velocity= -1
+
+[BG]; suelo
+type  =normal
+spriteno =0,18
+start = 0,105
+delta = .8,1
+mask= 1
+tile= 1,0
+
+
+
+
+
+
+
+
+
+[BG]; suelo
+type  =normal
+spriteno =0,0
+start = 0,110
+mask= 1
+delta = .8,1
+tile= 1,0
+
+[BG]; suelo
+type  =normal
+spriteno =0,19
+start = 0,110
+mask= 1
+delta = .8,1
+tile= 1,0
+layerno= 1
+
+

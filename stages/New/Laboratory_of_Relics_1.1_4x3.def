@@ -1,0 +1,154 @@
+﻿;=============================================================
+;-------------------------------------------------------------
+;  Laboratory of Relics 1.1 Standard
+;-------------------------------------------------------------
+;=============================================================
+;  Stage Information :
+;
+;  Name : Laboratory of Relics (古代研究所 Ancient Research Institute)
+;  Original Author : Manny Lingle
+;  Stage of Origin : The Battle Cats (にゃんこ大戦争)
+;  Resolution : 640x480
+;  MUGEN Version : M.U.G.E.N 1.1+
+;  Aspect Ratio : 4:3 (Standard)
+;
+;=============================================================
+;-------------------------------------------------------------
+[Info]
+name = "Laboratory of Relics 1.1 Standard"
+displayname = "Laboratory of Relics (1.1 Standard)"
+mugenversion = 1.1
+author = "Manny Lingle"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = 0
+boundright = 0
+boundhigh = -220
+boundlow = 0
+tension = 290
+tensionhigh = 270
+tensionlow = 0
+startzoom = 0.36
+zoomout = 0.28
+zoomin = 0.58
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -710
+p1starty = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 710
+p2starty = 0
+p2facing = -1
+
+;--- Player 3 ---
+p3startx = -780
+p3starty = 0
+p3facing = 1
+
+;--- Player 4 ---
+p4startx = 780
+p4starty = 0
+p4facing = -1
+
+;--- Common ---
+leftbound = -2000
+rightbound = 2000
+
+[Bound]
+screenleft = 60
+screenright = 60
+
+[StageInfo]
+zoffset = 375.0
+autoturn = 1
+resetBG = 0
+localcoord = 640,480
+xscale = 1.48
+yscale = 1.48
+
+[Shadow]
+color = 0,0,0
+yscale = 0.08
+fade.range = -800,-250
+
+[Music]
+bgmusic = sound/Mecha_Bun_Bun_Theme.mp3
+bgvolume = 80;100
+
+[BGdef]
+spr = Laboratory_of_Relics.sff
+debugbg = 0
+
+[BG Background 1]
+type = Normal
+spriteno = 1,1
+start = 0,-115
+delta = 1,1
+tile = 1,3
+
+[BG Background 2]
+type = Normal
+spriteno = 1,2
+start = 0,-115
+delta = 1,1
+tile = 1,0
+
+[BG Laboratory of Relics]
+type = Normal
+spriteno = 1,0
+start = 0,-115
+delta = 1,1
+tile = 1,0
+
+[BG Eldritch Forces Base]
+type = Anim
+actionno = 20
+start = -612,240
+delta = 1,1
+mask = 1
+tile = 0,0
+
+[BG Cat Base]
+type = Anim
+actionno = 30
+start = 622,240
+delta = 1,1
+mask = 1
+tile = 0,0
+
+[BG Eldritch Forces Base HP]
+type = Anim
+actionno = 21
+start = -610,-5
+delta = 1,1
+mask = 1
+tile = 0,0
+
+[BG Cat Base HP]
+type = Anim
+actionno = 31
+start = 465,-5
+delta = 1,1
+mask = 1
+tile = 0,0
+
+; Eldritch Forces Base
+[Begin Action 20]
+2,0,0,0, 600, , , 0.975,0.975
+
+; Eldritch Forces Base HP
+[Begin Action 21]
+2,1,0,0, 600, , , 0.50,0.50
+
+; Cat Base
+[Begin Action 30]
+3,0,0,0, 600, , , 0.77,0.77
+
+; Cat Base HP
+[Begin Action 31]
+3,1,0,0, 600, , , 0.50,0.50

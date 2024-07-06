@@ -1,0 +1,411 @@
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Mushroom Skyland"
+displayname = "Mushroom Skyland"     
+author = "xcheatdeath" ; I stole the bgctrl code and the coin/floor/pipes sprites from mariobros by "Leonardo" & Most of the character sprites in the stage came from Bowser by k6666orochi      
+
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+boundleft = -325
+boundright = 325
+boundhigh = -400
+boundlow=-25
+verticalfollow = 1.1
+floortension = 175
+tension = 180
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -140          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 140
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 385
+autoturn=1
+resetBG = 0
+localcoord = 640,480
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity=100
+yscale=0.10
+fade.range=-100,0
+
+[Reflection]
+intensity=0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Theme Super Mario World.mp3
+bgmvolume = 255
+
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr = MushroomSky.sff
+debugbg = 0
+
+[BG sky]
+type  = Normal
+spriteno = 0,7
+layerno = 0
+start = 0, 0
+delta 		= .1,1
+mask=1
+
+[BG Fat clouds]
+type=normal
+spriteno=5,3
+start=262,-100
+delta=.22315,1
+mask=1
+
+[BG Fat clouds]
+type=normal
+spriteno=5,3
+start=-322,-177
+mask=1
+delta=.1977,1
+
+[BG Latiku]
+type = anim
+actionno=669
+layerno = 0
+mask=1
+start = -375,-95
+sin.x=40,120,0
+delta=.35,1
+
+[BG Bigclouds back]
+type=normal
+spriteno=5,1
+start=-262,195
+velocity=.11,0
+mask=1
+layerno=0
+tile=1,0
+delta=.255,1
+trans=add
+
+[BG Bigclouds back2]
+type=normal
+spriteno=5,1
+start=-200,250
+velocity=.19,0
+layerno=0
+tile=1,0
+mask=1
+delta=.255,1
+
+
+[BG Falling Bomb]
+type=normal
+spriteno=4,4
+layerno=0
+start = 0,0
+tile=0,1
+mask=1
+tilespacing=0,1000
+velocity = 0,1.5
+delta=.24,1
+
+[BG LowClouds far]
+type=normal
+spriteno=5,0
+start=-200,275
+velocity=.38,0
+layerno=0
+tile=1,0
+mask=1
+delta=.3042=1
+trans=add
+
+[BG mushrooms]
+type  = Normal
+spriteno = 0,10
+layerno = 0
+start = -175, 20
+delta 		= .34,1
+mask=1
+
+[BG 1up Shroom]
+type  = Normal
+spriteno = 3,19
+layerno = 0
+sin.x=-26,30,0
+start = 255, 267
+delta 		= .336,1
+mask=1
+
+[BG Falling Bomb2]
+type=normal
+spriteno=4,4
+layerno=0
+start = -275,-166
+tile=0,1
+tilespacing=0,1260
+velocity = 0,1
+mask=1
+delta=.2766,1
+
+[BG Main Clouds]
+type=normal
+spriteno=5,2
+start=-200,105
+velocity=.23,0
+layerno=0
+tile=1,0
+delta=.3542069=1
+mask=1
+trans=add
+
+[BG mushrooms2]
+type  = Normal
+spriteno = 0,9
+layerno = 0
+start = 220, 50
+delta 		= .3922,1
+mask=1
+
+[BG Blu Shroom]
+type  = Normal
+spriteno = 3,20
+mask=1
+layerno = 0
+sin.x=35,120,0
+start = -185, 245
+delta 		= .385,1
+
+[BG Bullet Bill]
+type  = Normal
+spriteno = 4,0
+layerno = 0
+tile=1,0
+mask=1
+tilespacing = 1300,0
+velocity=-2.4,0
+start = 405, 205
+delta 		= .42,1
+
+[BG LowClouds mid]
+type=normal
+spriteno=5,0
+start=-200,300
+velocity=.25,0
+mask=1
+layerno=0
+tile=1,0
+delta=.4420=1
+trans=add
+
+[BG Falling Bomb3]
+type=normal
+spriteno=4,4
+layerno=0
+start = 216,-396
+tile=0,1
+mask=1
+tilespacing=0,1426
+velocity = 0,1
+delta=.294165,1
+
+[BG mushrooms3]
+type  = Normal
+spriteno = 0,8
+layerno = 0
+start = 0, 0
+delta 		= .46,1
+mask=1
+
+[BG Red Shroom]
+type  = Normal
+spriteno = 3,18
+layerno = 0
+sin.x=-23,80,0
+mask=1
+start = -28, 176
+delta 		= .455,1
+
+[BG LowClouds Front]
+type=normal
+spriteno=5,0
+start=0,325
+velocity=.1,0
+layerno=0
+tile=1,0
+delta=.5=1
+mask=1
+trans=add
+
+[BG Floor]
+type  = parallax
+spriteno = 0,0
+layerno = 0
+start = 0, 365
+delta 		= .93,1
+xscale = 1.2733, 1.5
+yscalestart = 100
+yscaledelta = 0
+
+[BG FloorFront]
+type  = Normal
+spriteno = 0,3
+layerno = 0
+start = 0, 420
+delta 		= 1.1,1
+
+[Begin Action 669, latiku]
+3,6, 0,0, 4
+3,7, 0,0, 4
+3,8, 0,0, 4
+3,9, 0,0, 4
+3,10, 0,0, 4
+3,11, 0,0, 4
+3,12, 0,0, 4
+3,13, 0,0, 4
+3,14, 0,0, 4
+3,15, 0,0, 4
+3,16, 0,0, 4
+3,17, 0,0, 4
+
+;-----------------------------------------------------------
+[BG 2]
+type  = anim
+actionno = 2
+layerno = 0
+start = 416, -331;-361
+mask  = 1
+id = 2
+
+[BGCtrlDef turtle 1]
+; reset the whole deal every 2001 ticks.
+looptime = 2001
+ctrlID = 2
+
+[BGCtrl reposiciona para restart]
+type = posset
+time = 0
+x = 0
+y = 700
+
+[BGCtrl Walk left]
+type = VelSet
+time = 0
+x = -1.32
+
+[BGCtrl alinha com o chão 1]
+type = posadd
+time = 70
+y = 3
+
+;-----------------------------------------------------------
+[BG 3]
+type  = anim
+actionno = 4
+layerno = 0
+start = 416, -331
+mask  = 1
+id = 3
+
+[BGCtrlDef coin]
+; , manten desabilitada até aparecer no cano
+looptime = -1
+ctrlID = 3
+
+[BGCtrl disable]
+type = enable
+time = 0
+value = 0
+
+[BGCtrl enable]
+type = enable
+time = 1040
+value = 1
+
+[BGCtrlDef coin]
+; reset the whole deal every 2501 ticks.
+looptime = 2001
+ctrlID = 3
+
+[BGCtrl Walk left]
+type = VelSet
+time = 0
+x = -1.32
+
+[BGCtrl alinha com o chão 3]
+type = posadd
+time = 1634
+y = 2
+
+;-----------------------------------------------------------------------
+[Begin Action 2, turtle]
+1, 0, 0,0, 4
+1, 1, 0,0, 4
+1, 2, 0,0, 4
+1, 3, 0,0, 4
+1, 4, 0,0, 4
+1, 5, 0,0, 4
+1, 6, 0,0, 4
+1, 7, 0,0, 4
+1, 8, 0,0, 4
+1, 9, 0,0, 4
+
+[Begin Action 4,coin]
+3, 0, 0,0, 4, H
+3, 1, 0,0, 4, H
+3, 2, 0,0, 4, H
+3, 3, 0,0, 4, H
+3, 4, 0,0, 4, H
+3, 5, 0,0, 4, H
+
+[Begin Action 5, turtle falling]
+1, 5, 0,0, 4
+
+[Begin Action 6, bomb falling]
+2, 1, 0,0, 4
+;-----------------------------------------------------------------------
+
+[BG 11 Bottom pipes]
+type  = normal
+spriteno = 0,2
+layerno = 0
+start = 0, 480
+delta=.9553,1
+mask  = 1
