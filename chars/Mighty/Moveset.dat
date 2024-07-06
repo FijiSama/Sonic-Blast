@@ -1,0 +1,56 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Slide Launcher [Ground]                            		 _D_+^Ax2  
+Mighty Stamp [Air]                            		 _D_+^A       
+Dillo Dash [Ground]                             		 _D_+^B_!(_FOR_B)     		   
+Spin Stamp [Ground/Air] 		             _D_+^C 
+Pop Rocks [Ground]    		            _D_+^Y
+Pop Rain [Air]    		            ^Y		                    
+Try Again (Counter) [Ground]                    		 ^Y                                                    
+Transform/MAX Power 		                     ^Z
+Power Down 		                                 _D_+^S
+[S.Mighty] Mighty Tremor [Ground]                      		 _D_+^A                            		               
+[S.Mighty] Knockdown [Ground][EN<1]                      		 _D_+^A    		       
+[S.Mighty] Super Dillo Dash [Ground]  		     _D_+^B
+[S.Mighty] Super Spin Stamp [Air]  		     _D_+^B
+[S.Mighty] Guts Guyser [Ground/Air]  		     _D_+^C
+[S.Mighty] Try Again (Counter)[Ground]                    		 ^Y 
+[S.Mighty] Moxy Barrier [Ground]                  		 _D_+^Y  		                		  
+
+<#f0f000>:Specials [Base Form]:</>
+Mighty Bombs			                        _D_F_+^A				            	    
+Spin Takedown 		                            _D_B_+^A                          	    
+Mighty Drive                           		    _D_F_+^B
+Mighty Combo                   		            _D_B_+^B           	    
+Boost Crash  		                            _D_F_+^C                           	    
+[ULTIMATE] Ignited Rain              		    _D_B_+^C
+
+<#f0f000>:Specials [Super Mighty]:</>
+Burst Impact [Ground/Air]      		           _D_F_+^A         	   
+Burst Impact (Charged) [Ground/Air]            _D_F_+[Hold]^A
+Explosive Barrage         		               _D_B_+^A                     
+Mighty Missle              		               _D_F_+^B               	   
+Smash Assualt                          		   _D_B_+^B
+Super Boost Crash       		               _D_F_+^C                 	   
+[ULTIMATE] Hole Puncher                		   _D_B_+^C

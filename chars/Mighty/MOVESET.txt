@@ -1,0 +1,94 @@
+Mighty - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire
+
+C Aire
+
+Down C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Mighty Combo
+
+D,DB,B,a - Hard Shell Crush (and air)
+
+D,DF,F,b - Impact Combo
+
+D,DB,B,b - Mighty Spin Crush (And Air)
+
+D,DF,F,c - Mighty Spin Attack (Hold)
+
+D,DB,B,c - Mighty's Bomb
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or X - Mighty's Bombing Raid
+
+TRANSFORM
+
+Z - Super Form
+
+Super Mighty - Moveset
+
+A
+
+Down + A (Hold)
+
+B
+
+Down + B (Hold)
+
+C
+
+Down + C (Hold)
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire
+
+C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Super Mighty Combo
+
+D,DB,B,a - Super Hard Shell Crush
+
+D,DF,F,b - Super Mighty Charge (Hold)(And Air)
+(you can press down so that mighty rush to the ground)
+
+D,DB,B,b - Multi Ball (Hold)(And Air)
+
+D,DF,F,c - Super Explosive Ball (Hold)(And Air)
+
+D,DB,B,c - Multi Explosive Mini Ball (And Air)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or X - Super Mighty Impact
