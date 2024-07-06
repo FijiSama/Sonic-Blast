@@ -1,0 +1,50 @@
+Rouge The Bat - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Bat Kick Combo (And Aire)
+
+D,DB,B,a - Mini Bomb Boot (And Aire)
+
+D,DF,F,b - Bat Kick Rush (And Aire)
+
+D,DB,B,b - Rouge Tornado
+
+D,DF,F,c - Rouge Rising Kick (And Aire)
+
+D,DB,B,c - Rouge Slide Kick (And Aire)
+
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Rouge Dill Drive (And Aire)
