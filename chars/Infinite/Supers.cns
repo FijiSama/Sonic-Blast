@@ -1,0 +1,1067 @@
+;===================================================================================
+;---------------------------------- Supers --------------------------------------;
+;===================================================================================
+;===============================================================================
+; Infinite Clone Attacks - Start
+;-------------------------------------------------------------------------------
+[Statedef 1600]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 1600
+poweradd = -2000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 2,-23
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 3
+value = S0,44
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 3
+value = S0,44
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 30
+y = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 46
+y = 0
+
+[State 0, Aura]
+type = Helper
+trigger1 = time = 40
+helpertype = normal
+name = "Aura"
+ID = 1630
+stateno = 1630
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .14
+size.yscale = .22
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 50
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = 33,32
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 63
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = 25,-5
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 68
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = -40,27
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 75
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = -13,-35
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 84
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = 10,-60
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+trigger1 = helper(1650), movehit && time >= 100
+value = 1601
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 120
+value = 50
+ctrl = 1
+;---------------------------------------------------------------------------
+; Infinite Charge
+[Statedef 1601]
+type    = A
+movetype= A
+physics = A
+juggle  = 1
+ctrl = 0
+anim = 1601
+poweradd = -500
+sprpriority = 2
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,42
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,42
+volume = 50
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 5
+length = 10
+palbright = 0,0,0
+palcontrast = 100,100,100
+paladd = 0,0,0
+palmul = .90, .90, .90
+timegap = 1
+framegap = 1
+trans = add
+ignorehitpause = 1
+persistent = 1
+
+[State 0, Speed FX]
+type = Explod
+trigger1 = timemod = 5,0
+anim = 580
+id = 580
+pos = 2-random%25,0-random%25
+postype = p1
+facing = 1
+vfacing = 1
+vel = -2,0
+bindtime = -1
+removetime = -2
+scale = .15,.15
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = add
+Angle = 90
+pausemovetime = 99999
+
+[State 0, Boost FX]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Boost FX"
+ID = 1680
+stateno = 1680
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = 1.1
+size.yscale = 1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 14
+y = p2bodydist y /15
+
+[State 0, VelSet]
+type = VelSet
+TriggerAll = pos y >= -2.5
+Trigger1 = vel y >= 1
+y = 0
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = medium
+damage    = 48
+guardflag = MA
+pausetime = 10,12
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -8,-25
+hitsound = S1,6002
+guardsound = S1,6030
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5,-2
+air.velocity = -5,-2
+Fall = 1
+Envshake.time = 20
+
+
+[State 200, Spark FX]
+type = Explod
+triggerall = Numexplod(7001) = 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = 0,-17
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+angle = 0+random%360
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1
+value = 455
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 20
+trigger1 = ailevel = 0 && command != "hold_c"
+trigger2 = ailevel > 0 && p2bodydist x < 50
+trigger3 = ailevel > 0 && time = 30+random%90
+trigger4 = time = 90
+value = 50
+
+[State 200, End]
+type = ChangeState
+trigger1 = movehit = 1
+value = 1602
+ctrl = 1
+;---------------------------------------------------------------------------
+; Infinite Charge End
+[Statedef 1602]
+type    = A
+movetype= A
+physics = A
+juggle  = 1
+ctrl = 0
+anim = 1602
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 2.5
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = vel x > 0
+x = -0.5
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = vel x < 0
+x = 0.5
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y < 0,50,0)
+ctrl = 1
+;===============================================================================
+; Infinite Clone Attacks In Air - Start
+;-------------------------------------------------------------------------------
+[Statedef 1604]
+type    = A
+movetype= A
+physics = A
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 1604
+poweradd = -2000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 2,-23
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 3
+value = S0,20
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 3
+value = S0,20
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 0
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 30
+y = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 42
+y = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 0
+
+[State 0, Aura]
+type = Helper
+trigger1 = time = 40
+helpertype = normal
+name = "Aura"
+ID = 1630
+stateno = 1630
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .14
+size.yscale = .22
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 50
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = 33,32
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 63
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = 34,39
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 68
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = -40,27
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 75
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = -13,-50
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Infinite Clone Attacks - Helper]
+type = Helper
+trigger1 = time = 84
+helpertype = normal
+name = "Infinite Clone Attacks - Helper"
+ID = 1650
+stateno = 1650
+pos = 10,-60
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+trigger1 = helper(1650), movehit && time = 120
+value = 1601
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 130
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Aura - Start
+[Statedef 1630]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 530
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,44
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,44
+volume = 100
+
+[State 0, Rayos FX]
+type = Explod
+Triggerall = Root,Var(3) = 0
+trigger1 = timemod = 10,0
+anim = 9034+(RANDOM%4)
+ID = 9034
+pos = -10+random%40,-0-random%30
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .30,.30
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 0
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Explosion FX III]
+type = Explod
+trigger1 = time = 0
+anim = 9024
+ID = 9024
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Aura FX 2]
+type = Explod
+trigger1 = time = 0
+Anim = 531
+ID = 1630
+pos = 0,5
+sprpriority = 5
+removeongethit = 1
+removetime = -1
+bindtime = -1
+ownpal = 1
+scale = .25,.3
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,stateno != 1600
+trigger1 = root,stateno != 1601
+id = 1630
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -5,-30
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = Changestate
+trigger1 = root,stateno != 1600
+trigger1 = root,stateno != 1601
+value = 1631
+;-------------------------------------------------------------------------------
+; Aura - Fin
+[Statedef 1631]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 1130
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 531
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 200-(time*20),256
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Infinite Clone Attacks - Helper
+[Statedef 1650]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 1650
+velset = 0,0.5
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,46
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 16
+value = S1,42
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 16
+value = S1,42
+volume = 50
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 1660
+time = 999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 5
+scale = .0+time*.1,.1+time*.1
+
+[State 0, Infinite Clone Attacks - Aura]
+type = Explod
+trigger1 = time = 0
+anim = 530
+ID = 530
+pos = -1,-19
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = .15,.15
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, Infinite Clone Attacks - FX]
+type = Explod
+trigger1 = time = 0
+anim = 1620
+ID = 1620
+pos = 0,7
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.3
+sprpriority = 3
+ontop = 3
+ownpal = 1
+removeongethit = 1
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 5
+length = 10
+palbright = 0,0,0
+palcontrast = 100,100,100
+paladd = 0,0,0
+palmul = .90, .90, .90
+timegap = 1
+framegap = 1
+trans = add
+ignorehitpause = 1
+persistent = 1
+
+[State 0, Speed FX]
+type = Explod
+trigger1 = timemod = 5,0 && time >= 16
+anim = 580
+id = 580
+pos = 2-random%25,0-random%25
+postype = p1
+facing = 1
+vfacing = 1
+vel = -2,0
+bindtime = -1
+removetime = -2
+scale = .15,.15
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = add
+Angle = 90
+pausemovetime = 99999
+
+[State 0, Boost FX]
+type = Explod
+trigger1 = time = 16
+anim = 1250
+ID = 1250
+pos = -37,13
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 1.1,1
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, Vientecillos]
+type = Explod
+trigger1 = time = 16
+anim = 1211
+ID = 1211
+pos = 0,-12
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = .9,.9
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 0
+x = 0
+y = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 16
+x = 12
+y = p2bodydist y /25
+
+[State 0, VelSet]
+type = VelSet
+TriggerAll = pos y >= -2.5
+Trigger1 = vel y >= 1
+y = 0
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = medium
+damage    = 16
+guardflag = MA
+pausetime = 10,12
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -8,-25
+hitsound = S1,18
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 8
+ground.hittime  = 10
+ground.velocity = -5
+air.velocity = -5,-2
+Fall = 0
+Envshake.time = 20
+
+
+[State 200, Spark FX]
+type = Explod
+triggerall = Numexplod(7001) = 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = 0,-17
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+angle = 0+random%360
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 12
+anim = 7033
+ID = 7033
+pos = -10,-15
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.3
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 120
+value = 1660
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = movehit = 1
+value = 1660
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Infinite Clone Attacks - Fin
+[Statedef 1660]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 530
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 1250
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 1211
+
+[State 0,VarSet]
+type = VarSet
+trigger1 =!Time
+fv = 5
+value = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1-time*.1,1-time*.1
+
+[State 0,Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+;-------------------------------------------------------------------------------
+; Boost FX
+[Statedef 1680]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1250
+sprpriority = 1
+
+[State 0, Vientecillos]
+type = Explod
+trigger1 = time = 0
+anim = 1211
+ID = 1250
+pos = 5,-20
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = .9,.9
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, Vientecillos]
+type = RemoveExplod
+trigger1 = root,stateno != 1601
+id = 1250
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,45
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,45
+volume = 100
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -37,13
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = DestroySelf
+trigger1 = root,stateno != 1601

@@ -1,0 +1,51 @@
+Infinite The Jackal - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+B Aire
+
+C Aire
+
+Down C Aire
+
+Y - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Rubisque Cube (And Air)
+
+D,DB,B,a - Phantom Ruby Storm (And Air)
+
+D,DF,F,b - Infinite Boost (And Air)
+
+D,DB,B,b - Infinite Combo
+
+D,DF,F,c - Ruby Wrath (And Air)
+
+D,DB,B,c - Infinite Ball Mult
+
+SUPERS:
+
+D,DF,F,a+b - Infinite Clone Attacks (And Air)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b - Virtual Solar (And Air)
+
+Full Power
+
+S (Power Charge Max and Life -30)
