@@ -1,0 +1,45 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+Homing Dash                      		^X
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Mean Upper [Ground]                		              _D_+^A
+Crater Maker                 		          [Mean Upper]_!^A  
+Spin Slam                		     [_AIR]_+_D_+^A              		
+Shin Splint 		                          _D_+^B
+Putdown 		                              [Shin Splint]_!^B
+Gnarly Slant                		     [_AIR]_+_D_+^B 
+Warped Globe [Ground/Air] 				      _D_+^C                                   		           			 
+Homing Slam [Air]  		               [_AIR]_+^Y 
+Containment Field [Ground]   		           ^Y 
+Acid Burst [Ground/Air]   		      [Containment Field]_!^Y 
+MAX Power 		                               [Max Energy]^Z
+                                                   		  
+<#f0f000>:Specials:</>
+Distortion Wave [Ground/Air]			                      [Hold]_D_F_+^A		                           				            	    
+Acid Rain		                              _D_B_+^A                          	    
+Bent Burst 		                          _D_F_+^B 
+Break Release 		                          [Max Energy]_D_F_+^B                        		    
+Contortion Combo               		          _D_B_+^B              		    
+Boost Crash   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Reverse Overdrive      		          _D_B_+^C   
+		   		    

@@ -1,0 +1,58 @@
+Seelkadoom The Hedgehog - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+Down B Aire Speed Down
+
+C Aire
+
+Down + C Aire
+
+Y  Homing Attack
+
+Z - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Seelkadoom Combo
+
+D,DB,B,a - Chaos Power
+
+D,DF,F,b - Seelkadoom Boost (And Air)
+
+D,DB,B,b - Shield (And Air)
+
+D,DB,B,b - Wave of Oblivion (And Air) (if the shield is activate)
+
+D,DF,F,c - Darkest Beam (And Air)
+
+D,DB,B,c - Dark Spears (Hold To Dark Spear Rain)
+
+SUPERS:
+
+D,DF,F,a+b - Dark Blast
+
+ULTIMATE: 
+
+X - Magical Apokaliz
+
+Full Power:
+down+z

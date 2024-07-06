@@ -1,0 +1,7284 @@
+;===================================================================================
+;----------------------------------- Skills ---------------------------------------;
+;===============================================================================
+; Seelkadoom Combo
+;-------------------------------------------------------------------------------
+[Statedef 1000]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1000
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = -1,-18
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,2
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 30
+x = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 32
+value = S5,3
+volume = 50
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Up
+damage    = 25
+guardflag = MA
+pausetime = 8,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,16
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2
+air.velocity = -2,-4
+Fall = 0
+Envshake.time = 5
+
+[State 0, Base Hit Spark]
+type = Helper
+trigger1 = movehit = 1 && numhelper(1000) = 0
+name = "Base Hit Spark"
+ID = 1000
+stateno = 8000
+pos = 18,-15
+postype = P1
+facing = -1
+ownpal = 1
+size.xscale = .075
+size.yscale = .075
+ignorehitpause = 1
+
+[State 200, Combo]
+type = ChangeState
+trigger1 = movehit && time = 40
+value = 1001
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Seelkadoom Combo 2
+[Statedef 1001]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+velset = 0,0
+ctrl = 0
+anim = 1001
+poweradd = -500
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 4
+x = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 4
+value = S5,3
+volume = 50
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Up
+damage    = 25
+guardflag = MA
+pausetime = 8,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,18
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2
+air.velocity = -2,-4
+Fall = 0
+Envshake.time = 5
+
+[State 0, Base Hit Spark]
+type = Helper
+trigger1 = movehit = 1 && numhelper(1001) = 0
+name = "Base Hit Spark"
+ID = 1001
+stateno = 8000
+pos = 20,-15
+postype = P1
+facing = -1
+ownpal = 1
+size.xscale = .075
+size.yscale = .075
+ignorehitpause = 1
+
+[State 200, Combo]
+type = ChangeState
+trigger1 = movehit && time = 15
+value = 1002
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Seelkadoom Combo 3
+[Statedef 1002]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+velset = 0,0
+ctrl = 0
+anim = 1002
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 0
+x = 0.8
+y = -0.8
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 0
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = A         ;A,C,S,N
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 32
+value = S5,3
+volume = 50
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Up
+damage    = 25
+guardflag = MA
+pausetime = 8,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 22
+ground.hittime  = 25
+ground.velocity = -1,-3.5
+air.velocity = -1,-3.5
+Fall = 0
+Envshake.time = 5
+
+[State 0, Base Hit Spark]
+type = Helper
+trigger1 = movehit = 1 && numhelper(1002) = 0
+name = "Base Hit Spark"
+ID = 1002
+stateno = 8000
+pos = 15,-15
+postype = P1
+facing = -1
+ownpal = 1
+size.xscale = .075
+size.yscale = .075
+ignorehitpause = 1
+
+[State 200, Combo]
+type = ChangeState
+trigger1 = movehit && time = 14
+value = 1003
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Seelkadoom Combo 4
+[Statedef 1003]
+type    = A
+movetype= A
+physics = A
+juggle  = 5
+velset = 0,0
+ctrl = 0
+anim = 1003
+sprpriority = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 0
+x = 0.5
+y = -0.5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 2
+value = S5,3
+volume = 50
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Up
+damage    = 25
+guardflag = MA
+pausetime = 8,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 22
+ground.hittime  = 25
+ground.velocity = -6,-10
+air.velocity = -6,-10
+Fall = 1
+Envshake.time = 5
+
+[State 0, Base Hit Spark]
+type = Helper
+trigger1 = movehit = 1 && numhelper(1003) = 0
+name = "Base Hit Spark"
+ID = 1003
+stateno = 8000
+pos = 15,-15
+postype = P1
+facing = -1
+ownpal = 1
+size.xscale = .075
+size.yscale = .075
+ignorehitpause = 1
+
+[State 0, Hold FX - Hit Sparks]
+type = Helper
+trigger1 = movehit = 1 && numhelper(1065) = 0
+helpertype = normal
+name = "Hold FX - Hit Sparks"
+ID = 1065
+stateno = 1065
+pos = 15,-29
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .1
+size.yscale = .2
+
+[State 200, Combo]
+type = ChangeState
+trigger1 = movehit && time = 16
+value = 1004
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Seelkadoom Combo 5
+[Statedef 1004]
+type    = A
+movetype= A
+physics = A
+juggle  = 5
+velset = 0,0
+ctrl = 0
+anim = 1004
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 0
+x = 0.5
+y = -0.5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 25
+x = 2
+y = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 30
+x = -0.7
+y = -0.2
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 25
+x = p2bodydist x + 20
+y = p2bodydist y - 10
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,3
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 9 || time = 15 || time = 25
+value = S40,2
+volume = 50
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Up
+damage    = 25
+guardflag = MA
+pausetime = 5,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 22
+ground.hittime  = 25
+ground.velocity = -6,-10
+air.velocity = -6,-10
+Fall = 1
+Envshake.time = 5
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1
+value = 455
+
+[State 0, Base Hit Spark]
+type = Helper
+trigger1 = movehit = 1 && numhelper(1003) = 0
+name = "Base Hit Spark"
+ID = 1003
+stateno = 8000
+pos = 15,-15
+postype = P1
+facing = -1
+ownpal = 1
+size.xscale = .075
+size.yscale = .075
+ignorehitpause = 1
+
+[State 0, Hold FX - Hit Sparks]
+type = Helper
+trigger1 = movehit = 1
+helpertype = normal
+name = "Hold FX - Hit Sparks"
+ID = 1065
+stateno = 1065
+pos = 15,-22
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .3
+
+[State 0, Hold FX - Hit Sparks]
+type = Helper
+trigger1 = movehit = 1
+helpertype = normal
+name = "Hold FX - Hit Sparks"
+ID = 1065
+stateno = 1065
+pos = 25,-22
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .1
+size.yscale = .2
+
+[State 0, Slash Spark BIG FX]
+type = Explod
+trigger1 = time = 9
+anim = 1015
+ID = 1015
+pos = 116,-12
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1.3,.6
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+angle = 5
+
+[State 0, Slash Spark BIG FX]
+type = Explod
+trigger1 = time = 15
+anim = 1015
+ID = 1015
+pos = 146,-40
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1.3,.5
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+angle = -6
+
+[State 0, Slash Spark BIG FX]
+type = Explod
+trigger1 = time = 25
+anim = 1015
+ID = 1015
+pos = -315,-10
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .8,.3
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Hold FX - Hit Sparks
+[Statedef 1065]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 7300
+sprpriority = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 10
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+time*.1,1+time*.1
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-time*40,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Power Blast
+;-------------------------------------------------------------------------------
+[Statedef 1100]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 1100
+poweradd = -1500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-15
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,3
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,3
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,3
+
+[State 0,Power Blast - Charge]
+type = Helper
+trigger1 = time = 30
+helpertype = normal
+name = "Power Blast - Charge"
+ID = 1140
+stateno = 1140
+pos = 0,-15
+postype = p1
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+supermovetime = 999
+
+[State 0,Power Blast - Helper]
+type = Helper
+trigger1 = time = 50
+helpertype = normal
+name = "Power Blast - Helper"
+ID = 1150
+stateno = 1150
+pos = 0,-15
+postype = p1
+ownpal = 1
+supermovetime = 999
+
+[State 200,End]
+type = ChangeState
+trigger1 = time = 120
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Power Blast - Charge
+[Statedef 1140]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1140
+sprpriority = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 10
+
+[state 0]
+type = AngleDraw
+triggerall = time < 50
+trigger1 = 1
+scale = 7.0-(time/3.0),7.0-(time/3.0)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-time*10,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Power Blast - Skill Hitspark
+[Statedef 1145]
+type    = A
+movetype= I
+physics = N
+anim = 8012
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Var(1)
+scale = 1+time*.05,1+time*.05
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------
+; Power Blast - Helper
+[Statedef 1150]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1150
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,12
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 30
+scale = .1+time*.04,.1+time*.04
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time >= 5
+statetype = A 
+movetype = A
+physics = N
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,37
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, 1]
+type = HitDef
+trigger1 = timemod = 3,0
+attr = S, NP
+animtype  = Heavy
+damage    = 8
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound   = S1,18
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -0.2,-0.5
+air.velocity = -0.2,-0.5
+Fall = 1
+Sprpriority = 3
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1 && time >= 40
+value = 455
+
+[State 0, Power Blast - Skill Hitspark]
+type = Helper
+trigger1 = MoveContact = 1
+name = "Power Blast - Skill Hitspark"
+ID = 1145
+stateno = 1145
+pos = -10+random%20,0-random%35
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .4
+Size.Yscale = .4
+
+[State 0, Spark CVS]
+type = Explod
+persistent = 3
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10+random%30,-15-random%10
+facing = 1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .3,.3
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,StateNo = 1100 && time = 120
+trigger2 = Parent, Time >= 120
+value = 1160
+;-------------------------------------------------------------------------------
+; Power Blast - Explosion
+[Statedef 1160]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 10
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-time*10,256
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 0
+fv = 5
+value = .05
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 0
+scale = .8+fvar(5),.8+fvar(5)
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+;===============================================================================
+; Seelkadoom Boost Start
+;-------------------------------------------------------------------------------
+[Statedef 1200]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1200
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 15 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-15
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, Turn]
+type = Turn
+triggerall = time = 0
+trigger1 = command = "holdback"
+
+[State 0, Explod]
+type = Explod
+trigger1 = timemod = 8,0 && time > 12
+anim = 7022
+ID = 1051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = -1,0
+removetime = -2
+scale = .2*Helper(999999),Fvar(16),.2*Helper(999999),Fvar(16)
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1201
+ctrl = 0
+;---------------------------------------------------------------------------
+; Seelkadoom Boost
+[Statedef 1201]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1201
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S6,17
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S6,17
+volume = 999
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+ignorehitpause = 1
+;persistent = 
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 7032
+ID = 7032
+pos = -10,-15
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.3
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+trans = sub
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 5
+length = 10
+palbright = 0,0,0
+palcontrast = 100,100,100
+paladd = 0,0,0
+palmul = .90, .90, .90
+timegap = 1
+framegap = 1
+trans = add
+ignorehitpause = 1
+persistent = 1
+
+[State 0, Speed FX]
+type = Explod
+trigger1 = timemod = 5,0
+anim = 580
+id = 1552
+pos = 2-random%25,0-random%25
+postype = p1
+facing = 1
+vfacing = 1
+vel = -2,0
+bindtime = -1
+removetime = -2
+scale = .15,.15
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = add
+Angle = 90
+pausemovetime = 99999
+
+[State 0, Explod]
+type = Explod
+trigger1 = timemod = 4,0
+anim = 7022
+ID = 1051
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1*Helper(999999),Fvar(16),.1*Helper(999999),Fvar(16)
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 20
+y = 0
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = medium
+damage    = 50
+guardflag = MA
+pausetime = 10,12
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -8,-25
+hitsound   = S1,19
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5,-2
+air.velocity = -5,-2
+Fall = 1
+Envshake.time = 20
+
+
+[State 0, Punch FX]
+type = Explod
+triggerall = numexplod(7019)= 0
+trigger1 = movehit = 1
+anim = 7013
+ID = 7019
+pos = -10,-20
+postype = p2
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .12,.12
+sprpriority = -2
+ontop = 0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+supermove = 999
+supermovetime = 999
+pausemove = 999
+pausemovetime = 999
+
+[State 200, Spark CVS]
+type = Explod
+triggerall = Numexplod(7001) = 0
+trigger1 = Movehit = 1
+anim = 7012
+ID = 7001
+postype = P2
+pos = 0,-17
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+angle = 0+random%360
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 200, Spark CVS]
+type = Explod
+triggerall = Numexplod(7033) = 0
+trigger1 = Movehit = 1
+anim = 7033
+ID = 7033
+postype = P2
+pos = 0,-15
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+angle = 0+random%360
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 0, Boost FX]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Boost FX"
+ID = 1250
+stateno = 1250
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .18
+size.yscale = .18
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1
+value = 455
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 20
+trigger1 = ailevel = 0 && command != "hold_c"
+trigger2 = ailevel > 0 && p2bodydist x < 50
+trigger3 = ailevel > 0 && time = 30+random%90
+trigger4 = time = 90
+value = 1202
+;---------------------------------------------------------------------------
+; Seelkadoom Boost End
+[Statedef 1202]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 1204
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S6,16
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S6,16
+volume = 999
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = 1
+id = 1250
+ignorehitpause = 1
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = vel x > 0
+x = -0.5
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = vel x < 0
+x = 0.5
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0
+id = 1405
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Seelkadoom Boost Air Start
+[Statedef 1203]
+type    = A
+movetype= A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 1202
+velset = 0,0.5
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 15 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 6,-28
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,0
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,0
+volume = 999
+
+[State 0, Turn]
+type = Turn
+triggerall = time = 0
+trigger1 = command = "holdback"
+
+[State 200, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 1204
+ctrl = 0
+;---------------------------------------------------------------------------
+; Seelkadoom Boost Air
+[Statedef 1204]
+type    = A
+movetype= A
+physics = A
+juggle  = 1
+ctrl = 0
+anim = 1201
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S6,18
+volume = 999
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 7032
+ID = 7032
+pos = -10,-15
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.3
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+trans = sub
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = time = 0
+time = 5
+length = 10
+palbright = 0,0,0
+palcontrast = 100,100,100
+paladd = 0,0,0
+palmul = .90, .90, .90
+timegap = 1
+framegap = 1
+trans = add
+ignorehitpause = 1
+persistent = 1
+
+[State 0, Speed FX]
+type = Explod
+trigger1 = timemod = 5,0
+anim = 580
+id = 1552
+pos = 2-random%25,0-random%25
+postype = p1
+facing = 1
+vfacing = 1
+vel = -2,0
+bindtime = -1
+removetime = -2
+scale = .15,.15
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = add
+Angle = 90
+pausemovetime = 99999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 20
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = medium
+damage    = 50
+guardflag = MA
+pausetime = 10,12
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -8,-25
+hitsound   = S1,19
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5,-2
+air.velocity = -5,-2
+Fall = 1
+Envshake.time = 20
+
+
+[State 0, Punch FX]
+type = Explod
+triggerall = numexplod(7019)= 0
+trigger1 = movehit = 1
+anim = 7013
+ID = 7019
+pos = -10,-20
+postype = p2
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .12,.12
+sprpriority = -2
+ontop = 0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+supermove = 999
+supermovetime = 999
+pausemove = 999
+pausemovetime = 999
+
+[State 200, Spark CVS]
+type = Explod
+triggerall = Numexplod(7001) = 0
+trigger1 = Movehit = 1
+anim = 7012
+ID = 7001
+postype = P2
+pos = 0,-17
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+angle = 0+random%360
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 200, Spark CVS]
+type = Explod
+triggerall = Numexplod(7033) = 0
+trigger1 = Movehit = 1
+anim = 7033
+ID = 7033
+postype = P2
+pos = 0,-15
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+angle = 0+random%360
+supermovetime 	= 999
+ignorehitpause  = 1
+
+[State 0, Boost FX]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Boost FX"
+ID = 1250
+stateno = 1250
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1
+value = 455
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 30
+trigger1 = ailevel = 0 && command != "hold_c"
+trigger2 = ailevel > 0 && p2bodydist x < 50
+trigger3 = ailevel > 0 && time = 30+random%110
+trigger4 = time = 110
+value = 50
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = pos y >= -10
+value = 1201
+ctrl = 0
+ignorehitpause= 1
+;-------------------------------------------------------------------------------
+; Boost FX
+[Statedef 1250]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1250
+sprpriority = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Sub     ;None, Add, AddAlpha, Add1, Sub
+;alpha = 256, 256
+
+[State 0, Vientecillos]
+type = Explod
+trigger1 = time = 0
+anim = 1211
+ID = 1250
+pos = 10,-5
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = .5,.5
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 1
+trans = Sub
+
+[State 0, Vientecillos]
+type = RemoveExplod
+trigger1 = Root,StateNo != 1201
+trigger1 = Root,StateNo != 1204
+id = 1250
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,45
+volume = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,45
+volume = 100
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -18,-12
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = DestroySelf
+trigger1 = root,stateno != 1201
+trigger1 = root,stateno != 1204
+;===============================================================================
+; Shield
+;-------------------------------------------------------------------------------
+[Statedef 1300]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1300
+poweradd = 0
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-15
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,6
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,6
+
+[State 0, Shield - Honda FX]
+type = Helper
+trigger1 = time = 35
+name = "Shield - Honda FX"
+ID = 1330
+stateno = 1330
+pos = 0,15
+postype = p1
+ownpal = 1
+size.xscale = .3
+size.yscale = .3
+
+[State 0, Shield - Count]
+type = Helper
+trigger1 = time = 35
+name = "Shield - Count"
+ID = 1390
+stateno = 1390
+pos = 99999,99999
+postype = p1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y < 0,50,0)
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Wave of Oblivion
+;-------------------------------------------------------------------------------
+[Statedef 1301]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1301
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-15
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,6
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 45
+value = S5,60
+volume = 50
+
+[State 0, Wave of Oblivion - Honda FX]
+type = Helper
+trigger1 = time = 40
+name = "Wave of Oblivion - Honda FX"
+ID = 1315
+stateno = 1315
+pos = 0,-18
+postype = p1
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1350
+stateno = 1350
+pos = 0,-45
+postype = p1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1351
+stateno = 1351
+pos = 24,-48
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1352
+stateno = 1352
+pos = -24,-48
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1353
+stateno = 1353
+pos = 23,-26
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1354
+stateno = 1354
+pos = -23,-26
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1355
+stateno = 1355
+pos = 20,-15
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1356
+stateno = 1356
+pos = -20,-15
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y < 0,50,0)
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Wave of Oblivion Air
+;-------------------------------------------------------------------------------
+[Statedef 1302]
+type    = A
+movetype= A
+physics = A
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1302
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-15
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,22
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 45
+value = S5,60
+volume = 50
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+y = 0
+
+[State 0, Wave of Oblivion - Honda FX]
+type = Helper
+trigger1 = time = 40
+name = "Wave of Oblivion - Honda FX"
+ID = 1315
+stateno = 1315
+pos = 0,-18
+postype = p1
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1350
+stateno = 1350
+pos = 0,-40
+postype = p1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1351
+stateno = 1351
+pos = 24,-48
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1352
+stateno = 1352
+pos = -24,-48
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1353
+stateno = 1353
+pos = 23,-26
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1354
+stateno = 1354
+pos = -23,-26
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1355
+stateno = 1355
+pos = 20,-15
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1356
+stateno = 1356
+pos = -20,-15
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1357
+stateno = 1357
+pos = 24,12
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1358
+stateno = 1358
+pos = -24,12
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1359
+stateno = 1359
+pos = 18,8
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1360
+stateno = 1360
+pos = -18,8
+postype = p1
+facing = -1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 0, Dark Spears - Helper]
+type = Helper
+trigger1 = time = 45
+name = "Dark Spears - Helper"
+ID = 1361
+stateno = 1361
+pos = 0,10
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = .12
+size.yscale = .12
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(pos y < 0,50,0)
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Wave of Oblivion - Honda FX
+[Statedef 1315]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1315
+sprpriority = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 10
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .1-time*.1,.1-time*.1
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-time*10,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Shield - Honda FX
+[Statedef 1330]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1330
+sprpriority = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+Ampl = -4
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,53
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1350]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 90
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+y = -7
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 100
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1351]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 40
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4
+y = -3
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1352]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 40
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4
+y = -3
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1353]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 20
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4.5
+y = -1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1354]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 20
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4.5
+y = -1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1355]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 6
+y = 0
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1356]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 6
+y = 0
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1357]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -40
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4
+y = 3
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1358]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -40
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4
+y = 3
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1359]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -20
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4.5
+y = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1360]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -20
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 4.5
+y = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spears - Helper
+[Statedef 1361]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1350
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -90
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0
+y = 7
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = Add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 30,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Shield - Shield
+[Statedef 1380]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1360
+sprpriority = 3
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = time >= 0
+value = -3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 150,0
+value = S5,54
+channel = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 150,0
+value = S5,54
+channel = 4
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = timemod = 150,0
+value = S5,54
+channel = 5
+
+[State 0, Viento]
+type = Explod
+triggerall = root,pos y >= 0
+trigger1 = timemod = 15,0
+anim = 7022
+ID = 550
+pos = -5,20
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.4
+vel = -2,0
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Viento]
+type = Explod
+triggerall = root,pos y >= 0
+trigger1 = timemod = 15,0
+anim = 7022
+ID = 550
+pos = 5,20
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .3,.4
+vel = 2,0
+sprpriority = 1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Shield - Shield - Rayos]
+type = Explod
+trigger1 = timemod = 15,0
+anim = 1370
+ID = 1370
+pos = -50+random%80,-15+random%60
+postype = p1
+facing = ifelse(random < 500,1,-1)
+vfacing = ifelse(random < 500,1,-1)
+bindtime = -1
+removetime = -2
+scale = .1,.1
+sprpriority = 5
+ontop = 1
+ownpal = 1
+removeongethit = 0
+supermove = 999
+supermovetime = 999
+pausemove = 999
+pausemovetime = 999
+
+[State 0, Shield - Barrier]
+type = Helper
+trigger1 = timemod = 35,0
+name = "Shield - Barrier"
+ID = 1385
+stateno = 1385
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .50
+size.yscale = .50
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .4,.4
+value = 1+time*25
+ignorehitpause = 1
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -1,-25;-1,-18
+ignorehitpause = 1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 1380
+time = 99999999999999
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root, stateno = 500
+
+[State 200, End]
+type = Destroyself
+trigger1 = root, stateno = 1004
+
+[State 200, End]
+type = Destroyself
+trigger1 = root, stateno = [1200,1204]
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,var(2) = 0
+trigger2 = root, stateno = 500
+trigger3 = root, stateno = 1004
+trigger4 = root, stateno = [1200,1204]
+value = 1381
+;-------------------------------------------------------------------------------
+; Shield - Shield End
+[Statedef 1381]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 0
+fv = 5
+value = .05
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 0
+scale = .8+fvar(5),.8+fvar(5)
+ignorehitpause = 1
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 0
+channel = 3
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 0
+channel = 4
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 0
+channel = 5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,55
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,55
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 30
+ampl = -4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 0
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+;-------------------------------------------------------------------------------
+; Shield - Barrier
+[Statedef 1385]
+type    = A
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+anim = 1361
+ctrl = 0
+sprpriority = 4
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 0,-30
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 0
+fv = 5
+value = .05
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 0
+scale = .8+fvar(5),.8+fvar(5)
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 0
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+;-------------------------------------------------------------------------------
+; Shield - Count
+[Statedef 1390]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 9999
+sprpriority = 3
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = time = 0
+v = 2
+value = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,stateno = 1301 && root,time >= 35
+value = 1391
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,stateno = 1302 && root,time >= 35
+value = 1391
+
+[State 200, End]
+type = ChangeState
+trigger1 = time >= 500
+trigger2 = roundstate != 2
+trigger3 = root,power = 0
+value = 1391
+;-------------------------------------------------------------------------------
+; Shield - Shield Count Fin
+[Statedef 1391]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 9999
+sprpriority = 3
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = time >= 1
+;===============================================================================
+; Darkest Beam
+;-------------------------------------------------------------------------------
+[Statedef 1400]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1400
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-22
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 80
+value = S0,5
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 80
+value = S0,5
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 10
+time = 112
+ampl = -1
+
+[State 0, Viento]
+type = Explod
+trigger1 = time >= 10 && timemod = 10,0
+anim = 7022
+ID = 1051
+pos = -5,3
+postype = p1
+facing = 1
+vel = -2,0
+scale = .25,.35
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 0
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Viento 2]
+type = Explod
+trigger1 = time >= 10 && timemod = 10,0
+anim = 7022
+ID = 1051
+pos = 0,-1
+postype = p1
+facing = -1
+vel = 2,0
+scale = .25,.35
+sprpriority = -1
+ontop = 0
+ownpal = 1
+removeongethit = 0
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Darkest Beam - Charge]
+type = Helper
+trigger1 = Time = 40
+name = "Darkest Beam - Charge"
+ID = 1421
+stateno = 1421
+facing = 1
+postype = p1
+ownpal = 1
+size.xscale = .3
+size.yscale = .3
+Supermovetime = 999
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 60
+trigger1 = ailevel = 0 && command != "hold_a"
+trigger2 = ailevel > 0 && p2bodydist x < 100
+trigger3 = ailevel > 0 && p2bodydist x >= 100 && p2bodydist x < 300 && time >= 50+random%80
+trigger4 = time = 110
+value = ifelse(time >= 80,1402,1401)
+;-------------------------------------------------------------------------------
+; Darkest Beam - Release
+[Statedef 1401]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1401
+poweradd = -1000
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+
+[State 0, Shadow FX]
+type = Explod
+TriggerAll = Time = [6,120]
+Trigger1 = TimeMod = 1,0
+anim = 581
+ID = 001
+pos = (-10-Random%10),(-5-Random%25)
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .3,.15
+sprpriority = 2
+ontop = Cond(Random<500,1,0)
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = sub
+Vel = -1,0
+Angle = 90
+
+[State 0, Dust FX]
+type = Explod
+TriggerAll = Time = [6,110]
+Trigger1 = TimeMod = 10,0
+anim = 7022
+ID = 1051
+pos = 0,4
+scale = .35,.45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+IgnoreHitPause = 1
+removeongethit = 1
+vel = -1.5,0
+
+[State 0, Darkest Beam - Helper]
+type = Helper
+trigger1 = time = 0
+name = "Darkest Beam - Helper"
+ID = 1450
+stateno = 1450
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 100
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Darkest Beam - Release II
+[Statedef 1402]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1401
+poweradd = -1500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+
+[State 0, Shadow FX]
+type = Explod
+TriggerAll = Time = [0,120]
+Trigger1 = TimeMod = 1,0
+anim = 581
+ID = 001
+pos = (30-Random%10),(-10-Random%25)
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .3,.15
+sprpriority = 2
+ontop = Cond(Random<500,1,0)
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = sub
+Vel = -1,0
+Angle = 90
+
+[State 0, FX]
+type = Explod
+trigger1 = Time = 0
+anim = 1432
+ID = 1432
+pos = -0,0
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+Trans = sub
+
+[State 0, Dust FX]
+type = Explod
+TriggerAll = Time = [0,110]
+Trigger1 = TimeMod = 10,0
+anim = 7022
+ID = 1051
+pos = 0,4
+scale = .35,.45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 0
+ontop = 1
+ownpal = 1
+IgnoreHitPause = 1
+removeongethit = 1
+vel = -1.5,0
+
+[State 0, Darkest Beam - Helper]
+type = Helper
+trigger1 = time = 0
+name = "Darkest Beam - Helper"
+ID = 1451
+stateno = 1451
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = 1.5
+size.yscale = 1.5
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 150
+value = 0
+ctrl = 1
+;===============================================================================
+; Darkest Beam Air
+;-------------------------------------------------------------------------------
+[Statedef 1403]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1403
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-22
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 60
+value = S0,5
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 60
+value = S0,5
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 10
+time = 112
+ampl = -1
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll  =Vel X>.1
+trigger1 = 1
+x = -.2
+
+[State 0,VelAdd]
+type = VelAdd
+TriggerAll = Vel X<-.1
+trigger1 = 1
+x = .2
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y<=-2
+trigger1 = 1
+y = .25
+
+[State 0,VelSet]
+type = VelSet
+TriggerAll = Pos y>=-2
+trigger1 = 1
+y = 0
+
+[State 0, Darkest Beam Air - Charge]
+type = Helper
+trigger1 = Time = 33
+name = "Darkest Beam Air - Charge"
+ID = 1422
+stateno = 1422
+facing = 1
+postype = p1
+ownpal = 1
+size.xscale = .1
+size.yscale = .1
+Supermovetime = 999
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 40
+trigger1 = ailevel = 0 && command != "hold_a"
+trigger2 = ailevel > 0 && p2bodydist x < 100
+trigger3 = ailevel > 0 && p2bodydist x >= 100 && p2bodydist x < 300 && time >= 40+random%50
+trigger4 = time = 100
+value = ifelse(time >= 60,1405,1404)
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Release
+[Statedef 1404]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1404
+poweradd = -1000
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+
+[State 0, Shadow FX]
+type = Explod
+TriggerAll = Time = [6,120]
+Trigger1 = TimeMod = 1,0
+anim = 581
+ID = 001
+pos = (-15-Random%10),(-20-Random%25)
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .3,.15
+sprpriority = 2
+ontop = Cond(Random<500,1,0)
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = sub
+Vel = -1,0
+Angle = -120
+
+[State 0,VelSet]
+type = VelSet
+trigger1 =!Time
+x = -.25
+y = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -40
+
+[State 0,StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElemTime(2)=0
+statetype = A
+movetype = I
+physics = A
+
+[State 0,VelSet]
+type = VelSet
+trigger1 = time >= 0
+x = -0.5
+y = -0.5
+
+[State 0, Darkest Beam Air - Helper]
+type = Helper
+trigger1 = time = 0
+name = "Darkest Beam Air - Helper"
+ID = 1452
+stateno = 1452
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 100
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Release II
+[Statedef 1405]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1404
+poweradd = -1500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,1
+
+[State 0, Shadow FX]
+type = Explod
+TriggerAll = Time = [0,120]
+Trigger1 = TimeMod = 1,0
+anim = 581
+ID = 001
+pos = (30-Random%10),(-0-Random%25)
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .3,.15
+sprpriority = 2
+ontop = Cond(Random<500,1,0)
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+Trans = sub
+Vel = -1,0
+Angle = -120
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -40
+
+[State 0,VelSet]
+type = VelSet
+trigger1 =!Time
+x = -.25
+y = 0
+
+[State 0,StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElemTime(1)=0
+statetype = A
+movetype = I
+physics = A
+
+[State 0,VelSet]
+type = VelSet
+trigger1 = time >= 0
+x = -0.5
+y = -0.5
+
+[State 0, Darkest Beam - Helper]
+type = Helper
+trigger1 = time = 0
+name = "Darkest Beam - Helper"
+ID = 1453
+stateno = 1453
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = 1.5
+size.yscale = 1.5
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 150
+value = 50
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Darkest Beam - Balls Particles
+[Statedef 1420]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1420
+sprpriority = 4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = rootdist x /60
+y = rootdist y /80
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1-time*.03,1-time*.03
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+alpha = 256-var(1),256
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+v = 1
+value = 12
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = rootdist x = [-5,5]
+
+;-------------------------------------------------------------------------------
+; Darkest Beam - Charge
+[Statedef 1421]
+type = A
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1421
+sprpriority = 3
+
+[State 0, Darkest Beam - Balls Particles]
+type = Helper
+triggerall = timemod = 2,0
+trigger1 = time = [0,40]
+name = "Darkest Beam - Balls Particles"
+ID = 1420
+stateno = 1420
+pos = -40+random%80,-5-random%30
+postype = p1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+size.xscale = .05
+size.yscale = .05
+
+[State 0, Darkest Beam - Honda]
+type = Helper
+trigger1 = time = 0
+name = "Darkest Beam - Honda"
+ID = 1425
+stateno = 1425
+pos = 0,-0
+postype = p1
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,47
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -8,-23
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Time >= 10
+scale = 1,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Root,StateNo = 1401 && Root,Time >= 1
+x = 8
+Y = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+alpha = 225,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+Triggerall = Root,Stateno != 1401 || Root,Stateno != 1402
+trigger1 = Root,stateno != 1400
+
+[State 200, End]
+type = Destroyself
+Triggerall= Root,Stateno = 1401 || Root,Stateno = 1402
+trigger1 = Root,time = 6
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Charge
+[Statedef 1422]
+type = A
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1421
+sprpriority = 3
+
+[State 0, Darkest Beam - Balls Particles]
+type = Helper
+triggerall = timemod = 2,0
+trigger1 = time = [0,40]
+name = "Darkest Beam - Balls Particles"
+ID = 1420
+stateno = 1420
+pos = -40+random%80,-5-random%30
+postype = p1
+ownpal = 1
+supermovetime = 999
+pausemovetime = 999
+size.xscale = .05
+size.yscale = .05
+
+[State 0, Darkest Beam - Honda]
+type = Helper
+trigger1 = time = 0
+name = "Darkest Beam - Honda"
+ID = 1425
+stateno = 1425
+pos = 0,-0
+postype = p1
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,47
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -16,-32
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = Time >= 10
+scale = 1,1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Root,StateNo = 1404 && Root,Time >= 1
+x = 8
+Y = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+alpha = 225,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+Triggerall = Root,Stateno != 1404 || Root,Stateno != 1405
+trigger1 = Root,stateno != 1403
+
+[State 200, End]
+type = Destroyself
+Trigger1= Root,Stateno = 1404 || Root,Stateno = 1405
+;--------------------------------------------------------------------------------
+; Darkest Beam - Honda
+[Statedef 1425]
+type    = A
+movetype= A
+physics = N
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 1425
+sprpriority = 5
+
+[state 0]
+type = AngleDraw
+triggerall = time < 50
+trigger1 = 1
+scale = 7.0-(time/3.0),7.0-(time/3.0)
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Darkest Beam - Beam FX
+[Statedef 1430]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1430
+sprpriority = 2
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 356,356,356
+color = 256
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 4,-15
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 70
+fv = 7
+value = .045
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 120
+fv = 7
+value = .045
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .45,.45-Fvar(7)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 128,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 80
+trigger2 = Root,Stateno != 1401
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 130
+trigger2 = Root,Stateno != 1402
+;-------------------------------------------------------------------------------
+; Darkest Beam - Beam FX ADD
+[Statedef 1431]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1430
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 356,356,356
+color = 256
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 4,-15
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 70
+fv = 7
+value = .045
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 120
+fv = 7
+value = .045
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .45,.45-Fvar(7)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 128,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 80
+trigger2 = Root,Stateno != 1401
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 130
+trigger2 = Root,Stateno != 1402
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Beam FX
+[Statedef 1432]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1430
+sprpriority = 2
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 356,356,356
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -35
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-35
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 70
+fv = 7
+value = .045
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 120
+fv = 7
+value = .045
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .45,.45-Fvar(7)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 128,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 80
+trigger2 = Root,Stateno != 1404
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 130
+trigger2 = Root,Stateno != 1405
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Beam FX ADD
+[Statedef 1433]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1430
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 356,356,356
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -35
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-36
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 70
+fv = 7
+value = .045
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 120
+fv = 7
+value = .045
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .45,.45-Fvar(7)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 128,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 80
+trigger2 = Root,Stateno != 1404
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 130
+trigger2 = Root,Stateno != 1405
+
+;-------------------------------------------------------------------------------
+; Darkest Beam - FX ADD
+[Statedef 1440]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1440
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 356,356,356
+color = 256
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-10
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 70
+fv = 9
+value = .015
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 120
+fv = 9
+value = .015
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .15,.175-Fvar(9)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 80
+trigger2 = Root,StateNo != 1401
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 130
+trigger2 = Root,StateNo != 1402
+;-------------------------------------------------------------------------------
+; Darkest Beam - FX SUB
+[Statedef 1441]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1440
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 512,512,512
+color = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 0,-10
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 70
+fv = 9
+value = .015
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 120
+fv = 9
+value = .015
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .15,.175-Fvar(9)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1401
+trigger1 = Time >= 80
+trigger2 = Root,StateNo != 1401
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1402
+trigger1 = Time >= 130
+trigger2 = Root,StateNo != 1402
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - FX ADD
+[Statedef 1442]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1440
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 356,356,356
+color = 256
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -32
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = -19,-10
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 70
+fv = 9
+value = .015
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 120
+fv = 9
+value = .015
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .15,.175-Fvar(9)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 80
+trigger2 = Root,StateNo != 1404
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 130
+trigger2 = Root,StateNo != 1405
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - FX SUB
+[Statedef 1443]
+type = S
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1440
+sprpriority = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = 99999
+add = 0,0,0
+mul = 512,512,512
+color = 0
+
+[State 0,AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -32
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = -19,-10
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 70
+fv = 9
+value = .015
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 120
+fv = 9
+value = .015
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = .15,.175-Fvar(9)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,movetype = H
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1404
+trigger1 = Time >= 80
+trigger2 = Root,StateNo != 1404
+
+[State 0, DestroySelf]
+type = DestroySelf
+triggerall = Root,StateNo = 1405
+trigger1 = Time >= 130
+trigger2 = Root,StateNo != 1405
+;-------------------------------------------------------------------------------
+; Darkest Beam - Skill Hitspark
+[Statedef 1445]
+type    = A
+movetype= I
+physics = N
+anim = 8013
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Var(1)
+scale = 1+time*.05,1+time*.05
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Animtime = 0
+;-------------------------------------------------------------------------------
+; Darkest Beam - Helper
+[Statedef 1450]
+type = A
+movetype = A
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1450
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,18
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,18
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = Time <= 60
+trigger1 = timemod = 9,0
+time = 8
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 30,-21
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, Darkest Beam - Beam FX]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - Beam FX"
+ID = 1430 
+stateno = 1430
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Darkest Beam - Beam FX II]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - Beam FX II"
+ID = 1431
+stateno = 1431
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Darkest Beam - FX ADD]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - FX ADD"
+ID = 1440
+stateno = 1440
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 0, Darkest Beam - FX SUB]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - FX SUB"
+ID = 1441
+stateno = 1441
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 200, HitDef]
+type = HitDef
+trigger1 = timemod = 4,0
+attr = S,NP
+animtype = Heavy
+damage = 6,7
+Hitflag = MAF
+guardflag = MA
+pausetime = 0,3
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound = S1,12
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4
+air.velocity = -4,-1
+kill = 0
+Fall = 0
+Fall.Recover = 0
+Ground.CornerPush.VelOff = 0
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, Crush Beam - Skill Hitspark]
+type = Helper
+trigger1 = Movehit = 1
+name = "Crush Beam - Skill Hitspark"
+ID = 1445
+stateno = 1445
+pos = -10+random%20,0-random%35
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .3
+Size.Yscale = .3
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1401
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,stateno = 1401 && time = 70
+trigger2 = Parent, Time >= 70
+value = 1460
+;-------------------------------------------------------------------------------
+; Darkest Beam - Helper II
+[Statedef 1451]
+type = A
+movetype = A
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1450
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,34
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = Time <= 110
+trigger1 = timemod = 6,0
+time = 8
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 30,-15
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, Darkest Beam - Beam FX]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - Beam FX"
+ID = 1430 
+stateno = 1430
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1.4
+size.yscale = 1.4
+
+[State 0, Darkest Beam - Beam FX II]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - Beam FX II"
+ID = 1431
+stateno = 1431
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1.4
+size.yscale = 1.4
+
+[State 0, Darkest Beam - FX ADD]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - FX ADD"
+ID = 1440
+stateno = 1440
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 0, Darkest Beam - FX SUB]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - FX SUB"
+ID = 1441
+stateno = 1441
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 200, HitDef]
+type = HitDef
+trigger1 = timemod = 4,0
+attr = S,NP
+animtype = Heavy
+damage = 8,5
+Hitflag = MAF
+guardflag = MA
+pausetime = 0,3
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound = S1,12
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4
+air.velocity = -4,-1
+kill = 0
+Fall = 0
+Fall.Recover = 0
+Ground.CornerPush.VelOff = 0
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, Darkest Beam - Skill Hitspark]
+type = Helper
+trigger1 = Movehit = 1
+name = "Darkest Beam - Skill Hitspark"
+ID = 1445
+stateno = 1445
+pos = -10+random%20,0-random%35
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .4
+Size.Yscale = .4
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1402
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,StateNo = 1402 && time = 120
+trigger2 = Parent, Time >= 120
+value = 1460
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Helper
+[Statedef 1452]
+type = A
+movetype = A
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1452
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,18
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,18
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = Time <= 60
+trigger1 = timemod = 9,0
+time = 8
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 24,-2
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, Darkest Beam Air - Beam FX]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam Air - Beam FX"
+ID = 1432 
+stateno = 1432
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Darkest Beam Air - Beam FX II]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam Air - Beam FX II"
+ID = 1433
+stateno = 1433
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Darkest Beam Air - FX ADD]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - FX ADD"
+ID = 1442
+stateno = 1442
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 0, Darkest Beam Air - FX SUB]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam Air - FX SUB"
+ID = 1443
+stateno = 1443
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 200, HitDef]
+type = HitDef
+trigger1 = timemod = 4,0
+attr = S,NP
+animtype = Heavy
+damage = 6,7
+Hitflag = MAF
+guardflag = MA
+pausetime = 0,3
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound = S1,12
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4
+air.velocity = -4,-1
+kill = 0
+Fall = 0
+Fall.Recover = 0
+Ground.CornerPush.VelOff = 0
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, Crush Beam - Skill Hitspark]
+type = Helper
+trigger1 = Movehit = 1
+name = "Crush Beam - Skill Hitspark"
+ID = 1445
+stateno = 1445
+pos = -10+random%20,0-random%35
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .3
+Size.Yscale = .3
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1404
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,stateno = 1404 && time = 70
+trigger2 = Parent, Time >= 70
+value = 1460
+;-------------------------------------------------------------------------------
+; Darkest Beam Air - Helper II
+[Statedef 1453]
+type = A
+movetype = A
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 1452
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,34
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = Time <= 110
+trigger1 = timemod = 6,0
+time = 8
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 24,-2
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+Alpha = 256,256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, Darkest Beam Air - Beam FX]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam - Beam FX"
+ID = 1432 
+stateno = 1432
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1.4
+size.yscale = 1.4
+
+[State 0, Darkest Beam Air - Beam FX II]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam Air - Beam FX II"
+ID = 1433
+stateno = 1433
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+size.xscale = 1.4
+size.yscale = 1.4
+
+[State 0, Darkest Beam Air - FX ADD]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam Air - FX ADD"
+ID = 1442
+stateno = 1442
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 0, Darkest Beam Air - FX SUB]
+type = Helper
+trigger1 = Time = 0
+name = "Darkest Beam Air - FX SUB"
+ID = 1443
+stateno = 1443
+pos = 0,0
+facing = 1
+postype = p1
+ownpal = 1
+IgnoreHitPause = 1
+
+[State 200, HitDef]
+type = HitDef
+trigger1 = timemod = 4,0
+attr = S,NP
+animtype = Heavy
+damage = 8,5
+Hitflag = MAF
+guardflag = MA
+pausetime = 0,3
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound = S1,12
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -4
+air.velocity = -4,-1
+kill = 0
+Fall = 0
+Fall.Recover = 0
+Ground.CornerPush.VelOff = 0
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, Darkest Beam - Skill Hitspark]
+type = Helper
+trigger1 = Movehit = 1
+name = "Darkest Beam - Skill Hitspark"
+ID = 1445
+stateno = 1445
+pos = -10+random%20,0-random%35
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .4
+Size.Yscale = .4
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Parent,StateNo != 1405
+
+[State 200, End]
+type = ChangeState
+trigger1 = Parent,StateNo = 1405 && time = 120
+trigger2 = Parent, Time >= 120
+value = 1460
+;-------------------------------------------------------------------------------
+; Darkest Beam - Explosion
+[Statedef 1460]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 10
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+attr = A, SP
+animtype  = Heavy
+damage    = 2,1
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound   = S5,27
+guardsound = S1,12
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -6,-8
+air.velocity = -6,-8
+Envshake.time = 25
+Fall = 1
+Fall.recover = 0
+Getpower = 0,0
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+
+[State 200, Darkest Beam - Explosion]
+type = Explod
+triggerall = Numexplod(1460) = 0
+trigger1 = Movehit = 1
+anim = 1460
+ID = 1460
+postype = P2
+pos = 0,-30
+facing = -1
+sprpriority = 2
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .75,.75
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+trans = sub
+
+[State 0, Explosion]
+type = Explod
+triggerall = Numexplod(9023) = 0
+trigger1 = Movehit = 1
+anim = 9023
+ID = 9023
+pos = 0,0
+postype = left
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 999,999
+sprpriority = 9
+ontop = 1
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+fv = 1
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 20
+fv = 1
+value = .1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1-fvar(1)
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;===============================================================================
+; Dark Spears - Start
+;-------------------------------------------------------------------------------
+[Statedef 1500]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1500
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = -1,-21
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .2,.2
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, Hold FX]
+type = Helper
+trigger1 = time = 50
+helpertype = normal
+name = "Hold FX"
+ID = 430
+stateno = 430
+pos = 0,0
+postype = p1
+ownpal = 1
+Size.xscale = .2
+size.yscale = .2
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 40
+trigger1 = ailevel = 0 && command != "hold_a"
+trigger2 = ailevel > 0 && p2bodydist x < 100
+trigger3 = ailevel > 0 && p2bodydist x >= 100 && p2bodydist x < 300 && time >= 50
+trigger4 = time = 50
+value = ifelse(time >= 50,1502,1501)
+;-------------------------------------------------------------------------------
+; Dark Spears - Launch
+[Statedef 1501]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+velset = 0,0
+ctrl = 0
+anim = 1501
+poweradd = -1000
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,3
+
+[state sound]
+Type = playsnd
+Trigger1 = AnimElem = 2
+Value = S5,42
+
+[State 0, Dark Spears - Charge right Hand]
+type = Helper
+trigger1 = time = 0
+name = "Dark Spears - Charge Right Hand"
+ID = 1521
+stateno = 1521
+pos = 0,-0
+postype = p1
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Dark Spears - Charge Left Hand]
+type = Helper
+trigger1 = time = 0
+name = "Dark Spears - Charge Left Hand"
+ID = 1522
+stateno = 1522
+pos = 0,-0
+postype = p1
+ownpal = 1
+size.xscale = .15
+size.yscale = .15
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Lanzar FX]
+type = Helper
+triggerall = time = [15,250]
+trigger1 = timemod = 5,0
+helpertype = normal
+name = "Lanzar FX"
+ID = 1535
+stateno = 1535
+pos = 17,-21
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .1
+size.yscale = .1
+
+[State 0, Dark Spears - Helper]
+type = Helper
+triggerall = time = [15,250]
+trigger1 = timemod = 8,0
+helpertype = normal
+name = "Dark Spears - Helper"
+ID = 1550
+stateno = 1550
+pos = 30,-20
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .09
+size.yscale = .09
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time > 15 && time = [15,260]
+value = 1501
+elem = 5
+
+[State 250, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Start
+;-------------------------------------------------------------------------------
+[Statedef 1502]
+type    = A
+movetype= A
+physics = S
+ctrl = 0
+anim = 1502
+poweradd = -500
+velset = 0,0
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 10
+value = S0,6
+volume = 9999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 10
+value = S0,6
+volume = 9999
+
+[State 0, Dark Spear Rain - Charge FX]
+type = Helper
+trigger1 = timemod = 10,0
+name = "Dark Spear Rain - Charge FX"
+ID = 1530
+stateno = 1530
+pos = 12,-17
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .055
+size.yscale = .05
+supermovetime = 999
+
+[State 0, Dark Spear Rain - Lanzar FX]
+type = Helper
+triggerall = time = [30,120]
+trigger1 = timemod = 7,0
+helpertype = normal
+name = "Lanzar FX"
+ID = 1536
+stateno = 1536
+pos = 18,-25
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .1
+size.yscale = .1
+
+[State 0, Dark Spear Rain - Helper]
+type = Helper
+triggerall = time = [30,120]
+trigger1 = timemod = 7,0
+helpertype = normal
+name = "Dark Spear Rain - Helper"
+ID = 1570
+stateno = 1570
+pos = 10+random%18,-24
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .06
+size.yscale = .07
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 100
+trigger1 = ailevel = 0 && command != "hold_a"
+trigger2 = ailevel > 0 && p2bodydist x <= 30
+trigger3 = time = 150
+value = 1503
+;-------------------------------------------------------------------------------
+; Dark Spear Rain
+[Statedef 1503]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 1503
+poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,1
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = timemod = 5,0
+trigger1 = time < 15
+value = S5,8
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0 
+time = 10
+ampl = -3
+
+[State 0, Varadd]
+type = VarSet
+triggerall = helper(1580),stateno = 1580
+trigger1 = time = 0
+v = 6
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 1
+v = 6
+value = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time = [0,20]
+value = 1503
+elem = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Dark Spears - Charge Right Hand
+[Statedef 1521]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 1520
+sprpriority = 3
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [0,6]
+pos = -14,-17
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [6,9]
+pos = -12,-19
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [9,12]
+pos = 10,-15
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [12,15]
+pos = 17,-17
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 10
+scale = .1+time*.04,.1+time*.04
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,stateno != 1501
+trigger2 = time >= 15
+;-------------------------------------------------------------------------------
+; Dark Spears - Charge Left Hand
+[Statedef 1522]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 1520
+sprpriority = 3
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [0,6]
+pos = 17,-17
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [6,9]
+pos = 15,-22
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [9,12]
+pos = 15,-18
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = time = [12,15]
+pos = 17,-20
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 10
+scale = .1+time*.04,.1+time*.04
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,stateno != 1501
+trigger2 = time >= 15
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Charge FX
+[Statedef 1530]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 1530
+sprpriority = 2
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 20,-28
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time < 10
+scale = .1+time*.04,.1+time*.04
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,stateno != 1502
+trigger2 = root,time >= 30
+;-------------------------------------------------------------------------------
+; Lanzar FX
+[Statedef 1535]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 1535
+sprpriority = 3
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = animtime = 0
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Lanzar FX
+[Statedef 1536]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 1535
+sprpriority = 3
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = 50+random%110
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = var(1)
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = animtime = 0
+trigger2 = root,movetype = H
+;---------------------------------------------------------------------------
+; Dark Spear - Helper
+[StateDef 1550]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+sprpriority = 5
+anim = 1550
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 1560
+time = 999
+
+[state 0]
+type = angledraw
+trigger1 = 1
+scale = 1,1
+
+[State 0]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 0]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state 0]
+type = veladd
+trigger1 = 1
+x = 0.75
+
+[state 0]
+type = velset
+trigger1 = time = 0
+y = 0+random%3-random%4
+
+[state 0]
+type = velset
+trigger1 = time = 5
+y = 0
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 6,1
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 1560
+;-------------------------------------------------------------------------------
+; Dark Spear - Explosion
+[Statedef 1560]
+type = S
+movetype = A
+physics = S
+juggle = 2
+ctrl = 0
+anim = 1560
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,12
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = Time = 0
+time = 7
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 0
+x = 5
+y = 0
+
+[State 0, Dark Spear - Explosion FXADD]
+type = Helper
+trigger1 = Time = 0
+name = "Dark Spear - Explosion FXADD"
+ID = 1561
+stateno = 1561
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .2
+
+[State 0, Dark Spear - Explosion FXSUB]
+type = Helper
+trigger1 = Time = 0
+name = "Dark Spear - Explosion FXSUB"
+ID = 1562
+stateno = 1562
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .2
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Dark Spear - Explosion FXADD
+[Statedef 1561]
+type = A
+movetype = I
+physics = N
+anim = 1561
+sprpriority = 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 300-(time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Dark Spear - Explosion FXSUB
+[Statedef 1562]
+type = A
+movetype = I
+physics = N
+anim = 1562
+sprpriority = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Helper (Going Up)
+[Statedef 1570]
+type = A
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1550
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 90
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = !Time
+x = -4+random%7
+y = -4-random%-7
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 20,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 70
+trigger4 = pos y >= -5
+value = 415
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 15
+trigger4 = pos y >= -5
+value = 1575
+
+[State 200, End]
+type = Changestate
+trigger1 = root,stateno = 1503
+value = 1580
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Helper (Going Up)
+[Statedef 1571]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1550
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 60+random%70
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 0+random%5
+y = 3+random%7
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 24,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 70
+trigger4 = pos y >= -5
+value = 415
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 30
+trigger4 = pos y >= -5
+value = 1575
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Helper (Going Up)
+[Statedef 1572]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1550
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 110+random%120
+ignorehitpause = 1
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 2-random%7
+y = 3+random%7
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 24,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 70
+trigger4 = pos y >= -5
+value = 415
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 30
+trigger4 = pos y >= -5
+value = 1575
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Charge FX
+[Statedef 1574]
+type    = S
+movetype= I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 1520
+sprpriority = 2
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 3,3
+ignorehitpause = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = Parent,Stateno != 1575
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Helper (Stop)
+[Statedef 1575]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1575
+sprpriority = 3
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = !time
+x = -0
+y = 0
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 24,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = ifelse(root,var(13) > 3,1,0)
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 0, Dark Spear Rain - Charge FX]
+type = Helper
+trigger1 = time = 0
+name = "Dark Spear Rain - Charge FX"
+ID = 1574
+stateno = 1574
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .08
+size.yscale = .08
+supermovetime = 999
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 160
+trigger4 = pos y >= -5
+value = 415
+
+[State 200, End]
+type = Changestate
+trigger1 = root,stateno = 1503
+value = 1580
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Helper
+[Statedef 1580]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 1550
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1.5,1.5
+ignorehitpause = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -30
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 415
+time = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = !time
+x = 5+random%8
+y = 4+random%7
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add     ;None, Add, AddAlpha, Add1, Sub
+ignorehitpause = 1
+
+[State 200,1]
+type=HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 18,12
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,0)
+air.velocity = ifelse(root,var(13) > 3,-5,-2),ifelse(root,var(13) > 3,-5,-2)
+Fall = 1
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 100
+trigger4 = pos y >= -5
+value = 415
+;-------------------------------------------------------------------------------
+; Dark Spear Rain - Explosion
+[Statedef 1590]
+type    = A
+movetype= I
+physics = A
+juggle  = 1
+ctrl = 0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,12
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+ampl = -8
+
+[State 0, Dark Spear Rain - Explosion]
+type = Explod
+trigger1 = time = 0
+anim = 1560
+ID = 1560
+pos = 0,-15
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .2,.2
+sprpriority = 3
+ontop = 1
+ownpal = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 1

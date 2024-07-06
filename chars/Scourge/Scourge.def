@@ -1,0 +1,37 @@
+[Info]
+;Updated Version by NitroMugen30
+name="Scourge the hedgehog"
+displayname="Scourge"
+versiondate=19/4/2019
+mugenversion=1.0
+author="Andrew55"
+pal.defaults=1,1
+
+
+[Files]
+sprite=Scourge.sff
+sound=Scourge.snd
+anim=Scourge.air
+cmd=Scourge.cmd
+cns=Scourge.cns
+st=Scourge.cns
+stcommon=common1.cns
+movelist = Moveset.dat
+pal1=1.act
+st1=AI.cns
+st2=Specials.cns
+st3=Super.cns
+st4=Super Scourge.cns
+
+[Palette Keymap]
+a=1
+b=2
+c=3
+x=4
+y=5
+z=6
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
