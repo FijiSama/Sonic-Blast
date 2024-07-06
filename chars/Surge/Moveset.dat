@@ -1,0 +1,67 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+Homing Dash                      		^X
+[MAX POWER] Teleport                      		_D_+^X
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Joule Slip [Ground/Air]                 		              _D_+^A                		
+Spin Dash [Ground] 		              _D_+^B
+JUICED! 		                            [Hold]~D_+^B
+Lightning Bolt [Ground/Air] 				    _D_+^C                                   		            			 
+Cant Touch This [Counter]   		               ^Y  
+Transform 		                   ^Z
+MAX POWER [While Transformed] 		[Hold]^S 
+Power Down 		                              _D_+^S  		           		        
+[P.Surge] Spin Dash  [Ground/Air]		  _D_+^B 		              
+[P.Surge] Chaos Control 		      _D_+^C		    		      
+[P.Surge] Homing Slam [Air]		     [_AIR]_+~D_+^C              		                         		    		
+[P.Surge] Cant Touch This [Counter]    		      ^Y                 
+                                      		  
+<#f0f000>:Specials:</>
+Surge Rip			                      _D_F_+^A
+ElectroWave 		               [JUICED!]_D_F_+^A		                           				            	    
+Wild Volts		                              _D_B_+^A  
+Surge Tornado		                              [JUICED!]_D_B_+^A                         	    
+Light Swipes 		                          _D_F_+^B 
+Neon Burial 		                          [JUICED!]_D_F_+^B                           		    
+Kanmuru Impact              		          _D_B_+^B 
+Raijin Blitz               		          [JUICED!]_D_B_+^B              		    
+Spin Dash Streak   		                          _D_F_+^C 
+Boost Crash 		 [JUICED!]_D_F_+^C 		         		                                                     	    
+[ULTIMATE] Lightning Rod Barrage       		          _D_B_+^C  
+[ULTIMATE] Heaven's Ruling: Kirin       		          [JUICED!]_D_B_+^C  
+
+
+<#f0f000>:Specials [Power Surge]:</>
+Power Rip			                      _D_F_+^A
+Eraser Wave			                      [MAX POWER]_D_F_+^A		                           				            	    
+Blight Judgement		                              _D_B_+^A  
+Light Show		                              [MAX POWER]_D_B_+^A                         	    
+Pos/Neg  		                          _D_F_+^B 
+Volt Tower 		                          [MAX POWER]_D_F_+^B                           		    
+Spin Cycle              		          _D_B_+^B 
+Overcharged Assault               		          [MAX POWER]_D_B_+^B              		    
+Jolt Zipper   		                          _D_F_+^C 
+Boost Crash   		                          [MAX POWER]_D_F_+^C 		         		                                                     	    
+[ULTIMATE] Hard Reset       		          _D_B_+^C  
+[ULTIMATE] Evaporator       		          [MAX POWER]_D_B_+^C 
+		    

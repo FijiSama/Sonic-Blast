@@ -1,0 +1,34 @@
+[Info]
+name="Surge The Tenrec"
+displayname="Surge The Tenrec"
+versiondate=16/3/2023
+mugenversion=1.0
+author="Andrew55/Luan360/Fijisama"
+pal.defaults = 1
+
+[Files]
+sprite=Surge The Tenrec.sff
+sound=Surge The Tenrec.snd
+anim=Surge The Tenrec.air
+cmd=Surge The Tenrec.cmd
+cns=Surge The Tenrec.cns
+st=Surge The Tenrec.cns
+stcommon=common1.cns
+movelist = Moveset.dat
+st1=AI.cns
+st2=Specials.cns
+st3=Super.cns
+st4=Power Surge.cns
+pal1 = 1.act
+pal2 = 2.act
+
+;Credits
+;----------------------------------------
+;Edit By Luan360
+;Sprites By Darck12exe
+;Original Char By Andrew55
+;Updated Version by NitroMugen30
+;Mikel8888
+;Salah
+;InSeph
+;Xenodar123

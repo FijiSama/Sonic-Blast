@@ -1,0 +1,41 @@
+Normal Scourge, Super Scourge
+
+► MOVESET:
+
+A - Combo 1
+
+B - Combo 2
+
+C - Combo 3
+
+D,A - Down A
+
+D,B - Down B
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - SPECIAL 1
+
+D,DB,B,a - SPECIAL 2
+
+D,DF,F,b - SPECIAL 3
+
+D,DB,B,b - SPECIAL 4
+
+D,DB,B,z - SPECIAL 4.5
+
+D,DF,F,c - SPECIAL 5
+
+D,DB,B,c - SPECIAL 6
+
+X - Transform Super Scourge
+
+D,s - Cancel Transformation
+
+SUPER:
+
+D,C - SUPER
+
+► Char by Andrew55
