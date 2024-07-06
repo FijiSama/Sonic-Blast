@@ -1,0 +1,33 @@
+[Info]
+name = "Chaos 0"
+displayname = "Chaos Zero"
+versiondate = 02/04/2020
+mugenversion = 1.0
+author = "InSeph"
+pal.defaults = 1
+
+[Files]
+sprite = Chaos 0.sff
+anim = Chaos 0.air
+sound = Chaos 0.snd
+cmd = Chaos 0.cmd
+cns = Chaos 0.cns
+stcommon = common1.cns
+movelist = Moveset.dat
+st = Chaos 0.cns
+st1 = AI.cns
+st2 = Skills.cns
+st3 = Ultimate.cns
+st4 = Misc.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+pal11 = 11.act
+pal12 = 12.act

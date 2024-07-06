@@ -1,0 +1,44 @@
+Chaos 0 - MOVESET
+
+A
+
+Down + A - Flagpole Punch
+
+A Aire
+
+Down + A Aire - Flagpole Punch
+
+Dash + A -  Chaos Dolphin
+
+B
+
+Down + B - Double Stab
+
+B Aire
+
+C - Chaos Shot (Hold)
+
+Down + C - Charge
+
+C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Choas Combo
+
+D,DB,B,a - Chaos Strike
+
+D,DF,F,b - Chaos 1
+
+D,DB,B,b - Chaos 2
+
+D,DF,F,c - Chaos Charge
+
+D,DB,B,c - Chaos 4
+
+SUPER: 
+
+D,DF,F,D,DF,F,a+b - Perfect Chaos
+
