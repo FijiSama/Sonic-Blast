@@ -1,0 +1,44 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Sunnyside [Ground]                 		       _D_+^A                		
+Egg Flat [Ground] 		                       _D_+^B                                   		           			 
+Harboiled Shield		                         ^Y  
+Transform [Egg-O-Nator] 		                 ^Z              
+                                      		  
+<#f0f000>:Specials:</>
+Goose Egg [Ground/Air]			                      _D_F_+^A		                           				            	    
+Quail Missiles [Ground/Air]			          _D_B_+^A                                                        	    
+Carton Tumbler [Ground]	 		              _D_F_+[^B...]                                                   		    
+Electron Scramble [Ground/Air]               		          _D_B_+^B              		    
+Blast Over-Easy [Ground/Air]		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Bad Eggs       		          _D_B_+^C   
+
+<#f0f000>:Specials [Egg-O-Nator]:</>
+Beam Barrage			                      _D_F_+^A		                           				            	    
+Fists of Egg		                              _D_B_+^A                          	    
+Step n' Fry		                          _D_F_+^B                          		    
+Hardshell Shield               		          _D_B_+^B              		    
+Egg Drop   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Eggman Special       		          _D_B_+^C 		    
+		    

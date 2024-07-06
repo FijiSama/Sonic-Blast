@@ -1,0 +1,63 @@
+Dr. Eggman - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+B Aire
+
+C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Egg Missile (And Air)
+
+D,DB,B,a - Electric Wave (And Air)
+
+D,DF,F,b - Egg Missile Wrath (And Air)
+
+D,DB,B,b - Shield
+
+D,DF,F,c - Egg's Energie Blast (And Air)
+
+D,DB,B,c - Egg Robot Attack
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Giant Egg Robot
+
+Giant Egg Robot
+
+A
+
+B (Two Kicks)
+
+C (Even While Walking)
+
+SPECIALS:
+
+D,DF,F,a - Double Giant Machanic Punch
+
+D,DB,B,a - Laser Combo
+
+D,DF,F,b - Electric Field
+
+D,DB,B,b - Giant Egg Crush
+
+D,DF,F,c - Circular Blast
+
+D,DB,B,c - Blast Rush

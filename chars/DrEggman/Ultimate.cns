@@ -1,0 +1,4591 @@
+;===================================================================================
+;---------------------------------- Ultimate --------------------------------------;
+;===================================================================================
+;===================================================================================
+; Giant Egg Robot - Start
+;-----------------------------------------------------------------------------------
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 3000
+poweradd = -3000
+sprpriority = 2
+
+[State 0, Super Armor]
+type = Helper
+trigger1 = time = 0
+name = "Super Armor"
+ID = 850
+stateno = 850
+pos = 999,999
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+;------------------------------------------
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 100
+movetime = 100
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+; Ultimate Portrait
+[State 0, Ultimate Portrait]
+type = helper
+trigger1 = time = 0
+stateno = 8050
+id = 8050
+pos = 0,-80
+ownpal = 1
+postype = p1
+pausemovetime = 99999
+supermovetime = 99999
+
+[State 0, Dark Screen]
+type = Helper
+TriggerAll = NumHelper(4000)=0
+trigger1 = Time = 0
+name = "Dark Screen"
+ID = 4000
+stateno = 4000
+pos = 0,0
+postype = Back
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, Dark Screen - Black BG]
+type = Helper
+trigger1 = time = 0
+name = "Dark Screen - Black BG"
+ID = 4010
+stateno = 4010
+pos = 9999,9999
+postype = p1
+Supermovetime = 99999
+Pausemovetime = 99999
+;------------------------------------------
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = time > 75
+value = 0
+movecamera = 0,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,26
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S0,26
+volume = 999
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, hitby]
+type = hitby
+trigger1 = 1
+time = 1
+value =
+ignorehitpause = 1
+
+[State 300, velset]
+type = velset
+trigger1 = time = 75
+y = -10
+
+[State 300]
+type = changestate
+trigger1 = time = 110
+value = 10001
+ctrl = 0
+;===================================================================================
+; GIANT EGG ROBOT
+;---------------------------------------------------------------------------
+; Giant Egg Robot - STAND
+;---------------------------------------------------------------------------
+[Statedef 10000]
+type = S
+movetype = I
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10000
+sprpriority = 0
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = time >= 0
+value = 10
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2bodydist x < -30
+
+[State 0, Giant Egg Robot - Blast]
+type = Helper
+triggerall = power >= 200
+triggerall = numhelper(10450) <= 2
+trigger1 = ailevel = 0 && command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+helpertype = normal
+name = "Giant Egg Robot - Blast"
+ID = 10450
+stateno = 10450
+pos = 19,-169
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0,WALK FWD]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "holdfwd"
+trigger2 = ailevel > 0 && random <(ailevel * 100)/4
+trigger2 = p2bodydist x > 50
+value = 10020
+
+[State 0,WALK BACK]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "holdback"
+trigger2 = ailevel > 0 && random <(ailevel * 100)/6
+trigger2 = p2bodydist x < 50 && p2movetype = H
+value = 10021
+
+[State 0,JUMP]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "holdup"
+trigger2 = ailevel > 0 && random <(ailevel * 100)/4
+trigger2 = p2bodydist x < 100 && p2movetype = A
+value = 10040
+
+[State 0,A]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "a"
+trigger2 = ailevel > 0 && random<(ailevel * 100)
+trigger2 = p2bodydist x < 50
+value = 10200
+
+[State 0,B]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "b"
+trigger2 = ailevel > 0 && random<(ailevel * 100)
+trigger2 = p2bodydist x < 50
+value = 10300
+
+[State 0,Giant Egg Robot - Blast Rush]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 1"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11500
+
+[State 0,Giant Egg Robot - Double Giant Machanic Punch]
+type = ChangeState
+triggerall = power >= 500
+trigger1 = ailevel = 0 && Command = "SPECIAL 2"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11000
+
+[State 0,Giant Egg Robot - Laser Combo]
+type = ChangeState
+triggerall = power >= 500
+trigger1 = ailevel = 0 && Command = "SPECIAL 3"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 50
+value = 11100
+
+[State 0,Giant Egg Robot - Electric Field]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 4"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11200
+
+[State 0,Giant Egg Robot - Giant Egg Crush]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 5"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11300
+
+[State 0,Giant Egg Robot - Circular Blast]
+type = ChangeState
+triggerall = power >= 2000
+trigger1 = ailevel = 0 && Command = "SPECIAL 6"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x > 80
+trigger2 = p2bodydist y > -100
+value = 11400
+
+[State 200,End]
+type = ChangeState
+trigger1 = numhelper(10080) = 0
+value = 10800
+;---------------------------------------------------------------------------
+; Giant Egg Robot Fall
+[Statedef 10001]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 10001
+sprpriority = 2
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, hitby]
+type = hitby
+trigger1 = 1
+time = -1
+value =
+ignorehitpause = 1
+
+[State 300, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,36
+Volume = 999
+
+[State 300, PlaySnd]
+type = PlaySnd
+trigger1 = time = 25
+value = S0,1
+
+[State 300, PlaySnd]
+type = veladd
+trigger1 = 1
+y = 0.5
+
+[State 0, Tiempo]
+type = Helper
+trigger1 =! Time
+helpertype = normal
+name = "Tiempo"
+ID = 10080
+stateno = 10080
+pos = 999999,999999
+postype = p1
+ownpal = 1
+
+[State 300]
+type = changestate
+trigger1 = pos y >= 0
+value = 10002
+ctrl = 0
+;---------------------------------------------------------------------------
+; Giant Egg Robot Prepare To Fight
+[Statedef 10002]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 10002
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S3,2
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S3,2
+volume = 999
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = Time = 0
+time = 10
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 10000
+ctrl = 1
+;---------------------------------------------------------------------------
+; Giant Egg Robot - WALK FWD
+;---------------------------------------------------------------------------
+[Statedef 10020]
+type = S
+movetype = I
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10020
+sprpriority = 0
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = time >= 0
+value = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 26|animelem = 47
+value = S3,6
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 26|animelem = 47
+time = 10
+ampl = -4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 10
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 20
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 28
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 30
+x = 3
+
+[State 0, Giant Egg Robot - Blast]
+type = Helper
+triggerall = power >= 200
+triggerall = time >= 10
+triggerall = numhelper(10450) <= 1
+trigger1 = ailevel = 0 && command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+helpertype = normal
+name = "Giant Egg Robot - Blast"
+ID = 10450
+stateno = 10450
+pos = 19,-169
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0,JUMP]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "holdup"
+value = 10040
+
+[State 0,Giant Egg Robot - Blast Rush]
+type = ChangeState
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && Command = "SPECIAL 1"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11500
+
+[State 0,Giant Egg Robot - Double Giant Machanic Punch]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 2"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11000
+
+[State 0,Giant Egg Robot - Laser Combo]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 3"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 50
+value = 11100
+
+[State 0,Giant Egg Robot - Electric Field]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 4"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11200
+
+[State 0,Giant Egg Robot - Giant Egg Crush]
+type = ChangeState
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && Command = "SPECIAL 5"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11300
+
+[State 0,Giant Egg Robot - Circular Blast]
+type = ChangeState
+triggerall = power >= 2000
+trigger1 = ailevel = 0 && Command = "SPECIAL 6"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x > 80
+trigger2 = p2bodydist y > -100
+value = 11400
+
+[State 200,End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;---------------------------------------------------------------------------
+; Giant Egg Robot - WALK BACK
+;---------------------------------------------------------------------------
+[Statedef 10021]
+type = S
+movetype = I
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10021
+sprpriority = 0
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = time >= 0
+value = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 26|animelem = 47
+value = S3,6
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 26|animelem = 47
+time = 10
+ampl = -4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 10
+x = -5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 20
+x = -5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 28
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 30
+x = -3
+
+[State 0, Giant Egg Robot - Blast]
+type = Helper
+triggerall = power >= 200
+triggerall = time >= 10
+triggerall = numhelper(10451) <= 1
+trigger1 = ailevel = 0 && command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+helpertype = normal
+name = "Giant Egg Robot - Blast"
+ID = 10451
+stateno = 10451
+pos = -19,-169
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0,JUMP]
+type = ChangeState
+trigger1 = ailevel = 0 && Command = "holdup"
+value = 10040
+
+[State 0,Giant Egg Robot - Blast Rush]
+type = ChangeState
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && Command = "SPECIAL 1"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11500
+
+[State 0,Giant Egg Robot - Double Giant Machanic Punch]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 2"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11000
+
+[State 0,Giant Egg Robot - Laser Combo]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 3"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 50
+value = 11100
+
+[State 0,Giant Egg Robot - Electric Field]
+type = ChangeState
+triggerall = power >= 1000
+trigger1 = ailevel = 0 && Command = "SPECIAL 4"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11200
+
+[State 0,Giant Egg Robot - Giant Egg Crush]
+type = ChangeState
+triggerall = power >= 1500
+trigger1 = ailevel = 0 && Command = "SPECIAL 5"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x < 100
+trigger2 = p2bodydist y < -50
+value = 11300
+
+[State 0,Giant Egg Robot - Circular Blast]
+type = ChangeState
+triggerall = power >= 2000
+trigger1 = ailevel = 0 && Command = "SPECIAL 6"
+trigger2 = ailevel > 0 && random<(ailevel * 100)/2
+trigger2 = p2bodydist x > 80
+trigger2 = p2bodydist y > -100
+value = 11400
+
+[State 200,End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;---------------------------------------------------------------------------
+; Giant Egg Robot - JUMP
+;---------------------------------------------------------------------------
+[Statedef 10040]
+type = S
+movetype = I
+physics = S
+juggle = 1
+ctrl = 0
+anim = 10040
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =! Time
+value = S40,2
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 =! Time
+time = 5
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = A
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 5
+x = ifelse(Command="holdfwd",3,ifelse(Command="holdback",-3,0))+ifelse(prevstateno=10100,2,0)
+y = -7
+
+[State 200,End]
+type = ChangeState
+trigger1 = time > 10 && pos y >= -20
+value = 10050
+;---------------------------------------------------------------------------
+; Giant Egg Robot - TOUCH THE GROUND
+;---------------------------------------------------------------------------
+[Statedef 10050]
+type = S
+movetype = I
+physics = S
+juggle = 1
+ctrl = 0
+anim = 10050
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 =! Time
+value = 3,7
+volume = 999
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 10150
+time = 1
+ignorehitpause = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 =! Time
+time = 10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+y = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 =! Time
+y = 0
+
+[State 200,End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;---------------------------------------------------------------------------
+; Giant Egg Robot - TIME OF THE TRNSFORMATION
+;---------------------------------------------------------------------------
+[Statedef 10080]
+type = A
+movetype = I
+physics = N
+anim = 9999
+
+[State 200,End]
+type = Destroyself
+trigger1 = time >= 3500
+trigger2 = roundstate != 2
+trigger3 = root,life = 0
+;---------------------------------------------------------------------------
+; Giant Egg Robot - TIME OF THE TRNSFORMATION
+;---------------------------------------------------------------------------
+[Statedef 10090]
+type = A
+movetype = I
+physics = N
+anim = 9999
+
+[State 200,End]
+type = Destroyself
+trigger1 = time = 800
+;---------------------------------------------------------------------------
+; Giant Egg Robot - COMBO A
+;---------------------------------------------------------------------------
+[Statedef 10200]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10200
+poweradd = 300
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S5,5
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 1
+time = 10
+
+[State 0, Giant Machanic Punch - Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Giant Machanic Punch - Helper"
+ID = 10250
+stateno = 10250
+pos = 7,-103
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;-------------------------------------------------------------------------------
+; Giant Machanic Punch - Helper
+[Statedef 10250]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 10250
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,28
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,28
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S60,2
+volume = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+x = 12
+y = 10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 5
+x = 12
+y = 0
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+animtype = Hard
+damage = 40,12
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-105
+hitsound = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -5,-4
+air.velocity = -5,-4
+Fall = 1
+Envshake.time = 10
+GetPower = 75,15
+
+[State 200,Spark CVS]
+type = Explod
+triggerall = Numexplod(7260)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+persistent = -1
+angle = 0+random%360
+
+[State 0, Giant Machanic Punch - Wind FX]
+type = Explod
+trigger1 = time = 0
+anim = 7038
+ID = 7038
+pos = 20,-0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+angle = -18
+removeongethit = 1
+
+[State 200,End]
+type = Changestate
+trigger1 = Time >= 15
+trigger2 = frontedgebodydist < -100
+value = 10255
+;-------------------------------------------------------------------------------
+; Giant Machanic Punch - Helper End
+[Statedef 10255]
+type = A
+movetype = I
+physics = A
+sprpriority = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+x = rootdist x/35
+y = -8
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+v = 3
+value = ifelse(vel x>=0,-20-random%5,20+random%5)
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+animtype = Hard
+damage = 25
+guardflag = MA
+pausetime = 0,6
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound = S1,16
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = 4,-5
+air.velocity = 4,-5.5
+Fall = 1
+Envshake.time = 10
+
+[State 200, Explod]
+type = Explod
+persistent = -1
+triggerall = Numexplod(7010)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7010
+postype = P2
+pos = 0,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .25,.25
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+angle = 0+random%360 
+
+[State 200,End]
+type = DestroySelf
+trigger1 = time = 200
+
+[State 200, End]
+type = DestroySelf
+trigger1 = time >= 30
+trigger2 = pos y >-30
+trigger3 = rootdist x >-5
+;---------------------------------------------------------------------------
+; Giant Egg Robot - COMBO B
+;---------------------------------------------------------------------------
+[Statedef 10300]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10300
+poweradd = 300
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 31
+value = S3,6
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 66
+value = S3,6
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 31
+time = 10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 18
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 20
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 31
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 40
+x = -5
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+animtype = Hard
+damage = 50,25
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-105
+hitsound = S1,18
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-1
+Fall = 0
+Envshake.time = 10
+GetPower = 65,12
+
+[State 200,Spark CVS]
+type = Explod
+triggerall = Numexplod(7260)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+persistent = -1
+angle = 0+random%360
+
+[State 200,End]
+type = ChangeState
+triggerall = AnimElemTime(30)>=0 && AnimElemTime(32)>=0
+Triggerall = movecontact
+trigger1 = ailevel = 0 && Command = "b"
+value = 10310
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;---------------------------------------------------------------------------
+; Giant Egg Robot - COMBO B 2
+;---------------------------------------------------------------------------
+[Statedef 10310]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10310
+poweradd = 300
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 24
+value = S3,6
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 54
+value = S3,6
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 74
+value = S3,6
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 24
+time = 10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 8
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 12
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 24
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 35
+x = -5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 48
+x = -5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 54
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 60
+x = -5
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+animtype = Hard
+damage = 70,40
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-105
+hitsound = S1,19
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -7,5
+air.velocity = -7,5
+Fall = 1
+Envshake.time = 12
+GetPower = 70,10
+
+[State 200,Spark CVS]
+type = Explod
+triggerall = Numexplod(7260)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+persistent = -1
+angle = 0+random%360
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Light Eyes
+[Statedef 10430]
+type = A
+movetype = I
+physics = N
+anim = 10430
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-100,-100
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 17,-169
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Light Eyes
+[Statedef 10431]
+type = A
+movetype = I
+physics = N
+anim = 10430
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-100,-100
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -17,-169
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Blast
+[Statedef 10450]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 10450
+;poweradd = -200
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 10460
+time = 999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -35
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 12
+y = 10-random%6
+
+[State 0, HitDef]
+type = HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 9,2
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= S1,11
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,0)
+air.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,-2)
+Fall = 1
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+GetPower = 0
+
+[State 0, Giant Egg Robot - Light Eyes]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Giant Egg Robot - Light Eyes"
+ID = 10430
+stateno = 10430
+pos = 0,0
+postype = p1
+ownpal = 1
+Size.xscale = .1
+size.yscale = .1
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 10460
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Blast
+[Statedef 10451]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 10450
+;poweradd = -200
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 10460
+time = 999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 35
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = -12
+y = 10-random%6
+
+[State 0, HitDef]
+type = HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 9,2
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= S1,11
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,0)
+air.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,-2)
+Fall = 1
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+GetPower = 0
+
+[State 0, Giant Egg Robot - Light Eyes]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Giant Egg Robot - Light Eyes"
+ID = 10431
+stateno = 10431
+pos = 0,0
+postype = p1
+ownpal = 1
+Size.xscale = .1
+size.yscale = .1
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 10460
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Blast Explosion
+[Statedef 10460]
+type = S
+movetype = A
+physics = S
+juggle = 2
+ctrl = 0
+anim = 10460
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,12
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = Time = 0
+time = 7
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 0
+x = 5
+y = 0
+
+[State 0, Giant Egg Robot - Blast Explosion FXADD]
+type = Helper
+trigger1 = Time = 0
+name = "Giant Egg Robot - Blast Explosion FXADD"
+ID = 10465
+stateno = 10465
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+
+[State 0, Giant Egg Robot - Blast Explosion FXSUB]
+type = Helper
+trigger1 = Time = 0
+name = "Giant Egg Robot - Blast Explosion FXSUB"
+ID = 10465
+stateno = 10466
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Blast Explosion FXADD
+[Statedef 10465]
+type = A
+movetype = I
+physics = N
+anim = 10465
+sprpriority = 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 300-(time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Blast Explosion FXSUB
+[Statedef 10466]
+type = A
+movetype = I
+physics = N
+anim = 10465
+sprpriority = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Fire FX
+;-------------------------------------------------------------------------------
+[Statedef 10755]
+type = A
+movetype = I
+physics = N
+anim = 10755
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = 180
+ignorehitpause = 1
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -75,-53
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = ChangeState
+trigger1 = Root,Stateno != 10040
+value = 10756
+;-------------------------------------------------------------------------------
+; Fire FX End
+;-------------------------------------------------------------------------------
+[Statedef 10756]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -60,-43
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 5
+v = 2
+value = 10
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =! Time
+fv = 1
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 5
+fv = 1
+value = .05
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1-fvar(1)
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - END
+;-------------------------------------------------------------------------------
+[Statedef 10800]
+type    = A
+movetype= A
+physics = A
+juggle  = 2
+velset = 0,0
+ctrl = 0
+anim = 10800
+poweradd = 0
+sprpriority = 2
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 1005, hitby]
+type = hitby
+trigger1 = 1
+time = 1
+value =
+ignorehitpause = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 15
+freq = 60
+ampl = -4
+phase = 180
+
+[State 300, velset]
+type = velset
+trigger1 = time = 0
+y = -8
+
+[State 300, posset]
+type = posset
+trigger1 = time = 0
+y = -15
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+y = 13
+
+[State 3001, blah]
+type = AngleDraw
+trigger1 = 1 && time >= 0
+
+[State 0, AngleAdd]
+type = AngleAdd
+trigger1 = timemod = 3,1 && time >= 325
+trigger1 = vel x > 0
+value = -11
+ignorehitpause = 1
+
+[State 0, AngleAdd]
+type = AngleAdd
+trigger1 = timemod = 3,1 && time >= 325
+trigger1 = vel x < 0
+value = 11
+ignorehitpause = 1
+
+[State 0, AngleAdd]
+type = AngleAdd
+trigger1 = timemod = 3,1 && time >= 325
+trigger1 = vel x = 0
+value = -12
+ignorehitpause = 1
+
+[State 0, Giant Egg Robot - Gone]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Giant Egg Robot - Gone"
+ID = 10850
+stateno = 10850
+pos = 0,-0
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 50
+value = 50
+ctrl = 1
+;-----------------------------------------------------------------
+; Giant Egg Robot - Gone
+;-----------------------------------------------------------------
+[Statedef 10850]
+type = S
+movetype = A
+physics = N
+anim = 10850
+velset = 0,0
+sprpriority = 4
+juggle = 1
+ctrl = 0
+
+[State 0, veladd]
+type = veladd
+trigger1 = time >= 0
+y = -0.25
+
+[State 0, PlaySnd]
+type = playsnd
+trigger1 = time = 0
+value = 1,21
+
+[State 1006, end]
+type= destroyself
+trigger1 = time = 80
+;---------------------------------------------------------------------------
+; Giant Egg Robot - SUPER ARMOR
+;---------------------------------------------------------------------------
+[Statedef 10910]
+type = A
+movetype = I
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 10990
+
+[State 0, BindToRoot]
+type = BindToParent
+trigger1 = 1
+pos = 0,0
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 10911
+time = 99999999999999
+ignorehitpause = 1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 200,End]
+type = Destroyself
+trigger1 = Numhelper(10080) = 0
+;---------------------------------------------------------------------------
+; Giant Egg Robot - SUPER ARMOR
+;---------------------------------------------------------------------------
+[Statedef 10911]
+type = S
+movetype = H
+physics = N
+juggle = 1
+velset = 0,0
+ctrl = 0
+
+[State 0,ParentVarSet]
+type = ParentVarSet
+trigger1 =! Time
+v = 4
+value = gethitvar(damage)
+
+[State 0,ParentVarSet]
+type = ParentVarSet
+trigger1 = time = 1
+v = 4
+value = 0
+
+[State 0, BindToRoot]
+type = BindToParent
+trigger1 = 1
+pos = 0,-5
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 10911
+time = 99999999999999
+ignorehitpause = 1
+
+[State 200,End]
+type = ChangeState
+trigger1 = hitover
+value = 10910
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Double Giant Machanic Punch
+;---------------------------------------------------------------------------
+[Statedef 11000]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11000
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-95
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 1
+value = S5,5
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 85
+time = 5
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 115
+time = 5
+
+[State 0, Giant Machanic Punch - Helper]
+type = Helper
+trigger1 = time = 85
+helpertype = normal
+name = "Giant Machanic Punch - Helper"
+ID = 11050
+stateno = 11050
+pos = 40,-81
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Giant Machanic Punch - Helper]
+type = Helper
+trigger1 = time = 115
+helpertype = normal
+name = "Giant Machanic Punch - Helper"
+ID = 11051
+stateno = 11051
+pos = 40,-81
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;-------------------------------------------------------------------------------
+; Giant Machanic Punch - Helper
+[Statedef 11050]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 11050
+velset = 0,0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,28
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,28
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S60,2
+volume = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+x = 12
+y = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 5
+x = 12
+y = 0
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+animtype = Hard
+damage = 40,15
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-105
+hitsound = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-1
+Fall = 0
+Envshake.time = 10
+GetPower = 75,15
+
+[State 200,Spark CVS]
+type = Explod
+triggerall = Numexplod(7260)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+persistent = -1
+angle = 0+random%360
+
+[State 0, Giant Machanic Punch - Wind FX]
+type = Explod
+trigger1 = time = 0
+anim = 7038
+ID = 7038
+pos = 20,-0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.1
+sprpriority = 3
+ontop = 0
+ownpal = 1
+angle = -18
+removeongethit = 1
+
+[State 200,End]
+type = Changestate
+trigger1 = Time >= 15
+trigger2 = frontedgebodydist < -100
+value = 11055
+;-------------------------------------------------------------------------------
+; Giant Machanic Punch - Helper
+[Statedef 11051]
+type = S
+movetype = A
+physics = N
+juggle = 2
+ctrl = 0
+anim = 11050
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,28
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,28
+volume = 999
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S60,2
+volume = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+x = 12
+y = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 5
+x = 12
+y = 0
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+animtype = Hard
+damage = 45
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-105
+hitsound = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = -2
+air.velocity = -2,-1
+Fall = 0
+Envshake.time = 10
+GetPower = 75,25
+
+[State 200,Spark CVS]
+type = Explod
+triggerall = Numexplod(7260)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+persistent = -1
+angle = 0+random%360
+
+[State 0, Giant Machanic Punch - Wind FX]
+type = Explod
+trigger1 = time = 0
+anim = 7038
+ID = 7038
+pos = 20,-0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = .1,.1
+sprpriority = -1
+ontop = 0
+ownpal = 1
+angle = -18
+removeongethit = 1
+
+[State 200,End]
+type = Changestate
+trigger1 = Time >= 15
+trigger2 = frontedgebodydist < -100
+value = 11055
+;-------------------------------------------------------------------------------
+; Giant Machanic Punch - Helper End
+[Statedef 11055]
+type = A
+movetype = I
+physics = A
+sprpriority = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =! Time
+x = rootdist x/35
+y = -8
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+v = 3
+value = ifelse(vel x>=0,-20-random%5,20+random%5)
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+hitflag = MAFD
+priority = 3,Hit
+animtype = Hard
+damage = 20,8
+guardflag = MA
+pausetime = 0,6
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound = S1,16
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = 4,-5
+air.velocity = 4,-5.5
+Fall = 1
+Envshake.time = 10
+GetPower = 45,8
+
+[State 200, Explod]
+type = Explod
+persistent = -1
+triggerall = Numexplod(7010)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7010
+postype = P2
+pos = 0,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .25,.25
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+angle = 0+random%360 
+
+[State 200,End]
+type = DestroySelf
+trigger1 = time = 200
+
+[State 200, End]
+type = DestroySelf
+trigger1 = time >= 30
+trigger2 = pos y >-15
+trigger3 = rootdist x >-5
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Laser Combo
+;---------------------------------------------------------------------------
+[Statedef 11100]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11100
+poweradd = -500
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-95
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 26
+value = S3,6
+volume = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 61
+value = S3,6
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 26
+time = 5
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 61
+time = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 17
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 20
+x = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 25
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 38
+x = -5
+
+[State 200,1]
+type = HitDef
+triggerall =! movecontact
+trigger1 = 1
+attr = S,NA
+animtype = Hard
+damage = 50
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-105
+hitsound = S1,18
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 25
+ground.hittime = 25
+ground.velocity = -2,-7
+air.velocity = -2,-7
+Fall = 0
+Envshake.time = 10
+
+[State 200,Spark CVS]
+type = Explod
+triggerall = Numexplod(7260)= 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7260
+postype = P2
+pos = -10,-20
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause = 1
+persistent = -1
+angle = 0+random%360
+
+[State 200,Combo]
+type = ChangeState
+trigger1 = MoveContact = 1
+value = 11101
+ctrl = 0
+IgnoreHitPause = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Laser Combo 2
+;---------------------------------------------------------------------------
+[Statedef 11101]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11101
+;poweradd = -500
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 35
+value = S3,6
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 35
+time = 10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 10
+x = -5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 20
+x = 0
+
+[State 0, Giant Egg Robot - Light Eyes Charge]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Giant Egg Robot - Light Eyes Charge"
+ID = 11130
+stateno = 11130
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .2
+supermovetime = 999
+
+[State 0, Giant Egg Robot - Light Laser Helper]
+type = Helper
+trigger1 = time = 15
+helpertype = normal
+name = "Giant Egg Robot - Light Laser Helper"
+ID = 11150
+stateno = 11150
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .6
+size.yscale = .4
+supermovetime = 999
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Light Eyes Charge
+[Statedef 11130]
+type = A
+movetype = I
+physics = N
+anim = 11130
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,47
+volume = 50
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-90,-90
+mul = 512,512,512
+sinadd = 0,1,0,1
+invertall = 0
+color = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -60
+ignorehitpause = 1
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 17,-139
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Light Laser Helper
+[Statedef 11150]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11150
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-90,-90
+mul = 512,512,512
+sinadd = 0,1,0,1
+invertall = 0
+color = 0
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = -50
+ignorehitpause = 1
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 17,-138
+ignorehitpause  = 1
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, HitDef]
+type = HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 80,30
+Hitflag = MAFD
+guardflag = MA
+pausetime = 10,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= S1,11
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,0)
+air.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,-2)
+Fall = 1
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+GetPower = 0
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != 8455
+trigger1 = movehit = 1
+value = 8455
+
+[State 200, Hit Spark]
+type = Explod
+triggerall = Numexplod(7010) = 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7010
+postype = P2
+pos = -5,-15
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .4,.4
+removeongethit = 1
+ontop = 1
+persistent = -1
+supermovetime = 999
+ignorehitpause  = 1
+angle = 0+random%360
+
+[State 0, Light Laser - Explosion]
+type = Helper
+trigger1 = MoveContact = 1
+name = "Light Laser - Explosion"
+ID = 11160
+stateno = 11160
+pos = 0,-25
+postype = P2
+facing = -1
+ownpal = 1
+Size.Xscale = .5
+Size.Yscale = .5
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+;-------------------------------------------------------------------------------
+; Light Laser - Explosion
+[Statedef 11160]
+type = S
+movetype = A
+physics = S
+juggle = 2
+ctrl = 0
+anim = 9999
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,12
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = Time = 0
+time = 7
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 0
+x = 5
+y = 0
+
+[State 0, Light Laser - Explosion FXADD]
+type = Helper
+trigger1 = Time = 0
+name = "Light Laser - Explosion FXADD"
+ID = 11165
+stateno = 11165
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .2
+
+[State 0, Light Laser - Explosion FXSUB]
+type = Helper
+trigger1 = Time = 0
+name = "Light Laser - Explosion FXSUB"
+ID = 11165
+stateno = 11166
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .2
+size.yscale = .2
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Light Laser - Explosion FXADD
+[Statedef 11165]
+type = A
+movetype = I
+physics = N
+anim = 11160
+sprpriority = 4
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-70,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 300-(time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Light Laser - Explosion FXSUB
+[Statedef 11166]
+type = A
+movetype = I
+physics = N
+anim = 11160
+sprpriority = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Electric Field
+;---------------------------------------------------------------------------
+[Statedef 11200]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11200
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-95
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,5
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 5
+
+[State 0, Rayos FX]
+type = Explod
+TriggerAll = time >= 30
+trigger1 = timemod = 10,0
+anim = 9030+(RANDOM%4)
+ID = 9030
+pos = -10+random%40,-10-random%140
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = .5,.5
+sprpriority = 2
+ontop = 1
+ownpal = 1
+removeongethit = 0
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 0, Electric Field - Particule]
+type = Helper
+trigger1 = time = 32
+helpertype = normal
+name = "Electric Field - Particule"
+ID = 11235
+stateno = 11235
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .4
+size.yscale = .4
+
+[State 0, Electric Field - Charge]
+type = Helper
+trigger1 = time = 32
+helpertype = normal
+name = "Electric Field - Charge"
+ID = 11240
+stateno = 11240
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .35
+size.yscale = .35
+
+[State 0, Electric Field - Helper]
+type = Helper
+trigger1 = time = 40
+helpertype = normal
+name = "Electric Field - Helper"
+ID = 11250
+stateno = 11250
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .35
+size.yscale = .42
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time > 40 && numhelper(11250) > 0
+value = 11200
+elem = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;-------------------------------------------------------------------------------
+; Electric Field - Paricule
+[Statedef 11235]
+type = A
+movetype = I
+physics = N
+anim = 11235
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -100,-50,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 0,-105
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,stateno != 11200
+;-------------------------------------------------------------------------------
+; Electric Field - Charge
+[Statedef 11240]
+type = A
+movetype = I
+physics = N
+anim = 11240
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -100,-50,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 0
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 0,-90
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+trigger2 = root,movetype = H
+;-------------------------------------------------------------------------------
+; Electric Field - Spark
+[Statedef 11245]
+type    = A
+movetype= I
+physics = N
+anim = 7010
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -100,-30,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+time*.2,1+time*.2
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = AnimTime = 0
+;-------------------------------------------------------------------------------
+; Electric Field - Helper
+[Statedef 11250]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11250
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = -100,-100,0
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = root,stateno = 11250
+trigger1 = timemod = 5,0
+value = S5,64
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = timemod = 20,0
+time = 20
+ampl = -8
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 0,-70-time*.3
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = 1
+fv = 1
+value = .0060
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1+fvar(1),1+fvar(1)
+
+[State 200, 1]
+type = HitDef
+trigger1 = timemod = 5,0
+attr = A, SP
+animtype  = Heavy
+damage = 10,3
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 0,4
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-5
+hitsound   = S1,17
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -.5,-2
+air.velocity = -.5,-2
+Fall = 1
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, Electric Field - Spark]
+type = Helper
+trigger1 = movehit = 1
+helpertype = normal
+name = "Electric Field - Spark"
+ID = 11245
+stateno = 11245
+pos = (-50+random%100),(-20-random%80)
+postype = p2
+facing = -1
+ownpal = 1
+size.xscale = .25
+size.yscale = .25
+ignorehitpause = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root,movetype = H
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 75
+value = 11255
+;-------------------------------------------------------------------------------
+; Electric Field - Helper Fin
+[Statedef 11255]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,27
+volume = 50
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 20
+ampl = -12
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 =  time = 5
+statetype = A
+movetype = I
+physics = A
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-time*25,256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time > 0
+fv = 1
+value = .1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time > 0
+scale = 1+fvar(1),1+fvar(1)
+
+[State 200, 1]
+type = HitDef
+trigger1 = !movecontact
+attr = A, SP
+animtype  = Heavy
+damage = 15,5
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-5
+hitsound   = -1
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -6,-8
+air.velocity = -6,-8
+Fall = 1
+Getpower = 0,0
+sprpriority = 3
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != [455,456]
+trigger1 = movehit = 1
+value = 455
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 10
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Crush Start
+;---------------------------------------------------------------------------
+[Statedef 11300]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11300
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-95
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = time > 90
+value = 0
+movecamera = 0,0
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, hitby]
+type = hitby
+trigger1 = 1
+time = 1
+value =
+ignorehitpause = 1
+
+[State 300, velset]
+type = velset
+trigger1 = time = 90
+y = -10
+
+[State 0 VelSet]
+type = VelSet
+triggerall = time >= 115
+trigger1 = 1
+y = 0
+ignorehitpause = 0
+
+[State 0, VelSet]
+type = VelSet
+triggerall = time > 115
+trigger1 = command = "holdfwd"
+trigger2 = ailevel > 0 && p2bodydist x > 0
+x = 4
+[State 0, VelSet]
+type = VelSet
+trigger1 = command != "holdfwd"
+trigger1 = command != "holdback"
+x = 0
+[State 0, VelSet]
+type = VelSet
+triggerall = time > 115
+trigger1 = command = "holdback"
+trigger2 = ailevel > 0 && p2bodydist x < 0
+x = -4
+
+[State 0, Marker FX]
+type = Explod
+trigger1 = time = 115
+anim = 11325
+ID = 11325
+pos = 0,180
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.4,0.4
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause = 1
+trans = add
+
+[State 0, Fire - FX]
+type = Helper
+trigger1 = time = 90
+helpertype = normal
+name = "Fire - FX"
+ID = 10755
+stateno = 10755
+pos = 0,0
+postype = p1
+ownpal = 1
+size.xscale = .14
+size.yscale = .12
+
+[State 0, Giant Egg Robot - Crush]
+type = changestate
+trigger1 = time = 150
+value = 11301
+ctrl = 0
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Crush
+;-------------------------------------------------------------------------------
+[Statedef 11301]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11301
+sprpriority = 2
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = -200
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time > 0
+y = 15
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Light
+damage    = 135,85
+guardflag = MA
+pausetime = 0,0
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,19
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = 0,0
+Fall = 1
+fall.recover = 0
+envshake.time = 0
+
+[State 200, Giant Egg Robot - Crush Hti The Ground]
+type = ChangeState
+trigger1 = pos y >= -10
+value = 11302
+ctrl = 0
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Crush Hit The Ground
+;-------------------------------------------------------------------------------
+[Statedef 11302]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11302
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S3,2
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 0, Rocas Volando]
+type = Helper
+triggerall = timemod = 2,0
+trigger1 = time = [0,10] 
+name = "Rocas Volando"
+ID = 850
+stateno = 850
+pos = 0,0
+postype = p1
+facing = -1
+keyctrl = 0
+ownpal = 1
+size.xscale = .22
+size.yscale = .22
+
+[State 0, Rock Lift - Center Front]
+type = Explod
+trigger1 = Time = 0
+anim = 8275
+ID = 8275
+pos = 10,7
+scale = .19,.19
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 5
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+[State 0, Rock Lift - Center Back]
+type = Explod
+trigger1 = Time = 0
+anim = 8275
+ID = 8275
+pos = -10,7
+scale = .19,.19
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 5
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Rock Lift - Outer Front]
+type = Explod
+trigger1 = Time = 0
+anim = 8275
+ID = 8275
+pos = 12,-2
+scale = .4,.4
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = -1
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+Angle = 10
+[State 0, Rock Lift - Outer Front]
+type = Explod
+trigger1 = Time = 0
+anim = 8275
+ID = 8275
+pos = 40,-2
+scale = .3,.3
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = -1
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Rock Lift - Outer Back]
+type = Explod
+trigger1 = Time = 0
+anim = 8275
+ID = 8275
+pos = -12,-2
+scale = .4,.4
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = -1
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+Angle = 15
+[State 0, Rock Lift - Outer Back]
+type = Explod
+trigger1 = Time = 0
+anim = 8275
+ID = 8275
+pos = -40,-2
+scale = .3,.3
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = -1
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 0, Dirt Lift FX]
+type = Explod
+trigger1 = Time = 0
+anim = 8230
+ID = 8230
+pos = 0,0
+scale = .3,.3
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = 5
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+Trans = AddAlpha
+Alpha = 156,256
+ignorehitpause = 1
+
+[State 0, Ground Crack - Center]
+type = Explod
+trigger1 = Time = 0
+anim = 8240
+ID = 8240
+pos = 0,-5
+scale = .6,.6
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+sprpriority = -3
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+[State 0, Ground Crack - Front]
+type = Explod
+trigger1 = Time = 0
+anim = 8240
+ID = 8240
+pos = 15,-3
+scale = .6,.6
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -3
+sprpriority = -3
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+[State 0, Ground Crack - Back]
+type = Explod
+trigger1 = Time = 0
+anim = 8240
+ID = 8240
+pos = -15,-3
+scale = .6,.6
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -3
+sprpriority = 0
+ontop = 0
+ownpal = 1
+ignorehitpause = 1
+
+[State 3000, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S2,4
+volume = 999
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Heavy
+damage    = 100,30
+guardflag = MA
+pausetime = 12,12
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = S1,19
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5,-10
+air.velocity = -5,-10
+Fall = 1
+fall.recover = 0
+envshake.time = 10
+GetPower = 75,15
+
+[State 0, TargetState]
+type = TargetState
+triggerall = enemy,stateno != 8455
+trigger1 = movehit = 1
+value = 8455
+
+[State 200, Hit Spark]
+type = Explod
+triggerall = Numexplod(7010) = 0
+trigger1 = Movehit = 1
+anim = 7260
+ID = 7010
+postype = P2
+pos = -5,-15
+facing = -1
+sprpriority = 2
+supermove = 1
+removetime = -2
+bindtime = 1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+persistent = -1
+supermovetime = 999
+ignorehitpause  = 1
+angle = 0+random%360
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = time > 0 && time < 20
+trigger1 = time%5 = 0
+time = 5
+ampl = -5
+
+[State 200,End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Circular Blast
+;---------------------------------------------------------------------------
+[Statedef 11400]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11400
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-95
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,16
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 30
+value = S0,16
+volume = 999
+
+[State 0, Circular Blast - Charge]
+type = Helper
+trigger1 = time = 35
+helpertype = normal
+name = "Circular Blast - Charge"
+ID = 11430
+stateno = 11430
+pos = 0,0
+postype = p1
+ownpal = 1
+Size.xscale = .15
+size.yscale = .15
+
+[State 0, Circular Blast - Helper]
+type = Helper
+trigger1 = time = 45
+helpertype = normal
+name = "Circular Blast - Helper"
+ID = 11450
+stateno = 11450
+pos = 0,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .4
+size.yscale = .4
+supermovetime = 999
+
+[State 0, Wave]
+type = Helper
+trigger1 = time = 45
+helpertype = normal
+name = "Wave"
+ID = 11455
+stateno = 11455
+pos = -5,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause  = 1
+supermovetime = 999999
+pausemovetime = 999999
+
+[State 200, End]
+type = ChangeState
+trigger1 =! AnimTime
+value = 10000
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Light Eyes
+[Statedef 11430]
+type = A
+movetype = I
+physics = N
+anim = 11430
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,47
+volume = 50
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-90,-90
+mul = 512,512,512
+sinadd = 0,1,0,1
+invertall = 0
+color = 0
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 20,-169
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+;-------------------------------------------------------------------------------
+; Circular Blast - Helper
+[Statedef 11450]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11450
+sprpriority = 4
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,48
+volume = 50
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,0,0
+mul = 300,300,300
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-time*04,256
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 12
+value = 0
+
+[State 0, VarAdd]
+type = VarAdd
+triggerall = var(12) < 60
+trigger1 = time >= 0
+v = 12
+value = 1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = time >= 0
+value = 285+var(12)
+ignorehitpause = 1
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 17,-168
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 200, End]
+type = ChangeState
+trigger1 = time >= 80
+trigger2 = root,stateno != 11400
+value = 11451
+;-------------------------------------------------------------------------------
+; Circular Blast - Fin
+[Statedef 11451]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+sprpriority = 3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(2)+root,fvar(3)
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = time = 0
+v = 2
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 10
+v = 2
+value = 25
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256-var(2),256
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 5
+statetype = A
+movetype = I
+physics = N
+
+[State 0, VarSet]
+type = VarSet
+trigger1 =! Time
+fv = 1
+value = 0
+
+[State 0, VarSet]
+type = VarAdd
+trigger1 = time > 10
+fv = 1
+value = .1
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+scale = 1,1-fvar(1)
+ignorehitpause = 1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Wave
+[Statedef 11455]
+type    = S
+movetype= I
+physics = N
+juggle  = 1
+velset = 8,0
+ctrl = 0
+anim = 11455
+sprpriority = -1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 5
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = -20
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,45
+volume = 50
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S5,45
+volume = 50
+
+[State 0, All Clear]
+type = Helper
+trigger1 = timemod = 10,0
+helpertype = normal
+name = "Explosiones"
+ID = 11460
+stateno = 11460
+pos = 5,0
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = .60
+size.yscale = .7
+
+[State 200, End]
+type = Destroyself
+trigger1 = time >= 65
+;-------------------------------------------------------------------------------
+; Circular Blast - Explosion
+[Statedef 11460]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11460
+sprpriority = 4
+
+[State 0, AttackMulSet]
+type = AttackMulSet
+trigger1 = 1
+value = 1+root,fvar(3)
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 5
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+ignorehitpause = 1
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+ignorehitpause = 1
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time > 0
+v = 1
+value = -25
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = time > 0
+fv = 2
+value = .1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = time = 15
+statetype = A
+movetype = I
+physics = N
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 5
+time = 25
+ampl = -4
+
+[State 0, FX]
+type = Explod
+trigger1 = time = 0
+anim = 8200
+ID = 8200
+Pos = 20,4
+postype = p1
+Scale = 1,.15
+sprpriority = -9
+ontop = 0
+ownpal = 1
+
+[State 200, 1]
+type = HitDef
+triggerall = !movecontact
+Trigger1 = 1
+attr = S, SA
+animtype  = Medium
+damage    = 60
+Hitflag = MAFDE
+guardflag = MA
+pausetime = 6,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = -8,-25
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -3,-5
+air.velocity = -3,-5
+Fall = 1
+Fall.recover = 0
+Getpower = 0,0
+sprpriority = 3
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+
+[State 200, End]
+type = Destroyself
+trigger1 = Animtime = 0
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Blast Rush
+;---------------------------------------------------------------------------
+[Statedef 11500]
+type = S
+movetype = A
+physics = S
+juggle = 1
+velset = 0,0
+ctrl = 0
+anim = 11500
+poweradd = -1000
+sprpriority = 2
+
+; SUPER PAUSE ============
+[State 3000, SuperPause]
+type = SuperPause
+trigger1 = time = 0
+time = 30
+movetime = 30
+anim = -1
+sound = -1
+pos = 32,-80
+darken = 0
+unhittable = 1
+
+[State 3000, VarSet]
+type = Varset
+trigger1 = time = 0
+v = 12
+value = -100
+
+[State 3000, VarAdd]
+type = VarAdd
+trigger1 = time >= 20 && Var(12) < 0
+v = 12
+value = 6
+
+[State 3000, BGColorFX]
+type = BGPalFX
+trigger1 = Time > 0
+time = 1
+add = Var(12),Var(12),Var(12)
+
+[State 3000, Super Charge]
+type = Explod
+trigger1 = Time = 0
+anim = 7400
+ID = 7400
+pos = 0,-95
+sprpriority = 2
+removetime = -2
+bindtime = -1
+ownpal = 1
+scale = .5,.5
+removeongethit = 1
+ontop = 1
+supermovetime = 999
+ignorehitpause  = 1
+
+[State 3000, PlaySnd - Super Charge]
+type = PlaySnd
+trigger1 = Time = 0
+value = S950,1
+;====================
+
+[State 0, Giant Egg Robot - Blast]
+type = Helper
+triggerALL = Time >= 32
+trigger1 = Timemod >= 7,0
+helpertype = normal
+name = "Giant Egg Robot - Blast"
+ID = 11550
+stateno = 11550
+pos = 19,-169
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 180
+value = 10000
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Light Eyes
+[Statedef 11530]
+type = A
+movetype = I
+physics = N
+anim = 11530
+sprpriority = 3
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = 1
+time = -1
+add = 0,-100,-100
+mul = 512,512,512
+sinadd = 0,0,0,1
+invertall = 0
+color = 256
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = 17,-169
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = add
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 =! AnimTime
+;---------------------------------------------------------------------------
+; Giant Egg Robot - Blast
+[Statedef 11550]
+type    = S
+movetype= A
+physics = N
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 11550
+;poweradd = -200
+sprpriority = 3
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S5,16
+volume = 999
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+stateno = 11560
+time = 999
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = - vel y * 2
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 12+random%8
+y = 11-random%9
+
+[State 0, HitDef]
+type = HitDef
+Triggerall = !Movecontact
+trigger1 = 1
+attr = S,NP
+animtype = Heavy
+damage = 9,2
+Hitflag = MAFD
+guardflag = MA
+pausetime = 0,8
+sparkno = -1
+guard.sparkno = s7000
+sparkxy = 0,0
+hitsound= S1,11
+guardsound = S4,1
+ground.type = High
+ground.slidetime = 12
+ground.hittime = 15
+ground.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,0)
+air.velocity = ifelse(root,var(13) > 2,-4,-2),ifelse(root,var(13) > 2,-4,-2)
+Fall = 1
+Envshake.time = 5
+PalFX.time = 30
+PalFX.add = -200,-200,-200
+PalFX.mul = 256,256,256
+PalFX.sinadd = 50,50,50,50
+PalFX.invertall = 0
+PalFX.color = 256
+Ground.CornerPush.VelOff = 0
+Air.CornerPush.VelOff = 0
+GetPower = 0
+
+[State 0, Giant Egg Robot - Light Eyes]
+type = Helper
+trigger1 = time = 0
+helpertype = normal
+name = "Giant Egg Robot - Light Eyes"
+ID = 11530
+stateno = 11530
+pos = 0,0
+postype = p1
+ownpal = 1
+Size.xscale = .1
+size.yscale = .1
+
+[State 200, End]
+type = Changestate
+trigger1 = movecontact
+trigger2 = frontedgebodydist < 0
+trigger3 = time = 500
+trigger4 = pos y >= -5
+value = 11560
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Blast Explosion
+[Statedef 11560]
+type = S
+movetype = A
+physics = S
+juggle = 2
+ctrl = 0
+anim = 11560
+velset = 0,0
+sprpriority = -1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S1,12
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = Time = 0
+time = 7
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 0
+x = 5
+y = 0
+
+[State 0, Giant Egg Robot - Blast Explosion FXADD]
+type = Helper
+trigger1 = Time = 0
+name = "Giant Egg Robot - Blast Explosion FXADD"
+ID = 11565
+stateno = 11565
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+
+[State 0, Giant Egg Robot - Blast Explosion FXSUB]
+type = Helper
+trigger1 = Time = 0
+name = "Giant Egg Robot - Blast Explosion FXSUB"
+ID = 11565
+stateno = 11566
+postype = p1
+facing = Cond(Random<500,1,-1)
+keyctrl = 0
+ownpal = 1
+size.xscale = .5
+size.yscale = .5
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 20
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Blast Explosion FXADD
+[Statedef 11565]
+type = A
+movetype = I
+physics = N
+anim = 11565
+sprpriority = 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 300-(time*10),256
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
+;-------------------------------------------------------------------------------
+; Giant Egg Robot - Blast Explosion FXSUB
+[Statedef 11566]
+type = A
+movetype = I
+physics = N
+anim = 11565
+sprpriority = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !Time
+Fv = 10
+value = random%360
+
+[State 0, AngleDraw]
+type = AngleDraw
+trigger1 = 1
+value = Fvar(10)+(time*.5)
+scale = 1+time*.025,1+time*.025
+
+[State 0, Trans]
+type = Trans
+trigger1 = 1
+trans = sub
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = Noshadow
+
+[State 200, End]
+type = Destroyself
+trigger1 = !AnimTime
