@@ -1,0 +1,193 @@
+;初制作ステージ
+;ロックマンX4より「宇宙港(カーネル戦)」2倍仕様
+[Info]
+name = "RockmanX4 Space Port 2"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -180 
+boundright = 180
+boundhigh = -200
+boundlow = 0
+verticalfollow = 0.5
+tension = 300
+
+[PlayerInfo]
+p1startx = -70 
+p1starty = 0 
+p1startz = 0 
+p1facing = 1 
+p2startx = 70 
+p2starty = 0
+p2startz = 0 
+p2facing = -1
+leftbound = -1000 
+rightbound = 1000 
+topbound = 0 
+botbound = 150
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 30
+screenright = 30
+
+[StageInfo]
+zoffset = 210
+autoturn = 1 
+resetBG = 0
+
+[Shadow]
+color = 128,128,128
+yscale = 0.3
+
+[Music]
+bgmusic = sound/colonel.ogg
+bgvolume = 255
+
+[BGdef]
+spr = Space-Port-2.sff
+debugbg = 0
+
+[BG 00]
+type = normal
+spriteno = 0, 0
+layerno = 0
+ID = 5
+start = 0,40
+delta = 1,1
+trans = none
+mask = 0
+
+[BG 01]
+type = anim
+layerno = 0
+ID = 0
+spriteno = 10,0
+actionno = 0
+start = 600, 40
+delta = 1,1
+trans = none
+mask = 1
+
+[BGCtrlDef 0]
+looptime = 5000
+ctrlID = 0
+
+[BGCtrl 0]
+type = VelSet
+time = 0
+x = -1.0
+
+[BGCtrl 0]
+type = PosSet
+time = 0
+x = 0
+
+[BGCtrl 0]
+type = PosSet
+time = 5000
+x = 0
+
+[BG 02]
+type = anim
+layerno = 0
+ID = 1
+spriteno = 11,0
+actionno = 1
+start = 1280, 40
+delta = 1,1
+trans = none
+mask = 1
+
+[BGCtrlDef 1]
+looptime = 5000
+ctrlID = 1
+
+[BGCtrl 1]
+type = VelSet
+time = 0
+x = -1.0
+
+[BGCtrl 1]
+type = PosSet
+time = 0
+x = 0
+
+[BGCtrl 1]
+type = PosSet
+time = 5000
+x = 0
+
+[BG 03]
+type = anim
+layerno = 0
+ID = 2
+spriteno = 12,0
+actionno = 2
+start = 1880, 40
+delta = 1,1
+trans = none
+mask = 1
+
+[BGCtrlDef 2]
+looptime = 5000
+ctrlID = 2
+
+[BGCtrl 2]
+type = VelSet
+time = 0
+x = -1.0
+
+[BGCtrl 2]
+type = PosSet
+time = 0
+x = 0
+
+[BGCtrl 2]
+type = PosSet
+time = 5000
+x = 0
+
+[BG 04]
+type = normal
+spriteno = 1,0
+layerno = 0
+ID = 5
+start = 0, 40
+delta = 1,1
+trans = none
+mask = 1
+
+[BG 05]
+type = normal
+spriteno = 2,0
+layerno = 0
+ID = 5
+start = 0, 40
+delta = 1,1
+trans = none
+mask = 1
+
+[Begin action 0]
+10,0, 0,0, 120
+10,1, 0,0, 11
+10,2, 0,0, 11
+10,1, 0,0, 11
+
+[Begin action 1]
+11,0, 0,0, 120
+11,1, 0,0, 11
+11,2, 0,0, 11
+11,1, 0,0, 11
+
+[Begin action 2]
+12,0, 0,0, 120
+12,1, 0,0, 11
+12,2, 0,0, 11
+12,1, 0,0, 11

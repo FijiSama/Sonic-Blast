@@ -1,0 +1,111 @@
+Sorry,I can't write English well.
+
+=============  Rainbow Road  ==============  Ver1.01  ==============================================================
+Start made it:May.02.2011
+Last update:May.14.2011
+
+
+Thank you  for download this stage.
+This stage made by Luneth(Handle name).
+
+
+This stage name is "Rainbow Road" for "Mario Kart Double Dash!!".
+Most portraits like the night view etc. were portrayed for myself.
+It completed more beautifully than it scheduled it.=)
+
+This is Hi-Res stage.
+
+
+=========================== How to use? =================================================================================
+
+
+stages/レインボーロードDD/Rainbow_Road.def
+
+
+Please input the sentence above to "select.def".
+Put out neither mp3 nor def and sff from the file.
+If how to rewrite it is understood, you may rewrite it.
+
+
+
+
+
+I will permit the re-distribution and the modification. 
+
+
+======================== About image File ===============================================================================
+
+Please do not use it for places other than MUGEN excluding
+the portrait that I portrayed.
+
+
+Please do not use the following thing.
+
+#Group-Number	#Content		#Origin
+3-5		Cloud			Forgot
+6-0~2		Green shell etc		(Original Game)Screen Shot
+10-0~71		Shooting star		(Original Game)Item icon
+
+
+======================= About Music File ================================================================================
+
+
+Music name is "Rainbow Road".
+The music copyright by "Shinobu Tanaka", "Kenta Nagata" and "Nintendo".
+
+
+
+=================== How to History of update? ===========================================================================
+
+
+May.2.2011
+Ver0.00
+
+Start to made stage files.
+
+
+
+
+
+May.08.2011
+Ver1.00
+
+Completion.
+
+
+
+
+
+May.14.2011
+Ver1.01
+
+Shooting star is corrected.
+
+
+============================= Special Thanks ====================================================================================================
+
+"Paint.net" obtaining page
+[http://www.getpaint.net/]
+Thing personally thought to be the best
+thing in free image edit software.
+
+
+
+
+"Padie" Vector's page
+[http://www.vector.co.jp/soft/win95/art/se063024.html]
+I think that this software
+can most beautifully decrease the color of the image.
+
+
+
+And you.
+
+----------------------------------------------------------------
+Hundle Name	:Luneth						|
+								|
+Web Page URL	:http://luneth.tuzigiri.com/index.html		|
+								|
+Smile Video							|
+MyList URL	:http://www.nicovideo.jp/mylist/9903787		|
+----------------------------------------------------------------

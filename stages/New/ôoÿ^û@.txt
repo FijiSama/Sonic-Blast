@@ -1,0 +1,12 @@
+defファイルとsffファイルをstagesフォルダに放り込んで下さい。
+そしてseledt.defの[ExtraStages]以下に
+
+stages/Space-Port.def
+stages/Space-Port-2.def
+
+を書き足せば使えるようになります。
+
+また、BGM用にogg vorbisファイルが同梱されています。
+こちらはsoundフォルダに放り込んで下さい。
+soundフォルダに入れるだけでBGMが再生されます。
+再生されない場合はプラグインが導入されていないと思われます。
