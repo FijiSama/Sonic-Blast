@@ -1,0 +1,62 @@
+#===============================================================================
+# This is a simple example of the use of dialogue sctrl introduced in Ikemen GO 0.96, updated to 0.98.2
+# done by Orochi_Kyo. The idea behind this file is to show you how to use this new
+# powerful tool to call helpers and explods, so you can create advanced dialogue
+# scenarios. Sorry for CNS users but I made it in ZSS. Still youll be able to recognize
+# a lot of triggers and sctrls from Mugen, the only difference is the scope.
+# The code is free to use but if you want to credit me if you use it on your proyect,
+# I'll appreciate it.
+# For more info and explanations please visit my site
+# https://costaricaonfoot.blog/2022/07/12/dialogue-system-for-ikemen-go/
+#===============================================================================
+
+[Statedef -4]
+#;-------Added by Orochi Kyo
+#;setting the map to detect active player before the dialogue becomes active
+if !indialogue {
+mapset{map:"isActivePlayer";value:1} #;change this between 0 and 1 according to which player initiates the dialogue
+}
+
+
+#===============================================================================
+# Dialogue for dual window 
+# Copy this block and change the name and the enemynear,name conditionals to activate
+# the dialogue between two chars
+#===============================================================================
+if gamemode = "SonicStory" && teamside = 1 && stateno = [191,197] && matchno = 1 && name = "Sonic The Hedgehog" && enemynear,name = "Miles Tails Prower"  && animtime = 0 && map(dualWindow) { #; a generic trigger to activate the dialogue
+Dialogue {
+hidebars : 0;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>All that talking has me bored stiff! Time to loosen up!<wait=45>  <wait=45>";
+text2 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Sonic,It hasnt even been 30 seconds.<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I KNOW RIGHT? Could really drive a guy crazy!<wait=90>";
+text4 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>...Every breath you take is a modern miracle.<wait=90>";
+text5 :"<p1><p1name=self><map=self,isActivePlayer,1,set><map=self,callHelperP1,1,set>Aww, you really mean it?<wait=70>"; #;call a helper
+text6 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set><map=self,callHelperP2,1,set>Yeah! I have no idea how you havent died in a booby trap or something by now.<wait=70>"; #call a helper
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set><map=self,callHelperP2,0,set><map=self,callHelperP1,0,set>Don't Jinx it kid!<wait=45>"; #remove helper
+text8 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Never. I am a fox of science after all.<wait=45>"; #remove helper
+text9 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Cool Beans. Let's get some exercise then!.<wait=45>";
+text10 :"<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>....Ehh. Why not.<wait=60>";
+	}
+}
+
+#===============================================================================
+# Dialogue for single window
+# Copy this block and change the name and the enemynear,name conditionals to activate
+# the dialogue between two chars
+#===============================================================================
+if gamemode = "SonicStory" && teamside = 1 && stateno = [191,197] && matchno = 1 && name = "Sonic The Hedgehog" && enemynear,name = "Miles Tails Prower"  && animtime = 0 && map(singleWindow) { #; a generic trigger to activate the dialogue
+Dialogue {
+hidebars : 0;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>All that talking has me bored stiff! Time to loosen up!<wait=45>  <wait=45>";
+text2 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Sonic,It hasnt even been 30 seconds.<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I KNOW RIGHT? Could really drive a guy crazy!<wait=90>";
+text4 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>...Every breath you take is a modern miracle.<wait=90>";
+text5 :"<p1><p1name=self><map=self,isActivePlayer,1,set>Aww, you really mean it?<wait=70>"; #;call a helper
+text6 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Yeah! I have no idea how you havent died in a booby trap or something by now.<wait=70>"; 
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Don't jinx it kid!<wait=90>";
+text8 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Never. I am a fox of science after all.<wait=45>"; 
+text9 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Cool Beans. Let's get some exercise then!<wait=45>";
+text10 :"<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>....Ehh. Why not.<wait=60>";
+	}
+}
+

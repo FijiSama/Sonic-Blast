@@ -1,0 +1,65 @@
+
+[Info]
+name =  "Sonic Blast Splash Page"              ;Name of motif
+author = "FijiSama"                                 ;Motif author name
+localcoord = 640,480
+
+[SceneDef]
+spr = PressSelect.sff
+
+[Scene 0]
+fadein.time = 30;50
+bg.name = BG1
+clearcolor = 0,0,0
+bgm = sound\Menus\PressSelect.mp3
+bgm.volume = 100
+bgm.loop = 1 
+end.time = 100000
+
+[BG1def]
+
+[BG1 1 Background ]
+type  		= normal
+spriteno = 1, 3
+start = 8, -68
+tile = 1, 0
+velocity = 1.5, 0
+;delta 		= 2,2
+
+[BG1 2 Sonic Blast] ; press start button
+type = Normal
+layerno = 1
+start = -22, 37
+spriteno = 0, 12
+mask = 1
+
+;[BG2def]
+;
+;[BG2 1]
+;type  		= normal
+;spriteno 	= 0, 4
+;start 		= 0,0
+;
+;[BG3def]
+;
+;[BG3 1]
+;type  		= normal
+;spriteno 	= 0, 5
+;start 		= 0,0
+;
+;[begin action 1]
+;0,9,0,0,60
+;0,10,0,0,60
+;;0,11,0,0,40
+[BG1 3 Press Start ]
+type = Normal
+start = -3, 410
+mask = 1
+delta = 0, 1
+trans = Sub
+spriteno = 2, 2
+; Press Select
+[Begin Action 0]
+LoopStart
+2,1, 0,0, 150
+2,2, 0,0, 150

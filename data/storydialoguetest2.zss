@@ -1,0 +1,833 @@
+#;-------Added by Orochi Kyo
+#;setting the map to detect active player before the dialogue becomes active
+#if !indialogue {
+#mapset{map:"isActivePlayer";value:1} #;change this between 0 and 1 according to which player initiates the dialogue
+
+
+[Function GameModeMatchID() story]
+let story = 0;
+if gamemode = "Tutorial" && matchno = 1 {
+    let story = 11;} 
+else if gamemode = "Tutorial" && matchno = 2 {
+    let story = 12;} 
+else if gamemode = "Tutorial" && matchno = 3 {
+    let story = 13;}
+else if gamemode = "Tutorial" && matchno = 4 {
+    let story = 14;}
+else if gamemode = "Tutorial" && matchno = 5 {
+    let story = 15;}
+else if gamemode = "Tutorial" && matchno = 6 {
+    let story = 16;}
+else if gamemode = "Tutorial" && matchno = 7 {
+    let story = 17;}
+	else if gamemode = "Tutorial" && matchno = 8 {
+    let story = 18;}
+else if gamemode = "SonicStory" && matchno = 1 {
+    let story = 21;
+}
+
+[Function storydialogueparser(gamemode,matchno)]
+if $gamemode = 1 && $matchno = 1
+{
+if teamside = 1 && stateno = [1190,1192] && animtime = 0{  
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Ahhh...Another day in paradise. <wait=45>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>...Which means another day of doing whatever i want!<wait=45>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>First things first though, Gotta strech the legs.<wait=90>";
+text4 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>.......<wait=150>";
+text5 : "<p1><p1name=self><map=self,isActivePlayer,1,set>And YOUR gonna help me.<wait=120>";
+text6 : "<p1><p1name=self><map=self,isActivePlayer,1,set>As a heads up, Sonic Blast has it's own unique button system.<wait=90>";
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set>So before we start, Make sure your buttons are mapped properly in the 'Options' section of the main menu. <wait=90>";
+text8 : "<p1><p1name=self><map=self,isActivePlayer,1,set>If they arent, close the game and read the [READ THIS FIRST DO NOT SKIP] file for first time setup instructions.<wait=90>";
+text9 : "<p1><p1name=self><map=self,isActivePlayer,1,set>When your done, meet me back here.<wait=90>";
+text10 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I'll be waiting, So hurry up!<wait=200>";
+text11 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Ok, I take it your all mapped up and ready to go. Now lets get to it! <wait=90>";
+text12 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Press [Forward] on the D-Pad or Joystick to move forward. Press [Back] on the D-Pad or Joystick to move backward.<wait=90>";
+text13: "<p1><p1name=self><map=self,isActivePlayer,1,set> To jump, press [Up] on the D-Pad or Joystick. Hold [Down] on the D-Pad or Joystick to crouch. <wait=90>";
+  }
+ }
+ if teamside = 1 && stateno = [180,182] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>If your ever confused, Press [Select] on your controller to pause the game. <wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>From the Pause Menu you can change your controls and look at character Command Lists.<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>You can also use the pause menu to go back to the main menu at any time. <wait=90>";
+text4 : "<p1><p1name=self><map=self,isActivePlayer,1,set>...Cool, Got it.<wait=90>";
+text5 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Now to warm up for real...<wait=90>";
+  }
+ }
+}
+if $gamemode = 1 && $matchno = 2
+{
+if teamside = 1 && stateno = [1190,1192] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Alright, time to get moving!<wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Like i said before, IKEMEN has it's own unique button layout.<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>There are seven buttons total in Sonic Blast: [A]/[B]/[C], [X]/[Y]/[Z], and [S](Start). <wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Note that whenever i talk about buttons, Im reffering to the IKEMEN layout. <wait=90>";
+text4 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Check the [Command List] section of the pause menu if you forget which IKEMEN button is mapped to what on your controller.<wait=90>";
+text5 : "<p1><p1name=self><map=self,isActivePlayer,1,set>For now, just remember that IKEMEN [X] is the movement button. It controls stuff like dashing and vanishing.<wait=90>";
+text6 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Hold IKEMEN [X] while moving foraward or backward to dash in the requested direction. You can dash in midair too.<wait=90>";
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Finally, [S] (Start) is the [Power Charge] button. Use this to charge your energy so you can use special moves.<wait=90>";
+text8 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Give it a shot!<wait=90>";
+  }
+ }
+ if teamside = 1 && stateno = [180,182] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Phew, that was refreshing! Now I'm all streched out.<wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Ok! Time to let the hands loose!<wait=90>";
+  }
+ }
+}
+if $gamemode = 1 && $matchno = 3
+{
+if teamside = 1 && stateno = [1190,1192] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>It's been a while since i got to hit something! Let's see if i still got it... <wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Like i said before, There are seven buttons total in Sonic Blast: [A]/[B]/[C], [X]/[Y]/[Z], and [S](Start). <wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>[A] and [B] are your basic attack buttons. You can start a full auto combo with either button, or cancel into another button to extend your current combo. <wait=90>";
+text4 : "<p1><p1name=self><map=self,isActivePlayer,1,set> [C] is to shoot projectiles. <wait=90>";
+text5 : "<p1><p1name=self><map=self,isActivePlayer,1,set>You already know this, but [X] is the movement button. It controls stuff like dashing and vanishing.<wait=90>";
+text6 : "<p1><p1name=self><map=self,isActivePlayer,1,set>[Y] is the 'Ability' button. This is where your characters unique ablities live. Sometimes the ability changes depending on if your in the air or crouching, So try them all to see for yourself! <wait=90>";
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set>[Z] is the Transformation Button. When i have full energy i can use this button to go Super Sonic!<wait=90>";
+text8 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Using my super mode makes me ridiculously powerful, but it drains my energy pretty fast.<wait=90>";
+text9 : "<p1><p1name=self><map=self,isActivePlayer,1,set>What's worse, If i let it drain all the way it leaves me wide open.<wait=90>";
+text10 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I try to use it only when i'm backed against a wall. <wait=25> Not like that ever happens.<wait=90>";
+text11 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Im not the only person who can transform either...<wait=90>";
+text12 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Anyway, Punching time!<wait=90>";
+   }
+  }
+ }
+ if $gamemode = 1 && $matchno = 4
+{
+if teamside = 1 && stateno = [1190,1192] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>...Phew, that was intense. Transforming always takes it outta me. <wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>But im really starting to feel like myself again!<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Ok! Last but not least, Special Attcks! <wait=90>";
+text4 : "<p1><p1name=self><map=self,isActivePlayer,1,set>All characters in Sonic Blast have five Special Atttacks and one Ultimate Attack. They also universally use the same inputs to perform them. <wait=90>";
+text5 : "<p1><p1name=self><map=self,isActivePlayer,1,set>The main difference lies in what a given character will do. Fight to unlock every character so you can see what fits your playstyle best.<wait=90>";
+text6 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Specials and Ultimates change when you transform as well, So keep that in mind as you fight.<wait=90>";
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Alright! Time to show this rock some real moves!<wait=90>";
+  }
+ }
+  if teamside = 1 && stateno = [180,182] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>OH YEAH! Thats what im talking about! <wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Bet that rock will think twice about crossing me!<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>...Ok. I think im just about ready to face the world now! Too bad i dont have anybody that hits back to test my moves on... <wait=90>";
+  }
+ }
+}
+ if $gamemode = 1 && $matchno = 5
+{
+if teamside = 1 && stateno = 197 && animtime = 0  {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Speak of the devil! or Kitsune? Fox?<wait=45>  <wait=45>";
+text2 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Sonic!<wait=45>  <wait=45>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>In the fur! Whats shakin' bud? <wait=45>  <wait=45>";
+text4 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>I was just headed back to my lab after a field test for some new gadgets of mine. What're you doing all the way out here?<wait=90>";
+text5 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Wait, let me guess. Blowing wherever the wind takes you right?<wait=90>";
+text6 : "<p1><p1name=self><map=self,isActivePlayer,1,set>Heh, I guess i am that predictable huh.<wait=45>But,even being the smartest perosn i know, Your only 90 percent right. <wait=45>";
+text7 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I JUST finsihed gearing up to start roaming. And as it happens, im in need of a sparring partner.<wait=45>";
+text8 : "<p1><p1name=self><map=self,isActivePlayer,1,set>How about it?? Down to go a couple rounds?<wait=45>";
+text9 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Well, i could use the excerise. And fighting you gives me more troubleshooting opportunites for my weapons...<wait=90>";
+text10 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Fine. You got a deal!<wait=120>";
+text11: "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>...uhh, Sonic?<wait=90>";
+text12 : "<p1><p1name=self><map=self,isActivePlayer,1,set>....zzzzzzzzz<wait=45>  <wait=45>";
+text13: "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>........<wait=90>";
+text14 : "<p1><p1name=self><map=self,isActivePlayer,1,set>....skkrjjcdcHuh? HUH?! IM AWAKE! YOU WONT GET ME EGGBREAT-Oh. Hey Tails!<wait=45>  <wait=45>";
+text15: "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>...Every breath you take is a modern miracle.<wait=90>";
+text16:"<p1><p1name=self><map=self,isActivePlayer,1,set>Aww, you really mean it?<wait=70>"; 
+text17 : "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Yeah! I have no idea how you havent died in a booby trap or something by now.<wait=70>"; 
+text18: "<p1><p1name=self><map=self,isActivePlayer,1,set>Don't jinx it kid!<wait=90>";
+text19: "<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>Never. I am a fox of science after all.<wait=45>"; 
+text20: "<p1><p1name=self><map=self,isActivePlayer,1,set>Cool Beans. Wanna Spar?<wait=45>";
+text21 :"<p0><p1name=enemy(0)><map=self,isActivePlayer,0,set>....Ehh. Yeah.<wait=60>";
+  }
+ }
+if teamside = 1 && stateno = [180,182] && animtime = 0 {
+Dialogue {
+hidebars : 1;
+text1 : "<p1><p1name=self><map=self,isActivePlayer,1,set>OH YEAH! Thats what im talking about! <wait=90>";
+text2 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I bet that rock will think twice about crossing me now!<wait=90>";
+text3 : "<p1><p1name=self><map=self,isActivePlayer,1,set>I think im just about ready to face the world now! Too bad i dont have anything that hits back to test my moves on... <wait=90>";
+  }
+ }
+}
+  
+ [Function TutorialPrompts()]
+let GameModeIDValue = call GameModeMatchID();
+if !indialogue 
+{
+if $GameModeIDValue = 11 && PrevStateNo = [1190,1192] 
+{ 
+#Tutorial Section 1 (Movement and Basics P1)
+if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20000;
+ id: 20000;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 130,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20001;
+ id: 20001;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 130,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20002;
+ id: 20002;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 130,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20003;
+ id: 20003;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 130,65;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+}
+#Tutorial Section 2 (Movement and Basics P2)
+if $GameModeIDValue = 12 && PrevStateNo = [1190,1192] 
+{ 
+ if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20005;
+ id: 20005;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 115,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20006;
+ id: 20006;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20007;
+ id: 20007;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 112,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+}
+#Tutorial Section 3 (Attack Basics P1)
+if $GameModeIDValue = 13 && PrevStateNo = [1190,1192] 
+{ 
+if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20008;
+ id: 20008;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20009;
+ id: 20009;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20010;
+ id: 20010;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 108,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20011;
+ id: 20011;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,65;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20012;
+ id: 20012;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,75;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0  { 
+ Explod{
+ anim: 20013;
+ id: 20013;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,85;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+  }
+ }
+ #Tutorial Section 4
+if $GameModeIDValue = 14 && PrevStateNo = [1190,1192] 
+{ 
+if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20014;
+ id: 20014;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20015;
+ id: 20015;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20016;
+ id: 20016;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20017;
+ id: 20017;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,65;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20018;
+ id: 20018;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,75;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ if teamside = 1 && animtime = 0 { 
+ Explod{
+ anim: 20019;
+ id: 20019;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 110,85;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+  }
+ }
+}
+
+ [Function TutCompletionCheck()]
+let GameModeIDValue = call GameModeMatchID();
+if !indialogue {
+if $GameModeIDValue = 11  { #&& PrevStateNo = [1190,1192]
+#===========================================
+#TUTORIAL 1 (Movement and Basics P1)
+#===========================================
+#"Forward!" Check
+if teamside = 1 && playerNo = 1 && ctrl = 1 && stateNo = 20 && NumExplod(200024) = 0 && command = "fwd" {
+ Explod{
+ anim: 20004;
+ id: 200024;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+#"Back!" Check 
+if teamside = 1 && playerNo = 1 && ctrl = 1 && stateNo = 20 && NumExplod(200026) = 0 && command = "back" {
+ Explod{
+ anim: 20004;
+ id: 200026;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+#"Jump!" Check
+if teamside = 1 && playerNo = 1 && ctrl = 1 && stateNo = [40,52] && NumExplod(200028) = 0 && command = "up" {
+ Explod{
+ anim: 20004;
+ id: 200028;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+#"Crouch!" Check
+if teamside = 1 && playerNo = 1 && ctrl = 1 && stateNo = [10,12] && NumExplod(200029) = 0 && command = "down" {
+ Explod{
+ anim: 20004;
+ id: 200029;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,65;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+}
+#===========================================
+##TUTORIAL 2 (Movement and Basics P2)
+#===========================================
+if $GameModeIDValue = 12  { 
+#"Forward Dash!" Check 
+if teamside = 1 && playerNo = 1 && ctrl = 1 && NumExplod(200025) = 0 && command = "fwd_x" {
+ Explod{
+ anim: 20004;
+ id: 200025;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ #"Backward Dash!" Check
+if teamside = 1 && playerNo = 1 && ctrl = 1 && NumExplod(200027) = 0 && command = "back_x" {
+ Explod{
+ anim: 20004;
+ id: 200027;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+ #"Power Charge Button" Check
+if teamside = 1 && NumExplod(200030) = 0 && Power = 3000 && PrevStateNo = 501 {
+ Explod{
+ anim: 20004;
+ id: 200030;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+}
+#===========================================
+##TUTORIAL 3 (Attack Basics)
+#===========================================
+if $GameModeIDValue = 13  { 
+ #"Press A 6 Times!" Check
+if teamside = 1 && NumExplod(200024) = 0 && stateno = 245 { 
+ Explod{
+ anim: 20004;
+ id: 200024;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+#"Press B 6 Times!" Check 
+if teamside = 1 && NumExplod(200025) = 0 && PrevStateNo = 355 { 
+ Explod{
+ anim: 20004;
+ id: 200025;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+#"Press C Button" Check
+if teamside = 1 && NumExplod(200026) = 0 && (PrevStateNo = 400 || PrevStateNo = 11400){
+ Explod{
+ anim: 20004;
+ id: 200026;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+#"Press X Button" Check
+if teamside = 1 && NumExplod(200027) = 0 && PrevStateNo = [100,101] {
+ Explod{
+ anim: 20004;
+ id: 200027;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,65;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+  }
+#"Press Y Button!" Check 
+if teamside = 1 && NumExplod(200028) = 0 && (PrevStateNo = 301 || PrevStateNo = 11301) { 
+ Explod{
+ anim: 20004;
+ id: 200028;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,75;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+#"Press Z Button" Check
+if teamside = 1 && NumExplod(200029) = 0 && anim = 11000 {
+ Explod{
+ anim: 20004;
+ id: 200029;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,85;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+ }
+}
+#===========================================
+##TUTORIAL 4 (Specials and Ultimates)
+#===========================================
+if $GameModeIDValue = 14 { 
+ #"Press DFA!" Check
+if teamside = 1 && NumExplod(200024) = 0 && (stateNo = 1501 || stateno = 1502) { 
+ Explod{
+ anim: 20004;
+ id: 200024;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,35;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999} #"Press DFA!" Check
+}
+ #"Press DFB!" Check
+if teamside = 1 && NumExplod(200025) = 0 && PrevStateNo = 1102  { 
+ Explod{
+ anim: 20004;
+ id: 200025;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,45;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+ #"Press DFC!" Check
+if teamside = 1 && NumExplod(200026) = 0 && stateno = 1200 { 
+ Explod{
+ anim: 20004;
+ id: 200026;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,55;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+ #"Press DBA!" Check
+if teamside = 1 && NumExplod(200027) = 0 && stateno = 1300 { 
+ Explod{
+ anim: 20004;
+ id: 200027;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,65;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+ #"Press DBB!" Check
+if teamside = 1 && NumExplod(200028) = 0 && stateno = 1000 { 
+ Explod{
+ anim: 20004;
+ id: 200028;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,75;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+}
+ #"Press DBC!" Check
+if teamside = 1 && NumExplod(200029) = 0 && stateno = 3000 { 
+ Explod{
+ anim: 20004;
+ id: 200029;
+ facing: cond(teamside=2,-1,1);
+ bindtime:-1;
+ pos: 180,85;
+ postype: left;
+ sprpriority: 8; 
+ pausemovetime: 999}
+  }
+ }
+}
+
+###################################
+[Statedef -4]
+###################################
+
+if !indialogue {
+mapset{map:"isActivePlayer";value:1}
+}
+
+let GameModeIDValue = call GameModeMatchID();
+if $GameModeIDValue = 11 #&& matchno = 1 
+{
+call storydialogueparser(1,1);
+call TutorialPrompts();
+call TutCompletionCheck();
+}
+if $GameModeIDValue = 12 #&& matchno = 1 
+{
+call storydialogueparser(1,2);
+call TutorialPrompts();
+call TutCompletionCheck();
+}
+if $GameModeIDValue = 13 #&& matchno = 1 
+{
+call storydialogueparser(1,3);
+call TutorialPrompts(); 
+call TutCompletionCheck();
+}
+if $GameModeIDValue = 14 #&& matchno = 1 
+{
+call storydialogueparser(1,4);
+call TutorialPrompts(); 
+call TutCompletionCheck();
+}
+if $GameModeIDValue = 15 #&& matchno = 1 
+{
+call storydialogueparser(1,5);
+}
+if $GameModeIDValue = 16 #&& matchno = 1 
+{
+call storydialogueparser(1,6);
+}
+if $GameModeIDValue = 17 #&& matchno = 1 
+{
+call storydialogueparser(1,7);
+}
+if $GameModeIDValue = 18 #&& matchno = 1 
+{
+call storydialogueparser(1,8);
+}
+ # # #Match 1 Ender
+if $GameModeIDValue = 11{
+if NumExplod(200024) = 1 && NumExplod(200026) = 1 && NumExplod(200028) = 1 && NumExplod(200029) = 1 {
+LifeAdd{
+value : -5000; 
+kill : 1;
+absolute : 1;
+RedirectID: enemynear,id} #57 (p2 ID)
+ }
+}
+ # # #Match 2 Ender
+if $GameModeIDValue = 12{
+if NumExplod(200025) = 1 && NumExplod(200027) = 1 && NumExplod(200030) = 1 {
+LifeAdd{
+value : -5000; 
+kill : 1;
+absolute : 1;
+RedirectID: enemynear,id} #57 (p2 ID)
+ }
+}
+ # # #Match 3 Ender
+if $GameModeIDValue = 13{
+if NumExplod(200024) = 1 && NumExplod(200025) = 1 && NumExplod(200026) = 1 && NumExplod(200027) = 1 && NumExplod(200028) = 1 && NumExplod(200029) = 1 {
+LifeAdd{
+value : -5000; 
+kill : 1;
+absolute : 1;
+RedirectID: enemynear,id} #57 (p2 ID)
+ }
+}
+ # # #Match 4 Ender
+if $GameModeIDValue = 14{
+if NumExplod(200024) = 1 && NumExplod(200025) = 1 && NumExplod(200026) = 1 && NumExplod(200027) = 1 && NumExplod(200028) = 1 && NumExplod(200029) = 1 {
+LifeAdd{
+value : -5000; 
+kill : 1;
+absolute : 1;
+RedirectID: enemynear,id} #57 (p2 ID)
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#===========================================
+#MISCILANEOUS
+#===========================================
+
+ 
+#Mid Match Dialogue 2
+ # if $GameModeIDValue = 11 { # && matchno = 1  {
+ # if teamside = 1 && playerNo = 1 && ctrl = 1 && command != "back"  && PrevAnim != 20 {	
+ # lifebarAction{text:"Press the Back Button to move back."; top: 1; time: 1000}
+  # }
+ # }
+
+# if $GameModeIDValue = 12 # && matchno = 2
+# {
+# call storydialogueparser(1,2);
+# }
+
+#if PrevStateNo = [1190,1192]  {
+# Helper{
+# helpertype : normal
+# ;name : "fwdcmnd"
+# ;ID :  289500
+# ;stateno : 999999#289500
+# ;pos : 61,-37
+# ;postype : p1   
+# ;facing : 1
+# ;keyctrl : 0
+# ;ownpal : 1
+# ;size.xscale :1*const(size.xscale)
+# ;size.yscale :1*const(size.yscale)
+# ;size.ground.back:var(0)}
+# }
+
+# if numHelper(289500) && command = "fwd"{
+# destroySelf{
+    # }
+   # }
+
+
+
+
+
+
+
+
+
+
+
+
+

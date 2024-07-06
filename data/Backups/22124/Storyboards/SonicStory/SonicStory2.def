@@ -1,0 +1,438 @@
+
+[Info]
+localcoord = 640,480
+[SceneDef]
+spr = data/Storyboards/GlobalStoryboard.sff
+;startscene =0;Starting scene number (for debugging)
+font1 = Open_Sans.def
+font2 = Open_Sans.def
+;snd = end.snd
+;------------------------------------
+;==================================
+; Scene 0
+;==================================
+[Scene 0]
+; Fade
+fadein.time = 50       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG0
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "Yo, Knuckles!"
+layer1.font = 2,0,1,51,204,204
+layer1.scale= 1,1
+layer1.textwindow =-70,70,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 160
+
+
+;==================================
+; Scene 1
+;==================================
+ ;singular good tmnt char 
+[Scene 1]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG1
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "...Great. \nThe Blue Bother came to pay me a visit."
+layer1.font = 2,0,1,245,0,0
+layer1.scale= 1,1
+layer1.textwindow = -70,70,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 350
+
+
+;==================================
+; Scene 2
+;==================================
+[Scene 2]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG2
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "Aww c'mon, dont be like that! \nI was just around the way and figured you were due for some excitiment. \n...Looks like i was right!"
+layer1.font = 2,0,1,51,204,204
+layer1.scale= 1,1
+layer1.textwindow = -90,90,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 650
+
+;==================================
+; Scene 3
+;==================================
+ ;singular good tmnt char 
+[Scene 3]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG3
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =5
+layer1.text = "...That's just like you. \nFine. \nI was in the mood to punch something anyway."
+layer1.font = 2,0,1,245,0,0
+layer1.scale= 1,1
+layer1.textwindow = -70,70,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 500
+
+
+;==================================
+; Scene 4
+;==================================
+[Scene 4]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG4
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "Heh. \nThat's IF you can!"
+layer1.font = 2,0,1,51,204,204
+layer1.scale= 1,1
+layer1.textwindow = -70,70,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 300
+
+
+;;====================================================================
+;Background Info
+;;====================================================================
+;==================================
+; BG0 Scene 0
+;==================================
+
+[BG0Def]
+
+[BG0 GreenHill]
+type = Anim
+start = -40, 388
+actionno = 1
+
+[BG0 Sonic]
+type = Normal
+spriteno = 2, 4
+mask = 1
+start = -207, 311
+id = -1
+tilespacing = -3, 0
+
+[BG0 Knuckles]
+type = Normal
+spriteno = 2, 27
+mask = 1
+tilespacing = 0, 2
+start = 184, 311
+
+[BG0 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG0 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG0 SonicName]
+type = Normal
+spriteno = 1, 97
+mask = 1
+start = 235, 323
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,11, 0,0, -1, , , 2.8,3
+
+;==================================
+; BG1 Scene 1
+;==================================
+
+[BG1Def]
+
+[BG1 GreenHill]
+type = Anim
+start = -40, 388
+actionno = 1
+
+[BG1 Sonic]
+type = Normal
+spriteno = 2, 3
+mask = 1
+start = -207, 311
+
+[BG1 Knuckles]
+type = Normal
+spriteno = 2, 29
+mask = 1
+tilespacing = 0, 2
+start = 198, 311
+
+[BG1 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG1 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG1 KnucklesName]
+type = Normal
+spriteno = 1, 32
+mask = 1
+start = 233, 321
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,11, 0,0, -1, , , 1.8,2
+
+;==================================
+; BG2 Scene 2
+;==================================
+
+[BG2Def]
+
+[BG2 GreenHill]
+type = Anim
+start = -40, 388
+actionno = 1
+
+[BG2 Sonic]
+type = Normal
+spriteno = 2, 83
+mask = 1
+start = -212, 299
+id = -1
+tilespacing = -3, 0
+
+[BG2 Knuckles]
+type = Normal
+spriteno = 2, 27
+mask = 1
+tilespacing = 0, 2
+start = 184, 311
+
+[BG2 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG2 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG2 SonicName]
+type = Normal
+spriteno = 1, 97
+mask = 1
+start = 235, 323
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,11, 0,0, -1, , , 1.8,2
+
+;==================================
+; BG3 Scene 3
+;==================================
+
+[BG3Def]
+
+[BG3 GreenHill]
+type = Anim
+start = -40, 388
+actionno = 1
+
+[BG3 Sonic]
+type = Normal
+spriteno = 2, 3
+mask = 1
+start = -207, 311
+
+[BG3 Knuckles]
+type = Normal
+spriteno = 2, 22
+mask = 1
+tilespacing = 0, 2
+start = 187, 310
+
+[BG3 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG3 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG3 KnucklesName]
+type = Normal
+spriteno = 1, 32
+mask = 1
+start = 233, 321
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,11, 0,0, -1, , , 1.8,2
+;==================================
+; BG4 Scene 4
+;==================================
+
+[BG4Def]
+
+[BG4 GreenHill]
+type = Anim
+start = -40, 388
+actionno = 1
+
+[BG4 Sonic]
+type = Normal
+spriteno = 2, 4
+mask = 1
+start = -207, 311
+id = -1
+tilespacing = -3, 0
+
+[BG4 Knuckles]
+type = Normal
+spriteno = 2, 21
+mask = 1
+tilespacing = 0, 2
+start = 184, 311
+
+[BG4 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG4 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG4 SonicName]
+type = Normal
+spriteno = 1, 97
+mask = 1
+start = 235, 323
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,11, 0,0, -1, , , 1.8,2

@@ -1,0 +1,49 @@
+
+; Introduction cutscene for story mode.
+; The fadein and fadeout parameters are used to fade one screen to the next.
+[Info]
+localcoord = 640,480
+[SceneDef]
+spr = data/Storyboards/GlobalStoryboard.sff
+font1 = Open_Sans.def
+font2 = Open_Sans.def
+startscene = 0         ;Starting scene number (for debugging)
+
+;------------------------------------
+[Scene 0]
+ ;Fade
+fadein.time = 60       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 15
+fadeout.col = 0,0,0;255,255,255
+bg.name=BG0
+; Screen color
+clearcolor = 51,102,255;255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "CHAPTER 2"
+layer1.font = 2,0,1,0,0,0
+layer1.scale= 3,3
+layer1.textwindow = -70,70,640,480  ;20,220,640,480
+layer1.starttime=20
+layer1.offset = -50,360;20,240;-10,140;
+;layer0.anim =  0       ;Anim action number
+;layer0.offset = 0,32   ;Position offset
+;layer0.starttime = 0   ;Time to start display
+; Music
+;bgm = intro.mp3        ;Name of music file to play
+;bgm.loop = 0
+; Total time
+end.time = 300
+
+
+[BG0Def]
+
+[BG0 Sonic Background]
+type = Normal
+spriteno = 4, 4
+start = 108, 402
+layerno = 1
+mask = 1
+

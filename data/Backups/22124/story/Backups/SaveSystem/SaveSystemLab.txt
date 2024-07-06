@@ -1,0 +1,101 @@
+  -- Match 1
+if matchno() == 1 then
+local M1 = launchFight{
+    p1char = {"Sonic"},
+	p2char = {"kfm"},
+	p1teammode = "single",
+	p2teammode = "single",
+	p1numchars = 1,
+	p2numchars = 1,
+	p1rounds = 1,
+	p2rounds = 1,
+	continue = true,
+	quickcontinue = false,
+	p1orderselect = false,
+	vsscreen  = false,
+	time = 90,
+	stage = "stages/stage0-720.def",
+	}
+if not M1 then return end
+
+if player(1) and win() and life() < 1050 then
+if stats.sonicprogress.CurrentChapter == 1 
+ then
+ stats.sonicprogress.CurrentChapter = 21
+elseif player(1) and win() and life() > 1050 
+ then
+ if stats.sonicprogress.CurrentChapter == 1 
+ then
+ stats.sonicprogress.CurrentChapter = 22
+   end
+    end
+	 end
+	  end
+  
+   
+   if matchno() == 2 and not continue() then
+launchStoryboard('data/Storyboards/SonicStory/ChIntro2.def')
+launchStoryboard('data/Storyboards/SonicStory/SonicStory2.def')
+end
+     
+-- Match 2A 
+if life() < 1050 and matchno() == 2 and stats.sonicprogress.CurrentChapter == 21 then
+if not launchFight{
+    p1char = {"Sonic"},
+	p2char = {"Knuckles"},
+	p1teammode = "single",
+	p2teammode = "single",
+	p1numchars = 1,
+	p2numchars = 1,
+	p1rounds = 1,
+	p2rounds = 1,
+	continue = false,
+	quickcontinue = false,
+	p1orderselect = false,
+	vsscreen  = false,
+	time = 90,
+	stage = "stages/stage0-720.def",
+    } then return end
+  
+  if player(1) and win() then
+if stats.sonicprogress.CurrentChapter == 21 
+ then
+ stats.sonicprogress.CurrentChapter = 3
+   end
+    end
+	 end
+
+	
+-- Match 2B 
+if life() > 1050 and matchno() == 2 and stats.sonicprogress.CurrentChapter == 22 then
+if not launchFight{
+    p1char = {"Sonic"},
+	p2char = {"Shadow"},
+    p1teammode = "simul",
+	p2teammode = "simul",
+	p1numchars = 1,
+	p2numchars = 1,
+	p1rounds = 1,
+	p2rounds = 1,
+	continue = true,
+	quickcontinue = false,
+	p1orderselect = false,
+	vsscreen  = false,
+	time = 90,
+	stage = "stages/stage0-720.def",
+   } then return end
+   
+   
+  if player(1) and win() then
+if stats.sonicprogress.CurrentChapter == 22 
+ then
+ stats.sonicprogress.CurrentChapter = 3	
+   end
+    end
+	 end
+
+
+
+*******************************************************************
+
+	 

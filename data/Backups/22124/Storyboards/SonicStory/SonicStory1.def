@@ -1,0 +1,186 @@
+
+[Info]
+localcoord = 640,480
+[SceneDef]
+spr = data/Storyboards/GlobalStoryboard.sff
+;startscene =0;Starting scene number (for debugging)
+font1 = Open_Sans.def
+font2 = Open_Sans.def
+;snd = end.snd
+;------------------------------------
+;==================================
+; Scene 0
+;==================================
+[Scene 0]
+; Fade
+fadein.time = 50       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG0
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "Hey Tails! \nWhats Shaking?"
+layer1.font = 2,0,1,51,204,204
+layer1.scale= 1,1
+layer1.textwindow=-70,70,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 250
+
+
+;==================================
+; Scene 1
+;==================================
+ ;singular good tmnt char 
+[Scene 1]
+; Fade
+fadein.time = 0       ;Time to take for fading in
+fadein.col = 0,0,0     ;Use 255,255,255 for white-fade
+fadeout.time = 0
+fadeout.col = 0,0,0
+bg.name=BG1
+; Screen color
+;clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 30,90   ;Default position for all layers
+layer1.textdelay =4
+layer1.text = "Hey Sonic! \nJust working on my latest world changing inventio- \n.....\nwhat are you doing?"
+layer1.font = 2,0,1,255,155,100
+layer1.scale= 1,1
+layer1.textwindow=-70,70,640,480
+layer1.starttime=20
+layer1.offset = 20,240
+;bgm = op1.mp3      ;Name of music file to play
+;sound0.value=100,1
+;sound0.starttime=930
+;layer6.textdelay = 3
+;layer6.text = "It is not known where all of the warriors came from, but one fact is certain:\nthey inadvertently repaired the flow of time and saved the world. Though\nthey may never remember the events, they have become heroes."
+;layer6.font = 1,,1,255,255,255
+;layer6.starttime = 1251
+; layer1.anim =  1
+; layer1.offset = 0,176
+; Music
+      ;Name of music file to play
+; bgm.loop = 0
+; Total time
+end.time = 500
+
+;;====================================================================
+;Background Info
+;;====================================================================
+
+
+;==================================
+; BG0 Sonic
+;==================================
+
+[BG0Def]
+
+[BG0 GreenHill]
+type = Anim
+start = 11, -164
+actionno = 1
+
+[BG0 Sonic]
+type = Normal
+spriteno = 2, 0
+mask = 1
+start = -197, 296
+id = -1
+tilespacing = -3, 0
+
+[BG0 Tails]
+type = Normal
+spriteno = 1, 6
+mask = 1
+tilespacing = 0, 2
+start = 196, 298
+
+[BG0 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG0 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG0 SonicName]
+type = Normal
+spriteno = 1, 97
+mask = 1
+start = 235, 323
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,0, 0,0, -1, , , 4,3
+
+
+
+;==================================
+; BG1 [Tails]
+;==================================
+
+[BG1Def]
+
+[BG1 GreenHill]
+type = Anim
+start = 11, -164
+actionno = 1
+
+[BG1 Sonic]
+type = Normal
+spriteno = 2, 0
+mask = 1
+start = -197, 296
+
+[BG1 Tails]
+type = Normal
+spriteno = 1, 6
+mask = 1
+tilespacing = 0, 2
+start = 196, 298
+
+[BG1 TextBox]
+type = Normal
+spriteno = 3, 0
+start = 9, 536
+mask = 1
+
+[BG1 NameBox]
+type = Normal
+spriteno = 3, 10
+start = 233, 325
+
+[BG1 TailsName]
+type = Normal
+spriteno = 1, 19
+mask = 1
+start = 233, 321
+
+; GreenHill
+[Begin Action 1]
+LoopStart
+
+0,0, 0,0, -1, , , 4,3

@@ -1,0 +1,683 @@
+
+[Info]
+name =  "Sonic Blast Logo Screen"              ;Name of motif
+author = "Zinesis/Fiji"                                 ;Motif author name
+localcoord = 320,240
+
+;============================================================================
+;SCENE DEFS
+;============================================================================
+;============================================================================
+;Section 1: Logos
+;============================================================================
+[SceneDef]
+spr = SBIntro.sff
+startscene = 0
+
+[Scene 0 Elecbyte]
+fadein.time = 70
+fadeout.time = 40
+;bgm.loop=1
+bg.name = BG0
+clearcolor = 0,0,0
+;fadein.col = 225,225,225
+;fadeout.col = 225,225,225
+clearcolor = 0,0,0
+end.time              =250
+
+
+[BG0def]
+
+[BG0 Elecbyte]
+type  		= normal
+spriteno 	= 0, 4
+start = -165, -27
+
+
+[Scene 1 FijiSama Productions]
+fadein.time = 60
+fadeout.time = 40
+bgm = sound\Menus\IntroMusic.mp3
+bg.name = BG1
+clearcolor = 0,0,0
+;fadein.col = 225,225,225
+;fadeout.col = 225,225,225
+clearcolor = 0,0,0
+end.time              =250
+
+[BG1def]
+
+[BG1 FijiSama Productions]
+type  		= normal
+spriteno 	= 0,0
+start 		= 0,0
+
+
+[Scene 2 Sonic Team]
+fadein.time = 60
+fadeout.time = 40
+bg.name = BG2
+clearcolor = 0,0,0
+;fadein.col = 225,225,225
+;fadeout.col = 225,225,225
+clearcolor = 0,0,0
+end.time              =250
+
+
+[BG2def]
+
+[BG2 Sonic Team]
+type  		= normal
+spriteno 	= 0, 6
+start = -1, -35
+
+
+;============================================================================
+;Section 2: Intro Video
+;============================================================================
+;Scrolling mountain
+;This scene uses a background to achieve the movement
+[Scene 3 Scroling Mountains]
+fadein.time = 120
+fadeout.time = 30
+; BG
+bg.name = BG3          ;Name of BG to show (no spaces allowed)
+; Total time
+end.time = 240
+
+;------------------------------------
+;BG def for scrolling mountain
+;Note: the name for this BG must correspond to the value of bg.name in
+;      Scene 0. For example, if you used "Scene0bg" instead of "BG0" for
+;      bg.name, then the background definition group name should be
+;      [Scene0bgDef].
+[BG3Def]
+
+[BG3 Mountains]
+type = normal
+spriteno = 0,7
+start = 0,48
+velocity = 6
+tile = 1,0
+layerno = 1
+
+[BG3 Wall]
+type = normal
+spriteno = 14,0
+start = 5, 455
+velocity = 12
+tile = 1,0
+mask = 1
+
+[BG3 Shadows]
+type = normal
+spriteno = 5,0
+start = -7000,48
+velocity = 36
+tile = 2,0
+tilespacing = 480
+mask = 1
+trans = sub
+layerno = 1
+;
+;;------------------------------------
+;
+;;Flash Shadow
+[Scene 4 (Flash) Shadow]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 30
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  0      ;Anim action number
+; Total time
+end.time = 45
+
+;(Flash) Shadow 
+[Begin Action 0]
+18,16, -24,21, -1, , , 2.2,2.2, 3
+
+;;------------------------------------
+;Black wait
+[Scene 5 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 13
+;;------------------------------------
+;
+;;Flash Shadow [Name]
+[Scene 6 (Flash) Shadow Name]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 30
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  1      ;Anim action number
+; Total time
+end.time = 45
+
+;(Flash) Shadow Name
+[Begin Action 1]
+18,17, 72,152, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+[Scene 7 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 13
+;;------------------------------------
+
+;;Flash Rouge
+[Scene 8 (Flash) Shadow]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 30
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = 40,150
+layer0.anim =  2      ;Anim action number
+; Total time
+end.time = 45
+
+;(Flash) Rouge
+[Begin Action 2]
+18,14, -82,51, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+[Scene 9 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 13
+;;------------------------------------
+;
+;;Flash Rouge [Name]
+[Scene 10 (Flash) Rouge Name]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 30
+; Screen color
+clearcolor = 204,153,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = 80,150
+layer0.anim =  3      ;Anim action number
+; Total time
+end.time = 45
+
+;(Flash) Rouge Name
+[Begin Action 3]
+18,15, 0,0, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+[Scene 11 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 13
+;;------------------------------------
+
+;;Flash Espio
+[Scene 12 (Flash) Espio]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 30
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  4      ;Anim action number
+; Total time
+end.time = 45
+
+;(Flash) Espio
+[Begin Action 4]
+18,12, 113,46, -1, , , 2,2
+
+;------------------------------------
+[Scene 13 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 15
+;;------------------------------------
+
+;;Flash Espio [Name]
+[Scene 14 (Flash) Knuckles Name]
+; Fade
+fadein.time = 17
+fadein.col = 255,255,255
+fadeout.time = 17
+; Screen color
+clearcolor = 128,0,128
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  5      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Espio Name
+[Begin Action 5]
+18,13, 0,0, -1, , , 2,2
+;Black wait
+
+;;------------------------------------
+;;Black wait
+[Scene 15 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 13
+;;------------------------------------
+
+;Flash Mighty 
+[Scene 16 (Flash) Sonic]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  6      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Mighty 
+[Begin Action 6]
+18,10, -35,28, -1, , , 2,2
+
+;------------------------------------
+[Scene 17 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 12
+;;------------------------------------
+;
+;;Flash Mighty [Name]
+[Scene 18 (Flash) Knuckles Name]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 128,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  7      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Mighty Name
+[Begin Action 7]
+18,11, 18,3, -1, , , 2,2
+;Black wait
+;
+;;------------------------------------
+;;Black wait
+[Scene 19 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 9
+;;------------------------------------
+
+;;Flash Blaze
+[Scene 20 (Flash) Sonic]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  8      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Blaze
+[Begin Action 8]
+18,8, 98,74, -1, , , 2,2
+
+;------------------------------------
+;Black wait
+[Scene 21 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 7
+;;------------------------------------
+;
+;;Flash Blaze [Name]
+[Scene 22 (Flash) Knuckles Name]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 153,153,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  9      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Blaze Name
+[Begin Action 9]
+18,9, 6,2, -1, , , 2,2
+;
+;;------------------------------------
+;;Black wait
+[Scene 23 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 7
+;;------------------------------------
+
+;;Flash Amy 
+[Scene 24 (Flash) Amy]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  10      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Amy
+[Begin Action 10]
+18,6, -5,39, -1, , , 2,2
+
+;Black wait
+[Scene 25 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 6
+;;------------------------------------
+;
+;;Flash Amy [Name]
+[Scene 26 (Flash) Knuckles Name]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 255,153,204
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  11      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Amy [Name]
+[Begin Action 11]
+18,7, 98,19, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+[Scene 27 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 4
+;;;------------------------------------
+
+;;;Flash Knuckles
+[Scene 28 (Flash) Sonic]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 15
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  12      ;Anim action number
+; Total time
+end.time = 30
+
+;(Flash) Kunckles
+[Begin Action 12]
+18,4, 100,62, -1, H, , 2,2
+
+;;------------------------------------
+;Black wait
+[Scene 29 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 2
+;;------------------------------------
+;
+;;Flash Knuckles [Name]
+[Scene 30 (Flash) Knuckles Name]
+; Fade
+fadein.time = 13
+fadein.col = 255,255,255
+fadeout.time = 13
+; Screen color
+clearcolor = 255,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  13     ;Anim action number
+; Total time
+end.time = 26
+
+;(Flash) Knuckles Name
+[Begin Action 13]
+18,5, 0,0, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+[Scene 31 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 2
+;;------------------------------------
+
+;;Flash Tails 
+[Scene 32 (Flash) Sonic]
+; Fade
+fadein.time = 13
+fadein.col = 255,255,255
+fadeout.time = 13
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  14      ;Anim action number
+; Total time
+end.time = 26
+
+;(Flash) Tails 
+[Begin Action 14]
+18,2, -7,36, -1, H, , 2,2
+
+;;------------------------------------
+;Black wait
+[Scene 33 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 1
+;;------------------------------------
+
+;;Flash Tails [Name]
+[Scene 34 (Flash) Knuckles Name]
+; Fade
+fadein.time = 13
+fadein.col = 255,255,255
+fadeout.time = 13
+; Screen color
+clearcolor = 255,153,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = -40,150
+layer0.anim =  15      ;Anim action number
+; Total time
+end.time = 26
+
+;(Flash) Tails Name
+[Begin Action 15]
+18,3, 89,19, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+[Scene 35 Blackout]
+; Screen color
+clearcolor = 0,0,0
+end.time = 1
+;;;------------------------------------
+
+;;;Flash Sonic
+[Scene 35 (Flash) Shadow]
+; Fade
+fadein.time = 15
+fadein.col = 255,255,255
+fadeout.time = 60;30
+; Screen color
+clearcolor = 221,248,248
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = 40,150
+layer0.anim =  16      ;Anim action number
+; Total time
+end.time = 100;45
+
+;(Flash) Sonic
+[Begin Action 16]
+Interpolate Scale
+18,0, 41,28, -1, , , 2.5,2.5
+
+;;------------------------------------
+;;Black wait
+;[Scene 36 Blackout]
+;; Screen color
+;clearcolor = 0,0,0
+;end.time = 15
+;;;------------------------------------
+;;
+;;;Flash Sonic [Name]
+;[Scene 37 (Flash) Shadow Name]
+;; Fade
+;fadein.time = 15
+;fadein.col = 255,255,255
+;fadeout.time = 30
+;; Screen color
+;clearcolor = 221,248,248
+;; Overlay Anims (from 0 to 9)
+;layerall.pos = 160,24  ;Default position for all layers
+;layer0.offset = 80,150
+;layer0.anim =  17      ;Anim action number
+;; Total time
+;end.time = 45
+;
+;;(Flash) Sonic Name
+;[Begin Action 17]
+;18,1, 76,67, -1, , , 2,2
+
+;;------------------------------------
+;;Black wait
+;[Scene 38 Blackout]
+;; Screen color
+;clearcolor = 0,0,0
+;end.time = 5
+
+;;------------------------------------
+;;------------------------------------
+;;Kung Fu Man text
+;;Uses 3 layers for each word, and a starttime parameter to make the
+;;words show up one after another.
+[Scene 39 Ready Set Go!]
+; Fade
+;fadein.time = 5
+;fadeout.time = 30
+; Screen color
+clearcolor = 255,255,255
+; Overlay Anims (from 0 to 9)
+layerall.pos = 160,24  ;Default position for all layers
+layer0.offset = 0,160 ;0,26
+layer0.anim =  100
+layer0.starttime = 20;30
+layer1.offset = 0,26
+layer1.anim =  101
+layer1.starttime = 50;60
+layer2.offset = 0,26
+layer2.anim =  102
+layer2.starttime = 80;90
+; Total time
+end.time = 150
+
+
+;Shaking "READY" text
+[Begin Action 100]
+17,0, 0,20, 1
+17,0, 0,-15, 1
+17,0, 0,11, 1
+17,0, 0,-8, 1
+17,0, 0,6, 1
+17,0, 0,-4, 1
+17,0, 0,2, 1
+17,0, 0,-1, 1
+17,0, 0,0, -1
+
+
+
+;Shaking "SET!" text
+[Begin Action 101]
+17,1, 0,20, 1
+17,1, 0,-15, 1
+17,1, 0,11, 1
+17,1, 0,-8, 1
+17,1, 0,6, 1
+17,1, 0,-4, 1
+17,1, 0,2, 1
+17,1, 0,-1, 1
+17,1, 0,0, -1
+
+
+
+;Shaking "BLAST! text
+[Begin Action 102]
+17,3, 0,20, 1
+17,3, 0,-15, 1
+17,3, 0,11, 1
+17,3, 0,-8, 1
+17,3, 0,6, 1
+17,3, 0,-4, 1
+17,3, 0,2, 1
+17,3, 0,-1, 1
+17,3, 0,0, -1
+
+
+
+;;Black wait
+[Scene 40 Blackout]
+; Screen color
+;fadein.time = 10
+clearcolor = 255,255,255
+end.time = 20
