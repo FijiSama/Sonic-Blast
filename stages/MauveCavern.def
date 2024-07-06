@@ -1,0 +1,724 @@
+;Faça do dia de hoje o melhor dia de sua vida
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Mauve Cavern"
+author = "kater15"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+
+boundleft = -1080
+boundright = 1080
+
+boundhigh = -480
+boundlow = 0
+
+verticalfollow = .7
+floortension = 80
+tension = 50
+
+;cuthigh = 30
+cutlow = 10
+overdrawhigh = 5
+overdrawlow = 5
+tensionhigh = 95
+tensionlow = 75
+startzoom = 1
+zoomout = 0.6
+zoomin = 0.9 
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -3000 ;Left bound (x-movement)
+rightbound =  3000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 206
+autoturn = 1
+
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+color = 128,128,128
+yscale = .1
+intensity = 128
+fade.range = -80,0
+
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Hydrocity_Zone_2.ogg
+bgvolume = 255
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"/"Height"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"sub"/"avg" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0)
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float) (if used, then no tiling)
+; width = ?, ?     Top width, bottom width (int)  (if used, then tiles;
+;                             use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = MauveCavern.sff
+
+;----------
+[BG image]
+type = normal
+spriteno = 0,0
+start = 0,-200
+delta = .5,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,1
+start = 0,-200
+delta = .45,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,2
+start = 0,-200
+delta = .4,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,3
+start = 0,-200
+delta = .45,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,4
+start = 0,-200
+delta = .6,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,6
+start = 0,-200
+delta = .5,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,5
+start = 0,-200
+delta = .55,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,7
+start = 0,-200
+delta = .5,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,8
+start = 0,-200
+delta = .45,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,9
+start = 0,-200
+delta = .4,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,10
+start = 0,-200
+delta = .35,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,11
+start = 0,-200
+delta = .3,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,12
+start = 0,-200
+delta = .35,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+spriteno = 0,13
+start = 0,-200
+delta = .4,.35
+tile = 1,0
+mask = 1
+zoomdelta = .5
+
+[BG image]
+type = normal
+trans = add
+spriteno = 4,0
+start = 0,0
+delta = 1,1
+tile = 1,1
+tilespacing = 512,0
+mask = 1
+ID = 1
+
+[BG image]
+type = normal
+trans = add
+spriteno = 4,1
+start = 0,0
+delta = 1,1
+tile = 1,1
+tilespacing = 512,0
+mask = 1
+ID = 2
+
+[BG image]
+type = normal
+trans = add
+spriteno = 4,2
+start = 0,0
+delta = 1,1
+tile = 1,1
+tilespacing = 512,0
+mask = 1
+ID = 3
+
+[BG image]
+type = normal
+spriteno = 3,0
+start = -1300,0
+delta = 1,1
+tile = 2,1
+tilespacing = 2090,0
+mask = 1
+
+[BG image]
+type = normal
+spriteno = 1,0
+start = 0,192
+delta = 1,1
+tile = 1,0
+mask = 1
+
+[BG image]
+type = normal
+spriteno = 1,1
+start = 0,192
+delta = 1,1
+tile = 1,0
+mask = 1
+
+[BG image]
+type = normal
+spriteno = 2,0
+start = 0,224
+delta = 1,1
+tile = 1,0
+tilespacing = 472,0
+mask = 1
+
+[BG image]
+type = normal
+spriteno = 2,1
+start = 0,160
+delta = 1,1
+tile = 1,3
+tilespacing = 480,0
+mask = 1
+trans = addalpha
+alpha = 192,64
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = -1024,160
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 2
+start = -1024,192
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = -1024,224
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = -512,160
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 2
+start = -512,192
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = -512,224
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = 0,160
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 2
+start = 0,192
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = 0,224
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = 512,160
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 2
+start = 512,192
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = 512,224
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = 1024,160
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 2
+start = 1024,192
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = anim
+actionno = 1
+start = 1024,224
+delta = 1,1
+mask = 1
+layerno = 1
+
+[BG image]
+type = normal
+spriteno = 2,2
+start = 120,121
+delta = 1,1
+tile = 1,3
+tilespacing = 480,0
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = -904,121
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 3
+start = -904,153
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = -904,185
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = -392,121
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 3
+start = -392,153
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = -392,185
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = 120,121
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 3
+start = 120,153
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = 120,185
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = 632,121
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 3
+start = 632,153
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = 632,185
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = 1144,121
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 3
+start = 1144,153
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 4
+start = 1144,185
+delta = 1,1
+mask = 1
+
+[BG image]
+type = anim
+actionno = 5
+start = 0,64
+delta = 1,1
+tile = 1,0
+tilespacing = 1440,0
+mask = 1
+velocity = -3,0
+
+[BG image]
+type = anim
+actionno = 6
+start = 64,128
+delta = 1,1
+tile = 1,0
+tilespacing = 2140,0
+mask = 1
+velocity = 3,0
+
+;
+[Begin Action 1]
+5,0, 0,0, 3, , AS192D64
+5,1, 0,0, 3, , AS192D64
+5,2, 0,0, 3, , AS192D64
+5,3, 0,0, 3, , AS192D64
+5,4, 0,0, 3, , AS192D64
+5,5, 0,0, 3, , AS192D64
+5,6, 0,0, 3, , AS192D64
+5,7, 0,0, 3, , AS192D64
+5,8, 0,0, 3, , AS192D64
+5,7, 0,0, 3, , AS192D64
+5,6, 0,0, 3, , AS192D64
+5,5, 0,0, 3, , AS192D64
+5,4, 0,0, 3, , AS192D64
+5,3, 0,0, 3, , AS192D64
+5,2, 0,0, 3, , AS192D64
+5,1, 0,0, 3, , AS192D64
+
+;
+[Begin Action 2]
+5,8, 0,0, 3, , AS192D64
+5,7, 0,0, 3, , AS192D64
+5,6, 0,0, 3, , AS192D64
+5,5, 0,0, 3, , AS192D64
+5,4, 0,0, 3, , AS192D64
+5,3, 0,0, 3, , AS192D64
+5,2, 0,0, 3, , AS192D64
+5,1, 0,0, 3, , AS192D64
+5,0, 0,0, 3, , AS192D64
+5,1, 0,0, 3, , AS192D64
+5,2, 0,0, 3, , AS192D64
+5,3, 0,0, 3, , AS192D64
+5,4, 0,0, 3, , AS192D64
+5,5, 0,0, 3, , AS192D64
+5,6, 0,0, 3, , AS192D64
+5,7, 0,0, 3, , AS192D64
+
+;
+[Begin Action 3]
+5,0, 0,0, 3
+5,1, 0,0, 3
+5,2, 0,0, 3
+5,3, 0,0, 3
+5,4, 0,0, 3
+5,5, 0,0, 3
+5,6, 0,0, 3
+5,7, 0,0, 3
+5,8, 0,0, 3
+5,7, 0,0, 3
+5,6, 0,0, 3
+5,5, 0,0, 3
+5,4, 0,0, 3
+5,3, 0,0, 3
+5,2, 0,0, 3
+5,1, 0,0, 3
+
+;
+[Begin Action 4]
+5,8, 0,0, 3
+5,7, 0,0, 3
+5,6, 0,0, 3
+5,5, 0,0, 3
+5,4, 0,0, 3
+5,3, 0,0, 3
+5,2, 0,0, 3
+5,1, 0,0, 3
+5,0, 0,0, 3
+5,1, 0,0, 3
+5,2, 0,0, 3
+5,3, 0,0, 3
+5,4, 0,0, 3
+5,5, 0,0, 3
+5,6, 0,0, 3
+5,7, 0,0, 3
+
+;
+[Begin Action 5]
+6,0, 0,0, 1
+6,1, 0,0, 1
+
+;
+[Begin Action 6]
+6,0, 0,0, 1, H
+6,1, 0,0, 1, H
+
+
+;
+[BGCtrlDef waterfall1]
+ctrlid = 1
+looptime = 30
+[BGCtrl 1]
+type = Visible
+time = 0
+value = 1
+ctrlid = 1
+[BGCtrl 2]
+type = Visible
+time = 9
+value = 0
+ctrlid = 1
+
+;
+[BGCtrlDef waterfall1]
+ctrlid = 1
+looptime = 30
+[BGCtrl 1]
+type = Visible
+time = 29
+value = 1
+ctrlid = 1
+[BGCtrl 2]
+type = Visible
+time = 30
+value = 0
+ctrlid = 1
+
+;
+[BGCtrlDef waterfall2]
+ctrlid = 2
+looptime = 30
+[BGCtrl 1]
+type = Visible
+time = 9
+value = 1
+ctrlid = 2
+[BGCtrl 2]
+type = Visible
+time = 19
+value = 0
+ctrlid = 2
+
+;
+[BGCtrlDef waterfall3]
+ctrlid = 3
+looptime = 30
+[BGCtrl 1]
+type = Visible
+time = 19
+value = 1
+ctrlid = 3
+[BGCtrl 2]
+type = Visible
+time = 29
+value = 0
+ctrlid = 3

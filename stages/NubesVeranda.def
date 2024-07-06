@@ -1,0 +1,176 @@
+[Info]
+name = "Nubes Veranda"
+displayname = "Nubes Veranda" 
+versiondate = 03,01,2023  
+mugenversion = 1.0          
+author = "Delta Brony (KingSpartaX37)"         
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -125
+boundright = 125
+boundhigh = -160
+boundlow = 0
+verticalfollow = .7
+floortension = 35;0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70
+p1starty = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000
+rightbound =  1000 
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 180;190
+autoturn = 1
+resetBG = 1
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .1
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic =
+bgmvolume = 75
+
+[BGdef]
+spr = NubesVeranda.sff
+debugbg = 0
+
+[BG 0 Sky]
+type  = normal
+spriteno = 0,0
+layerno = 0
+start = -29, 174
+scalestart = 1,1
+delta = 0.7, 1
+tile  = 1, 0
+tilespacing = 0,0
+velocity = -.2,0
+mask = 1
+
+[BG 0 Platform 1]
+type  = anim
+actionno = 2
+start = 137, 103
+scalestart = 1,1
+delta = 0.7, 1
+tile  = 1, 0
+velocity = 0,0
+mask = 1
+
+[BG 0 Platform 2]
+type  = anim
+actionno = 2
+start = -129, 94
+scalestart = 1,1
+delta = 0.7, 1
+tile  = 1, 0
+velocity = 0,0
+mask = 1
+
+[BG 0 Floor]
+type  = normal
+spriteno = 2,0
+start = -21, 262
+scalestart = 1,1
+delta = 1, 1
+tile  = 1, 0
+tilespacing = 0,0
+mask = 1
+; Flight
+[Begin Action 1]
+1,0, 0,0, 20
+1,0, 0,-1, 12
+1,0, 0,-2, 12
+1,0, 0,-3, 12
+1,0, 0,-4, 20
+1,0, 0,-3, 12
+1,0, 0,-2, 12
+1,0, 0,-1, 12
+
+; Platform
+[Begin Action 2]
+3,0, 0,0, 2
+3,1, 0,0, 2
+3,2, 0,0, 2
+3,3, 0,0, 2
+3,4, 0,0, 2
+3,5, 0,0, 2
+
+[Begin Action 3]
+5,5, 0,0, 1, , A
+
+; Badnik 2
+[Begin Action 4]
+4,1, 0,0, 3
+4,2, 0,0, 3
+4,3, 0,0, 3
+4,4, 0,0, 3
+4,5, 0,0, 3
+
+
+[BG Upper Cloud]
+type  = normal
+spriteno = 5, 3
+tile = 1, 0
+start = -397, -55
+mask = 1
+velocity = -0.3, 0
+
+[BG Middle Cloud]
+type  = normal
+spriteno = 5, 3
+tile = 1, 0
+start = -460, -36
+mask = 1
+velocity = -0.4, 0
+
+[BG Lower Cloud]
+type  = normal
+spriteno = 5, 4
+tile = 1, 0
+start = -433, 178
+mask = 1
+
+[BG Clouds FG]
+type = anim
+actionno = 3
+layerno = 1
+start = -843, 37
+tile = 1, 0
+mask = 0
+velocity = -0.8, 0
+delta = 1.2, 1
+
+[Begin action 3]
+1,0,0,0,1,,a

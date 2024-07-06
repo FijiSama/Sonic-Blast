@@ -1,0 +1,317 @@
+
+[Info]
+name = "U.N.C Cargo Bay"         
+;author = AVPboy6754
+  
+[Camera]
+startx =0           
+starty = 0   
+boundleft = -500
+boundright = 500 
+boundhigh = -420 
+boundlow = 0  
+verticalfollow = .7
+overdrawhigh = 80
+overdrawlow = 80
+zoomin = 1
+zoomout = .98 
+cuthigh = 0
+cutlow = -10
+tension = 100;60         
+;verticalfollow = .85
+;tension = 50  
+;floortension = 50        
+;cuthigh = 0
+;cutlow = 5
+
+
+
+[PlayerInfo]
+p1startx = -70      
+p1starty = 0           
+p1startz = 0           
+p1facing = 1           
+p2startx = 70          
+p2starty = 0          
+p2startz = 0          
+p2facing = -1          
+leftbound  = -1000     
+rightbound =  1000     
+topbound  =  0         
+botbound  =  0         
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 25     
+screenright = 25      
+
+[StageInfo]
+zoffset = 220   
+localcoord = 420,240  
+autoturn = 1           
+resetBG = 0            
+
+[Shadow]
+color = 108,108,108    
+yscale = .18            
+reflect = 0            
+
+[Music]
+bgmusic = sound/Hangar.mp3      
+bgvolume = 255         
+
+[BGdef]
+spr = UNCCargoBay.sff  
+debugbg = 0            
+
+[bg fundo 01]
+type=normal
+spriteno=0,10
+start=0,0
+delta=.15,.4
+velocity=.15,0
+tile=1,0
+mask=0
+
+[bg fundo 01]
+type=normal
+spriteno=7,0
+start=0,0
+delta=.15,.4
+velocity=.3,0
+trans = addalpha
+alpha = 180,90
+tile=1,0
+mask=1
+
+
+[bg Space]
+type=normal
+spriteno=0,9
+start=0,0
+delta=.16,.4
+tile=1,0
+mask=1
+
+[bg Space]
+type=normal
+spriteno=0,12
+start=0,-1
+delta=.16,.4
+trans = addalpha
+alpha = 180,90
+tile=1,0
+mask=1
+
+[bg fundo 01]
+type=normal
+spriteno=0,0
+start=0,0
+delta=.25,.45
+tile=1,0
+mask=1
+
+[bg fundo 01]
+type=normal
+spriteno=0,1
+start=0,0
+delta=.35,.6
+tile=0,1
+mask=1
+
+[bg fundo 01]
+type=normal
+spriteno=0,6
+start=0,0
+delta=.35,.6
+tile=0,1
+mask=1
+
+[bg fundo 01]
+type=normal
+spriteno=0,7
+start=0,0
+delta=.35,.6
+tile=0,1
+mask=1
+
+[bg fundo 01]
+type=normal
+spriteno=0,8
+start=0,0
+delta=.35,.6
+tile=0,1
+mask=1
+
+[bg grade]
+type=normal
+spriteno=4,0
+start=0,0
+delta=.63,.73
+mask=1
+
+[bg grade]
+type=normal
+spriteno=4,3
+start=0,0
+delta=.63,.73
+mask=1
+
+[bg grade]
+type=normal
+spriteno=4,4
+start=0,0
+delta=.63,.73
+mask=1
+
+[bg grade]
+type=normal
+spriteno=4,2
+start=0,0
+delta=.63,.73
+trans = addalpha
+alpha = 180,90
+mask=1
+
+[bg grade]
+type=normal
+spriteno=5,2
+
+start=0,0
+delta=.63,.73
+mask=1
+
+;
+;[bg grade]
+;type=normal
+;spriteno=5,1
+;start=0,0
+;delta=.63,.73
+;mask=1
+
+;[bg grade]
+;type=normal
+;spriteno=5,0
+;start=0,0
+;delta=.63,.73
+;mask=1
+
+[bg grade]
+type=normal
+spriteno=6,0
+start=0,0
+delta=.63,.73
+mask=1
+
+[bg grade]
+type=normal
+spriteno=4,1
+start=0,0
+delta=.63,.73
+mask=1
+
+[bg grade]
+type=normal
+spriteno=3,1
+start=0,0
+delta=.63,.73
+addalpha=180,90
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,0
+start=0,0
+delta=.83,.86
+scalestart=0.7,0.7
+tile=1,0
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,1
+start=0,0
+delta=.83,.86
+sin.x = -2, 2
+velocity = .3,0
+sin.y = 2.5, 2
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,3
+start=-500,0
+delta=.83,.86
+velocity = .3,0
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,4
+start=-1000,0
+delta=.83,.86
+velocity = .3,0
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,1
+start=-1500,0
+delta=.83,.87
+velocity = .3,0
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,3
+start=-2000,0
+delta=.83,.86
+velocity = .3,0
+mask=1
+
+[bg grade]
+type=normal
+spriteno=2,4
+start=-2500,0
+delta=.83,.86
+velocity = .3,0
+mask=1
+
+[bg Fence1]
+type=normal
+spriteno=0,5
+start=-8,17
+delta=.83,1
+mask=1
+
+[bg Fence2]
+type=normal
+spriteno=0,5
+start=-8,90
+delta=.83,1
+layerno = 1
+mask=1
+
+
+[bg chão parallax]
+type=parallax
+spriteno=0,2
+start=0,3
+delta =.75,1
+xscale = .9,1.5
+mask = 1
+;tile = 0,1
+
+[bg chão parallax]
+type=parallax
+spriteno=0,2
+start=0,25
+delta =.75,1
+xscale = .9,1.5
+mask = 1
+;tile = 0,1

@@ -1,0 +1,165 @@
+
+
+[Info]
+name = "Sacred Reserve"
+Author = SS snk & Capcom Stuff
+;Editor = Mazemerald 2018
+
+;-------------------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -145;-185
+boundright = 118
+boundhigh = -300
+boundlow = 0
+verticalfollow = .8;1
+floortension = 85
+;tension = 60 
+;cuthigh = 0
+cutlow = 0
+
+tension = 50
+cuthigh = -10;-35
+zoomin = .5
+zoomout = 1;.8
+
+
+
+
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 25
+screenright = 25
+
+[Shadow]
+intensity = 100;96
+color = 0,0,0
+yscale = .3
+fade.range = 0,0  
+
+[StageInfo]
+zoffset = 215
+autoturn = 1
+localcoord = 420,240
+resetBG = 1
+
+[Music]
+bgmusic = sound/urien.mp3
+bgvolume = 255
+
+[BGdef]
+spr = SacredReserve.sff
+debugbg = 1
+
+[BG SKY]
+type            = normal
+spriteno        = 0, 0
+layerno         = 0
+delta = .88,1
+start = 9, -50
+trans           = None
+mask            = 0
+
+[BG clouds]
+type  = normal
+spriteno = 0,8
+layerno = 0
+start = -100,0
+delta = 1,1
+mask  = 1
+velocity = 0.3,0
+tile  = 1, 0
+tilespacing = 1000,0
+
+
+[BG Totem path]
+type            = normal
+spriteno        = 0, 1
+layerno         = 0
+delta = .78,1
+start = 53, -3
+trans           = None
+mask            = 1
+
+[BG mountains]
+type            = normal
+spriteno        = 0,3
+layerno         = 0
+delta = 0.88,1
+start = 14, -6
+trans           = None
+mask            = 1
+
+[BG stone ladder]
+type            = normal
+spriteno        = 0,4
+layerno         = 0
+delta = 1,1
+start           = 0,0
+trans           = None
+mask            = 1
+
+[BG tree]
+type            = normal
+spriteno        = 0,5
+layerno         = 0
+delta = 1,1
+start           = 0,0
+trans           = None
+mask            = 1
+
+
+[BG floor]
+type            = normal
+spriteno        = 0, 2
+layerno         = 0
+start = 55, -4
+trans           = None
+mask            = 1
+;
+;[BG plant1]
+;type            = normal
+;spriteno        = 0,6
+;layerno         = 1
+;delta = 1,1
+;start = -119, -46
+;trans           = None
+;mask            = 1
+;
+;[BG plant2]
+;type            = normal
+;spriteno        = 0,7
+;layerno         = 1
+;delta = 1,1
+;start = 163, -43
+;trans           = None
+;mask            = 1
+
+
+
+
+

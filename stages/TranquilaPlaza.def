@@ -1,0 +1,200 @@
+;--------------------------------------------------------
+[Info]
+name = "Tranquila Plaza"
+displayname = "Tranquila Plaza" 
+versiondate = 00,00,0000    
+mugenversion = 1.1         
+author = "Fijisama"       
+;--------------------------------------------------------
+[Camera]
+;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+boundleft = -220
+boundright = 290
+boundhigh = -60
+boundlow = 0
+;zoomin = .7;.9
+;zoomout = .3;.9
+verticalfollow = .5;.4 ;
+
+ ;Minimum vertical distance the highest player has to be from the floor,
+ ;before the camera starts to move up to follow him. For extremely
+ ;tall stages, a floor tension of about 20-30 coupled with a
+ ;vertical-follow of .8 allows the camera to follow the action.
+floortension = 0
+
+ ;Horizontal distance player is from edge before camera starts to move
+ ;left or right. Typically 50 or 60.
+tension = 50
+
+ ;Number of pixels beyond the top and bottom of the screen that may
+ ;be drawn.  Overdraw specifies the how much can be seen during an
+ ;EnvShake.  Overdraw pixels will also be used when the screen aspect
+ ;is taller than the stage aspect.
+overdrawhigh = 0
+overdrawlow = 0
+
+ ;Number of pixels into the top and bottom of the screen that may be
+ ;cut from drawing when the screen aspect is shorter than the stage
+ ;aspect.  These parameters suggest a guideline, and the actual
+ ;number of pixels cut depends on the difference in aspect.
+cuthigh = 35
+cutlow = 15; 25
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;"Ground" level where players stand at, measured in pixels from the
+ ;top of the screen.
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;***
+zoffset = 217;188
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background reset itself between
+ ;rounds.
+resetBG = 1
+
+ ;Width and height of the local coordinate space of the stage.
+localcoord = 320, 240
+
+ ;Horizontal and vertical scaling factor for drawing.
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+fade.range = 0,0
+reflect = 0
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound\Shenlin-park.mp3
+bgmvolume = 100
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"add1"/"sub"" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0) - only for Normal BG
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float)
+; width = ?, ?     Top width, bottom width (int)  (use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+[BGdef]
+spr = TranquilaPlaza.sff
+debugbg = 0
+
+
+;----------
+[BG 1]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = -790, -261
+;delta = 0.15, 1
+trans = none
+mask  = 1
+tile = 1, 0
+
+[BG 1]
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = -611, -276
+;delta = 0.2, 1
+trans = none
+mask  = 1
+
+[BG 1]
+type  = normal
+spriteno = 0, 2
+layerno = 0
+start = -689, -340
+;delta = 0.2, 1
+trans = none
+mask  = 1
+
+[BG 2]
+type  = normal
+spriteno = 8, 13
+layerno = 0
+start = -41, 2
+;delta = 0.3, 1.0
+trans = none
+mask  = 1
+
+[BG 2]
+type  = normal
+spriteno = 0, 4
+layerno = 0
+start = -781, -158 ;
+;delta = 1.65, 1
+mask  = 1
+trans = None
+
+[BG 3];floor
+type  = normal
+spriteno = 1, 0
+start = -950, -313
+;delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+
+
+

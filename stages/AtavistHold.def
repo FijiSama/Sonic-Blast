@@ -1,0 +1,186 @@
+[Info]
+name = "Atavist Hold"
+displayname = "Atavist Hold"
+versiondate = 03,08,2022
+mugenversion = 1.1
+author = "Aurel67"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -600
+boundright = 600
+boundhigh = -40
+boundlow = -5
+verticalfollow = .2
+floortension = 0
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+zoomin = 1
+zoomout = .8
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 188
+autoturn = 1
+resetBG = 1
+localcoord = 320, 240
+yscale = 1
+
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .08
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/Cyberspace_MMX4.mp3
+bgmvolume = 100
+bgmloopstart = 3039232
+bgmloopend = 5884927
+
+[BGdef]
+spr = AtavistHold.sff
+debugbg = 0
+
+[BG 1] ;Sky
+type  = normal
+spriteno = 1, 0
+start = 0, 185
+delta = .1, 1
+mask = 1
+tile = 1, 1
+tilespacing = 0, 0
+velocity = 0.1, 0
+
+[BG 2] ;CyberRing
+type  = normal
+spriteno = 2, 1
+start = 0, 185
+delta = .16, 1
+scalestart  = 0.3,0.3
+mask = 1
+
+[BG 3] ;Ball
+type  = normal
+spriteno = 2, 2
+start = 0, 185
+delta = .16, 1
+scalestart  = 0.4,0.4
+mask = 1
+
+[BG 4] ;Star
+type  = normal
+spriteno = 2, 3
+start = 0, 185
+delta = .16, 1
+scalestart  = 0.4,0.4
+mask = 1
+
+[BG 5] ;CyberRing2
+type  = normal
+spriteno = 2, 4
+start = 0, 185
+delta = .16, 1
+scalestart  = 0.5,0.5
+mask = 1
+
+[BG 6] ;Purple tower
+type = anim
+actionno = 3
+start = 0, 185
+delta = .15, 1
+trans = none
+scalestart  = 0.5,0.5
+tile = 1, 0
+mask = 1
+
+[BG 7] ;Purple tower
+type = anim
+actionno = 4
+start = 0, 185
+delta = .15, 1
+trans = none
+scalestart  = 0.5,0.5
+tile = 1, 0
+mask = 1
+
+[BG 8] ;Tower structure
+type  = normal
+spriteno = 1, 1
+start = 0, 185
+delta = .2, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG 9] ;Floor
+type  = normal
+spriteno = 0, 0
+start = 0, 162
+delta = 1, 1
+mask = 1
+tile = 1, 0
+tilespacing = 0, 0
+
+[Begin Action 3] ;Purple Towers
+3,1, 0,0, 15
+3,2, 0,0, 15
+3,3, 0,0, 15
+3,4, 0,0, 15
+3,5, 0,0, 15
+3,6, 0,0, 15
+3,7, 0,0, 15
+3,8, 0,0, 15
+3,9, 0,0, 15
+3,10, 0,0, 15
+3,11, 0,0, 15
+3,12, 0,0, 15
+3,13, 0,0, 15
+3,14, 0,0, 15
+3,15, 0,0, 15
+3,16, 0,0, 15
+3,17, 0,0, 15
+3,18, 0,0, 15
+3,19, 0,0, 15
+
+[Begin Action 4] ;Purple Towers
+4,1, 0,0, 15
+4,2, 0,0, 15
+4,3, 0,0, 15
+4,4, 0,0, 15
+4,5, 0,0, 15
+4,6, 0,0, 15
+4,7, 0,0, 15
+4,8, 0,0, 15
+4,9, 0,0, 15
+4,10, 0,0, 15
+4,11, 0,0, 15
+4,12, 0,0, 15
+4,13, 0,0, 15
+4,14, 0,0, 15
+4,15, 0,0, 15
+4,16, 0,0, 15
+4,17, 0,0, 15
+4,18, 0,0, 15
+4,19, 0,0, 15

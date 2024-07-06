@@ -1,0 +1,288 @@
+[Info]
+name = "Space Colony ARK"
+displayname = "Space Colony ARK"
+versiondate = 01,14,2013
+mugenversion = 1.0
+author = "Psycho Jolteon" 
+
+[Camera]
+startx = 0
+starty = 0
+boundleft =-590
+boundright = 590
+boundhigh = -88
+boundlow = 10
+verticalfollow = .4
+floortension = 25
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 13
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+p3startx = -100
+p3starty = 0
+p3facing = 1
+p4startx = 100
+p4starty = 0
+p4facing = -1
+leftbound  = -1500
+rightbound =  1500
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 1
+localcoord = 320, 240
+xscale = .5
+yscale = .5
+
+[Shadow]
+intensity = 64
+color = 128,128,128
+yscale = .25
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/ForTrueStory.mp3
+bgmloopstart = 329728
+bgmloopend = -1
+bgmvolume = 50
+
+[BGdef]
+spr = SpaceColonyARK.sff
+debugbg = 0
+
+[BG Sky]
+type = anim
+actionno = 2
+start = -501, 0
+delta = .1, .1
+tile = 9, 0
+tilespacing=0,0
+
+[BG Shuttle Top]
+type = normal
+spriteno = 4,0
+start = -11520,25
+delta = .15,.15
+tile = 3,0
+
+[BG Far Tower Group]
+type = normal
+spriteno = 5,1
+start = -4094,175
+delta = .2,.2
+tile = 30,0
+tilespacing = 150,0
+mask = 1
+
+[BG Near Tower Group]
+type = normal
+spriteno = 5,0
+start = -3894,300
+delta = .25,.25
+tile = 30,0
+tilespacing = 200,0
+mask = 1
+
+[BG Meteor Group 2]
+type = anim
+actionno = 1
+start = -4222, 200
+delta = .4,.825
+mask = 1
+tile = 39, 0
+tilespacing = 512,0
+id = 1
+
+[BG Meteor Group 1]
+type = anim
+actionno = 0
+start = -4478, 300
+delta = .4,.825
+mask = 1
+tile = 39, 0
+tilespacing = 512,0
+id = 2
+
+[BG Handlebars]
+type  = normal
+spriteno = 3,0
+start = -4350, 538
+delta = .55,.85
+tile = 72,0
+
+[BG Floor]
+type  = parallax
+spriteno = 1,0
+start = 0, 357
+delta = .55,.85
+xscale =.35,1.05
+yscalestart = 130
+yscaledelta = .37
+
+[BGCtrldef 1]
+CtrlID=1
+looptime=80
+
+[BGCtrl Going Up 1]
+type=velset
+time=0
+y=-2.5
+
+[BGCtrl Going Up 2]
+type=velset
+time=8
+y=-1.25
+
+[BGCtrl Stay Put 1]
+type=velset
+time=16
+y=0
+
+[BGCtrl Going Down 1]
+type=velset
+time=24
+y=1.25
+
+[BGCtrl Going Down 2]
+type=velset
+time=32
+y=2.5 
+
+[BGCtrl Going Down 3]
+type=velset
+time=48
+y=1.25
+
+[BGCtrl Stay Put 2]
+type=velset
+time=56
+y=0
+
+[BGCtrl Going Up 3]
+type=velset
+time=64
+y=-1.25
+
+[BGCtrl Going Up 4]
+type=velset
+time=72
+y=-2.5
+
+[BGCtrldef 2]
+CtrlID=2
+looptime=60
+
+[BGCtrl Going Down 1]
+type=velset
+time=0
+y=2.25
+
+[BGCtrl Going Down 2]
+type=velset
+time=6
+y=1.125
+
+[BGCtrl Stay Put 1]
+type=velset
+time=12
+y=0
+
+[BGCtrl Going Up 1]
+type=velset
+time=18
+y=-1.125
+
+[BGCtrl Going Up 2]
+type=velset
+time=24
+y=-2.25
+
+[BGCtrl Going Up 3]
+type=velset
+time=36
+y=-1.125
+
+[BGCtrl Stay Put 2]
+type=velset
+time=42
+y=0
+
+[BGCtrl Going Down 3]
+type=velset
+time=48
+y=1.125
+
+[BGCtrl Going Down 4]
+type=velset
+time=54
+y=2.25
+
+;Stars
+[Begin Action 2]
+2,0, 0,0, 2
+2,1, 0,0, 2
+2,2, 0,0, 2
+2,1, 0,0, 2
+
+;Meteor Float Animation G1
+[Begin Action 0]
+0,0, 128,0, 4
+0,1, 128,0, 4
+0,2, 128,0, 4
+0,3, 128,0, 4
+0,4, 128,0, 4
+0,5, 128,0, 4
+0,6, 128,0, 4
+0,7, 128,0, 4
+0,8, 128,0, 4
+0,9, 128,0, 4
+0,10, 128,0, 4
+0,11, 128,0, 4
+0,12, 128,0, 4
+0,13, 128,0, 4
+0,14, 128,0, 4
+0,15, 128,0, 4
+0,16, 128,0, 4
+0,17, 128,0, 4
+0,18, 128,0, 4
+0,19, 128,0, 4
+
+;Meteor Float Animation G2
+[Begin Action 1]
+0,10, 128,0, 3
+0,11, 128,0, 3
+0,12, 128,0, 3
+0,13, 128,0, 3
+0,14, 128,0, 3
+0,15, 128,0, 3
+0,16, 128,0, 3
+0,17, 128,0, 3
+0,18, 128,0, 3
+0,19, 128,0, 3
+0,0, 128,0, 3
+0,1, 128,0, 3
+0,2, 128,0, 3
+0,3, 128,0, 3
+0,4, 128,0, 3
+0,5, 128,0, 3
+0,6, 128,0, 3
+0,7, 128,0, 3
+0,8, 128,0, 3
+0,9, 128,0, 3

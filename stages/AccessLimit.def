@@ -1,0 +1,258 @@
+[Info]
+name = "Access Limit"
+Author = "EXShadow/FijiDono"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -180
+boundright = 180
+boundhigh = -200
+verticalfollow = .75
+floortension = 40
+tension = 50
+boundlow = 0
+cuthigh = 0
+cutlow = 25
+
+[PlayerInfo]
+p1startx = -75          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+p2startx = 75
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1.0   ;Scale to use at top
+botscale = 1.4   ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15 ;Dist from left of screen that player can move to
+screenright = 15 ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 187
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = -.1
+fade.range = -400,-100
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 60
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/XX'EXBRIDGE'XX.mp3
+bgvolume = 255
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr = AccessLimit.sff
+debugbg = 0
+[BG sky]
+type  = NORMAL
+spriteno = 10, 13
+delta = .70,.92
+mask = 1
+tile = 1,0
+layerno = 0
+start = 5, 166
+velocity = -2, 0
+
+[BG tower1]
+type  = NORMAL
+spriteno = 8, 1
+delta = .75,.94
+MASK = 1
+layerno = 0
+
+[BG tower]
+type  = NORMAL
+spriteno = 8, 0
+delta = .80,.96
+MASK = 1
+layerno = 0
+start = -5, -76
+
+[BG clou]
+type  = NORMAL
+spriteno = 4, 0
+delta = .80,.98
+MASK = 1
+tile = 1,0
+trans = addalpha
+alpha = 60,256
+layerno = 0
+start = -26, 21
+velocity = -0.9, 0
+
+[BG 2 TowerLights]
+type = Anim
+start = -185, -85
+mask = 1
+actionno = 1
+
+[BG tower2]
+type  = NORMAL
+spriteno = 8, 2
+delta = .80,.96
+MASK = 1
+layerno = 0
+start = 1, -66
+
+[BG fogx]
+type  = NORMAL
+spriteno = 3, 0
+delta = .96,1
+MASK = 1
+tile = 1,0
+trans = addalpha
+alpha = 256,256
+layerno = 0
+velocity = -0.3, 0
+start = 0, 30
+
+[BG rainz]
+type  = NORMAL
+spriteno = 2, 1
+delta = .98,1
+MASK = 1
+tile = 1,1
+trans = addalpha
+alpha = 156,256
+velocity = -4, 2.2
+layerno = 0
+start = -1, -1
+
+[BG floor]
+type  = NORMAL
+spriteno = 10, 3
+delta = 1,1
+mask = 1
+tile = 1,0
+layerno = 0
+start = -185, -45
+
+[BG floor]
+type = Normal
+spriteno = 1, 1
+delta = 1,1
+start = 0, -9
+layerno = 1
+mask = 1
+
+[BG fog1]
+type  = NORMAL
+spriteno = 6,0
+delta = .96,1
+MASK = 1
+tile = 1,0
+trans = addalpha
+alpha = 256,256
+velocity = -1, 0
+layerno = 1
+start = 11, -68
+
+[BG fogx1]
+type  = NORMAL
+spriteno = 3,1
+delta = .98,1
+MASK = 1
+tile = 1,0
+trans = addalpha
+alpha = 256,256
+layerno = 1
+start = 56, -18
+velocity = -1, 0
+
+[BG rain]
+type  = NORMAL
+spriteno = 2, 0
+delta = 1,1
+MASK = 1
+tile = 1,1
+trans = addalpha
+alpha = 156,256
+velocity = -5,5.2
+layerno = 1
+start = 190, 15
+
+;-----------------------------------------------------------------------
+
+[BG FloorLights]
+type = Anim
+actionno = 1
+start = -185, -46
+
+[BG black]
+type = Normal
+spriteno = 0, 0
+start = 5, 51
+mask = 1
+
+[Begin Action 1] ;fl
+1,4, 0,0, 5, , AS255D255
+1,4, 0,0, 5, , AS245D255
+1,4, 0,0, 5, , AS235D255
+1,4, 0,0, 5, , AS225D255
+1,4, 0,0, 5, , AS215D255
+1,4, 0,0, 5, , AS205D255
+1,4, 0,0, 5, , AS195D255
+1,4, 0,0, 5, , AS185D255
+1,4, 0,0, 5, , AS175D255
+1,4, 0,0, 5, , AS165D255
+1,4, 0,0, 5, , AS155D255
+1,4, 0,0, 5, , AS145D255
+1,4, 0,0, 5, , AS135D255
+1,4, 0,0, 5, , AS125D255
+1,4, 0,0, 5, , AS115D255
+1,4, 0,0, 5, , AS105D255
+1,4, 0,0, 5, , AS95D255
+1,4, 0,0, 5, , AS85D255
+1,4, 0,0, 5, , AS75D255
+1,4, 0,0, 5, , AS65D255
+1,4, 0,0, 5, , AS55D255
+1,4, 0,0, 5, , AS45D255
+1,4, 0,0, 5, , AS35D255
+1,4, 0,0, 5, , AS25D255
+1,4, 0,0, 5, , AS15D255
+

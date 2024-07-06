@@ -1,0 +1,368 @@
+[Info]
+name = "Route 95"
+author = "Sabre/FijiSama"
+;	Made May, 2012. Sprite rips by SkyLights, Domenico, Flare, Geo Prower and myself.
+;	Stage music found at soahcity.com
+;	Great assistance from Cybaster's stage tutorial.
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -200
+boundright = 200
+boundhigh = -200
+boundlow = 0
+verticalfollow = .8;.5
+floortension = 75
+tension = 50
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+ 
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1250
+rightbound =  1250
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2 
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 190;200
+autoturn = 1
+resetBG = 0
+Hires = 0
+
+[Shadow]
+intensity = 
+color = 0,0,0
+yscale = .05
+fade.range = 2,2
+
+[Reflection]
+intensity = 0
+
+[Music]
+;bgmusic = sound/Route99Act1.mp3
+;bgmusic = sound/Route99Act2.mp3
+bgmusic = sound/Route99Act3.mp3
+bgvolume = 10
+
+[BGdef]
+spr = Route95.sff
+debugbg = 0
+
+[BG Horizon]
+type  = anim
+actionno = 1
+start = 0,-20;0,-65
+delta = 0.2, 0.2
+
+[BG Clouds1]
+type  = normal
+spriteno = 0, 6
+start = 0, 75;20
+delta = 0.2, 0.2
+mask = 1
+velocity = 0.1, 0
+tile = 1, 0
+tilespacing = 1000, 0
+
+[BG Clouds2]
+type  = normal
+spriteno = 0, 7
+start = -120, 75;40
+delta = 0.2, 0.2
+mask = 1
+velocity = 0.1, 0
+tile = 1, 0
+tilespacing = 1000, 0
+
+[BG Clouds3]
+type  = normal
+spriteno = 0, 8
+start = -200, 75;20
+delta = 0.2, 0.2
+mask = 1
+velocity = 0.1, 0
+tile = 1, 0
+tilespacing = 1000, 0
+
+[BG Clouds4]
+type  = normal
+spriteno = 0, 6
+start = -400, 85;50
+delta = 0.2, 0.2
+mask = 1
+velocity = 0.1, 0
+tile = 1, 0
+tilespacing = 1000, 0
+
+[BG Skyline]
+type  = normal
+spriteno = 0, 4
+start = 0,45;0, 0
+delta = 0.6, 0.6
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+;--------------------------------
+
+[BG Hawk]
+type  = anim
+actionno = 7
+start = -300,160
+delta = 1,1
+velocity = 1, 0
+tile = 1,0
+tilespacing = 1000,0
+id = 11
+
+[BGCtrlDef Hawk]
+looptime = 530
+ctrlID = 11
+
+[BGCtrl Roll 180 Degrees]
+type = Anim
+time = 100
+value = 20
+
+[BGCtrl Return from 180 degree roll Part 1]
+type = Anim
+time = 200
+value = 21
+
+[BGCtrl Return from 180 degree roll Part 2]
+type = Anim
+time = 215
+value = 7
+
+[BGCtrl Roll 220 Degrees]
+type = Anim
+time = 315
+value = 22
+
+[BGCtrl Return from 220 degree roll Part 1]
+type = Anim
+time = 415
+value = 23
+
+[BGCtrl Return from 220 degree roll Part 2]
+type = Anim
+time = 430
+value = 7
+
+;--------------------------------
+
+[BG ExtraRoute1]
+type  = normal
+spriteno = 2, 0
+start = -20, -200;128, -200
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+
+[BG BridgeHighway]
+type  = normal
+spriteno = 4, 0
+start = 128, -94
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+
+[BG ExtraRoute2]
+type  = anim
+actionno = 3
+start = 128,-200
+layerno = 1
+delta = 1, 1
+
+[BG ExtraRoute 3 - Up Arrows]
+type  = anim
+actionno = 4
+start = 0,0
+delta = 0, 0
+
+[BG ExtraRoute 4 - Flashing Sign1]
+type  = anim
+actionno = 5
+;layerno = 0
+start = -50,-158;-240,-200
+delta = 1, 1
+
+
+[BG ExtraRoute 4 - Flashing Sign2]
+type  = anim
+actionno = 5
+;layerno = 0
+start = -500,-158;-240,-200
+delta = 1, 1
+
+
+[BG Rings 1 - Loop set]
+type  = anim
+actionno = 6
+start = 220,80
+delta = 1, 1
+
+[BG Rings 2 - Loop set]
+type  = anim
+actionno = 6
+start = 240,80
+delta = 1, 1
+
+[BG Rings 3 - Loop set]
+type  = anim
+actionno = 6
+start = 260,80
+delta = 1, 1
+
+[BG Rings 4 - Up Arrow set]
+type  = anim
+actionno = 6
+start = -320,45
+delta = 1, 1
+
+[BG Rings 5 - Up Arrow set]
+type  = anim
+actionno = 6
+start = -320,65
+delta = 1, 1
+
+[BG Rings 6 - Up Arrow set]
+type  = anim
+actionno = 6
+start = -320,85
+delta = 1, 1
+
+[BG Rings 7 - Up Arrow set]
+type  = anim
+actionno = 6
+start = -320,105
+delta = 1, 1
+
+;[BG Floor]
+;type  = normal
+;spriteno = 0, 5
+;start = 0, 200
+;delta = 1, 1
+;mask = 1
+;velocity = 0, 0
+;tile = 1, 0
+;tilespacing = 0, 0
+
+[BG Invincibility]
+type  = normal
+spriteno = 2, 5
+start = 175, -150
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+
+[BG Beetle]
+type  = anim
+actionno = 10
+id = 10
+start = -40,80
+delta = 1,1
+
+[BG Spinner 1]
+type  = anim
+actionno = 24
+start = -160,-60
+delta = 1,1
+
+[BG Spinner 2]
+type  = anim
+actionno = 24
+start = -80,-70
+delta = 1,1
+
+[BG Spinner 3]
+type  = anim
+actionno = 24
+start = 0,-80
+delta = 1,1
+
+;-----------------------------------
+
+[BGCtrlDef Blue Beetle]
+looptime = 192
+ctrlID = 10
+ 
+[BGCtrl Walk Right]
+type = VelSet
+time = 12
+x = 1
+
+[BGCtrl Turn Right]
+type = Anim
+time = 0
+value = 10
+
+[BGCtrl Stop Right]
+type = VelSet
+time = 0
+x = 0
+
+[BGCtrl Walk Left]
+type = VelSet
+time = 108
+x = -1
+
+[BGCtrl Turn Left]
+type = Anim
+time = 96
+value = 11
+
+[BGCtrl Stop Left]
+type = VelSet
+time = 96
+x = 0
+
+;------------------------------------
+
+[Begin Action 1]
+0,0, 0,0, 6
+0,1, 0,0, 6
+0,2, 0,0, 6
+0,3, 0,0, 6
+
+[Begin Action 3]
+2,1, 0,0, 10
+2,2, 0,0, 10
+
+[Begin Action 4]
+2,3, 0,0, 10
+2,4, 0,0, 10
+
+[Begin Action 5]
+2,3, 0,0, 10
+2,4, 0,0, 10
+

@@ -1,0 +1,182 @@
+[Info]
+name = "Juncture of Realms"
+Author = "EXShadow/FijiDono"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -250
+boundright = 250
+boundhigh = -200
+verticalfollow = .75
+floortension = 60
+tension = 50
+boundlow = 0
+cuthigh = 0
+cutlow = 0
+
+[PlayerInfo]
+p1startx = -75          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+p2startx = 75
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1.0   ;Scale to use at top
+botscale = 1.4   ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15 ;Dist from left of screen that player can move to
+screenright = 15 ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 219;224
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 60
+color = 0,0,0
+yscale = .1
+fade.range = -400,-100
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/XX'BROKEN'XX.mp3
+bgvolume = 555
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr =JOR.sff
+debugbg = 0
+[BG black]
+type  = normal
+spriteno = 0, 0
+delta = 1, 1
+mask = 0
+tile = 1, 1
+layerno = 0
+
+[BG stars]
+type  = normal
+spriteno = 4, 0
+delta = .40, .90
+mask = 0
+tile = 1, O
+layerno = 0
+
+[BG moon]
+type  = normal
+spriteno = 5, 0
+delta = .40, .90
+mask = 1
+layerno = 0
+start = 0, 46
+
+[BG clouds]
+type  = normal
+spriteno = 7, 0
+delta = .50, .90
+mask = 1
+tile = 1, O
+trans = addalpha
+alpha = 256,256
+velocity = .1,0
+layerno = 0
+
+[BG riv]
+type  = normal
+spriteno = 3, 0
+delta = .80, .90
+mask = 1
+tile = 1, O
+trans = addalpha
+alpha = 256,256
+velocity = 1,0
+layerno = 0
+
+[BG rivh]
+type  = normal
+spriteno = 3, 0
+delta = .90, .90
+mask = 1
+tile = 1, O
+trans = addalpha
+alpha = 256,256
+velocity = 2,0
+layerno = 0
+
+[BG floor]
+type  = normal
+spriteno = 1, 0
+delta = 1, 1
+mask = 1
+tile = 1, O
+layerno = 0
+
+[BG flight]
+type  = normal
+spriteno = 1, 2
+delta = 1, 1
+trans = addalpha
+alpha = 256,256
+layerno = 0
+
+[BG flpt]
+type  = normal
+spriteno = 1, 1
+delta = 1, 1
+mask = 1
+tile = 1, O
+layerno = 1
+start = 0, 1
+
+[BG fogx]
+type  = normal
+spriteno = 6, 0
+delta = .98, 1
+mask = 1
+tile = 1, O
+trans = addalpha
+alpha = 256,256
+velocity = .2,0
+layerno = 1

@@ -1,0 +1,594 @@
+;================================================================
+;MB-01 stage - Dr. Dadley's Laboratory 2021
+; 
+;Author: O Ilusionista & Kazuya, edited by AVPboy
+;Date: 2004 - updated 14/02/2016 - udapted 30/04/2021
+;email: douglasbaldan@hotmail.com
+;
+;Home Page: This content should be got at http://brazilmugenteam.com
+;Mugen Version: Winmugen
+;================================================================
+
+;--------------------------------------------------------
+[Info]
+name = "U.N.C Labs"
+displayname = "U.N.C Labs"; "$"
+mugenversion = 1.0
+author = O Ilusionista + Kazuya (TKS), Edited by AVPboy6754"
+
+;Stage for MB-01
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -280
+boundright = 280
+boundhigh = -188
+verticalfollow = 1.1
+boundlow = 0
+floortension = 105
+tension = 60
+cuthigh = 0 
+cutlow = 10
+
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -85          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 85
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 205;210
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 1
+
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 180
+color = 140,140,140
+yscale = .4
+fade.range = -150,150
+
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for an MP3 or MIDI here, or just comment
+ ;it out if you don't want music. If an invalid filename
+ ;is given, then no music will play.
+bgmusic = sound/so_fiji.mp3  ;  CPS2 Originals Bilstein Final Arrangement
+;bgvolume = 255
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"/"Height"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"sub"/"avg" (def: "none")
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0)
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float) (if used, then no tiling)
+; width = ?, ?     Top width, bottom width (int)  (if used, then tiles;
+;                             use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = UNCLabs.sff
+debugbg = 1
+
+[BG Background]
+type  = anim
+actionno = 6
+start = -413, -172 ;392
+delta = .3,.3
+sin.x = -600, 2200
+sin.y = 50, 1200
+
+[BG Sub-Marine]
+type  = Anim
+actionno = 15
+start = -1213, -152 ;392
+delta = .4,.4
+mask = 1
+sin.y = -20, 220
+ID = 3
+
+[BG Bubbles 1]
+type  = Anim
+actionno = 18
+start = -413, -100 ;392
+delta = .4,.4
+mask = 1
+sin.x = -20, 220
+ID = 4
+
+[BG Bubbles 2]
+type  = Anim
+actionno = 18
+start = -513, 120 ;392
+delta = .4,.4
+mask = 1
+sin.x = -20, 220
+ID = 5
+
+[BG Filter]
+type  = normal
+spriteno = 9999,1
+start = 0,0
+delta = 0,0
+trans = sub
+tile = 1,1
+mask = 1
+
+[BG Walls]
+type  = normal
+spriteno = 2, 1
+start = -413, -152 ;392
+delta = .7,.7
+mask = 1
+
+[BG Inside]
+type  = normal
+spriteno = 5, 0
+start = -413, -152 ;392
+delta = .7,.7
+mask = 1
+
+[BG Floor]
+type  = normal
+spriteno = 2, 99
+start = 0, -148 ;392
+delta = .85,.85
+mask = 1
+
+[BG Floor]
+type = parallax
+spriteno = 2,100
+start = 0,-190
+delta = .85,.85
+xscale = .875,1.1
+scalestart = 1,1.125
+mask = 1
+
+[BG Floor]
+type = parallax
+spriteno = 2,100
+start = 0,-190.5
+delta = .85,.85
+xscale = .875,1.1
+scalestart = 1,1.125
+trans = addalpha
+alpha = 180,90
+mask = 1
+
+[BG Claw]
+type  = normal
+spriteno = 3, 0
+start = -413, -152 ;392
+delta = .7,.7
+mask = 1
+
+[BG Lights]
+type  = normal
+spriteno = 4, 0
+start = -413, -152 ;392
+delta = .7,.7
+mask = 1
+
+[BG Computer 1]
+type  = Anim
+actionno = 12
+start = -413, -178 ;392
+delta = .85,.85
+mask = 1
+
+[BG Computer 2]
+type  = Anim
+actionno = 12
+start = 163, -178 ;392
+delta = .85,.85
+mask = 1
+
+[BG Painel 1]
+type  = Anim
+actionno = 8
+start = -413, -172 ;392
+delta = .7,.7
+mask = 1
+
+[BG visor 1]
+type  = Anim
+actionno = 9
+start = -413, -152 ;392
+delta = .7,.7
+mask = 1
+
+[BG visor 2]
+type  = Anim
+actionno = 10
+start = -413, -152 ;392
+delta = .7,.7
+mask = 1
+
+;[BG agua]
+;type  = normal
+;spriteno = 17, 0
+;start = -413, -152 ;392
+;delta = 0,0
+;mask = 0
+;Layerno = 1
+;trans = sub
+
+;----------------------------- Submarino
+[BGCtrlDef 2]
+looptime = 1400
+CtrlID = 3
+
+[BGCtrl 3.1]
+type = VelSet
+time = 0
+x = 2
+
+[BGCtrl 3.2]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 3.3]
+type = PosSet
+time = 900
+x= - 322
+y= - 58
+
+;----------------------------- bolhas
+[BGCtrlDef 3]
+looptime = 1000600
+CtrlID = 4
+
+[BGCtrl 3.1]
+type = VelSet
+time = 0
+y = -2
+
+[BGCtrl 3.2]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 3.3]
+type = PosSet
+time = 500
+y= - 300
+
+;----------------------------- bolhas 2
+[BGCtrlDef 3]
+looptime = 900
+CtrlID = 5
+
+[BGCtrl 3.1]
+type = VelSet
+time = 0
+y = -2
+
+[BGCtrl 3.2]
+type = Enable
+time = 0
+value = 1
+
+[BGCtrl 3.3]
+type = PosSet
+time = 800
+y= - 300
+
+;=========================================================================
+;=========================================================================
+
+; Anim do fundo
+[Begin Action 6]
+6,0, 0,0, 60
+6,1, 0,0, 60
+6,2, 0,0, 60
+6,1, 0,0, 60
+
+; Anim do Painel
+[Begin Action 8]
+8,0, 0,0, 2
+8,1, 0,0, 2
+8,0, 0,0, 2
+8,1, 0,0, 2
+8,0, 0,0, 2
+8,1, 0,0, 2
+8,0, 0,0, 2
+8,1, 0,0, 2
+8,0, 0,0, 2
+8,2, 0,0, 2
+8,0, 0,0, 2
+8,2, 0,0, 2
+8,0, 0,0, 2
+8,2, 0,0, 2
+8,0, 0,0, 2
+8,2, 0,0, 2
+8,0, 0,0, 2
+8,3, 0,0, 2
+8,0, 0,0, 2
+8,3, 0,0, 2
+8,0, 0,0, 2
+8,3, 0,0, 2
+8,0, 0,0, 2
+8,3, 0,0, 2
+8,0, 0,0, 2
+8,4, 0,0, 2
+8,0, 0,0, 2
+8,4, 0,0, 2
+8,0, 0,0, 2
+8,4, 0,0, 2
+8,0, 0,0, 2
+8,4, 0,0, 2
+8,0, 0,0, 2
+8,5, 0,0, 2
+8,0, 0,0, 2
+8,5, 0,0, 2
+8,0, 0,0, 2
+8,5, 0,0, 2
+8,0, 0,0, 2
+8,5, 0,0, 2
+8,0, 0,0, 40
+
+; Anim do visor 1
+[Begin Action 9]
+-1,1, 0,0, 20
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 1
+-1,1, 0,0, 1
+14,0, 0,0, 40
+
+; Anim do visor 2
+[Begin Action 10]
+-1,1, 0,0, 20
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 1
+-1,1, 0,0, 1
+14,1, 0,0, 40
+
+[Begin Action 12]
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 4
+12,1, 0,0, 4
+12,2, 0,0, 4
+12,3, 0,0, 4
+12,0, 0,0, 1
+12,1, 0,0, 1
+12,2, 0,0, 1
+12,3, 0,0, 1
+12,0, 0,0, 1
+12,1, 0,0, 1
+12,2, 0,0, 1
+12,3, 0,0, 1
+12,0, 0,0, 1
+12,3, 0,0, 1
+12,0, 0,0, 1
+12,3, 0,0, 1
+12,0, 0,0, 1
+12,3, 0,0, 1
+12,0, 0,0, 1
+12,3, 0,0, 1
+12,0, 0,0, 20
+12,3, 0,0, 20
+12,0, 0,0, 20
+12,3, 0,0, 20
+12,0, 0,0, 20
+12,3, 0,0, 90
+
+; Anim do Heli
+[Begin Action 15]
+15,0, 0,0, 1
+15,1, 0,0, 1
+
+; Anim das bolhas
+[Begin Action 18]
+18,0, 0,0, 4
+18,1, 0,0, 4
+18,2, 0,0, 4
+18,3, 0,0, 4
+18,4, 0,0, 4
+18,5, 0,0, 4
+18,6, 0,0, 4
+
+;[BG Front Rail]
+;type  = normal
+;spriteno = 16, 0
+;start = -413, -152 ;392
+;delta = 1.025,1
+;mask = 1
+;tile = 1,0
+;layerno = 1
+
+[BG Front Pipe]
+type  = normal
+spriteno = 13, 1
+start = -413, -152 ;392
+delta = 1.2,1.2
+tile = 1,0
+mask = 1
+layerno = 1
+
+[BG Filter]
+type  = normal
+spriteno = 9999,1
+start = 0,0
+delta = 0,0
+trans = sub
+tile = 1,1
+mask = 1
+
+[BG Computer's Hologram 1]
+type  = Anim
+actionno = 991
+start = -413, -178 ;392
+delta = .85,.85
+mask = 1
+
+[BG Computer's Hologram 2]
+type  = Anim
+actionno = 992
+start = 163, -178 ;392
+delta = .85,.85
+mask = 1
+
+[Begin Action 991]
+12,4, 0,0, 1,,A
+12,5, 1,0, 1
+12,4, 0,0, 1
+12,6, 0,0, 1,,A
+12,4, 0,0, 1
+12,5, 0,0, 1,,A
+12,4, 0,0, 1
+12,6, 1,0, 1
+
+[Begin Action 992]
+12,7, 0,0, 1,,A
+12,8, 1,0, 1
+12,7, 0,0, 1
+12,9, 0,0, 1,,A
+12,7, 0,0, 1
+12,8, 0,0, 1,,A
+12,7, 0,0, 1
+12,9, 1,0, 1
+
+
+[BG Filter]
+type  = normal
+spriteno = 9999,2
+start = 0,0
+delta = 0,0
+trans = sub
+tile = 1,1
+layerno = 1
+mask = 1
+

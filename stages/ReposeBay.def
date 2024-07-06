@@ -1,0 +1,427 @@
+;Crush Crawfish (Shipyard) Stage from Mega Man X3
+;by Gêmeos dos Jogos
+
+;--------------------------------------------------------
+[Info]
+name = "Repose Bay"
+displayname = "Repose Bay"
+versiondate = 06,23,2022
+mugenversion = 1.0
+author = "Gêmeos dos Jogos"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -1840
+boundright = 1840
+boundhigh = -500
+boundlow = 0
+verticalfollow = 1
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+leftbound  = -3000
+rightbound =  3000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 180
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Crush Crawfish (Remix) - Mega Man X3.mp3
+bgmloopstart = 658922
+bgmloopend = 3400908
+bgmvolume = 100
+
+;========================================================
+;-------------------------------------
+[BGdef]
+spr = ReposeBay.sff
+debugbg = 0
+
+;----------
+[BG Fundo 1]
+type  = normal
+spriteno = 0, 0
+start = 0,0
+delta = 0.261, 0.4
+mask = 1
+velocity = 1, 0
+tile = 1, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Fundo 2]
+type  = normal
+spriteno = 0, 1
+start = 0,0
+delta = 0.261, 0.4
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Barco]
+type  = normal
+spriteno = 4,0
+start = 1560,240
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Luz do Barco 1]
+type  = anim
+actionno = 2
+start = 1533,96
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Luz do Barco 2]
+type  = anim
+actionno = 3
+start = 1425,96
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Inicio 1]
+type  = normal
+spriteno = 1,1
+start = -644,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Tile 1]
+type  = normal
+spriteno = 1,2
+start = -644,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final Tile 1]
+type  = normal
+spriteno = 1,4
+start = -564,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final 1]
+type  = normal
+spriteno = 1,3
+start = -564,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Inicio 2]
+type  = normal
+spriteno = 1,1
+start = -324,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Tile 2]
+type  = normal
+spriteno = 1,2
+start = -324,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final Tile 2]
+type  = normal
+spriteno = 1,4
+start = -244,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final 2]
+type  = normal
+spriteno = 1,3
+start = -244,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Inicio 3]
+type  = normal
+spriteno = 1,1
+start = -4,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Tile 3]
+type  = normal
+spriteno = 1,2
+start = -4,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final Tile 3]
+type  = normal
+spriteno = 1,4
+start = 76,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final 3]
+type  = normal
+spriteno = 1,3
+start = 76,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Inicio 4]
+type  = normal
+spriteno = 1,1
+start = 316,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Tile 4]
+type  = normal
+spriteno = 1,2
+start = 316,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final Tile 4]
+type  = normal
+spriteno = 1,4
+start = 396,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final 4]
+type  = normal
+spriteno = 1,3
+start = 396,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Inicio 5]
+type  = normal
+spriteno = 1,1
+start = 636,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Tile 5]
+type  = normal
+spriteno = 1,2
+start = 636,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 2, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final Tile 5]
+type  = normal
+spriteno = 1,4
+start = 716,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 1
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parede Metalica - Final 5]
+type  = normal
+spriteno = 1,3
+start = 716,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Chao 1]
+type  = normal
+spriteno = 1,0
+start = 0,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Chao 2]
+type  = normal
+spriteno = 2,0
+start = 872,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 7, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Parte de Baixo do Chao 2]
+type  = normal
+spriteno = 2,1
+start = 841,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 11, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Luz da Parte de Baixo do Chao 2]
+type  = anim
+actionno = 1
+start = 784,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 11, 0
+tilespacing = 114, 0
+layerno = 0
+
+[BG Chao 3]
+type  = normal
+spriteno = 6,0
+start = -784,180
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+;----------
+; Luz da Parte de Baixo do Chao 2
+[Begin Action 1]
+3,0, 0,0, 10
+3,1, 0,0, 10
+3,2, 0,0, 10
+
+; Luz do Barco 1
+[Begin Action 2]
+5,0, 0,0, 10
+5,1, 0,0, 4
+5,2, 0,0, 20
+5,1, 0,0, 4
+; Luz do Barco 2
+[Begin Action 3]
+5,10, 0,0, 10
+5,11, 0,0, 4
+5,12, 0,0, 20
+5,11, 0,0, 4

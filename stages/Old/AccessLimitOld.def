@@ -1,0 +1,213 @@
+
+[Info]
+name = 	"Access Limit"
+author ="cldz"
+sprite ripped from jump ultimate stars
+
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -250
+boundright = 250
+boundhigh = -20
+boundlow = 0
+verticalfollow = .9
+tension = 60
+floortension = 50
+cuthigh = 0
+cutlow = 15
+;overdrawhigh = 120
+;overdrawlow = 120
+
+
+
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 25
+screenright = 25
+
+[StageInfo]
+zoffset = 207
+autoturn = 1
+resetBG = 1
+hires = 1
+;--------------------------------------------------------
+[Shadow]
+intensity = 111
+color = 0,0,0
+yscale = 0.02
+fade.range = -400,-100
+
+
+[Music]
+bgmusic = stages/hxh/SEQ_BGMB_STG_04.mid
+bgvolume = 255
+
+[BGdef]
+spr = AccessLimit.sff
+debugbg = 0
+
+;----------
+[BG sky]
+type  = normal
+spriteno = 0,0
+start = -195,225
+delta = 1.1,1.1
+;mask  = 1 
+tile = 1,0
+
+;----------
+[BG a1]
+type  = normal
+spriteno = 3,0
+start = -195,230
+delta = 1.1,1.1
+mask  = 1 
+tile = 1,0
+velocity = -.5
+
+[BG a2]
+type  = normal
+spriteno = 3,1
+start = -195,230
+delta = 1.1,1.1
+mask  = 1 
+tile = 1,0
+velocity = -1
+
+;----------
+[BG balon]
+type  = normal
+spriteno = 2,0
+start = -105,240
+delta = 1.46,1.5
+mask  = 1
+sin.y = 3,180
+
+
+[BG kolecer]
+type  = anim
+actionno = 3
+start = -105,240
+delta = 1.46,1.5
+mask  = 1
+sin.y = 3,180
+
+
+;----------------------
+[BG tower]
+type  = normal
+spriteno = 0,1
+;spriteno = 0,4
+delta = 1.5,1.6
+start = -45,240
+mask = 1
+
+
+
+[BG tlamp]
+type  = anim
+actionno = 1
+delta = 1.5,1.6
+start = -45,240
+mask = 1
+
+;----------
+[BG Floor]
+type  = normal
+spriteno = 1,3
+delta = 2,2
+start = -205,190
+mask = 1
+tile = 1,0
+
+
+
+[BG flam]
+type  = anim
+actionno = 2
+delta = 2,2
+start = -205,190
+mask = 1
+tile = 1,0
+tilespacing = 768, 0
+
+
+[Begin Action 1];tl
+0,2, 0,0, 3, , AS95D255
+0,2, 0,0, 3, , AS85D255
+0,2, 0,0, 3, , AS75D255
+0,2, 0,0, 3, , AS65D255
+0,2, 0,0, 3, , AS55D255
+0,2, 0,0, 3, , AS45D255
+0,2, 0,0, 3, , AS35D255
+0,2, 0,0, 3, , AS25D255
+0,2, 0,0, 3, , AS15D255
+0,2, 0,0, 3, , AS10D255
+0,2, 0,0, 3, , AS10D255
+0,2, 0,0, 3, , AS15D255
+0,2, 0,0, 3, , AS25D255
+0,2, 0,0, 3, , AS35D255
+0,2, 0,0, 3, , AS45D255
+0,2, 0,0, 3, , AS55D255
+0,2, 0,0, 3, , AS65D255
+0,2, 0,0, 3, , AS75D255
+0,2, 0,0, 3, , AS85D255
+
+[Begin Action 2];fl
+1,4, 0,0, 5, , AS255D255
+1,4, 0,0, 5, , AS245D255
+1,4, 0,0, 5, , AS235D255
+1,4, 0,0, 5, , AS225D255
+1,4, 0,0, 5, , AS215D255
+1,4, 0,0, 5, , AS205D255
+1,4, 0,0, 5, , AS195D255
+1,4, 0,0, 5, , AS185D255
+1,4, 0,0, 5, , AS175D255
+1,4, 0,0, 5, , AS165D255
+1,4, 0,0, 5, , AS155D255
+1,4, 0,0, 5, , AS145D255
+1,4, 0,0, 5, , AS135D255
+1,4, 0,0, 5, , AS125D255
+1,4, 0,0, 5, , AS115D255
+1,4, 0,0, 5, , AS105D255
+1,4, 0,0, 5, , AS95D255
+1,4, 0,0, 5, , AS85D255
+1,4, 0,0, 5, , AS75D255
+1,4, 0,0, 5, , AS65D255
+1,4, 0,0, 5, , AS55D255
+1,4, 0,0, 5, , AS45D255
+1,4, 0,0, 5, , AS35D255
+1,4, 0,0, 5, , AS25D255
+1,4, 0,0, 5, , AS15D255
+
+[Begin Action 3];muih
+2,1, 0,0, 5
+2,2, 0,0, 5
+2,3, 0,0, 4
+2,4, 0,0, 5
+2,5, 0,0, 5
+2,6, 0,0, 3

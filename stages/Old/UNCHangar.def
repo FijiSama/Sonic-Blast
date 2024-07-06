@@ -1,0 +1,94 @@
+[Info];タイトル
+name = "U.N.C Hangar"
+
+[Camera];カメラ
+startx = 0
+starty = 0
+boundleft = -100
+boundright = 100
+boundhigh = 0
+boundlow = 0
+verticalfollow = .7
+overdrawhigh = 80
+overdrawlow = 80
+zoomin = 1
+zoomout = .68 
+cuthigh = 0
+cutlow = 0
+tension = 100;60
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -70　　　　　;１P伽羅の最初の立ち位置X軸
+p1starty = 0　　　　　　;１P伽羅の最初の立ち位置Y軸
+p1startz = 0　　　　　　;使用しない 
+p1facing = 1　　　　　　;１P伽羅の最初の向き。1だと、左向き
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Common ---　　　　　;変える必要無し
+leftbound = -1000 ;Left bound (x-movement)
+rightbound = 1000 ;Right bound
+topbound = 0 ;Top bound (z-movement)
+botbound = 0 ;Bottom bound
+
+[Scaling]
+topz = 0 ;Top z-coordinate for scaling
+botz = 50 ;Bottom z-coordinate for scaling
+topscale = 1 ;Scale to use at top
+botscale = 1.2 ;Scale to use at bottom
+;--------------------------------------------------------
+[Bound]
+screenleft= 20
+screenright= 20
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 1
+
+Hires = 1
+;--------------------------------------------------------
+[Shadow]
+color = 125,95,95
+yscale = -0.27
+reflect = 0
+;--------------------------------------------------------
+[Music]
+bgmusic = stages/RX3_OP/
+;bgmusic = sound/   ;←soundフォルダから呼び出す場合こちらに登録してください
+bgvolume = 255
+;-------------------------------------
+[BGdef]
+spr = UNCHangar.sff
+
+[BG 00]
+type = normal
+spriteno = 0, 0
+layerno = 1
+start = 0,-14
+delta = 2,2
+trans = none
+mask = 1
+tile = 1,0
+
+[BG 10]
+type = normal
+spriteno = 2, 0
+layerno = 0
+delta = 2,2
+trans = none
+mask = 0
+tile = 1,0
+
+[BG 20]
+type = normal
+spriteno = 1, 0
+layerno = 0
+start = -1, -9
+delta = 2,2
+trans = none
+mask = 1
+tile = 1,0

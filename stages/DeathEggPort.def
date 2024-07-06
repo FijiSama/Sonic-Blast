@@ -1,0 +1,154 @@
+[Info]
+name = "DeathEgg"
+displayname = "Death Egg Port"
+author = "Kaiser-VL7"
+versiondate =04,22,2019
+mugenversion =1.0
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -5000
+boundright = 5000
+boundhigh = -40;-116
+boundlow = 0
+verticalfollow = .25
+tension = 50
+cuthigh = 15;35
+cutlow = 75;25
+zoomin = 1
+zoomout = .9;.8
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0 
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -6000
+rightbound =  6000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 500
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 120;160
+autoturn = 1
+resetBG = 0
+hires = 1
+
+[Shadow]
+color = 45,45,10
+yscale = .05
+reflect = 0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = TheDeathEgg.mp3
+bgvolume = -1
+
+[BGdef]
+spr = TheDeathEgg.sff
+
+[BG Space]
+type = normal
+spriteno = 2,2
+start = 0,110
+delta = .1, .1
+mask = 1
+tile = 1, 1
+
+[BG Earth]
+type = normal
+spriteno = 2,1
+start = 0,160
+delta = .05, .3;15
+mask = 1
+tile = 1, 0
+velocity = -.15,0
+
+[BG Earth1]
+type = normal
+spriteno = 2,1
+start = 0,190
+delta = .05, .3;15
+mask = 1
+tile = 1, 0
+velocity = -.15,0
+
+[BG Earth]
+type = normal
+spriteno = 2,0
+start = 0,160
+delta = .05, .3;15
+mask = 1
+tile = 1, 0
+velocity = -.15,0
+
+[BG fondo 2]
+type = normal
+spriteno = 1,0
+start = 0,-232
+delta = 2, 2
+mask = 1
+tile = 1, 0
+
+[BG fondo 2]
+type = normal
+spriteno = 1,11
+start = 0,-232
+delta = 2, 2
+mask = 1
+tile = 1, 1
+velocity = 0,-0.5
+
+[BG fondo 2]
+type = normal
+spriteno = 1,10
+start = 0,-232
+delta = 2, 2
+mask = 1
+tile = 1, 0
+
+[BG CB]
+type = normal
+spriteno = 0,0
+start = 0,260
+delta = 2, 2
+mask = 0
+tile = 1, 0
+
+[BG CF]
+type = normal
+spriteno = 0,1
+start = 0,260
+delta = 2, 2
+mask = 0
+tile = 1, 0
+layerno = 0
+
+
+
+
+
+
+
+
+
+
+

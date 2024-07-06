@@ -1,0 +1,383 @@
+;BY DISSIDIA
+;===============================
+[Info]
+name = "Trueno Summit"
+displayname = "Trueno Summit"
+Mugen 1.1 version = Leon72
+[BGdef]
+spr = TruenoSummit.sff
+debugbg = 0  
+[Music]
+bgmusic = sound/THE_LAND_OF_ZEAL.mp3
+bgvolume = 255         
+[Camera]
+startx = 0            
+starty = 0            
+boundleft = -109
+boundright = 109
+boundhigh = -400
+boundlow = -10          
+verticalfollow = .7
+floortension = 120   
+tension = 100
+overdrawhigh = 80
+overdrawlow = 80
+cuthigh = 0
+cutlow = 0
+zoomin = 1
+zoomout = .68        
+[PlayerInfo]
+p1startx = -140         
+p1starty = 0          
+p1startz = 0          
+p1facing = 1          
+p2startx = 140         
+p2starty = 0          
+p2startz = 0          
+p2facing = -1  
+p3startx = -200         
+p3starty = 0          
+p3startz = 0          
+p3facing = 1          
+p4startx = 200         
+p4starty = 0          
+p4startz = 0          
+p4facing = -1          
+leftbound = -2000      
+rightbound = 2000     
+topbound = 0  
+botbound = 0          
+[Scaling]
+topz = 0               
+botz = 50             
+topscale = 1
+botscale = 1.2        
+[Bound]
+screenleft = 20        
+screenright = 20    
+[StageInfo]
+zoffset = 385 
+zoffsetlink = 1
+autoturn = 1         
+resetBG = 0     
+localcoord = 640,480
+xscale = 1
+yscale = 1      
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .2
+fade.range = -400,-100
+[Reflection]
+intensity = 0
+[BG SKY]
+type  = normal
+spriteno = 0,1
+delta = 0,0
+mask = 1
+tile = 1,1
+tilespacing = 0,0
+[BG CLOUDS 1]
+type = normal
+spriteno = 1,1
+delta = 0.8,0.8
+trans = addalpha
+alpha = 64,256
+velocity = -1.7,0
+mask = 1
+tile = 1,0
+tilespacing = 0,0
+[BG CLOUDS 2]
+start = 280,-250
+type = normal
+spriteno = 1,0
+delta = 0.85,0.85
+trans = addalpha
+alpha = 96,256
+velocity = -1,0
+mask = 1
+tile = 1,0
+tilespacing = 0,0
+[BG CLOUDS 3]
+start = 280,-250
+type = normal
+spriteno = 1,1
+delta = 0.9,0.9
+trans = addalpha
+alpha = 64,256
+velocity = -1.5,0
+mask = 1
+tile = 1,0
+tilespacing = 0,0
+[BG CLOUDS 4]
+start = 0,80
+type = normal
+spriteno = 1,2
+delta = 0.9,0.9
+trans = addalpha
+alpha = 160,256
+velocity = -1,0
+mask = 1
+tile = 1,0
+layerno = 1
+tilespacing = 0,0
+[BG CLOUDS 5]
+start = 60,320
+type = normal
+spriteno = 1,0
+delta = 0.85,0.85
+trans = addalpha
+alpha = 160,256
+velocity = -1.4,0
+mask = 1
+tile = 1,0
+tilespacing = 0,0
+layerno = 1
+[BG RIGHT TERRAIN ANTI-ALIAS EFFECT]
+type = normal
+spriteno = 3,0
+delta = 0.88,0.88
+mask = 1
+sin.y = 4,100
+trans = addalpha
+alpha = 160,128
+[BG RIGHT TERRAIN]
+type = normal
+spriteno = 3,1
+delta = 0.88,0.88
+mask = 1
+sin.y = 4,100
+[BG LEFT TERRAIN ANTI-ALIAS EFFECT]
+type = normal
+spriteno = 3,2
+delta = 0.86,0.86
+mask = 1
+sin.y = 4,120
+trans = addalpha
+alpha = 160,128
+[BG LEFT TERRAIN]
+type = normal
+spriteno = 3,3
+delta = 0.86,0.86
+mask = 1
+sin.y = 4,120
+[BG MIDDLE TERRAIN ZEAL ANTI-ALIAS EFFECT]
+type = normal
+spriteno = 3,4
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+trans = addalpha
+alpha = 160,128
+[BG MIDDLE TERRAIN ZEAL]
+type = normal
+spriteno = 3,5
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+[BG BOTTOM RIGHT TERRAIN ANTI-ALIAS EFFECT]
+type = normal
+spriteno = 3,6
+delta = 0.82,0.82
+mask = 1
+sin.y = 4,140
+trans = addalpha
+alpha = 160,128
+[BG BOTTOM RIGHT TERRAIN]
+type = normal
+spriteno = 3,7
+delta = 0.82,0.82
+mask = 1
+sin.y = 4,140
+[BG WATER RIPPLE 1]
+type = anim
+actionno = 6
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+[Begin Action 5]
+5,0,0,0,2
+5,1,0,0,2
+5,2,0,0,2
+5,3,0,0,2
+4,4,0,0,2
+5,5,0,0,2
+5,6,0,0,2
+5,7,0,0,2
+5,8,0,0,2
+5,9,0,0,2
+4,10,0,0,2
+4,11,0,0,2
+4,12,0,0,2
+4,13,0,0,2
+4,14,0,0,2
+4,15,0,0,2
+4,16,0,0,2
+4,17,0,0,2
+4,18,0,0,2
+4,19,0,0,2
+[BG WATER RIPPLE 2]
+type = anim
+actionno = 6
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+[Begin Action 6]
+5,0,0,0,2,,AS120D256
+5,1,0,0,2,,AS120D256
+5,2,0,0,2,,AS120D256
+5,3,0,0,2,,AS120D256
+5,4,0,0,2,,AS120D256
+5,5,0,0,2,,AS120D256
+5,6,0,0,2,,AS120D256
+5,7,0,0,2,,AS120D256
+5,8,0,0,2,,AS120D256
+5,9,0,0,2,,AS120D256
+5,10,0,0,2,,AS120D256
+5,11,0,0,2,,AS120D256
+5,12,0,0,2,,AS120D256
+5,13,0,0,2,,AS120D256
+5,14,0,0,2,,AS120D256
+5,15,0,0,2,,AS120D256
+5,16,0,0,2,,AS120D256
+5,17,0,0,2,,AS120D256
+5,18,0,0,2,,AS120D256
+5,19,0,0,2,,AS120D256
+[BG WATER RIPPLE 3]
+type = anim
+actionno = 7
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+[Begin Action 7]
+6,0,0,0,2,,AS150D256
+6,1,0,0,2,,AS150D256
+6,2,0,0,2,,AS150D256
+6,3,0,0,2,,AS150D256
+6,4,0,0,2,,AS150D256
+6,5,0,0,2,,AS150D256
+6,6,0,0,2,,AS150D256
+6,7,0,0,2,,AS150D256
+6,8,0,0,2,,AS150D256
+6,9,0,0,2,,AS150D256
+6,10,0,0,2,,AS150D256
+6,11,0,0,2,,AS150D256
+6,12,0,0,2,,AS150D256
+6,13,0,0,2,,AS150D256
+6,14,0,0,2,,AS150D256
+6,15,0,0,2,,AS150D256
+6,16,0,0,2,,AS150D256
+6,17,0,0,2,,AS150D256
+6,18,0,0,2,,AS150D256
+6,19,0,0,2,,AS150D256
+[BG ZEAL CAVE AND BRIDGES OVERLAY]
+type = normal
+spriteno = 8,0
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+[BG BLACKBIRD ANTI-ALIAS EFFECT]
+type = normal
+spriteno = 9,0
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+ID = 2
+trans = addalpha
+alpha = 160,160
+[BG BLACKBIRD]
+type = normal
+spriteno = 9,1
+delta = 0.84,0.84
+mask = 1
+sin.y = 4,160
+ID = 2
+[BGCtrlDef Blackbird Movement]
+CtrlID = 2
+[BGCtrl 2, MOVE1]
+type = VelSet
+time = 300
+x = 0
+y = 0
+[BGCtrl 2, MOVE2]
+type = VelSet
+time = 600
+x = -.1
+y = -.1
+[BGCtrl 2, MOVE3]
+type = VelSet
+time = 620
+x = -.15
+y = -.15
+[BGCtrl 2, MOVE4]
+type = VelSet
+time = 640
+x = -.2
+y = -.2
+[BGCtrl 2, MOVE5]
+type = VelSet
+time = 660
+x = -.25
+y = -.25
+[BGCtrl 2, MOVE6]
+type = VelSet
+time = 680
+x = -.30
+y = -.1
+[BGCtrl 2, MOVE7]
+type = VelSet
+time = 700
+x = -.35
+y = -.1
+[BGCtrl 2, MOVE8]
+type = VelSet
+time = 720
+x = -.4
+y = -.1
+[BGCtrl 2, MOVE9]
+type = VelSet
+time = 740
+x = -.45
+y = -.1
+[BGCtrl 2, MOVE10]
+type = VelSet
+time = 760
+x = -.5
+y = -.1
+[BGCtrl 2, MOVE11]
+type = VelSet
+time = 780
+x = -.55
+y = -.1
+[BGCtrl 2, MOVE12]
+type = VelSet
+time = 800
+x = -.6
+y = -.1
+[BGCtrl 2, MOVE13]
+type = VelSet
+time = 820
+x = -.65
+y = -.1
+[BGCtrl 2, MOVE14]
+type = VelSet
+time = 840
+x = -.7
+y = -.0
+
+[BG FLOOR ANTI-ALIAS EFFECT]
+type = normal
+spriteno = 10,0
+delta = 1,1
+mask = 1
+sin.y= 4,100
+ID = 1
+trans = addalpha
+alpha = 160,128
+[BG FLOOR]
+type = normal
+spriteno = 10,1
+delta = 1,1
+mask = 1
+sin.y= 4,100
+ID = 1

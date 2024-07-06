@@ -1,0 +1,170 @@
+;------------------------------------------------------------------------------
+[Info]
+;--- Stage Name ---           ステージ選択画面に表示される名前
+name           = "Strafe Wastelands"       ;例
+
+;------------------------------------------------------------------------------
+[Camera]
+startx         = 0           ;カ??のX軸位置
+starty         = 0           ;カ??のY軸位置
+                             ;sffの画?位置も0,0にしておくとわかりやすいです
+boundleft      = -130;-150        ;ステージ左側の長さ
+boundright     = 130;150         ;右側の長さ,ステージの横の長さが?まる
+boundhigh      = -10         ;ステージの?さ
+boundlow       = 0           ;ステージの低さ,この2つで上下の長さが?まる
+verticalfollow = 0           ;カ??の動き,0で上下固定,小?点以下での変更が望ましい
+tension        = 50          ;ステージの表示限界,カ??の限界位置,不明
+
+;------------------------------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---             １プ?ー?ー設定
+p1startx       = -70         ;キ??の開?の立ち位置X軸
+p1starty       = 0           ;キ??の開?の立ち位置Y軸
+p1startz       = 0           ;キ??の開?の立ち位置Z軸,機能していない？
+p1facing       = 1           ;キ??の向き:1=right,-1=left
+;--- Player 2 ---             ２プ?ー?ー設定
+p2startx       = 70          ;
+p2starty       = 0           ;
+p2startz       = 0           ;
+p2facing       = -1          ;
+;--- Common ---               変える必要は?りません
+leftbound      = -1000       ;Left bound (x-movement)
+rightbound     = 1000        ;Right bound
+topbound       = 0           ;Top bound (z-movement)
+botbound       = 0           ;Bottom bound
+
+;------------------------------------------------------------------------------
+[Scaling]
+topz           = 0           ;Top z-coordinate for scaling
+botz           = 50          ;Bottom z-coordinate for scaling
+topscale       = 1           ;Scale to use at top
+botscale       = 1.2         ;Scale to use at bottom
+
+;------------------------------------------------------------------------------
+[Bound]
+screenleft     = 10          ;左側に見えない壁,0にするとキ??が半分くらいめり?みます
+screenright    = 10          ;右側に見えない壁,これで横?の行動範囲が?まります
+
+;------------------------------------------------------------------------------
+[StageInfo]
+zoffset        = 195;210         ;キ??クターのY軸表示位置
+autoturn       = 1           ;自動的に?手のほうに振り向くかどうか
+;resetBG       = 1           ;不明
+
+;------------------------------------------------------------------------------
+[Shadow]
+color = 92,92,92 ;RGB設定,0～255までで影の色が?まる
+                             ;?かない場?は(92,92,92)がデフォ?ト
+yscale         = -0.1        ;太陽の方向,影の向きと大きさ
+reflect = 0                             ;(+)で手前の影,(-)で画面?側に影がつきます
+                             ;?かない場?は,(0.4)がデフォ?ト
+
+;------------------------------------------------------------------------------
+;--- Music File ---           ステージに流す音楽ファイ?の設定(mid,mp3,wav)
+[Music]
+bgmusic        = sound/rmx6_opening.mp3
+bgvolume       = 0;ボ??ー?(機能していない？)
+
+;------------------------------------------------------------------------------
+;--- Picture File ---         sffファイ?の指定
+[BGdef]
+spr            = StrafeWastelands.sff ;ここにさっき作ったSFFファイ?の名前をいれます。 
+debugbg        = 1                    ;1だと背景のない?分に残?が残らなくなる
+
+;------------------------------------------------------------------------------
+; [BG x]
+;                                     一画面の設定
+; type=?       "Normal"/"Parallax"/"Height"  (def: "normal")
+; spriteno=?, ? Sprite group and number: groupno, imgno  (req'd)
+; start=?, ?   Starting location (integer)  (def: 0, 0)
+; delta=?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans=?      Transparency settings: "none"/"add"/"sub"/"avg" (def: "none")
+; mask=?       Masking (int): 0 - off, 1 - on  (def: 0)
+;                                     動きの?るステージの設定？
+; velocity=?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile=?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0)
+; tilespacing=?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale=?, ?    Top xscale, bottom xscale (float) (if used, then no tiling)
+; width=?, ?     Top width, bottom width (int)  (if used, then tiles;
+;                             use either this or above, but not both)
+; yscalestart=?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta=?  Change in y-scale per unit (float, in percent)  (def: 0)
+;------------------------------------------------------------------------------
+;[BG 0 exp]
+;type           = normal      ;主に1?絵に使う
+;spriteno       = 0, 0        ;SFFでの絵の登録番?,グ?ープNo,スプ?イトNo
+;layerno        = 0           ;キ??より?,1にするとキ??の手前に表示される
+;start          = -320,-10    ;絵の表示座標(X,Y)で表記
+                              ;sffファイ?で(0,0),Camera位置を(0,0)のように設定して?る場?
+                              ;x軸は画?サイズを2で?った分,
+                              ;y軸は240ピクセ?からはみでた分をここで設定するといいでしょう
+;delta          = 1, 1        ;x軸にキ??に?わせて0.155一?にスク?ー?する,y軸は0
+                              ;0,0だと背景は動きません,1,1だと背景は動きます
+;trans          = None        ;そのままの絵(None),スポット?イト?(Add),影効果(Sub)
+;mask           = 0           ;透過色設定?分で透過するかどうか
+
+;[BG anim] 
+;type  = anim
+;spriteno = 0, 0        ;SFFでの絵の登録番?,グ?ープNo,スプ?イトNo
+;actionno = 0           ;↓に?るアクシ??をアニ?ーシ??します。
+;layerno = 0                
+;start = 0, 0           ;絵の表示座標(X,Y)で表記
+                        ;sffファイ?で(0,0),Camera位置を(0,0)のように設定して?る場?
+                        ;x軸は画?サイズを2で?った分,
+                        ;y軸は240ピクセ?からはみでた分をここで設定するといいで
+;delta = 1
+;trans = none
+;mask  = 1
+;tile  = 0, 0
+;tilespacing = 0,0
+
+[BG back]
+type  = normal
+spriteno = 0, 0
+start = -196, 5
+layerno = 0
+mask = 0
+delta = .2, .5
+
+[BG desert]
+type  = normal
+spriteno = 1, 0
+start = -223, 107
+layerno = 0
+mask = 1
+delta = .4, .5
+
+[BG stone]
+type  = normal
+spriteno = 5, 0
+start = -99, 119
+layerno = 0
+mask = 1
+delta = .4, .5
+
+[BG stone2]
+type  = normal
+spriteno = 4, 0
+start = -80, 54
+layerno = 0
+mask = 1
+delta = .4, .5
+
+[BG floor]
+type  = normal
+spriteno = 3, 0
+start = -381, 137
+layerno = 0
+delta = 1, 1
+mask = 1
+
+[BG front]
+type  = normal
+spriteno = 2, 0
+start = -96, 241
+layerno = 1
+delta = 1, 1
+mask = 1
+

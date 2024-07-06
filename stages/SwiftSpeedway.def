@@ -1,0 +1,379 @@
+;--------------------------------------------------------
+[Info]
+name         = "Swift Speedway"	
+displayname  = "Swift Speedway"	
+mugenversion = 1.0 		
+author       = "OldGamer/Fijisama"	
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -480
+boundright = 480
+boundhigh = -110
+boundlow = 0
+verticalfollow = .3
+floortension = 0
+tension = 80
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 0
+cutlow = -.8;-6
+zoomin = .7
+zoomout  = 1
+
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80         
+p1starty = 0           
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2facing = -1
+
+;--- Player 3 ---
+p3startx = -170
+p3starty = 0
+p3facing = 1
+
+;--- Player 4 ---
+p4startx = 170
+p4starty = 0
+p4facing = -1
+
+;--- Common ---
+leftbound  = -1000 
+rightbound =  1000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 450;470
+autoturn = 1
+resetBG = 1
+localcoord = 640, 480
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 64
+color = 0,0,0
+yscale = -.1
+fade.range = -400,-100
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = JUS_BlueRace.mp3
+bgmvolume = 100
+
+[BGdef]
+spr = SwiftSpeedway.sff
+debugbg = 0
+
+[BG 0] ;sky
+type  = normal
+spriteno = 0,0
+start = 0,65
+delta = .1,1
+mask = 1
+velocity = -.1,0
+tile = 1,0
+
+[BG 1] ;city
+type  = normal
+spriteno = 0,1
+start = 0,86
+delta = .2,1
+mask = 1
+tile = 1,0
+
+[BG 1] ;screen
+type  = normal
+spriteno = 7,0
+start = 0,86
+delta = .3,1
+mask = 1
+
+[BG 6] ;fzero
+type  = anim
+actionno = 8
+start = 0,86
+delta = .3,1
+mask = 1
+
+[BG 2] 
+type  = parallax
+spriteno = 0,3
+start = 0, 86
+delta = .4,1
+width = 50,178
+tile = 1,0
+mask = 1
+
+[BG 3] ;light poles
+type  = normal
+spriteno = 0,2
+start = 0,86
+delta = .4,1
+mask = 1
+tile = 1,0
+
+[BG 6] ;van1
+type  = anim
+actionno = 3
+start = 1280,86
+delta = .5,1
+mask = 1
+ID = 3
+
+[BG 4] ;truck1
+type  = anim
+actionno = 1
+start = 1280,86
+delta = .5,1
+mask = 1
+ID=1
+
+[BG 5] ;car1
+type  = anim
+actionno = 2
+start = 1280,86
+delta = .5,1
+mask = 1
+ID=2
+
+[BG 6] ;van2
+type  = anim
+actionno = 6
+start = 1280,68;100
+delta = .5,1
+mask = 1
+tile = 1,0
+ID =6
+
+[BG 4] ;truck2
+type  = anim
+actionno = 4
+start = 1280,68;100
+delta = .5,1
+mask = 1
+tile = 1,0
+ID=4
+
+[BG 5] ;car2
+type  = anim
+actionno = 5
+start = 1280,68;100
+delta = .5,1
+mask = 1
+tile = 1,0
+ID=5
+
+;--------------------------------------------
+;background controls animation for truck1
+;---------------------------------------------
+[BGCtrlDef 1]
+CtrlID = 1
+loopTime = 600  
+
+[BGCtrl 1]    
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 1]   
+type = anim
+time = 0
+value = 9
+
+[BGCtrl 1]  
+type = velset
+time = 0
+x = -7
+y = 0
+
+;--------------------------------------------
+;background controls animation for car1
+;---------------------------------------------
+[BGCtrlDef 2]
+CtrlID = 2
+loopTime = 500  
+
+[BGCtrl 2]    
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 2]   
+type = anim
+time = 0
+value = 9
+
+[BGCtrl 2]  
+type = velset
+time = 0
+x = -13
+y = 0
+
+;--------------------------------------------
+;background controls animation for van1
+---------------------------------------------
+[BGCtrlDef 3]
+CtrlID = 3
+loopTime = 600  
+
+[BGCtrl 3]    
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 3]   
+type = anim
+time = 0
+value = 9
+
+[BGCtrl 3]  
+type = velset
+time = 0
+x = -5
+y = 0
+
+;--------------------------------------------
+;background controls animation for truck2
+;---------------------------------------------
+[BGCtrlDef 4]
+CtrlID = 4
+loopTime = 900  
+
+[BGCtrl 4]    
+type = posset
+time = 0
+x = 70
+y = 0
+
+[BGCtrl 4]   
+type = anim
+time = 0
+value = 9
+
+[BGCtrl 4]  
+type = velset
+time = 0
+x = -5
+y = 0
+
+;--------------------------------------------
+;background controls animation for car2
+;---------------------------------------------
+[BGCtrlDef 5]
+CtrlID = 5
+loopTime = 400  
+
+[BGCtrl 5]    
+type = posset
+time = 0
+x = 40
+y = 0
+
+[BGCtrl 5]   
+type = anim
+time = 0
+value = 9
+
+[BGCtrl 5]  
+type = velset
+time = 0
+x = -11
+y = 0
+
+;--------------------------------------------
+;background controls animation for van2
+---------------------------------------------
+[BGCtrlDef 6]
+CtrlID = 6
+loopTime = 700  
+
+[BGCtrl 6]    
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 6]   
+type = anim
+time = 0
+value = 9
+
+[BGCtrl 6]  
+type = velset
+time = 0
+x = -6
+y = 0
+
+
+
+
+;--------------------------------------------
+;animation codes for the cars,truck and van
+;--------------------------------------------
+
+;truck1
+[Begin Action 1]
+1,0, 441,-992, 4, , , 4,4
+1,1, 441,-992, 4, , , 4,4
+
+;car1
+[Begin Action 2]
+2,0, 374,-509, 4, , , 2.5,2.5
+2,1, 374,-509, 4, , , 2.5,2.5
+
+;van1
+[Begin Action 3]
+3,0, 136,-330, 6, , , 2,2
+3,1, 136,-330, 6, , , 2,2
+3,2, 136,-330, 6, , , 2,2
+
+;truck2
+[Begin Action 4]
+4,0, 1200,-976, 4, , , 4,4
+4,1, 1200,-976, 4, , , 4,4
+
+;car2
+[Begin Action 5]
+5,0, -38,-662, 6, , , 3,3
+5,1, -38,-662, 6, , , 3,3
+
+;van2
+[Begin Action 6]
+6,0, 800,-513, 6, , , 3,2.6
+6,1, 800,-513, 6, , , 3,2.6
+6,2, 800,-513, 6, , , 3,2.6
+
+;fzero
+[Begin Action 8]
+8,0, 0,0, 2
+8,1, 0,0, 2
+8,2, 0,0, 2
+8,3, 0,0, 2
+8,4, 0,0, 2
+8,5, 0,0, 2
+8,6, 0,0, 2
+8,7, 0,0, 2

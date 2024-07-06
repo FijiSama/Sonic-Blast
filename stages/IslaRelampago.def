@@ -1,0 +1,493 @@
+
+;--------------------------------------------------------
+[Info]
+name = "Isla Relampago"
+displayname = "Isla Relampago"
+versiondate = 10,04,2022
+mugenversion = 1.1
+author = "Aurel67"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -600
+boundright = 600
+boundhigh = -40
+boundlow = 10;-5
+verticalfollow = .2
+floortension = 0
+tension = 60
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh =35`	12
+cutlow = 25
+zoomin = 1
+zoomout = .8
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 212
+autoturn = 1
+resetBG = 1
+localcoord = 320, 240
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .1
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/floatingruins.mp3
+bgmvolume = 100
+bgmloopstart = 1266680
+bgmloopend = 5022188
+
+[BGdef]
+spr = IslaRelampago.sff
+debugbg = 0
+
+[BG Sky]
+type  = normal
+spriteno = 0, 0
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = 0, 0
+tile = 1, 0
+
+[BG Clouds 1]
+type  = normal
+spriteno = 0, 1
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = -0.5, 0
+tile = 1, 0
+
+[BG Clouds 3]
+type  = normal
+spriteno = 0, 3
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = -0.7, 0
+tile = 1, 0
+
+[BG Clouds 2]
+type  = normal
+spriteno = 0, 2
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = -0.6, 0
+tile = 1, 0
+
+[BG Clouds 4]
+type  = normal
+spriteno = 0, 4
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = -0.82, 0
+tile = 1, 0
+
+[BG Clouds 5]
+type  = normal
+spriteno = 0, 5
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = -1, 0
+tile = 1, 0
+
+[BG Clouds 6]
+type  = normal
+spriteno = 0, 6
+start = 0, 185
+delta = .1, 1
+mask = 0
+velocity = -1, 0
+tile = 1, 0
+
+
+[BG Lightning]
+type = anim
+actionno = 2
+start = 0, 185
+delta = .1, 1
+velocity = -0.7, 0
+trans = none
+tile = 1, 0
+tilespacing = 256
+mask = 1
+
+[BG Ruins]
+type = anim
+actionno = 5
+start = 0, 185
+delta = 1, 1
+velocity = 0, 0
+trans = none
+tile = 1, 0
+tilespacing = 600
+mask = 1
+
+[BG Ruins 2]
+type = anim
+actionno = 9
+start = 0, 185
+delta = 1, 1
+velocity = 0, 0
+trans = none
+tile = 1, 0
+mask = 1
+
+[BG Tree]
+type = anim
+actionno = 10
+start = 0, 185
+delta = 1, 1
+velocity = 0, 0
+trans = none
+tile = 1, 0
+mask = 1
+
+[BG Floor]
+type  = normal
+spriteno = 1, 0
+start = 0, 185
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+
+[BG Small Floating Rock]
+type = anim
+actionno = 12
+start = 0, 185
+delta = 1, 1
+trans = none
+tile = 1, 0
+mask = 1
+
+[BG Small Floating Rock 2]
+type = anim
+actionno = 13
+start = -38, 173
+delta = 1, 1
+trans = none
+tile = 1, 0
+mask = 1
+
+[BG Medium Floating Rock]
+type = anim
+actionno = 14
+start = 0, 185
+delta = 1, 1
+trans = none
+tile = 1, 0
+mask = 1
+
+[BG Ruins]
+type  = normal
+spriteno = 1, 1
+start = 0, 185
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tilespacing = 0, 0
+
+[BG Lightning 2]
+type = anim
+actionno = 8
+start = 0, 185
+delta = .1, 1
+velocity = -0.6, 0
+trans = none
+tile = 1, 0
+tilespacing = 256
+mask = 1
+
+[BG Lightning 3]
+type = anim
+actionno = 11
+start = 0, 185
+delta = .1, 1
+velocity = -0.6, 0
+trans = none
+tile = 1, 0
+tilespacing = 256
+mask = 1
+
+[BG Big Floating Rock]
+type = anim
+actionno = 6
+start = 6, 169
+delta = 1, 1
+trans = none
+tile = 1, 0
+tilespacing = 750
+mask = 1
+
+[BG Floating Rock]
+type = anim
+actionno = 7
+start = 2, 196
+delta = 1, 1
+trans = none
+tile = 1, 0
+tilespacing = 750
+mask = 1
+
+
+[Begin Action 2]
+2,1, 0,0, 2
+2,2, 0,0, 2
+2,3, 0,0, 2
+2,4, 0,0, 2
+2,5, 0,0, 2
+2,6, 0,0, 2
+2,7, 0,0, 2
+2,8, 0,0, 2
+2,9, 0,0, 2
+2,10, 0,0, 2
+2,11, 0,0, 2
+2,12, 0,0, 2
+2,13, 0,0, 2
+2,14, 0,0, 2
+2,15, 0,0, 2
+2,16, 0,0, 2
+2,17, 0,0, 2
+2,18, 0,0, 2
+2,19, 0,0, 2
+2,20, 0,0, 2
+2,19, 0,0, 2
+2,18, 0,0, 2
+2,17, 0,0, 2
+2,16, 0,0, 2
+2,15, 0,0, 2
+2,14, 0,0, 2
+2,13, 0,0, 2
+2,12, 0,0, 2
+2,11, 0,0, 2
+2,10, 0,0, 2
+2,9, 0,0, 2
+2,8, 0,0, 2
+2,7, 0,0, 2
+2,6, 0,0, 2
+2,5, 0,0, 2
+2,4, 0,0, 2
+2,3, 0,0, 2
+2,2, 0,0, 2
+2,1, 0,0, 140
+
+[Begin Action 5]
+5,1, 0,0, 4
+5,2, 0,0, 4
+5,3, 0,0, 4
+5,4, 0,0, 4
+5,5, 0,0, 4
+5,6, 0,0, 4
+5,7, 0,0, 4
+5,8, 0,0, 4
+5,9, 0,0, 4
+5,10, 0,0, 4
+5,11, 0,0, 50
+
+[Begin Action 6]
+6,1, 0,0, 15
+6,2, 0,0, 15
+6,3, 0,0, 15
+6,2, 0,0, 15
+6,1, 0,0, 15
+
+[Begin Action 7]
+7,1, 0,0, 15
+7,2, 0,0, 15
+7,3, 0,0, 15
+7,4, 0,0, 15
+7,5, 0,0, 15
+7,6, 0,0, 15
+7,7, 0,0, 15
+7,8, 0,0, 15
+
+[Begin Action 8]
+8,1, 0,0, 130
+8,2, 0,0, 2
+8,3, 0,0, 2
+8,4, 0,0, 2
+8,5, 0,0, 2
+8,6, 0,0, 2
+8,7, 0,0, 2
+8,8, 0,0, 2
+8,9, 0,0, 2
+8,10, 0,0, 2
+8,11, 0,0, 2
+8,12, 0,0, 2
+8,13, 0,0, 2
+8,14, 0,0, 2
+8,15, 0,0, 2
+8,16, 0,0, 2
+8,17, 0,0, 2
+8,18, 0,0, 2
+8,19, 0,0, 2
+8,20, 0,0, 2
+8,19, 0,0, 2
+8,18, 0,0, 2
+8,17, 0,0, 2
+8,16, 0,0, 2
+8,15, 0,0, 2
+8,14, 0,0, 2
+8,13, 0,0, 2
+8,12, 0,0, 2
+8,11, 0,0, 2
+8,10, 0,0, 2
+8,9, 0,0, 2
+8,8, 0,0, 2
+8,7, 0,0, 2
+8,6, 0,0, 2
+8,5, 0,0, 2
+8,4, 0,0, 2
+8,3, 0,0, 2
+8,2, 0,0, 2
+8,1, 0,0, 2
+
+[Begin Action 9]
+9,1, 0,0, 4
+9,2, 0,0, 4
+9,3, 0,0, 4
+9,4, 0,0, 4
+9,5, 0,0, 4
+9,6, 0,0, 4
+9,7, 0,0, 4
+9,8, 0,0, 4
+9,9, 0,0, 4
+9,10, 0,0, 50
+
+[Begin Action 10]
+10,1, 0,0, 4
+10,2, 0,0, 4
+10,3, 0,0, 4
+10,4, 0,0, 4
+10,5, 0,0, 4
+10,6, 0,0, 4
+10,7, 0,0, 4
+10,8, 0,0, 4
+10,9, 0,0, 4
+10,10, 0,0, 50
+
+[Begin Action 11]
+11,1, 0,0, 220
+11,2, 0,0, 2
+11,3, 0,0, 2
+11,4, 0,0, 2
+11,5, 0,0, 2
+11,6, 0,0, 2
+11,7, 0,0, 2
+11,8, 0,0, 2
+11,9, 0,0, 2
+11,10, 0,0, 2
+11,11, 0,0, 2
+11,12, 0,0, 2
+11,13, 0,0, 2
+11,14, 0,0, 2
+11,15, 0,0, 2
+11,16, 0,0, 2
+11,17, 0,0, 2
+11,18, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,20, 0,0, 2
+11,19, 0,0, 2
+11,18, 0,0, 2
+11,17, 0,0, 2
+11,16, 0,0, 2
+11,15, 0,0, 2
+11,14, 0,0, 2
+11,13, 0,0, 2
+11,12, 0,0, 2
+11,11, 0,0, 2
+11,10, 0,0, 2
+11,9, 0,0, 2
+11,8, 0,0, 2
+11,7, 0,0, 2
+11,6, 0,0, 2
+11,5, 0,0, 2
+11,4, 0,0, 2
+11,3, 0,0, 2
+11,2, 0,0, 2
+11,1, 0,0, 2
+
+[Begin Action 12]
+12,1, 0,0, 15
+12,2, 0,0, 15
+12,3, 0,0, 15
+12,4, 0,0, 15
+12,5, 0,0, 15
+12,6, 0,0, 15
+12,7, 0,0, 15
+12,8, 0,0, 15
+12,9, 0,0, 15
+12,10, 0,0, 15
+12,11, 0,0, 15
+
+[Begin Action 13]
+13,1, 0,0, 15
+13,2, 0,0, 15
+13,3, 0,0, 15
+13,4, 0,0, 15
+13,5, 0,0, 15
+13,6, 0,0, 15
+13,7, 0,0, 15
+13,8, 0,0, 15
+13,9, 0,0, 15
+13,10, 0,0, 15
+13,11, 0,0, 15
+
+[Begin Action 14]
+14,1, 0,0, 35
+14,2, 0,0, 35
+

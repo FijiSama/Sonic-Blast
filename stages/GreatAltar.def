@@ -1,0 +1,233 @@
+[Info]
+name ="Great Altar"
+displayname ="Great Altar"
+author = "Kaiser-VL7 - 7ictor"
+versiondate =04,xx,2019
+mugenversion =1.0
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -800
+boundright = 920
+boundhigh = -100
+boundlow = 0
+verticalfollow = .45;.35
+tension = 50
+
+[PlayerInfo]
+p1startx = -100
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 100
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -10000
+rightbound =  10000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 143;170
+autoturn = 1
+resetBG = 1
+hires = 1
+
+[Shadow]
+color = 32,32,32
+yscale = .2
+reflect = 0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/Altar Emerald.mp3
+bgvolume = -1
+
+[BGdef]
+spr = GreatAltar.sff
+
+[BG bg]
+type = Normal
+start = -338, 126
+delta = 0, 0
+scale = 2,2
+spriteno = 6, 0
+tile = 1, 0
+
+[BG C1]
+type = Normal
+spriteno = 4, 0
+start = 0, 235
+mask = 1
+tile = 1, 0
+
+[BG C2]
+type = 
+spriteno = 6, 3
+start = -21, 120
+mask = 1
+velocity = 0.09, 0
+type = 
+
+[BG Cloud Bg]
+type = Parallax
+width = 768, 768
+spriteno = 4, 1
+mask = 1
+tile = 1, 0
+start = 0, 340
+delta = 0, 0
+velocity = 0.08, 0
+tilespacing = 0, -1
+tilespacing = 0, 1
+
+[BG bg]
+type  = anim
+spriteno = 0, 0
+start = 0, 36
+delta = 2, 1.8999999999999999999
+mask = 1
+velocity = 0, 0
+actionno = 0
+
+[BG floor]
+type = normal
+spriteno = 0,0
+start = 0,360
+delta = 2, 2
+mask = 1
+tile = 1, 0
+
+[BG bg]
+type = normal
+spriteno = 0,2
+start = 0,-77
+delta = 2, 2
+mask = 1
+;tile = -1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = 1406,-77
+;delta = 2, 2
+;mask = 1
+;;tile = 1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = -1613, -89
+;delta = 2, 2
+;mask = 1
+;;tile = -1, 0
+
+
+[BG bg]
+type = normal
+spriteno = 0,1
+start = -1392, -77
+delta = 2, 2
+mask = 1
+;tile = -1, 0
+
+[BG bg]
+type = normal
+spriteno = 0,1
+start = 1392, -77
+delta = 2, 2
+mask = 1
+;tile = 1, 0
+
+
+
+
+
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = 3283, -33
+;delta = 2, 2
+;mask = 1
+;;tile = 1, 0
+;
+;
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = -2672, 375
+;delta = 2, 2
+;mask = 1
+;;tile = -1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = 5570, -39
+;delta = 2, 2
+;mask = 1
+;;tile = 1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = -5393, 171
+;delta = 2, 2
+;mask = 1
+;;tile = -1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = 7030,-77
+;delta = 2, 2
+;mask = 1
+;;tile = 1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = -7044, 94
+;delta = 2, 2
+;mask = 1
+;;tile = -1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = 8436,-77
+;delta = 2, 2
+;mask = 1
+;;tile = 1, 0
+;
+;[BG bg]
+;type = normal
+;spriteno = 0,1
+;start = -6602, 104
+;delta = 2, 2
+;mask = 1
+;tile = -1, 0
+
+[begin action 0]
+1,1, 0,0, 8, , , 2,2
+1,2, 0,0, 8, , , 2,2
+1,3, 0,0, 8, , , 2,2
+1,4, 0,0, 8, , , 2,2
+1,5, 0,0, 8, , , 2,2

@@ -1,0 +1,625 @@
+
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Rush Resort"
+
+;--------------------------------------------------------
+[Camera]
+
+startx = 0
+starty = 0
+boundleft = -3700
+boundright = 3700
+boundhigh = -240
+boundlow = 0
+verticalfollow = .9
+floortension = 100
+tension = 90
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70         
+p1starty = 0            
+p1startz = 0            
+p1facing = 1       
+  
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+p3startx = -100         
+p3starty = 0            
+p3startz = 0            
+p3facing = 1       
+  
+p4startx = 100
+p4starty = 0
+p4startz = 0
+p4facing = -1
+
+;--- Common ---
+leftbound  = -4000 
+rightbound =  4000 
+topbound  =  0     
+botbound  =  0     
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1      
+botscale = 1.2  
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15   
+screenright = 15   
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 128,128,128
+yscale = .3
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/RushVP.mp3
+bgvolume = 255
+
+;========================================================
+
+[BGdef]
+spr = stages/RushVP.sff
+debugbg = 0
+
+[BG sky]
+type 		= normal
+spriteno 	= 0,6
+start 		= 0, 240
+delta 		= .1,.85
+tile 		= 1,0
+mask 		= 0
+
+[BG cloud 1]
+type 		= normal
+spriteno 	= 0,7
+start 		= 0, 240
+delta 		= .5,.85
+velocity	= .1,0
+tile 		= 1,0
+tilespacing	= 315,0
+mask 		= 1
+
+[BG cloud 2]
+type 		= normal
+spriteno 	= 0,8
+start 		= 0, 240
+delta 		= .52,.85
+velocity	= .12,0
+tile 		= 1,0
+tilespacing	= 355,0
+mask 		= 1
+
+[BG sea top half]
+type 		= normal
+spriteno 	= 0,5
+start 		= 0, 240
+delta 		= .14,.83
+tile 		= 1,0
+mask 		= 0
+
+[BG island top]
+type 		= normal
+spriteno 	= 1,3
+start 		= 0, 240
+delta 		= .5,.83
+tile 		= 1,0
+tilespacing	= 600,0
+mask 		= 1
+
+[BG sea bottom half]
+type 		= parallax
+spriteno 	= 0,4
+start 		= 0, 240
+delta 		= .34,.85
+width		= 52,104
+sin.x		= 1,120,1
+tile 		= 1,0
+mask 		= 1
+
+[BG cloud 3]
+type 		= normal
+spriteno 	= 0,9
+start 		= 0, 240
+delta 		= .56,.84
+velocity	= .14,0
+tile 		= 1,0
+tilespacing	= 405,0
+mask 		= 1
+
+[BG island bottom]
+type 		= normal
+spriteno 	= 1,2
+start 		= 0, 240
+delta 		= .54,.85
+tile		= 1,0
+tilespacing	= 450,0
+mask 		= 1
+
+[BG cloud 4]
+type 		= normal
+spriteno 	= 0,10
+start 		= 0, 240
+delta 		= .57,.83
+velocity	= .16,0
+tile 		= 1,0
+tilespacing	= 455,0
+mask 		= 1
+
+[BG land]
+type 		= parallax
+spriteno 	= 0,3
+start 		= 0, 240
+delta 		= .34,.9
+width		= 52,104
+tile 		= 1,0
+mask 		= 1
+
+;[BG island]
+;type 		= normal
+;spriteno 	= 1,1
+;start 		= 0, 240
+;delta 		= .54,1
+;tile		= 1,0
+;tilespacing	= 500,0
+;mask 		= 1
+
+;[BG grass]
+;type 		= parallax
+;spriteno 	= 0,2
+;start 		= 0, 240
+;delta 		= .34,1
+;width		= 26,52
+;tile 		= 1,0
+;mask 		= 0
+
+[BG tree 2]
+type 		= normal
+spriteno 	= 2,1
+start 		= 0, 240
+delta 		= .58,.9
+tile		= 1,0
+tilespacing	= 200,1
+mask 		= 1
+
+[BG tree 3]
+type 		= normal
+spriteno 	= 2,2
+start 		= 0, 240
+delta 		= .6,.9
+tile		= 1,0
+tilespacing	= 250,1
+mask 		= 1
+
+[BG tree 4]
+type 		= normal
+spriteno 	= 2,3
+start 		= 0, 240
+delta 		= .62,.9
+tile		= 1,0
+tilespacing	= 300,1
+mask 		= 1
+
+[BG tree 1]
+type 		= normal
+spriteno 	= 2,0
+start 		= 0, 240
+delta 		= .62,.9
+tile		= 1,0
+tilespacing	= 300,1
+mask 		= 1
+
+[BG office]
+type 		= normal
+spriteno 	= 1,0
+start 		= 0, 240
+delta 		= .62,.9
+mask 		= 1
+
+[BG bush]
+type 		= normal
+spriteno 	= 2,4
+start 		= 0, 240
+delta 		= .65,.95
+tile 		= 1,0
+tilespacing  	= 200,1
+mask 		= 1
+
+[BG brick]
+type 		= normal
+spriteno 	= 0,1
+start 		= 0, 240
+delta 		= .68,1
+tile 		= 1,0
+mask 		= 1
+
+[BG hotal]
+type 		= normal
+spriteno 	= 1,8
+start 		= 0, 240
+delta 		= .64,1
+mask 		= 1
+
+[BG gate]
+type 		= normal
+spriteno 	= 1,7
+start 		= 0, 240
+delta 		= .7,1
+mask 		= 1
+
+[BG floor]
+type 		= parallax
+spriteno 	= 0,0
+start 		= 0, 240
+delta 		= .68,1
+width		= 32,64
+tile 		= 1,0
+mask 		= 0
+
+[BG signs]
+type 		= normal
+spriteno 	= 1,10
+start 		= 0, 240
+delta 		= .7,1
+tile		= 1,0
+tilespacing	= 500,0
+mask 		= 1
+
+[BG truck]
+type 		= normal
+spriteno 	= 1,6
+start 		= 0, 240
+delta 		= .69,1
+mask 		= 1
+
+[BG club rush]
+type 		= normal
+spriteno 	= 1,5
+start 		= 0, 240
+delta 		= .72,1
+mask 		= 1
+
+[BG lodge]
+type 		= normal
+spriteno 	= 1,4
+start 		= 0, 240
+delta 		= .7,1
+mask 		= 1
+
+;-------------------------people---------
+
+[BG blue tank walks right]
+type 		= anim
+actionno 	= 10
+start 		= 0, 240
+delta 		= .77,1
+mask 		= 1
+id		= 5
+
+[begin action 10]
+10,0, 0,0, 16
+10,1, 0,0, 16
+10,2, 0,0, 16
+10,3, 0,0, 16
+
+[BG blue tank walk left]
+type 		= anim
+actionno 	= 11
+start 		= 0, 240
+delta 		= .77,1
+mask 		= 1
+id		= 6
+
+[begin action 11]
+10,0, 0,0, 16,h
+10,1, 0,0, 16,h
+10,2, 0,0, 16,h
+10,3  0,0, 16,h
+
+[bgctrldef blue tank walks right]
+looptime = 15750
+ctrlID = 5
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = -200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 1750
+x = 1
+
+[bgctrldef blue tank walks left]
+looptime = 15750
+ctrlID = 6
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = 200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 8750
+x = -1
+
+[BG red tank walks right]
+type 		= anim
+actionno 	= 12
+start 		= 0, 240
+delta 		= .76,1
+mask 		= 1
+id		= 7
+
+[begin action 12]
+11,0, 0,0, 16
+11,1, 0,0, 16
+11,2, 0,0, 16
+11,3, 0,0, 16
+
+[BG red tank walk left]
+type 		= anim
+actionno 	= 13
+start 		= 0, 240
+delta 		= .76,1
+mask 		= 1
+id		= 8
+
+[begin action 13]
+11,0, 0,0, 16,h
+11,1, 0,0, 16,h
+11,2, 0,0, 16,h
+11,3, 0,0, 16,h
+
+[bgctrldef blue tank walks right]
+looptime = 19250
+ctrlID = 7
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = -200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 5250
+x = 1
+
+[bgctrldef blue tank walks left]
+looptime = 19250
+ctrlID = 8
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = 200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 10500
+x = -1
+
+
+[BG trucker]
+type 		= anim
+actionno 	= 1
+start 		= 0, 240
+delta 		= .78,1
+mask 		= 1
+
+[begin action 1]
+3,0, 0,0, 20
+3,1, 0,0, 60
+
+[BG dude!]
+type 		= anim
+actionno 	= 2
+start 		= 0, 240
+delta 		= .78,1
+mask 		= 1
+
+[begin action 2]
+4,0, 0,0, 20
+4,1, 0,0, 90
+
+[BG camera]
+type 		= anim
+actionno 	= 3
+start 		= 0, 240
+delta 		= .78,1
+mask 		= 1
+
+[begin action 3]
+5,0, 0,0, 25
+5,1, 0,0, 30
+
+[BG pantsuit]
+type 		= anim
+actionno 	= 4
+start 		= 0, 240
+delta 		= .78,1
+mask 		= 1
+
+[begin action 4]
+6,0, 0,0, 27
+6,1, 0,0, 32
+
+[BG blue suit]
+type 		= anim
+actionno 	= 5
+start 		= 0, 240
+delta 		= .78,1
+mask 		= 1
+
+[begin action 5]
+7,0, 0,0, 27
+7,1, 0,0, 32
+7,0, 0,0, 27
+7,1, 0,0, 32
+7,0, 0,0, 27
+7,1, 0,0, 32
+7,0, 0,0, 27
+7,1, 0,0, 32
+7,0, 0,0, 27
+7,1, 0,0, 32
+7,2, 0,0, 27
+7,3, 0,0, 32
+7,2, 0,0, 27
+7,3, 0,0, 32
+7,2, 0,0, 27
+7,3, 0,0, 32
+7,2, 0,0, 27
+7,3, 0,0, 32
+7,2, 0,0, 27
+7,3, 0,0, 32
+
+[BG black mini walks right]
+type 		= anim
+actionno 	= 6
+start 		= 0, 240
+delta 		= .8,1
+mask 		= 1
+id		= 1
+
+[begin action 6]
+8,0, 0,0, 16
+8,1, 0,0, 16
+8,2, 0,0, 16
+8,3, 0,0, 16
+
+[BG black mini walk left]
+type 		= anim
+actionno 	= 7
+start 		= 0, 240
+delta 		= .8,1
+mask 		= 1
+id		= 2
+
+[begin action 7]
+8,0, 0,0, 16,h
+8,1, 0,0, 16,h
+8,2, 0,0, 16,h
+8,3, 0,0, 16,h
+
+[bgctrldef black mini walks right]
+looptime = 14000
+ctrlID = 1
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = -200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 0
+x = 1
+
+[bgctrldef black mini walks left]
+looptime = 14000
+ctrlID = 2
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = 200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 7000
+x = -1
+
+[BG blue mini walks right]
+type 		= anim
+actionno 	= 8
+start 		= 0, 240
+delta 		= .81,1
+mask 		= 1
+id		= 3
+
+[begin action 8]
+9,0, 0,0, 16
+9,1, 0,0, 16
+9,2, 0,0, 16
+9,3, 0,0, 16
+
+[BG blue mini walk left]
+type 		= anim
+actionno 	= 9
+start 		= 0, 240
+delta 		= .81,1
+mask 		= 1
+id		= 4
+
+[begin action 9]
+9,0, 0,0, 16,h
+9,1, 0,0, 16,h
+9,2, 0,0, 16,h
+9,3, 0,0, 16,h
+
+[bgctrldef blue mini walks right]
+looptime = 17500
+ctrlID = 3
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = -200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 3500
+x = 1
+
+[bgctrldef blue mini walks left]
+looptime = 17500
+ctrlID = 4
+
+[BgCtrl black mini 0]
+type = PosSet
+time = 0
+x = 200
+y = 0
+
+[bgctrl black mini 1]
+type = VelSet
+time = 10500
+x = -1
+
+
+;-------------------------people---------
+
+[BG crate]
+type 		= normal
+spriteno 	= 1,11
+start 		= 0, 240
+delta 		= .86,1
+tile		= 1,0
+tilespacing	= 1500,0
+mask 		= 1

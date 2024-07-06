@@ -1,0 +1,1349 @@
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "North City Heights"
+author = "Enscripture"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -500000
+boundright = 500000
+boundhigh = -70
+boundlow = 0
+verticalfollow = .5
+floortension = 35
+tension = 60
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0           ;Starting y coordinates
+p1startz = 0          ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -500000 ;Left bound (x-movement)
+rightbound =  500000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 25    ;Dist from left of screen that player can move to
+screenright = 15  ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 193
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+color = 45,45,10
+yscale = .05
+reflect = 0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Megaman8Theme.mp3
+bgvolume = 255
+
+;========================================================
+;--------------------------------------------------------
+; Background definition
+; ***
+;-------------------------------------
+; [BG x]
+; type = ?       "Normal"/"Parallax"  (def: "normal")
+; spriteno = ?, ? Sprite group and number: groupno, imgno  (req'd)
+; start = ?, ?   Starting location (integer)  (def: 0, 0)
+; delta = ?, ?   Change in location per camera unit moved (float)  (def: 1,1)
+; trans = ?      Transparency settings: "none"/"add"/"add1"/"sub"/"addalpha" (def: "none")
+; alpha = ?, ?   (only for trans=addalpha) Source,dest alpha (def: 256,0)
+; mask = ?       Masking (int): 0 - off, 1 - on  (def: 0)
+; velocity = ?, ? Velocity: x, y (float): speed background moves (def: 0, 0)
+; tile = ?, ?    Tiling: xtile, ytile (int): 0 - off, 1 - infinite,
+;                        >1 - tile that number of times  (def: 0, 0) - only for Normal BG
+; tilespacing = ?, ? Tiling: x, y (int) : space between tiles (def: 0, 0)
+;  Parallax-only:
+; xscale = ?, ?    Top xscale, bottom xscale (float)
+; width = ?, ?     Top width, bottom width (int)  (use either this or above, but not both)
+; yscalestart = ?  Starting y-scale (float, in percent)  (def: 100)
+; yscaledelta = ?  Change in y-scale per unit (float, in percent)  (def: 0)
+;-------------------------------------
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = NorthCityHeights.sff
+;-------------------------------------
+
+[BG Sky]
+type = anim
+actionno = 200
+start = -240,0
+delta = .6,0
+mask = 1
+tile = 1, 0
+tilespacing = 768
+
+
+[BG Clouds 2]
+type  = normal
+spriteno = 60, 0
+layerno = 0
+start = 144, -94
+delta = 1,1
+mask = 1
+trans = add1
+tile = 1,0
+velocity = -.07, 0
+
+[BG Clouds]
+type  = normal
+spriteno = 60, 1
+layerno = 0
+start = 0, -80
+delta = 1,1
+mask = 1
+trans = add
+tile = 1,0
+velocity = -.10, 0
+
+[Begin action 200]
+3,0,0,0,7
+3,1,0,0,7
+3,2,0,0,7
+3,3,0,0,7
+3,4,0,0,7
+3,5,0,0,7
+3,6,0,0,7
+
+[BG Stars 5]
+type = anim
+actionno = 201
+start = 245,-80
+delta = .03,1
+mask = 1
+tile = 1, 0
+tilespacing = 480
+
+
+[BG Stars 4]
+type = anim
+actionno = 204
+start = 18,-65
+delta = .06,1
+mask = 1
+tile = 1, 0
+tilespacing = 480
+
+[Begin action 204]
+4,0,0,0,3;,,H
+4,1,0,0,3;,,H
+
+[BG Stars 3]
+type = anim
+actionno = 203
+start = 198,-60
+delta = .09,1
+mask = 1
+tile = 1, 0
+tilespacing = 480
+
+[Begin action 203]
+4,3,0,0,3;,,VH
+4,4,0,0,3;,,VH
+
+[BG Stars 2]
+type = anim
+actionno = 202
+start = 198,-60
+delta = .1,1
+mask = 1
+tile = 1, 0
+tilespacing = 480
+
+[Begin action 202]
+4,0,0,0,3;,,VH
+4,1,0,0,3;,,VH
+
+[BG Stars]
+type = anim
+actionno = 201
+start = 0,0
+delta = .13,1
+mask = 1
+tile = 1, 0
+tilespacing = 480
+
+[Begin action 201]
+4,0,0,0,3
+4,1,0,0,3
+
+[BG Shooting Star]
+type = anim
+actionno = 8
+start = -175,50
+delta = .2,1
+mask = 1
+tile = 1, 0
+tilespacing = 480
+
+[Begin action 8]
+8,0,0,0,500
+8,1,0,0,3
+8,2,0,0,3
+8,3,0,0,3
+8,4,0,0,3
+8,5,0,0,3
+8,6,0,0,3
+8,7,0,0,3
+8,8,0,0,3
+8,9,0,0,3
+8,10,0,0,3
+8,11,0,0,3
+8,12,0,0,3
+8,13,0,0,3
+8,14,0,0,3
+
+[BG Moon]
+type  = anim
+actionno = 40
+layerno = 0
+start = 0, 0
+delta = .01,0
+mask = 1
+velocity = -.001, 0
+
+[Begin action 40]
+40,0,0,0,7
+40,1,0,0,7
+40,2,0,0,7
+40,3,0,0,7
+40,2,0,0,7
+40,1,0,0,7
+
+[BG City]
+type = anim
+actionno = 10
+start = -240,0
+delta = .6,1
+mask = 1
+tile = 1, 0
+tilespacing = 768
+
+[Begin action 10]
+0,0,0,0,7
+0,1,0,0,7
+0,2,0,0,7
+0,3,0,0,7
+0,4,0,0,7
+0,5,0,0,7
+0,6,0,0,7
+0,7,0,0,7
+0,8,0,0,7
+0,9,0,0,7
+0,10,0,0,7
+0,11,0,0,7
+0,12,0,0,7
+0,13,0,0,7
+0,14,0,0,7
+0,15,0,0,7
+
+[BG Cars and Lights]
+type = anim
+actionno = 11
+start = -240,0
+delta = .6,1
+mask = 1
+tile = 1, 0
+tilespacing = 768
+
+[Begin action 11]
+1,0,0,0,7
+1,1,0,0,7
+1,2,0,0,7
+1,3,0,0,7
+
+
+[BG TV Mettool]
+type = anim
+actionno = 12
+start = -240,0
+delta = .6,1
+mask = 1
+tile = 1, 0
+tilespacing = 768
+
+[Begin action 12]
+2,0,0,0,100
+2,1,0,0,7
+2,2,0,0,7
+2,3,0,0,7
+2,4,0,0,7
+2,5,0,0,7
+2,6,0,0,7
+2,7,0,0,7
+2,8,0,0,7
+2,9,0,0,7
+2,10,0,0,14
+2,11,0,0,7
+2,12,0,0,7
+2,13,0,0,7
+2,14,0,0,7
+2,15,0,0,7
+2,16,0,0,7
+2,17,0,0,7
+2,18,0,0,7
+2,19,0,0,7
+2,20,0,0,14
+2,21,0,0,7
+2,22,0,0,7
+2,23,0,0,7
+2,24,0,0,7
+2,25,0,0,7
+2,26,0,0,7
+2,27,0,0,7
+2,28,0,0,7
+2,29,0,0,7
+2,30,0,0,14
+2,31,0,0,7
+2,32,0,0,7
+2,33,0,0,7
+2,34,0,0,7
+2,35,0,0,7
+2,36,0,0,7
+2,37,0,0,7
+2,38,0,0,7
+2,39,0,0,7
+2,40,0,0,14
+2,41,0,0,7
+2,42,0,0,7
+2,43,0,0,7
+2,44,0,0,20
+
+[BG Frostground]
+type  = anim
+actionno = 7
+start = 0, 50
+delta = 1,1
+mask = 1
+tile = 1, 0
+tilespacing = 356
+
+[BG Lights]
+type  = anim
+actionno = 5222
+start = 0, 50
+delta = 1,1
+mask = 1
+tile = 1, 0
+tilespacing = 356
+
+[Begin action 5222]
+50,2,0,0,2
+-1,1,0,0,1
+
+[BG Blue Floor]
+type  = normal
+spriteno = 50, 1
+layerno = 0
+start = 0, 50
+delta = 1,1
+mask = 1
+trans = add
+tile = 1,0
+
+[Begin action 7]
+7,0,0,0,7
+7,1,0,0,7
+7,2,0,0,7
+7,3,0,0,7
+7,2,0,0,7
+7,1,0,0,7
+
+[BG Blue Lights]
+type  = anim
+actionno = 5
+start = 0, 50
+delta = 1,1
+mask = 1
+tile = 1, 0
+tilespacing = 356
+
+[Begin action 5]
+5,0,0,0,6
+5,1,0,0,6
+5,2,0,0,6
+5,3,0,0,6
+5,4,0,0,6
+5,5,0,0,20
+5,4,0,0,6
+5,3,0,0,6
+5,2,0,0,6
+5,1,0,0,6
+
+[BG Blue Lights Under]
+type  = anim
+actionno = 6
+start = 0, 50
+delta = 1,1
+mask = 1
+tile = 1, 0
+tilespacing = 356
+
+[Begin action 6]
+6,0,0,0,5,,a
+6,1,0,0,5,,a
+6,2,0,0,5,,a
+6,3,0,0,5,,a
+6,2,0,0,5,,a
+6,1,0,0,5,,a
+
+[BG Snowfallen]
+type  = normal
+spriteno = 50, 0
+layerno = 0
+start = 0, 50
+delta = 1,1
+mask = 1
+trans = add
+tile = 1,0
+
+[BG Box]
+type  = anim
+actionno = 30
+layerno = 0
+start = 1000, 130
+delta = 1,1
+mask = 1
+tile = 1,0
+tilespacing = 2500
+
+[Begin action 30]
+30,0,0,0,8
+30,1,0,0,8
+30,2,0,0,8
+30,3,0,0,8
+30,2,0,0,8
+30,1,0,0,8
+
+;------------------------------------
+
+[Begin action 1]
+10,3,0,0,1,,a
+
+
+[Begin action 2]
+10,4,0,0,1,,a
+
+
+[Begin action 3]
+10,5,0,0,1,,a
+
+
+[Begin action 4]
+10,6,0,0,1,,a
+;------------------------------------
+
+
+[BG Big Snow 3.0]
+type  = anim
+actionno = 1
+id = 3
+layerno = 1
+start = 0, -20
+delta = 1, 1
+tile = 1,0
+tilespacing = 470
+sin.x = 2, 120
+trans = add
+
+[BGCtrlDef 3]
+CtrlID = 3
+Looptime = 241
+
+[BGCtrl 3.1]
+type = VelSet
+time = 0
+x = 0
+y = 2.0
+
+[BGCtrl 3.2]
+type = PosSet
+time = 200
+y = 0
+
+
+[BG Big Snow 4.0]
+type  = anim
+actionno = 1
+id = 4
+layerno = 1
+start = -10, -30
+delta = 1, 1
+tile = 1,0
+tilespacing = 320
+sin.x = -3, 120
+trans = add
+
+[BGCtrlDef 4]
+CtrlID = 4
+Looptime = 322
+
+[BGCtrl 4.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.3
+
+[BGCtrl 4.2]
+type = PosSet
+time = 200
+y = 0
+
+[BG Big Snow 5.0]
+type  = anim
+actionno = 1
+id = 5
+layerno = 1
+start = 100, -60
+delta = 1, 1
+tile = 1,0
+tilespacing = 574
+sin.x = -2, 120
+trans = add
+
+[BGCtrlDef 5]
+CtrlID = 5
+Looptime = 412
+
+[BGCtrl 5.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.7
+
+[BGCtrl 5.2]
+type = PosSet
+time = 200
+y = 0
+
+
+[BG Big Snow 6.0]
+type  = anim
+actionno = 1
+id = 90
+layerno = 1
+start = 1800, -90
+delta = 1, 1
+tile = 1,0
+tilespacing = 574
+trans = add
+
+[BGCtrlDef 90]
+CtrlID = 90
+Looptime = 412
+
+[BGCtrl 90.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.7
+
+[BGCtrl 90.2]
+type = PosSet
+time = 200
+y = 0
+
+
+[BG Big Snow 7.0]
+type  = anim
+actionno = 1
+id = 91
+layerno = 1
+start = 180, -110
+delta = 1, 1
+tile = 1,0
+tilespacing = 574
+sin.x = 5, 120
+trans = add
+
+[BGCtrlDef 91]
+CtrlID = 91
+Looptime = 412
+
+[BGCtrl 91.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.7
+
+[BGCtrl 91.2]
+type = PosSet
+time = 200
+y = 0
+
+
+[BG Big Snow 7.0]
+type  = anim
+actionno = 1
+id = 92
+layerno = 1
+start = 240, -100
+delta = 1, 1
+tile = 1,0
+tilespacing = 574
+sin.x = -3, 120
+trans = add
+
+[BGCtrlDef 92]
+CtrlID = 92
+Looptime = 300
+
+[BGCtrl 92.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.9
+
+[BGCtrl 92.2]
+type = PosSet
+time = 200
+y = 0
+
+[BG Big Snow 8.0]
+type  = anim
+actionno = 1
+id = 93
+layerno = 1
+start = -200, -90
+delta = 1, 1
+tile = 1,0
+tilespacing = 574
+sin.x = 4, 120
+trans = add
+
+[BGCtrlDef 93]
+CtrlID = 93
+Looptime = 400
+
+[BGCtrl 93.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.8
+
+[BGCtrl 93.2]
+type = PosSet
+time = 200
+y = 0
+
+[BG Big Snow 8.0]
+type  = anim
+actionno = 1
+id = 94
+layerno = 1
+start = -300, -90
+delta = 1, 1
+tile = 1,0
+tilespacing = 574
+sin.x = -2, 120
+trans = add
+
+[BGCtrlDef 94]
+CtrlID = 94
+Looptime = 400
+
+[BGCtrl 94.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.8
+
+[BGCtrl 94.2]
+type = PosSet
+time = 200
+y = 0
+
+
+;------------------------------
+
+[BG Snow Med 6.0]
+type  = anim
+actionno = 4
+id = 6
+layerno = 1
+start = 50, -40
+delta = 1, 1
+tile = 1,0
+tilespacing = 214
+sin.x = 2, 120
+trans = add
+
+[BGCtrlDef 6]
+CtrlID = 6
+Looptime = 247
+
+[BGCtrl 6.1]
+type = VelSet
+time = 0
+x = 0
+y = 2
+
+[BGCtrl 6.2]
+type = PosSet
+time = 230
+y = 0
+
+[BG Snow Med 6.1]
+type  = anim
+actionno = 4
+id = 7
+layerno = 1
+start = -23, -90
+delta = 1, 1
+tile = 1,0
+tilespacing = 554
+sin.x = -1, 120
+trans = add
+
+[BGCtrlDef 7]
+CtrlID = 7
+Looptime = 264
+
+[BGCtrl 7.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.2
+
+[BGCtrl 7.2]
+type = PosSet
+time = 260
+y = 0
+
+
+[BG Snow Med 6.2]
+type  = anim
+actionno = 4
+id = 8
+layerno = 1
+start = -23, -60
+delta = 1, 1
+tile = 1,0
+tilespacing = 411
+sin.x = 4, 120
+trans = add
+
+[BGCtrlDef 8]
+CtrlID = 8
+Looptime = 249
+
+[BGCtrl 8.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.5
+
+[BGCtrl 8.2]
+type = PosSet
+time = 245
+y = 0
+
+[BG Snow Med 6.3]
+type  = anim
+actionno = 4
+id = 180
+layerno = 1
+start = -103, -70
+delta = 1, 1
+tile = 1,0
+tilespacing = 411
+sin.x = 3, 120
+trans = add
+
+[BGCtrlDef 80]
+CtrlID = 180
+Looptime = 211
+
+[BGCtrl 180.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.7
+
+[BGCtrl 180.2]
+type = PosSet
+time = 210
+y = 0
+
+
+[BG Snow Med 6.4]
+type  = anim
+actionno = 4
+id = 181
+layerno = 1
+start = -203, -80
+delta = 1, 1
+tile = 1,0
+tilespacing = 411
+sin.x = -2, 120
+trans = add
+
+[BGCtrlDef 181]
+CtrlID = 181
+Looptime = 232
+
+[BGCtrl 181.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.8
+
+[BGCtrl 181.2]
+type = PosSet
+time = 200
+y = 0
+
+[BG Snow Med 6.5]
+type  = anim
+actionno = 4
+id = 182
+layerno = 1
+start = 144, -80
+delta = 1, 1
+tile = 1,0
+tilespacing = 411
+sin.x = -4, 120
+trans = add
+
+[BGCtrlDef 182]
+CtrlID = 182
+Looptime = 222
+
+[BGCtrl 182.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.8
+
+[BGCtrl 182.2]
+type = PosSet
+time = 200
+y = 0
+
+[BG Snow Med 6.6]
+type  = anim
+actionno = 4
+id = 183
+layerno = 1
+start = 177, -80
+delta = 1, 1
+tile = 1,0
+tilespacing = 411
+sin.x = -3, 120
+trans = add
+
+[BGCtrlDef 183]
+CtrlID = 183
+Looptime = 262
+
+[BGCtrl 183.1]
+type = VelSet
+time = 0
+x = 0
+y = 1.2
+
+[BGCtrl 183.2]
+type = PosSet
+time = 260
+y = 0
+
+[BG Snow Med 6.7]
+type  = anim
+actionno = 4
+id = 184
+layerno = 1
+start = 206, -80
+delta = 1, 1
+tile = 1,0
+tilespacing = 411
+sin.x = -1, 120
+trans = add
+
+[BGCtrlDef 184]
+CtrlID = 184
+Looptime = 203
+
+[BGCtrl 184.1]
+type = VelSet
+time = 0
+x = 0
+y = 2
+
+[BGCtrl 183.2]
+type = PosSet
+time = 200
+y = 0
+
+;--------------------------------
+
+
+[BG Snow Small 10.0]
+type  = anim
+actionno = 2
+id = 10
+layerno = 1
+start = 80, -30
+delta = 1, 1
+tile = 1,0
+tilespacing = 296
+sin.x = -5, 120
+trans = add
+
+[BGCtrlDef 10]
+CtrlID = 10
+Looptime = 365
+
+[BGCtrl 10.1]
+type = VelSet
+time = 60
+x = 0
+y = 1
+
+[BGCtrl 10.2]
+type = PosSet
+time = 290
+y = 0
+
+[BG Snow Small 10.0]
+type  = anim
+actionno = 2
+id = 11
+layerno = 1
+start = 180, -32
+delta = 1, 1
+tile = 1,0
+tilespacing = 312
+sin.x = 3, 120
+trans = add
+
+[BGCtrlDef 11]
+CtrlID = 11
+Looptime = 396
+
+[BGCtrl 11.1]
+type = VelSet
+time = 60
+x = 0
+y = 1.1
+
+[BGCtrl 11.2]
+type = PosSet
+time = 280
+y = 0
+
+
+[BG Snow Small 12.0]
+type  = anim
+actionno = 3
+id = 12
+layerno = 1
+start = 142, -29
+delta = 1, 1
+tile = 1,0
+tilespacing = 300
+sin.x = 2, 120
+trans = add
+
+[BGCtrlDef 12]
+CtrlID = 12
+Looptime = 365
+
+[BGCtrl 12.1]
+type = VelSet
+time = 60
+x = 0
+y = 1.6
+
+[BGCtrl 12.2]
+type = PosSet
+time = 330
+y = 0
+
+[BG Snow Small 13.0]
+type  = anim
+actionno = 3
+id = 13
+layerno = 1
+start = 280, -24
+delta = 1, 1
+tile = 1,0
+tilespacing = 555
+sin.x = -4, 120
+trans = add
+
+[BGCtrlDef 13]
+CtrlID = 13
+Looptime = 396
+
+[BGCtrl 13.1]
+type = VelSet
+time = 60
+x = 0
+y = 1.4
+
+[BGCtrl 13.2]
+type = PosSet
+time = 330
+y = 0
+
+[BG Snow Small 01]
+type = anim
+actionno = 2
+layerno = 1
+start = 32,-130
+delta = 1,1
+mask = 1
+id = 28
+tile = 1, 0
+tilespacing = 650
+sin.x = 5, 120
+trans = add
+
+[BGCtrlDef 28]
+CtrlID = 28
+loopTime = 800
+
+[BGCtrl 28]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 28]
+type = velset
+time = 700
+x = 0
+y = .5
+
+
+[BG Snow Small 02]
+type = anim
+actionno = 2
+layerno = 1
+start = 67,-130
+delta = 1,1
+mask = 1
+id = 29
+tile = 1, 0
+tilespacing = 450
+sin.x = 6, 120
+trans = add
+
+[BGCtrlDef 29]
+CtrlID = 29
+loopTime = 800
+
+[BGCtrl 29]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 29]
+type = velset
+time = 600
+x = 0
+y = 1.5
+
+[BG Snow Small 03]
+type = anim
+actionno = 3
+layerno = 1
+start = 200,-130
+delta = 1,1
+mask = 1
+id = 30
+tile = 1, 0
+tilespacing = 338
+trans = add
+
+[BGCtrlDef 30]
+CtrlID = 30
+loopTime = 201
+
+[BGCtrl 30]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 30]
+type = velset
+time = 200
+x = 0
+y = 3.5
+
+
+[BG Snow Small 330]
+type = anim
+actionno = 3
+layerno = 1
+start = 314,-130
+delta = 1,1
+mask = 1
+id = 330
+tile = 1, 0
+tilespacing = 338
+trans = add
+
+[BGCtrlDef 330]
+CtrlID = 330
+loopTime = 150
+
+[BGCtrl 330]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 330]
+type = velset
+time = 0
+x = 0
+y = 3.5
+
+
+[BG Snow Small 331]
+type = anim
+actionno = 3
+layerno = 1
+start = 60,-130
+delta = 1,1
+mask = 1
+id = 331
+tile = 1, 0
+tilespacing = 512
+sin.x = 4, 120
+trans = add
+
+[BGCtrlDef 331]
+CtrlID = 331
+loopTime = 250
+
+[BGCtrl 331]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 331]
+type = velset
+time = 0
+x = 0
+y = 2.5
+
+[BG Snow Small 332]
+type = anim
+actionno = 3
+layerno = 1
+start = 160,-130
+delta = 1,1
+mask = 1
+id = 332
+tile = 1, 0
+tilespacing = 228
+sin.x = -2, 120
+trans = add
+
+[BGCtrlDef 332]
+CtrlID = 332
+loopTime = 250
+
+[BGCtrl 332]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 332]
+type = velset
+time = 0
+x = 0
+y = 2.5
+
+
+
+;Snow Part 2
+;----------------------------
+
+
+[BG Snow Big 01]
+type = anim
+actionno = 1
+layerno = 1
+start = 0,-60
+delta = 1,1
+trans = add
+mask = 1
+id = 25
+tile = 1, 0
+tilespacing = 650
+
+[BGCtrlDef 25]
+CtrlID = 25
+loopTime = 500
+
+[BGCtrl 25]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 25]
+type = velset
+time = 0
+x = 0
+y = 2
+
+
+[BG Snow Big 02]
+type = anim
+actionno = 1
+layerno = 1
+start = 326,-160
+delta = 1,1
+trans = add
+mask = 1
+id = 26
+tile = 1, 0
+tilespacing = 650
+sin.x = 4, 120
+
+[BGCtrlDef 26]
+CtrlID = 26
+loopTime = 600
+
+[BGCtrl 26]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 26]
+type = velset
+time = 0
+x = 0
+y = 1
+
+
+[BG Snow Big 03]
+type = anim
+actionno = 1
+layerno = 1
+start = -142,-130
+delta = 1,1
+trans = add
+mask = 1
+id = 27
+tile = 1, 0
+tilespacing = 650
+
+[BGCtrlDef 27]
+CtrlID = 27
+loopTime = 600
+
+[BGCtrl 27]
+type = posset
+time = 0
+x = 0
+y = 0
+
+[BGCtrl 27]
+type = velset
+time = 0
+x = 0
+y = 1
+
+;--------------------------------------
+
+[BG Stage Intro]
+type  = anim
+actionno = 500
+layerno = 1
+start = -160, 0
+delta = 0,0
+mask = 0
+
+[Begin action 500]
+20,0,0,0,6
+20,1,0,0,2
+20,2,0,0,2
+20,3,0,0,2
+20,4,0,0,2
+20,5,0,0,2
+20,6,0,0,2
+20,7,0,0,2
+20,8,0,0,2
+20,9,0,0,2
+20,10,0,0,2
+20,11,0,0,2
+20,12,0,0,2
+20,13,0,0,2
+20,14,0,0,2
+20,15,0,0,1
+20,16,0,0,1
+20,17,0,0,1
+20,18,0,0,1
+20,19,0,0,1
+20,20,0,0,1
+20,21,0,0,1
+20,22,0,0,1
+20,23,0,0,1
+20,24,0,0,1
+20,25,0,0,1
+20,26,0,0,1
+-1,0,0,0,-1

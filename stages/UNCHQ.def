@@ -1,0 +1,102 @@
+;Stage created by UHMEEEEBA of Trinity MUGEN.
+;http://trinitymugen.net/
+;If found elsewhere, please go to the above site and contact
+;me about it.
+[Info]
+name = "U.N.C Headquarters"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -55
+boundright = 55
+boundhigh = -80;-80
+boundlow = 10
+verticalfollow = .3
+tension = 50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 30;15
+screenright = 30;15
+
+[StageInfo]
+zoffset = 235;207
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0.4
+reflect = 0
+faderange = -400, -100
+
+[Music]
+bgmusic = sound/blizzak.mp3
+bgvolume = 70
+
+[BGdef]
+spr = UNCHQ.sff
+
+[BG BG STUFF]
+type  = normal
+spriteno = 2, 0
+layerno = 0
+start = -2, -2
+delta = .6, .6
+mask  = 1
+
+[BG]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 7, 33
+delta = 1, 1
+mask  = 1
+tile  = 1, 0
+
+[BG Seizeurific Display Lights]
+type = anim
+actionno = 1
+layerno = 0
+delta = 1, 1
+mask = 0
+start = 7, 33
+
+[Begin Action 1]
+1,0, 0,0, 2, 
+1,1, 0,0, 2, 
+
+[BG The floor, cool]
+type = anim
+actionno = 2
+layerno = 0
+start = 567, 244
+delta = 1, 1
+mask = 0
+
+[Begin Action 2]
+3,0, 0,0, 10, 
+3,1, 0,0, 10, 
+3,2, 0,0, 10, 
+3,3, 0,0, 10, 

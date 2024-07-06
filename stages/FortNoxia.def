@@ -1,0 +1,143 @@
+
+[Info]
+name = "Fort Noxia"
+author="MabsKMK"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -5000
+boundright = 5000
+boundhigh = -230
+boundlow = 0
+verticalfollow = .8;.6;
+floortension = 100;50;
+tension = 60;50;
+cuthigh = 0 
+cutlow = 5
+zoomout = 1;.5
+zoomin = 1
+;overdrawhigh = 120
+;overdrawlow = 120
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -9999
+rightbound =  9999
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 207;210
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .1
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/MightyCity1.mp3
+bgvolume = 0
+
+[BGdef]
+spr = FortNoxia.sff
+debugbg = 1
+
+[BG 1] ; moonsky
+type  = normal
+spriteno = 1, 13
+start = 0, 240
+delta = 0,0
+zoomdelta=0
+
+[BG 1] ; citybg
+type  = normal
+spriteno = 1, 5
+start = 0, 260
+mask=1
+delta = .5,.5
+zoomdelta=.5
+tile=1,0
+tilespacing=65,0
+
+[BG 1] ; citybg
+type  = normal
+spriteno = 1, 15
+start = 0, 260
+mask=1
+delta = .7,.7
+zoomdelta=.7
+tile=1,0
+tilespacing=35,0
+
+[BG 1] ; bridge
+type  = normal
+spriteno = 1, 31
+start = 0, 260
+mask=1
+delta = .8,.8
+zoomdelta=.8
+tile=1,0
+tilespacing=0,0
+
+[BG 1] ; m4incitybg
+type  = normal
+spriteno = 1, 4
+start = 0, 270
+mask=1
+delta = .9,.9
+zoomdelta=.9
+tile=1,0
+tilespacing=250,0
+
+[BG 1] ; bridge
+type  = normal
+spriteno = 1, 7
+start = 20, 200
+mask=1
+delta = 1,1
+tile=1,0
+tilespacing=0,0
+[BG 1] ; bridge
+type  = normal
+spriteno = 1, 6
+start = 0, 220
+mask=1
+delta = 1,1
+tile=1,0
+tilespacing=0,0
+[BG 1] ; bridge
+type  = normal
+spriteno = 1, 7
+start = 0, 220
+mask=1
+layerno=1
+delta = 1,1
+tile=1,0
+tilespacing=0,0

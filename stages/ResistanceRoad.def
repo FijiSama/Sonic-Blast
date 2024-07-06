@@ -1,0 +1,349 @@
+
+[Info]
+name = "Resistance Road"
+Author = "Wizzywhipitwonderful, Edited by AVPboy6754"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -250
+boundright = 250
+boundhigh = -350
+boundlow = 0
+verticalfollow = .85
+floortension = 50
+tension = 50
+cuthigh = 0
+cutlow = 10
+
+[PlayerInfo]
+p1startx = -70          
+p1starty = 0            
+p1startz = 0           
+p1facing = 1        
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000 
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+[Scaling] 
+topz = 0       
+botz = 50      
+topscale = 1       
+botscale = 1.2     
+
+[Bound]
+screenleft = 15    
+screenright = 15  
+
+[StageInfo]
+zoffset = 190;215
+autoturn = 1
+zoffsetlink = 1
+resetBG = 0
+
+[shadow]
+color = 92,92,92
+yscale = -.1
+
+[Music]
+bgmusic = sound/MechRaid.mp3 
+bgvolume = 255
+
+[BGdef]
+spr = ResistanceRoad.sff
+debugbg = 1
+
+[BG Sea]
+type  = normal
+spriteno = 1,1
+layerno = 0                
+start = 24, -68
+delta = 0.55,0.55
+tile = 1,0
+velocity = .1,0
+
+[BG Sea]
+type  = normal
+spriteno = 1,0
+layerno = 0                
+start = 0,0
+delta = 0.6,0.6
+tile = 1,0
+velocity = 8
+mask = 1
+
+[BG Cloud]
+type  = normal
+spriteno = 2,0
+layerno = 0                
+start = 0,0
+delta = 0.525,0.525
+tile = 1,0
+trans = addalpha
+alpha = 30,240
+velocity = .15
+
+[BG Cloud]
+type  = normal
+spriteno = 2,0
+layerno = 0                
+start = 146, -85
+delta = 0.535,0.535
+tile = 1,0
+trans = addalpha
+alpha = 30,240
+velocity = .175
+
+[BG Plane]
+type  = normal
+spriteno = 5,0
+layerno = 0                
+start = 100,-20
+delta = 0.555,0.555
+tile = 1,0
+tilespacing = 50000,0
+scalestart = .5,.5
+sin.y = -3, 835
+velocity = -35
+mask = 1
+
+[BG Highway]
+type  = normal
+spriteno = 4,0
+layerno = 0                
+start = 68,55
+delta = 0.7,0.7
+scalestart = 1,1
+mask  = 1
+tile = 1,0
+tilespacing = 1000,0
+sin.y = -1.5, 835
+Velocity = 15
+
+[BG Highway]
+type  = normal
+spriteno = 0,3
+layerno = 0                
+start = 68,55
+delta = 0.7,0.7
+scalestart = .5,.5
+mask  = 1
+tile = 1,0
+sin.y = -1.5, 835
+Velocity = 15
+
+[BG Truck]
+type  = anim
+actionno = 0
+layerno = 0                
+start = 68,75
+delta = 0.7,0.7
+scalestart = .5,.5
+mask  = 1
+tile = 1,0
+tilespacing = 1250,0
+sin.y = -1.5, 835
+Velocity = -.16
+
+[Begin Action 0]
+5,1, 0,0, 1,H
+5,1, 0,-1, 1,H
+
+[BG Guardian]
+type  = anim
+actionno = 1
+layerno = 0                
+start = 20,52
+delta = .725,.725
+scalestart = .5,.5
+Velocity = -.235,0
+sin.y = -5, 832
+tile = 1,0
+tilespacing = 1350,0
+mask  = 1
+
+[Begin Action 1]
+0,9, 0,0, 1,H
+0,10, 0,-1, 1,H
+
+[BG Guardian]
+type  = anim
+actionno = 2
+layerno = 0                
+start = 200,58
+delta = .75,.75
+scalestart = .52,.52
+Velocity = -.285,0
+sin.y = -6, 832
+tile = 1,0
+tilespacing = 2350,0
+mask  = 1
+
+[Begin Action 2]
+0,7, 0,1, 1,H
+0,8, 0,0, 2,H
+
+[BG Highway]
+type  = normal
+spriteno = 4,1
+layerno = 0                
+start = 0,-20
+delta = 0.9,0.9
+mask  = 1
+tile = 1,0
+tilespacing = 1000,0
+Velocity = 20
+sin.y = -1.5, 835
+
+[BG Highway]
+type  = normal
+spriteno = 0,2
+layerno = 0                
+start = 0,-20
+delta = 0.9,0.9
+mask  = 1
+tile = 1,0
+Velocity = 20
+sin.y = -1.5, 835
+
+[BG Tank]
+type  = anim
+actionno = 3
+layerno = 0                
+start = 255,70
+delta = .75,.75
+scalestart = .825,.825
+Velocity = -.215,0
+sin.x = 4, 822
+sin.y = -4, 822
+tile = 1,0
+tilespacing = 3050,0
+mask  = 1
+
+[Begin Action 3]
+0,11, 0,0, 1,H
+0,11, 1,0, 2,H
+
+[BG Tank Soldier]
+type  = anim
+actionno = 4
+layerno = 0                
+start = 255,70
+delta = .75,.75
+scalestart = .825,.825
+Velocity = -.215,0
+sin.x = 4, 822
+sin.y = -4, 822
+tile = 1,0
+tilespacing = 3050,0
+mask  = 1
+
+[Begin Action 4]
+0,5, -1,0, 1,H
+0,5, 0,0, 2,H
+
+[Begin Action 5]
+0,6, 0,0, 1,H
+0,6, -1,0, 2,H
+
+[BG Tank]
+type  = anim
+actionno = 6
+layerno = 0                
+start = 255,70
+delta = .75,.75
+scalestart = .825,.825
+Velocity = -.215,0
+sin.x = 4, 822
+sin.y = -4, 822
+tile = 1,0
+tilespacing = 3050,0
+mask  = 1
+
+[Begin Action 6]
+0,0, 1,0, 1,H
+0,0, 0,0, 2,H
+
+[BG guardian yellow]
+type  = anim
+actionno = 1
+layerno = 0                
+start = 455,75
+delta = .75,.75
+scalestart = .825,.825
+Velocity = -.225,0
+sin.y = 4, 822
+sin.y = -4, 822
+tile = 1,0
+tilespacing = 1050,0
+mask  = 1
+
+[BG guardian blue]
+type  = anim
+actionno = 2
+layerno = 0                
+start = -155,58
+delta = .825,.825
+scalestart = .85,.85
+Velocity = -.385,0
+sin.x = 5, 842
+sin.y = -5, 842
+tile = 1,0
+tilespacing = 2050,0
+mask  = 1
+
+[BG Rail]
+type = normal
+spriteno = 3,1
+start = 0, 179
+delta = 1,1
+sin.x = 4, 1080
+sin.y = 1.5,230,2 
+tile = 1,0
+layerno = 0
+mask = 1
+
+[BG Floor]
+type = parallax
+spriteno = 0,1
+delta = 1,1
+xscale = .65,1.08
+sin.x = 4, 1080
+sin.y = 1.5,230,2 
+tile = 1,0
+layerno = 0
+id = 1
+mask = 1
+
+[BG Rail]
+type = normal
+spriteno = 3,0
+start = 10, 228
+delta = 1.2,1.1
+sin.x = 4, 1080
+sin.y = 1.5,230,2 
+scalestart = 1.5,1.5
+tile = 1,0
+layerno = 0
+mask = 1
+
+[BG Rail]
+type = normal
+spriteno = 3,0
+start = 10,248
+delta = 1.2,1.1
+sin.x = 4, 1080
+sin.y = 1.5,230,2 
+scalestart = 1.5,1.5
+trans = addalpha
+alpha = 180,90
+tile = 1,0
+layerno = 1
+mask = 1

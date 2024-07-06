@@ -1,0 +1,77 @@
+[info]
+name = "Calm Park"
+author = "PabloSSB"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -40
+boundright = 40
+boundhigh = -30
+boundlow = 0
+verticalfollow = .6
+floortension = 50
+tension = 80
+
+[PlayerInfo]
+p1startx = -50
+p1starty = 00
+p1startz = 0
+p1facing = 1
+
+p2startx = 50
+p2starty = 00
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 18
+screenright = 18
+
+[Music]
+bgmusic = sound/Megaman and Bass Museum.mp3
+bgvolume = 255
+
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 64,64,64
+yscale = .1
+intensity = 0
+
+;========================================================
+;-------------------------------------
+; Main background definition
+[BGdef]
+spr = CalmPark.sff
+debugbg = 0
+
+[BG 2]; City
+type  = normal
+spriteno = 1, 0
+start = -200,-5
+delta = 0.2,0.2
+
+[BG 4]; Floor
+type  = normal
+spriteno = 0, 0
+start = -15, 110
+delta = 1,1
+mask = 1
+window = 0,0,
+
+

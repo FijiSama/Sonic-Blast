@@ -1,0 +1,254 @@
+
+.;Steel Works from Sparkster (SNES)
+;by Gêmeos dos Jogos
+
+;--------------------------------------------------------
+[Info]
+name = "Eggman Base"
+displayname = "Eggman Base"
+versiondate = 06,16,2022
+mugenversion = 1.0
+author = "Gêmeos dos Jogos"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -1000
+boundright = 1000
+boundhigh = -600
+boundlow = 0
+verticalfollow = 1
+floortension = 0
+tension = 50
+;overdrawhigh = 0
+;overdrawlow = 0
+cuthigh = 75
+cutlow = 55;45
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+leftbound  = -2000
+rightbound =  2000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 140
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = 0
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Steel Works - Sparkster.mp3
+bgmloopstart = 402840
+bgmloopend = 3134250
+bgmvolume = 100
+
+;========================================================
+;-------------------------------------
+[BGdef]
+spr = EggmanBase.sff
+debugbg = 0
+
+;----------
+[BG Fundo]
+type  = normal
+spriteno = 0, 0
+start = -160,0
+delta = .2, .2
+mask = 1
+velocity = 0, 0
+tile = 1, 1
+tilespacing = 0, 0
+
+[BG Canos - 2]
+type  = normal
+spriteno = 3, 1
+start = 0,-160
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 1
+tilespacing = 696, 0
+
+[BG Canos - 1]
+type  = normal
+spriteno = 3, 0
+start = 0,-160
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 360, 0
+
+[BG Chao 1]
+type  = Anim
+actionno = 1
+start = -160, 130
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 32, 0
+
+[BG Chao 2]
+type  = Anim
+actionno = 2
+start = -160,130
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 32, 0
+layerno = 1
+
+[BG Apoios]
+type  = Anim
+actionno = 5
+start = -161, 114
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 32, 0
+
+[BG Embaixo do Chao]
+type  = Anim
+actionno = 3
+start = -160,200
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 32, 0
+
+[BG Barra]
+type  = normal
+spriteno = 2, 4
+start = -160,200
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 0, 0
+layerno = 1
+
+[BG Cano Instalado]
+type  = normal
+spriteno = 3, 2
+start = 0,198
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 656, 0
+layerno = 1
+
+[BG Canos - 3]
+type  = normal
+spriteno = 3, 3
+start = -31, -165
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 1
+tilespacing = 360, 0
+layerno = 1
+
+[BG Canos - 4]
+type  = normal
+spriteno = 3, 4
+start = -160,-200
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 2
+tilespacing = 0, -384
+
+[BG Painel]
+type  = Anim
+actionno = 4
+start = -59, -458
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 1, 0
+tilespacing = 720, 0
+
+[BG Fumaca]
+type  = normal
+spriteno = 6, 0
+start = 65, 59
+delta = 0, 0
+mask = 1
+velocity = -1, 0
+tile = 1, 0
+tilespacing = 0, 0
+trans = addalpha
+alpha = 256,256
+layerno = 1
+
+;----------
+; Chao 1
+[Begin Action 1]
+1,0, 0,0, 2
+1,1, 0,0, 2
+1,2, 0,0, 2
+1,3, 0,0, 2
+
+;----------
+; Chao 2
+[Begin Action 2]
+1,4, 0,0, 2
+1,5, 0,0, 2
+1,6, 0,0, 2
+1,7, 0,0, 2
+
+; Embaixo do Chao
+[Begin Action 3]
+2,0, 0,0, 10
+2,1, 0,0, 10
+2,2, 0,0, 10
+2,3, 0,0, 10
+
+
+; Painel
+[Begin Action 4]
+4,0, 0,0, 2
+4,1, 0,0, 2
+4,2, 0,0, 2
+4,3, 0,0, 2
+
+; Apoios
+[Begin Action 5]
+5,0, 0,0, 2
+5,1, 0,0, 2
+5,2, 0,0, 2
+5,3, 0,0, 2
+

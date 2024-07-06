@@ -1,0 +1,167 @@
+
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Fungal Valley"
+
+;--------------------------------------------------------
+[Camera]
+
+startx = 0
+starty = 0
+boundleft = -2000
+boundright = 2000
+boundhigh = -258
+boundlow = 0
+verticalfollow = .9
+floortension = 100
+tension = 90
+;startzoom 	= 1,1
+;zoomin 		= 1.1
+;zoomout 		= .8
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70         
+p1starty = 0            
+p1startz = 0            
+p1facing = 1       
+  
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -3000 
+rightbound =  3000 
+topbound  =  0     
+botbound  =  0     
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1      
+botscale = 1.2  
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15   
+screenright = 15   
+;--------------------------------------------------------
+[StageInfo]
+zoffset = -50;188
+zoffsetlink = 5
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 128,128,128
+yscale = .05
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/GreenArea.mp3
+bgvolume = 255
+
+;========================================================
+
+[BGdef]
+spr = FungalValley.sff
+debugbg = 0
+
+[BG mountains]
+type = normal
+spriteno = 6,0
+start = 0, 250
+delta = .4000,.88
+tile = 1,0
+mask = 0
+id = 5
+
+[BG trees]
+type = normal
+spriteno = 5,0
+start = 0, 250
+delta = .4500,.9
+tile = 1,0
+mask = 0
+id = 5
+
+[BG water]
+type = parallax
+spriteno = 4,0
+start = 0, 250
+delta = .4500,.9
+width = 576,1152
+yscalestart = 100
+velocity = 2,0;.4,0
+tile = 1,0
+mask = 0
+id = 5
+
+[BG stage]
+type = normal
+spriteno = 3,0
+start = 0, 250
+delta = .6500,1
+tile = 1,0
+mask = 1
+id = 5
+
+[BG floor]
+type = parallax
+spriteno = 2,0
+start = 0, 250
+delta = .6500,1
+width = 659,1318
+yscalestart = 100
+tile = 1,0
+mask = 0
+id = 5
+
+[BG foreground land]
+type = normal
+spriteno = 0,0
+start = 0, 250
+delta = 1,1
+tile = 1.3,0
+layerno = 1
+mask = 0
+id = 5
+
+[BG foreground water]
+type = normal
+spriteno = 1,0
+start = 0, 250
+delta = 1.4,1
+tile = 1,0
+layerno = 1
+trans = add1
+sin.x = 2,190,1
+sin.y = 2,185,1
+mask = 1
+id = 5
+
+[BGCtrlDef 1]
+CtrlId = 5
+
+[BGCtrl 1]
+type = posset
+time = 0
+x=0
+y = 138
+
+[BGCtrl 1]
+type = velset
+time = 0
+x = 0
+y = -.6
+
+[BGCtrl 1]
+type = velset
+time = 230
+x = 0
+y = 0

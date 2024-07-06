@@ -1,0 +1,167 @@
+[Info]
+name = 	"Leaf Plains"
+author ="cldz"
+;------------------------------------------------------------------------------------------------------------------------
+;bgm convert,editing = Winamp,mp3DirectCut
+;------------------------------------------------------------------------------------------------------------------------
+;thank you list;
+;               Elecbyte[M.U.G.E.N]
+;               VirtuallTek[Fighter Factory 3]
+;               SEGA
+;               zophar.net
+;               you ;) 
+;------------------------------------------------------------------------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -160
+boundright = 160
+boundhigh = -1600
+boundlow = 0
+verticalfollow = .85
+tension = 64
+floortension = 64
+overdrawhigh = 120
+overdrawlow = 120
+cuthigh = 0
+cutlow = 0
+tensionhigh = 120
+tensionlow = 120
+zoomin = 1
+zoomout = .5
+;---------------------------------------------------1088
+[PlayerInfo]
+p1startx = -50
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 50
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -10000
+rightbound =  10000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 12
+screenright = 12
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 0
+;localcoord =640
+;--------------------------------------------------------
+[Shadow]
+intensity = 70
+color = 0,0,0
+yscale = 0.025
+fade.range = -400,-100
+
+[Music]
+bgmusic = stages/Sonic Advance 2 - Leaf Forest Act 1.mp3
+bgvolume = 225
+;bgmloopstart = 110691
+;bgmloopend = -1
+
+[BGdef]
+spr = LeafPlains.sff
+debugbg = 0
+;----------------------
+[BG fff]
+type  = normal
+spriteno = 3,33
+start = 0,224
+mask = 1
+tile = 1,1
+tilespacing = 0, 0
+window = -20,-20,320,240
+windowdelta = 0,0
+zoomdelta = 0
+;-----
+[BG skf]
+type  = normal
+spriteno = 3,2
+delta = .096,.25
+start = 0,124
+mask = 1
+tile = 1,0
+tilespacing = 0, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+[BG bgg]
+type  = normal
+spriteno = 3,1
+delta = .192,.5
+start = 0,124
+mask = 1
+tile = 1,0
+tilespacing = 0, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+;--------------
+[BG bg]
+type  = normal
+spriteno = 2,0
+delta = .256,.75
+start = 0,124
+mask = 1
+tile = 1,0
+tilespacing = 0, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+;--------------
+
+;--------------
+
+[BG pon]
+type  = normal
+spriteno = 1,0
+start = 256,223
+mask = 1
+tile = 1,0
+tilespacing = 384, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+
+[BG flw]
+type  = normal
+spriteno = 1,3
+start = 0,223
+mask = 1
+tile = 1,0
+tilespacing = 320, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+;--------------
+[BG fl]
+type  = normal
+spriteno = 0,0
+start = 9,223
+mask = 1
+tile = 1,0
+tilespacing = 0, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+
+[BG fl]
+type  = normal
+spriteno = 0,0
+start = 0,224
+mask = 1
+tile = 1,0
+tilespacing = 0, 0
+window = -640,-480,640,480
+windowdelta = 0,0
+
+

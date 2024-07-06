@@ -1,0 +1,155 @@
+;Fire Capital from Rivals of Aether
+;by Gêmeos dos Jogos
+
+;--------------------------------------------------------
+[Info]
+name = "Fire Capital"
+displayname = "Fire Capital"
+versiondate = 02,26,2022
+mugenversion = 1.0
+author = "Gêmeos dos Jogos"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -202
+boundright = 202
+boundhigh = -80
+boundlow = 0
+verticalfollow = .4
+floortension = 0
+tension = 50
+overdrawhigh = 0
+overdrawlow = 0
+cuthigh = 35
+cutlow = 25
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 195
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+localcoord = 320, 240
+xscale = 1
+yscale = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Fiery Ambitions - Rivals of Aether.ogg
+bgmloopstart = 642600
+bgmloopend = 7371000
+bgmvolume = 100
+
+;========================================================
+;-------------------------------------
+[BGdef]
+spr = FireCapital.sff
+debugbg = 0
+
+;----------
+[BG Fundo 1]
+type  = normal
+spriteno = 0, 0
+start = 20,100
+delta = 0.7, 0.5
+mask = 1
+tile = 1, 0
+layerno = 0
+velocity = 0.2, 0
+tilespacing = -20, 0
+
+[BG Fundo 2]
+type  = normal
+spriteno = 0, 1
+start = 0,140
+delta = 0.8, 0.6
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Animacoes do fundo 2]
+type  = Anim
+actionno = 1
+start = 0,140
+delta = 0.8, 0.6
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Chao]
+type  = normal
+spriteno = 2, 0
+start = 0,195
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+[BG Bandeiras]
+type  = Anim
+actionno = 2
+start = 0,195
+delta = 1, 1
+mask = 1
+velocity = 0, 0
+tile = 0, 0
+tilespacing = 0, 0
+layerno = 0
+
+;----------
+; Animacoes do fundo 2
+[Begin Action 1]
+1,0, 0,0, 6
+1,1, 0,0, 7
+1,2, 0,0, 7
+1,3, 0,0, 6
+1,4, 0,0, 7
+1,5, 0,0, 7
+1,6, 0,0, 6
+1,7, 0,0, 7
+
+; Bandeiras
+[Begin Action 2]
+3,0, 0,0, 10
+3,1, 0,0, 10
+3,2, 0,0, 10
+3,3, 0,0, 10
+3,4, 0,0, 10
+3,5, 0,0, 10
+3,6, 0,0, 10
+3,7, 0,0, 10

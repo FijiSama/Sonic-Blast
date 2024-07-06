@@ -1,0 +1,637 @@
+
+[Info]
+name = "Twilight Tram"
+author="MabsKMK"
+;1A Fixed sunset
+;1B Fixed night
+;2A Running sunset
+;2B Running night
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -5000
+boundright = 5000
+boundhigh = -250
+boundlow = 0
+verticalfollow = .8
+floortension = 100
+tension = 60
+overdrawhigh = 120
+overdrawlow = 120
+zoomout = .75
+zoomin = 1
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -9999
+rightbound =  9999
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 0
+zoffsetlink = 8
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+intensity = 96
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/GHTheFinalAssaultA.mp3
+bgvolume = 0
+
+[BGdef]
+spr = TwilightTram.sff
+debugbg = 1
+
+[BG 1]
+type  = normal
+spriteno = 0, 0
+start = 0, 0
+delta = 0,0
+tile  = 1, 1
+tilespacing = 0,0
+;----------------------------
+
+[BG sky1]
+type  = normal
+spriteno = 1, 0
+start = 0, 162
+delta = 0,.25
+zoomdelta=0
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+[BG sky2]
+type  = normal
+spriteno = 1, 5
+start = 0, 170
+delta = .25,.25
+velocity=-.1,0
+zoomdelta=.25
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+[BG sky3?]
+type  = normal
+spriteno = 1, 5
+start = 128, 190
+delta = .27,.27
+velocity=-.1,0
+zoomdelta=.27
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+[BG sky4?]
+type  = normal
+spriteno = 1, 5
+start = 0, 210
+delta = .29,.29
+velocity=-.1,0
+zoomdelta=.29
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+
+[BG empireship]
+type  = normal
+spriteno = 10, 0
+start = 800, 161
+delta = .3,.4
+ID=5
+zoomdelta=.3
+mask=1
+[BG empireship]
+type  = normal
+spriteno = 10, 1
+start = 800, 161
+delta = .3,.4
+ID=5
+zoomdelta=.3
+mask=1
+
+[BG buildingsbck]
+type  = normal
+spriteno = 2, 5
+start = 2615, 161
+delta = 1,1
+velocity=-2.5,0
+zoomdelta=1
+mask=1
+tile  = 1, 1
+tilespacing = 5000,0
+[BG buildings]
+type  = normal
+spriteno = 2, 0
+start = 2615, 161
+delta = 1,1
+velocity=-2.5,0
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 5000,0
+
+[BG REDair]
+type  = anim
+actionno = 55
+start = -140, 25
+sin.x = 10,500,0
+sin.y = 15,250,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = -140, 25
+sin.x = 10,500,0
+sin.y = 15,250,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = 140, 25
+sin.x = 10,400,0
+sin.y = -15,250,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = 140, 25
+sin.x = 10,400,0
+sin.y = -15,250,0
+delta = .8,.8
+zoomdelta=.8
+
+[BG REDair]
+type  = anim
+actionno = 55
+start = -4000, 75
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = -4000, 75
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = -1000, 50
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+[BG REDair]
+type  = anim
+actionno = 55
+start = -1000, 50
+sin.y = -10,250,0
+sin.x = 500,1000,0
+velocity=.2,0
+delta = .8,.8
+zoomdelta=.8
+
+;[BG mine?]
+;type  = anim
+;actionno = 61
+;start = 5230, 120
+;delta = 1,1
+;sin.y = 10,500,0
+;velocity=-.5,0
+;zoomdelta=1
+;[Begin action 61]
+;51,0,0,0, 5
+;51,1,0,0, 5
+[BG mine?]
+type  = normal
+spriteno = 20, 1
+start = 5230, 120
+delta = 1,1
+sin.y = 10,500,0
+velocity=-.5,0
+zoomdelta=1
+mask=1
+
+[BG mine?]
+type  = anim
+actionno = 60
+start = -5230, 85
+delta = 1,1
+sin.y = -10,500,0
+velocity=.5,0
+zoomdelta=1
+[Begin action 60]
+57,0,0,0, 5
+57,1,0,0, 5
+57,2,0,0, 5
+
+[BG floor]
+type  = normal
+spriteno = 5, 1
+start = 0, 225
+delta = 1,1
+zoomdelta=1
+mask=1
+velocity=-2.5,0
+tile  = 1, 0
+tilespacing = 0,0
+
+;[BG fixedsoldier]
+;type  = normal
+;spriteno = 21, 2
+;start = -300, 194
+;delta = 1,1
+;velocity=-2.5,0
+;zoomdelta=1
+;mask=1
+;tile  = 1, 0
+;tilespacing = 766,0
+;[BG fixedsoldier]
+;type  = normal
+;spriteno = 20, 3
+;start = -100, 194
+;delta = 1,1
+;velocity=-2.5,0
+;zoomdelta=1
+;mask=1
+;tile  = 1, 0
+;tilespacing = 766,0
+;[BG fixedsoldier]
+;type  = normal
+;spriteno = 20, 13
+;start = 100, 194
+;delta = 1,1
+;velocity=-2.5,0
+;zoomdelta=1
+;mask=1
+;tile  = 1, 0
+;tilespacing = 766,0
+;[BG fixedsoldier]
+;type  = normal
+;spriteno = 21, 3
+;start = 300, 194
+;delta = 1,1
+;velocity=-2.5,0
+;zoomdelta=1
+;mask=1
+;tile  = 1, 0
+;tilespacing = 766,0
+;
+;;===
+;
+;[BG running]
+;type  = normal
+;spriteno = 20, 4
+;start = 0, 197
+;ID=1
+;sin.x = 200,2500,0
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 20, 6
+;start = 0, 197
+;ID=2
+;sin.x = 200,2500,0
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 20, 8
+;start = 0, 197
+;ID=3
+;sin.x = 200,2500,0
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 20, 10
+;start = 0, 197
+;ID=4
+;sin.x = 200,2500,0
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;
+;[BG running]
+;type  = normal
+;spriteno = 21, 10
+;start = 100, 203
+;ID=1
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 21, 11
+;start = 100, 203
+;ID=2
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 21, 12
+;start = 100, 203
+;ID=3
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 21, 13
+;start = 100, 203
+;ID=4
+;velocity=.1,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;
+;[BG running]
+;type  = normal
+;spriteno = 21, 22
+;start = -100, 209
+;ID=1
+;velocity=-.1,0
+;sin.x = -300,5000,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 21, 24
+;start = -100, 209
+;ID=2
+;velocity=-.1,0
+;sin.x = -300,5000,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 21, 26
+;start = -100, 209
+;ID=3
+;velocity=-.1,0
+;sin.x = -300,5000,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 21, 28
+;start = -100, 209
+;ID=4
+;velocity=-.1,0
+;sin.x = -300,5000,0
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;tile  = 1, 0
+;tilespacing = 500,0
+;
+;[BG running]
+;type  = normal
+;spriteno = 58, 0
+;start = 0, 220
+;ID=1
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;sin.x = -100,4000,0
+;sin.y = -5,500,0
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 58, 0
+;start = 0, 220
+;ID=2
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;sin.x = -100,4000,0
+;sin.y = -5,500,0
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 58, 1
+;start = 0, 220
+;ID=3
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;sin.x = -100,4000,0
+;sin.y = -5,500,0
+;tile  = 1, 0
+;tilespacing = 500,0
+;[BG running]
+;type  = normal
+;spriteno = 58, 1
+;start = 0, 220
+;ID=4
+;mask=1
+;delta = 1,1
+;zoomdelta=1
+;sin.x = -100,4000,0
+;sin.y = -5,500,0
+;tile  = 1, 0
+;tilespacing = 500,0
+
+;===
+
+[BG train]
+type  = normal
+spriteno = 29, 0
+start = 0, 150;220
+delta = 1,1
+ID=8
+zoomdelta=1
+mask=1
+tile  = 1, 0
+tilespacing = 0,0
+
+;===
+
+[BGCtrlDef running]
+looptime = 40
+ctrlID = 1
+[BGCtrl running]
+type = Visible
+time = 0
+value = 1
+[BGCtrl running]
+type = Visible
+time = 10
+value = 0
+
+[BGCtrlDef running]
+looptime = 40
+ctrlID = 2
+[BGCtrl running]
+type = Visible
+time = 0
+value = 0
+[BGCtrl running]
+type = Visible
+time = 10
+value = 1
+[BGCtrl running]
+type = Visible
+time = 20
+value = 0
+
+[BGCtrlDef running]
+looptime = 40
+ctrlID = 3
+[BGCtrl running]
+type = Visible
+time = 0
+value = 0
+[BGCtrl running]
+type = Visible
+time = 20
+value = 1
+[BGCtrl running]
+type = Visible
+time = 30
+value = 0
+
+[BGCtrlDef running]
+looptime = 40
+ctrlID = 4
+[BGCtrl running]
+type = Visible
+time = 0
+value = 0
+[BGCtrl running]
+type = Visible
+time = 30
+value = 1
+
+[BGCtrlDef ship]
+looptime = 12200
+ctrlID = 5
+[BGCtrl ship]
+type = Velset
+time = 0
+x = -.3
+y = 0
+[BGCtrl ship]
+type = Velset
+time = 6000
+x = 0
+y = 0
+[BGCtrl ship]
+type = Velset
+time = 6100
+x = .3
+y = -.05
+[BGCtrl ship]
+type = Velset
+time = 12100
+x = 0
+y = 0
+
+[BGCtrlDef treme]
+looptime = 25
+ctrlID = 8
+[BGCtrl aaa]
+type=posadd
+time=0
+y=-1
+[BGCtrl aaa]
+type=posadd
+time=1
+y=1
+[BGCtrl aaa]
+type=posadd
+time=2
+y=1
+[BGCtrl aaa]
+type=posadd
+time=3
+y=-1
+
+;===
+
+[Begin Action 55];Air1
+52,0,0,0,2
+52,1,0,0,2
+52,2,0,0,2
+[Begin Action 56];Air2
+53,1,0,0,250
+53,0,0,0,500
+53,1,0,0,250
+

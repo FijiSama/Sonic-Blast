@@ -1,0 +1,126 @@
+; Stage information :
+
+; Mushroom Hill / Mushroom Valley(Alternate name for Mushroom Hill Zone)
+; Author: Kleylson
+; Mugen: 1.0
+; Super-Jump: Yes
+
+;--------------------------------------------------------
+[Info]
+name = "Mushroom Valley"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -224
+boundright = 224
+boundhigh = 0;40;-200
+boundlow = 0
+floortension = 0
+verticalfollow = .7
+overdrawhigh = 80
+overdrawlow = 80
+zoomin = 1
+zoomout = .68 
+cuthigh = 0
+cutlow = 0
+tension = 100;60
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+;--------------------------------------------------------
+[Scaling]
+topz = 0       
+botz = 50      
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 40
+screenright = 40
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 216
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+;color = 128, 128, 128
+yscale = .15
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = 
+bgvolume = 255
+
+;--------------------------------------------------------
+[BGdef]
+spr = MushroomValley.sff
+debugbg = 0
+
+;--------------------------------------------------------
+;--------------------------------------------------------
+
+[BG Background]
+type = normal 
+spriteno = 4, 0
+start = 0, 0
+delta = .408482, 1
+
+[BG Ground]
+type = normal
+spriteno = 4, 6
+start = 122, 262
+delta = .838053, 1
+xscale = 1, 1.421334
+mask = 1
+
+[BG Ground]
+type = normal
+spriteno = 4, 1
+start = 0, 192
+delta = .837053, 1
+xscale = 1, 1.421334
+mask = 1
+
+[BG Ground]
+type = normal
+spriteno = 4, 4
+start = 0, 192
+delta = .837053, 1
+xscale = 1, 1.421334
+mask = 0
+
+;[BG Foreground]
+;type  = normal
+;spriteno = 2, 0
+;start = 0, 126
+;delta = .837053, 1
+;mask = 1
+
+[BG Ground]
+type = normal
+spriteno = 4, 5
+start = -3, 179
+delta = .837053, 1
+xscale = 1, 1.421334
+mask = 1
+layerno = 1
