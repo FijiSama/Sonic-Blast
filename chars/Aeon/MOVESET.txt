@@ -1,0 +1,51 @@
+Aeon the half cyberhog - Moveset
+
+A
+
+Down + A
+
+B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down A Aire
+
+B Aire
+
+C Aire
+
+z - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Aeon Blast
+(you could still shoot if you still have 1000 power in support A on during the animation)
+
+D,DB,B,a - Counter
+(two attack
+one, if the enemy is close to aeon during the counter
+Two, if the enemy projectile hits aeon during the counter)
+
+D,DF,F,b - Aeon Combo (And Air)
+
+D,DB,B,b - Aeon Overlimit
+
+D,DF,F,c - Eraser Beam (And Air)
+
+D,DB,B,c - Sudden Storm
+
+SUPERS:
+
+y - Chaos Blast
+
+ULTIMATE: 
+
+x - Chaos Blast Combo
