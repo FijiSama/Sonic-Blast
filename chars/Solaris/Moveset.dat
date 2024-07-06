@@ -1,0 +1,41 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+Homing Dash                      		^X
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Side Step   		                           ^Y
+Pious Pike                 		              _D_+^A  
+Smite Arrow [Air] 		              _AIR_+_D_+^B  
+Purge Stake				            [Hold]_D_+^B OR [Side Step]_![^B...]
+Sacred Swipe [Ground] 		              [Hold]_D_+^C
+Hallowed One [Ground]			[Sacred Swipe]_![[Hold]_D_+^C...] 
+Hallowed Space [Air] 			_AIR_+_D_+^C 
+Transform/MAX Power 		                   ^Z
+                                                  		  
+<#f0f000>:Specials:</>
+Solaris Wave [Ground/Air]			                      _D_F_+^A		                           				            	    
+Holy Spheres [Ground/Air]		                              _D_B_+^A                          	    
+Heaven's Gift [Ground/Air] 		                          _D_F_+^B                          		    
+Divine Ordiance               		          _D_B_+^B              		    
+Boost Crash   		                          _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Final Judgement       		          _D_B_+^C    		    
+		    
