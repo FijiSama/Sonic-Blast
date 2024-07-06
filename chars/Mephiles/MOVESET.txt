@@ -1,0 +1,48 @@
+Mephiles The Dark - Moveset
+
+A
+
+Down + A
+
+A Aire
+
+Down + A Aire
+
+B
+
+B Aire
+
+Down + B
+
+C
+
+Down + C
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Death Beam
+
+D,DB,B,a - Darkness Chaos
+
+D,DF,F,b - Charge (Hold)
+
+D,DB,B,b - Darkness Blast (Hold)
+
+D,DF,F,c - Swork (Hold)
+
+D,DB,B,c - Darkness Ball (Hold)
+
+SUPER: 
+
+D,DF,F,a+b - Death Ball
+
+D,DF,F,b+c - Clone Attack
+
+x - Ibis - Soutien
+
+Ultimate:
+
+D,DF,F,D,DF,F,a+b - Hyper Ray Blast
+

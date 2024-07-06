@@ -1,0 +1,38 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Mephiles The Dark"
+displayname = "Mephiles The Dark"
+versiondate = 30/08/2019
+mugenversion = 1.0
+author = "Knightmare"
+pal.defaults = 1
+
+[Files]
+sprite = Mephiles.sff
+anim = Mephiles.air
+sound = Mephiles.snd
+cmd = Mephiles.cmd
+cns = Mephiles.cns
+stcommon = common1.cns
+movelist = Moveset.dat
+st = Mephiles.cns
+st1 = IA.cns
+st2 = Especiales.cns
+st3 = Supers.cns
+st4 = ULTIMATE.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+pal7 = 7.act
+pal8 = 8.act
+pal9 = 9.act
+pal10 = 10.act
+pal11 = 11.act
+pal12 = 12.act
