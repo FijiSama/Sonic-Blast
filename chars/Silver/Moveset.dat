@@ -1,0 +1,69 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump   		                                 _D_U
+[S/OverLimit] Homing Dash                      		^X
+[OverLimit] Quantization [Teleport]                    		_D_+^X   
+	  
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Mind Cage [Ground] 				          _D_+^C                                   		
+Esper Barrier [Air]   		               ^C 
+Psychokinesis  		                          ^Y_!(_B/_F/_D)         			 
+Transform [Energy>=3]   		               ^Z		 
+[S.Silver] Psy Swipe [Ground] 		  _D_+^A 				               
+[S.Silver] Neuron Spikes 		 [Psy Swipe]_![^A...]		           		        
+[S.Silver] Shockwave [Ground]		  _D_+^B 		              
+[S.Silver] Psy Wave [Ground/Air] 		      _D_+^C		    		                  		                         		    		
+[S.Silver] Esper Counter   		      ^Y  
+[S.Silver] OverLimit [Energy>=3]       		[Hold]^S_!^S	  
+[OverLimit] Psy Swipe Kai [Ground] 		  _D_+^A 				               
+[OverLimit] Synapse Slam 		 [Psy Swipe Kai]_![^A...]		           		        
+[OverLimit] Psy Break [Ground]		  _D_+^B 
+[OverLimit] Meteor Smash [Air]		  _D_+^B 		              
+[OverLimit] Nerve Ender [Ground/Air] 		      _D_+^C		    		                  		                         		    		
+[OverLimit] Counter Geyser  		      ^Y  
+Power Down 		                              _D_+^S 
+  		                                                  		  
+<#f0f000>:Specials [Base Form]:</>
+Psy Wave [Ground/Air]			                      _D_F_+^A		                           				            	    
+Telekenisis		                             _D_B_+^A_!_C                         	    
+Cognition Cage  		                          _D_F_+^B_!(_B/_F/_D)                          		    
+Neuron Spikes               		          _D_B_+^B              		    
+Boost Crash   		                          _D_F_+^C  
+Psycho Release [Energy < 3]  		                          _D_B_+^C 		         		                                                     	    
+[ULTIMATE] Shinra Banshō [Energy >= 3]      		          _D_B_+^C   
+
+<#f0f000>:Specials [Super Silver]:</>
+Pysonic Burst		                        _D_F_+^A
+Pysonic Ray 		                        [Hold]_D_F_+^A	
+Telekenisis Kai		                         _D_B_+^A                           				            	    
+Theta Toss		                        _D_F_+^B
+Alpha Assault		                        _D_B_+^B           		    
+Super Boost Crash  		                      _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Omega Geyser    		          _D_B_+^C   
+
+<#f0f000>:Specials [OverLimit]:</>
+Pysonic Typhoon			                          _D_F_+^A		                           				            	    
+Neural Overload		                          _D_B_+^A                          	    
+Cerebral Combo		                              _D_F_+^B                          		    
+1000000 Pulses               		          _D_B_+^B              		    
+Ultra Boost Crash   		                      _D_F_+^C  		         		                                                     	    
+[ULTIMATE] Cognative Dissonace     		          _D_B_+^C  		    
+		    

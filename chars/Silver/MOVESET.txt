@@ -1,0 +1,181 @@
+Silver The Hedgehog
+
+FORMS:
+(note: hold the combination of buttons listed when
+selecting the character to start the match in that form)
+
+A - Base form
+
+S+A - Super Form
+
+S+C - Hyper Form
+
+Silver The Hedgehog - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C - Hold
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Psychic Attack (And Aire)
+
+D,DB,B,a - Its No Use (And Aire)
+
+D,DF,F,b - Silver Boost (And Aire)
+
+D,DB,B,b - Psyco Explosion
+
+D,DF,F,c - Psyco Sword (And Aire)
+
+D,DB,B,c - Fly Rocks
+
+SUPERS
+
+D,DF,F,D,DF,F,a or D,DB,B,D,DB,B,a - Psyco Blast (And Aire)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Meteor Smash
+
+Transformation: 
+
+Z - Super Form
+
+Down + Z - Hyper Form
+
+Super Silver - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire
+
+Y - Super Dash
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Psychic Assault (And Aire)
+
+D,DB,B,a - Psychic Smash (And Aire)
+
+D,DF,F,b - Super Silver Boost (And Aire)
+
+D,DB,B,b - Psychic Strike (And Aire)
+
+D,DF,F,c - Psyco Ball Blast (Hold)(And Aire)
+
+D,DB,B,c - Psyco Rock Thown
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Super Psychic Blast (And Aire)
+
+Transformation:
+
+Z - Hyper Form
+
+Hyper Silver - Moveset
+
+A
+
+Dash + A
+
+Down + A
+
+B
+
+Dash + B
+
+Down + B
+
+C (Hold)
+
+Down + C
+
+A Aire
+
+Down + A Aire
+
+B Aire
+
+Down + B Aire
+
+C Aire
+
+Down + C Aire (Hold)
+
+Y - Super Dash
+
+Down + Y - Teleport
+
+S - Power Charge
+
+SPECIALS:
+
+D,DF,F,a - Psycho Slash (And Aire)
+
+D,DB,B,a - Psychic Hyper Speed (And Aire)
+
+D,DF,F,b - Hyper Silver Boost (And Aire)
+
+D,DB,B,b - Hyper Psycho Shock (And Aire)
+
+D,DF,F,c - Hyper Psychic Wave (Hold) (And Aire)
+
+D,DB,B,c - Psychic LightSpeed Attack (And Aire)
+
+ULTIMATE: 
+
+D,DF,F,D,DF,F,a+b or x - Telekinesis OverBlast (And Aire)
