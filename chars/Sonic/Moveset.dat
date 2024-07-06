@@ -1,0 +1,56 @@
+
+<#f0f000>:Button Key [PS/Xbox - MUGEN]:</>
+Square/X   		                                ^A                                                 
+Triangle/Y 		                                ^B
+R1 		                                        ^C             	                           	
+Cross/A 		                                ^X     
+Circle/B  		                                ^Y
+R2 		                                        ^Z
+L1 		                                        ^S
+
+<#f0f000>:Movement:</>
+Run Forward                            		    _F_+^X OR _XFF
+Run Backward                            		_B_+^X OR _XBB
+Air Dash [Forward]                      		[_AIR] _F_+^X OR _XFF
+Air Dash [Backward]                     		[_AIR] _B_+^X OR _XBB
+Super Jump  		                            _D_U
+[S.Sonic] Teleport			_D_+^X 	         				                      
+                   
+<#f0f000>:Basic Attacks:</>
+Combo 1	                                     		[^A...]		           	
+Combo 2			                                    [^B...]	                                    	
+Ranged Attack                            				 ^C
+
+<#f0f000>:Unique Moves:</>
+Sonic Launcher [Ground]  				                _D_+^A
+Sonic Slam   				               [Sonic Launcher]_!_^B	
+Comet Kick [Air]  				                _D_+^A
+Spin Crash [Air]  				                _D_+^B
+Blur Bounce [Air]  				                [Spin Crash]_![^B...]_+(_BOR_F)
+Tornado Kick [Ground]  				                _D_+^C
+Homing Attack [Air]  				             ^Y
+Spin Dash [Ground]       		               D_+^B_![_BOR_F]
+Charged Up! 		                            [Hold]~D_+^B                                     
+Flash Step (Counter)                    		 ^Y
+Transform/MAX Power 		                     ^Z
+Power Down 		                                 _D_+^S                                     
+  		                		  
+<#f0f000>:Specials [Base Form]:</>
+Sonic Gust			                            _D_F_+^A				            	    
+Sonic Tornado                            		_D_F_+[Hold]^A 
+Sound Breaker 		                            _D_B_+^A                          	    
+Pinball Rush                           		    _D_F_+^B
+Overdrive                              		    _D_B_+^B
+Boost Crash  		                            _D_F_+^C                           	    
+[ULTIMATE] Sonic Temptest              		    _D_B_+^C
+
+<#f0f000>:Specials [Super Sonic]:</>
+Chaos Burst [Ground/Air]               		     _D_F_+^A
+Chaos Wave  [Ground/Air]                		 _D_F_+[Hold]^A
+Super Barrier                           		 _D_B_+^A
+10000 Fists                             		 _D_F_+^B
+Lightspeed Assualt                       		 _D_B_+^B
+Super Boost Crash                        		 _D_F_+^C
+[ULTIMATE] SuperSonic Barrage               		 _D_B_+^C
+[ULTIMATE] [MAX Power] Light Breaker                		 _D_B_+^C
+
